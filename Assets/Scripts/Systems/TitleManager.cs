@@ -6,6 +6,10 @@ public class TitleManager : MonoBehaviour {
 
 	public static TitleManager instance;
 
+	private void Awake() {
+		instance = this;
+	}
+
 	// Start is called before the first frame update
 	void Start() {
 

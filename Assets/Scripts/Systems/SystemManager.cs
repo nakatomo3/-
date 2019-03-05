@@ -6,6 +6,10 @@ public class SystemManager : MonoBehaviour {
 
 	public static SystemManager instance;
 
+	private void Awake() {
+		instance = this;
+	}
+
 	// Start is called before the first frame update
 	void Start() {
 
