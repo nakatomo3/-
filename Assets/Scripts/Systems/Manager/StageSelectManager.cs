@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SystemManager : MonoBehaviour {
+public class StageSelectManager : MonoBehaviour {
 
-	public static SystemManager instance;
+	public static StageSelectManager instance;
+
+	private int selectingStageNum;
 
 	private void Awake() {
 		instance = this;
@@ -17,6 +19,11 @@ public class SystemManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
+
+	}
+
+	public void ChangeStage() {
+		//selectingStageNumのステージに移動
 
 	}
 }

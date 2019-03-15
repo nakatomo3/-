@@ -1,0 +1,2 @@
+C:\Users\nakat\OneDrive\ドキュメント\Unity\ゲーム大賞\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+C:\Users\nakat\OneDrive\ドキュメント\Unity\ゲーム大賞\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
