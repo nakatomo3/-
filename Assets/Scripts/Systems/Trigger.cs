@@ -12,9 +12,9 @@ public class Trigger : MonoBehaviour {
 		Electrical
 	}
 	[HideInInspector]
-	public TriggerType thisType = TriggerType.Default;
+    public TriggerType thisType = TriggerType.Default;
 
-	[HideInInspector]
+    [HideInInspector]
 	public int connectNum = -1;
 
 	// Start is called before the first frame update
@@ -26,9 +26,54 @@ public class Trigger : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
+        CheckTrigger();
 
 	}
 
+    private void CheckTrigger() {
+        var isTriggerOn = false;
+
+        if (Player.instance.isGimmickMode == true) {
+            switch (thisType) {
+                case TriggerType.RighrtGear:
+                    if (Input.GetKey(KeyCode.D)) {
+                        isTriggerOn = true;
+
+                    } else {
+                        isTriggerOn = false;
+                    }
+                    break;
+
+                case TriggerType.LeftGear:
+                    if (Input.GetKey(KeyCode.A)) {
+                        isTriggerOn = true;
+
+                    } else {
+                        isTriggerOn = true;
+                    }
+                    break;
+
+                case TriggerType.Button:
+                    isTriggerOn = true;
+                    break;
+
+                case TriggerType.Electrical:
+                    isTriggerOn = true;
+                    break;
+
+                default:
+                    isTriggerOn = true;
+                    break;
+            }
+        }
+        if (isTriggerOn == true) {
+            TriggerOn();
+        }
+    }
+
+	/// <summary>
+	/// 条件を満たしたときに呼び出される関数。
+	/// </summary>
 	private void TriggerOn() {
 		SystemManager.instance.ActionGimmick(connectNum);
 	}

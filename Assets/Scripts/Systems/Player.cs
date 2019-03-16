@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-	private float moveSpeed = 1.0f;
+    public static Player instance;
+
+    private float moveSpeed = 1.0f;
 	private float jumpSpeed = 2f;
 
 	/// <summary>
@@ -12,10 +14,14 @@ public class Player : MonoBehaviour {
 	/// </summary>
 	private Transform thisTransform;
 
-	private bool isGimmickMode = false;
+	public bool isGimmickMode = false;
 
-	// Start is called before the first frame update
-	void Start() {
+    private void Awake() {
+        instance = this;
+    }
+
+    // Start is called before the first frame update
+    void Start() {
 		thisTransform = GetComponent<Transform>();
 	}
 
@@ -76,4 +82,10 @@ public class Player : MonoBehaviour {
 	private void StageClear() {	
 		
 	}
+
+    private void OnTriggerStay(Collider other) {
+        if (other.gameObject.CompareTag("trigger") && Input.GetKey(KeyCode.Space)) {
+            isGimmickMode = true;
+        }
+    }
 }
