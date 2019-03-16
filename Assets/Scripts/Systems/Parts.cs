@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class Parts : MonoBehaviour {
 
-	public enum PartsType {
+    private Transform thisTransform;
+    private float doorFirstPosY;
+
+    public enum PartsType {
 		Default,
 		Door,
 		Bridge
@@ -14,14 +17,16 @@ public class Parts : MonoBehaviour {
 
 	// Start is called before the first frame update
 	void Start() {
-		if(thisType == PartsType.Default) {
+        thisTransform = gameObject.GetComponent<Transform>();
+        doorFirstPosY = thisTransform.position.y;
+        if (thisType == PartsType.Default) {
 			Debug.Log("エラー文");
 		}
 	}
 
 	// Update is called once per frame
 	void Update() {
-
+		
 	}
 
 
@@ -31,12 +36,16 @@ public class Parts : MonoBehaviour {
 	public void ActionParts() {
         switch (thisType) {
             case PartsType.Door:
-                var rot = new Vector3(0, 0, 20 * Time.deltaTime);
-                transform.Rotate(rot);
+                if (thisTransform.position.y <= doorFirstPosY + 5) {
+                    thisTransform.Translate(0, 0.8f * Time.deltaTime, 0);
+                }
                 break;
 
             case PartsType.Bridge:
-                
+                if (thisTransform.rotation.eulerAngles.z <= 85) {
+                    var rot = new Vector3(0, 0, 20 * Time.deltaTime);
+                    transform.Rotate(rot);
+                }
                 break;
 
             default:

@@ -19,6 +19,13 @@
         </Parts>
     </Gimmick>
 
+    <Trigger>
+        <ConnectNumber>2</ConnectNumber>
+        <Type>RightGear</Type>
+        <X>-2</X>
+        <Y>2</Y>
+    </Trigger>
+
 
     <!-- ゲームに影響のない見た目だけの部分。　未実装-->
     <BackGround>

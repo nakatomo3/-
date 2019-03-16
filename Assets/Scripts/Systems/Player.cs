@@ -14,6 +14,7 @@ public class Player : MonoBehaviour {
 	/// </summary>
 	private Transform thisTransform;
 
+	//[HideInInspector]
 	public bool isGimmickMode = false;
 
     private void Awake() {
@@ -51,7 +52,25 @@ public class Player : MonoBehaviour {
 	/// </summary>
 	private void MovePlayer() {
 
-		//moveSpeedを使用
+		if (Input.GetKey(KeyCode.D)) {
+			if(isGimmickMode == false) {
+
+			thisTransform.position += Vector3.right * moveSpeed * 10 * Time.deltaTime;
+			}
+			var rot = new Vector3(0, 0, -moveSpeed * 225 * Time.deltaTime);
+			transform.Rotate(rot);
+
+		}
+
+		if (Input.GetKey(KeyCode.A) && isGimmickMode == false) {
+			if (isGimmickMode == false) {
+
+				thisTransform.position -= Vector3.right * moveSpeed * 10 * Time.deltaTime;
+			}
+			var rot = new Vector3(0, 0, moveSpeed * 225 * Time.deltaTime);
+			transform.Rotate(rot);
+		}
+
 	}
 
 	/// <summary>
@@ -62,13 +81,6 @@ public class Player : MonoBehaviour {
 		//jumpSpeedを使用
 	}
 
-	private void ActionGimmick(string gimmickName) {
-		switch (gimmickName) {
-			default:
-				Debug.LogError("エラー文"+gimmickName);
-				break;
-		}
-	}
 
 	private void ShiftGimmickMode() {
 		//判定は当たり判定側などで取ること
@@ -84,8 +96,20 @@ public class Player : MonoBehaviour {
 	}
 
     private void OnTriggerStay(Collider other) {
-        if (other.gameObject.CompareTag("trigger") && Input.GetKey(KeyCode.Space)) {
-            isGimmickMode = true;
-        }
+        if (other.gameObject.CompareTag("Trigger") && Input.GetKeyDown(KeyCode.Space)) {
+            isGimmickMode = !isGimmickMode;
+			other.gameObject.transform.parent.gameObject.GetComponent<Trigger>().isThisGimmick = true;
+			thisTransform.position = other.gameObject.transform.position;
+			other.gameObject.transform.parent.gameObject.GetComponent<Trigger>().mesh.enabled = !isGimmickMode;
+		}
     }
+
+	private void OnTriggerExit(Collider other) {
+		if (other.gameObject.CompareTag("Trigger")) {
+			isGimmickMode = false;
+			other.gameObject.transform.parent.gameObject.GetComponent<Trigger>().isThisGimmick = false;
+
+			
+		}
+	}
 }

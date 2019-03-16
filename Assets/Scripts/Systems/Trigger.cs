@@ -17,6 +17,11 @@ public class Trigger : MonoBehaviour {
     [HideInInspector]
 	public int connectNum = -1;
 
+	public MeshRenderer mesh;
+
+	[HideInInspector]
+	public bool isThisGimmick = false;
+
 	// Start is called before the first frame update
 	void Start() {
 		if(thisType == TriggerType.Default || connectNum == -1) {
@@ -33,7 +38,7 @@ public class Trigger : MonoBehaviour {
     private void CheckTrigger() {
         var isTriggerOn = false;
 
-        if (Player.instance.isGimmickMode == true) {
+        if (Player.instance.isGimmickMode == true && isThisGimmick == true) {
             switch (thisType) {
                 case TriggerType.RighrtGear:
                     if (Input.GetKey(KeyCode.D)) {
@@ -77,4 +82,6 @@ public class Trigger : MonoBehaviour {
 	private void TriggerOn() {
 		SystemManager.instance.ActionGimmick(connectNum);
 	}
+
+	
 }
