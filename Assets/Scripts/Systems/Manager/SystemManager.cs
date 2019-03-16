@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Xml;
 using System.Xml.Linq;
+using UnityEngine.SceneManagement;
 
 //SystemManagerというよりゲーム部分のmanager
 public class SystemManager : MonoBehaviour {
@@ -37,7 +38,7 @@ public class SystemManager : MonoBehaviour {
 	}
 
 	private void OnEnable() {
-
+		DestroyStage();
 		CreateStage();
 	}
 
@@ -49,7 +50,11 @@ public class SystemManager : MonoBehaviour {
 			Pause();
 		}
 
-	}
+        if (Input.GetKeyDown(KeyCode.A)) {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+    }
 
 	/// <summary>
 	/// ステージナンバーを変更する
@@ -154,7 +159,9 @@ public class SystemManager : MonoBehaviour {
 
 	//Triggerが動作したときに全てのパーツを動かす関数
 	public void ActionGimmick(int num) {
-
+		foreach(var parts in gimmicks[num].parts) {
+			parts.ActionParts();
+		}
 	}
 
 

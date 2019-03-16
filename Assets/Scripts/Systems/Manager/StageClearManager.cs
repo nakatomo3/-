@@ -18,6 +18,6 @@ public class StageClearManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
 		//何か次のステージに行く条件になったら
-		//SystemManager.instance.ChangeGameMode(SystemManager.GameMode.StageSelect);
+		
 	}
 }
