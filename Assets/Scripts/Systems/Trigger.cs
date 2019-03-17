@@ -17,11 +17,25 @@ public class Trigger : MonoBehaviour {
     [HideInInspector]
 	public int connectNum = -1;
 
+	public MeshRenderer mesh;
+
+	private Transform thisTransform;
+
+	[HideInInspector]
+	public bool isThisGimmick = false;
+
+	//ボタンの時に使う
+	private float defaultY;
+
 	// Start is called before the first frame update
 	void Start() {
+		thisTransform = gameObject.GetComponent<Transform>();
+
 		if(thisType == TriggerType.Default || connectNum == -1) {
 			Debug.LogError("エラー文");
 		}
+
+		defaultY = thisTransform.position.y;
 	}
 
 	// Update is called once per frame
@@ -33,39 +47,49 @@ public class Trigger : MonoBehaviour {
     private void CheckTrigger() {
         var isTriggerOn = false;
 
-        if (Player.instance.isGimmickMode == true) {
-            switch (thisType) {
-                case TriggerType.RighrtGear:
-                    if (Input.GetKey(KeyCode.D)) {
-                        isTriggerOn = true;
 
-                    } else {
-                        isTriggerOn = false;
-                    }
-                    break;
+		switch (thisType) {
+			case TriggerType.RighrtGear:
+				if (Input.GetKey(KeyCode.D) && Player.instance.isGimmickMode == true && isThisGimmick == true) {
+					isTriggerOn = true;
 
-                case TriggerType.LeftGear:
-                    if (Input.GetKey(KeyCode.A)) {
-                        isTriggerOn = true;
+				} else {
+					isTriggerOn = false;
+				}
+				break;
 
-                    } else {
-                        isTriggerOn = true;
-                    }
-                    break;
+			case TriggerType.LeftGear:
+				if (Input.GetKey(KeyCode.A) && Player.instance.isGimmickMode == true && isThisGimmick == true) {
+					isTriggerOn = true;
 
-                case TriggerType.Button:
-                    isTriggerOn = true;
-                    break;
+				} else {
+					isTriggerOn = true;
+				}
+				break;
 
-                case TriggerType.Electrical:
-                    isTriggerOn = true;
-                    break;
+			case TriggerType.Button:
+				float buttonPushRange = 0.5f;
+				if (isThisGimmick == true) {
+					isTriggerOn = true;
+					buttonPushRange = 0.5f;
+				} else {
+					buttonPushRange = 0;
+				}
 
-                default:
-                    isTriggerOn = true;
-                    break;
-            }
-        }
+				thisTransform.position = new Vector3(thisTransform.position.x, defaultY - buttonPushRange, thisTransform.position.z);
+				break;
+
+			case TriggerType.Electrical:
+				if (Player.instance.isGimmickMode == true && isThisGimmick == true) {
+					isTriggerOn = true;
+				}
+				break;
+
+			default:
+				isTriggerOn = true;
+				break;
+		}
+        
         if (isTriggerOn == true) {
             TriggerOn();
         }
@@ -77,4 +101,6 @@ public class Trigger : MonoBehaviour {
 	private void TriggerOn() {
 		SystemManager.instance.ActionGimmick(connectNum);
 	}
+
+	
 }

@@ -9,6 +9,8 @@ public class OptionManager : MonoBehaviour {
 	private bool isFullScreen = false;
 	private int width, height;
 
+	private bool isPause = false;
+
 	private readonly int[,] SCREEN_RESOLUTION_SET = new int[5, 2]{
 		{ 960 , 540 },
 		{ 1024, 576 },
@@ -17,6 +19,9 @@ public class OptionManager : MonoBehaviour {
 		{ 2560, 1440 }
 	};
 
+	public GameObject canvas;
+	public GameObject isPauseObject;
+
 	private void Awake() {
 		instance = this;
 	}
@@ -24,6 +29,8 @@ public class OptionManager : MonoBehaviour {
 	// Start is called before the first frame update
 	void Start() {
 		DontDestroyOnLoad(gameObject);
+		DontDestroyOnLoad(canvas);
+		DontDestroyOnLoad(isPauseObject);
 	}
 
 	// Update is called once per frame
@@ -31,16 +38,26 @@ public class OptionManager : MonoBehaviour {
 #if UNITY_EDITOR
 		ChangeScene();
 #endif
-
+		if (Input.GetKeyDown(KeyCode.Escape)) {
+			if(isPause == true) {
+				isPause = false;
+				Time.timeScale = 1f;
+				canvas.SetActive(false);
+			} else {
+				isPause = true;
+				Time.timeScale = 0f;
+				canvas.SetActive(true);
+			}
+		}
 	}
 
 	/// <summary>
 	/// デバッグ用
 	/// </summary>
 	public void ChangeScene() {
-		if (Input.GetKeyDown(KeyCode.Escape) && Input.GetKey(KeyCode.Return)) {
-			SceneManager.LoadScene("Game");
-		}
+		//if (Input.GetKeyDown(KeyCode.Escape) && Input.GetKey(KeyCode.Return)) {
+		//	SceneManager.LoadScene("Game");
+		//}
 	}
 
 	/// <summary>

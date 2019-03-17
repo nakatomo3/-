@@ -10,12 +10,10 @@ public class SystemManager : MonoBehaviour {
 
 	public static SystemManager instance;
 
-	private bool isPause = false;
-
 	/// <summary>
 	/// 現在遊んでいるステージのナンバー
 	/// </summary>
-	public int stageNum { get; private set; } = 0;
+	public int stageNum { get; private set; }
 
 	private struct Gimmick {
 		public Trigger trigger;
@@ -29,7 +27,10 @@ public class SystemManager : MonoBehaviour {
 
 
 	private void Awake() {
+		stageNum = PlayerPrefs.GetInt("stage");
 		instance = this;
+		DestroyStage();
+		CreateStage();
 	}
 
 	// Start is called before the first frame update
@@ -38,21 +39,12 @@ public class SystemManager : MonoBehaviour {
 	}
 
 	private void OnEnable() {
-		DestroyStage();
-		CreateStage();
+
 	}
 
 	// Update is called once per frame
 	void Update() {
-		if(isPause == false) {
-			//通常処理
-		} else {
-			Pause();
-		}
 
-        if (Input.GetKeyDown(KeyCode.A)) {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
 
     }
 
@@ -106,9 +98,17 @@ public class SystemManager : MonoBehaviour {
 					triggerObject = Resources.Load("Prefabs/Triggers/RightGear") as GameObject;
 					triggerType = Trigger.TriggerType.RighrtGear;
 					break;
-					//他のギミック
-					//triggerObject = hoge;
-					//triggerType = hoge;
+				//他のギミック
+				//triggerObject = hoge;
+				//triggerType = hoge;
+				case "Button":
+					triggerObject = Resources.Load("Prefabs/Triggers/ButtonTrigger") as GameObject;
+					triggerType = Trigger.TriggerType.Button;
+					break;
+				case "Electrical":
+					triggerObject = Resources.Load("Prefabs/Triggers/Electrical") as GameObject;
+					triggerType = Trigger.TriggerType.Electrical;
+					break;
 			}
 			var newTriggerObject = Instantiate(triggerObject, new Vector3(x, y, 0), Quaternion.identity, transform) as GameObject;
 			Gimmick newGimmick = new Gimmick(newTriggerObject.GetComponent<Trigger>());
@@ -154,6 +154,8 @@ public class SystemManager : MonoBehaviour {
 			}
 		}
 
+		var player = Instantiate(Resources.Load("Prefabs/Systems/Player") as GameObject, new Vector3(0, 0, 0), Quaternion.identity, transform);
+
 		//Todo 背景オブジェクトの追加
 	}
 
@@ -169,6 +171,8 @@ public class SystemManager : MonoBehaviour {
 	/// もしgimmicksに何かあった場合全て削除する関数
 	/// </summary>
 	private void DestroyStage() {
+		//Destroy(Player.instance.gameObject);
+
 		var keys = gimmicks.Keys;
 		foreach(var key in keys) {
 			foreach(Parts parts in gimmicks[key].parts) {

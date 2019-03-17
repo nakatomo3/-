@@ -6,9 +6,9 @@
     <Gimmick>    
         <Trigger>
             <ConnectNumber>1</ConnectNumber>
-            <Type>RightGear</Type>
+            <Type>Button</Type>
             <X>2</X>
-            <Y>0</Y>
+            <Y>-1</Y>
         </Trigger>
     
         <Parts>
@@ -18,6 +18,13 @@
             <Y>0</Y>
         </Parts>
     </Gimmick>
+
+    <Trigger>
+        <ConnectNumber>2</ConnectNumber>
+        <Type>RightGear</Type>
+        <X>-2</X>
+        <Y>2</Y>
+    </Trigger>
 
 
     <!-- ゲームに影響のない見た目だけの部分。　未実装-->
