@@ -6,9 +6,9 @@
     <Gimmick>    
         <Trigger>
             <ConnectNumber>1</ConnectNumber>
-            <Type>RightGear</Type>
+            <Type>Button</Type>
             <X>2</X>
-            <Y>0</Y>
+            <Y>-1</Y>
         </Trigger>
     
         <Parts>

@@ -67,8 +67,8 @@ public class Player : MonoBehaviour {
 
 				thisTransform.position -= Vector3.right * moveSpeed * 10 * Time.deltaTime;
 			}
-			var rot = new Vector3(0, 0, moveSpeed * 225 * Time.deltaTime);
-			transform.Rotate(rot);
+			var rote = new Vector3(0, 0, moveSpeed * 225 * Time.deltaTime);
+			transform.Rotate(rote);
 		}
 
 	}
@@ -96,20 +96,35 @@ public class Player : MonoBehaviour {
 	}
 
     private void OnTriggerStay(Collider other) {
-        if (other.gameObject.CompareTag("Trigger") && Input.GetKeyDown(KeyCode.Space)) {
-            isGimmickMode = !isGimmickMode;
-			other.gameObject.transform.parent.gameObject.GetComponent<Trigger>().isThisGimmick = true;
-			thisTransform.position = other.gameObject.transform.position;
-			other.gameObject.transform.parent.gameObject.GetComponent<Trigger>().mesh.enabled = !isGimmickMode;
+        if (other.gameObject.CompareTag("Trigger")) { 
+			Trigger trigger = other.gameObject.transform.parent.gameObject.GetComponent<Trigger>();
+			if(trigger.thisType == Trigger.TriggerType.Button) {
+				trigger.isThisGimmick = true;
+			}
+
+			if (Input.GetKeyDown(KeyCode.Space)) {
+				isGimmickMode = !isGimmickMode;
+				trigger.isThisGimmick = true;
+				trigger.mesh.enabled = !isGimmickMode;
+
+				if (trigger.thisType == Trigger.TriggerType.Electrical ||
+					trigger.thisType == Trigger.TriggerType.LeftGear ||
+					trigger.thisType == Trigger.TriggerType.RighrtGear) {
+					thisTransform.position = other.gameObject.transform.position;
+				}
+			}
+
 		}
+
     }
 
 	private void OnTriggerExit(Collider other) {
 		if (other.gameObject.CompareTag("Trigger")) {
 			isGimmickMode = false;
-			other.gameObject.transform.parent.gameObject.GetComponent<Trigger>().isThisGimmick = false;
+            other.gameObject.transform.parent.gameObject.GetComponent<Trigger>().isThisGimmick = false;
 
-			
 		}
-	}
+    }
+
+   
 }

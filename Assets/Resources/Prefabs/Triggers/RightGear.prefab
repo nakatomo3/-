@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4809929008562889835}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Trigger
+  m_TagString: GearTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -139,6 +139,7 @@ MonoBehaviour:
   thisType: 0
   connectNum: -1
   mesh: {fileID: 6444810844903867151}
+  isThisGimmick: 0
 --- !u!1 &6444810844906069455
 GameObject:
   m_ObjectHideFlags: 0

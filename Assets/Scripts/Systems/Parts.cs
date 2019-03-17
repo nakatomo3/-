@@ -10,7 +10,7 @@ public class Parts : MonoBehaviour {
     public enum PartsType {
 		Default,
 		Door,
-		Bridge
+		Bridge,
 	}
 	[HideInInspector]
 	public PartsType thisType = PartsType.Default;

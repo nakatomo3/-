@@ -98,9 +98,17 @@ public class SystemManager : MonoBehaviour {
 					triggerObject = Resources.Load("Prefabs/Triggers/RightGear") as GameObject;
 					triggerType = Trigger.TriggerType.RighrtGear;
 					break;
-					//他のギミック
-					//triggerObject = hoge;
-					//triggerType = hoge;
+				//他のギミック
+				//triggerObject = hoge;
+				//triggerType = hoge;
+				case "Button":
+					triggerObject = Resources.Load("Prefabs/Triggers/ButtonTrigger") as GameObject;
+					triggerType = Trigger.TriggerType.Button;
+					break;
+				case "Electrical":
+					triggerObject = Resources.Load("Prefabs/Triggers/Electrical") as GameObject;
+					triggerType = Trigger.TriggerType.Electrical;
+					break;
 			}
 			var newTriggerObject = Instantiate(triggerObject, new Vector3(x, y, 0), Quaternion.identity, transform) as GameObject;
 			Gimmick newGimmick = new Gimmick(newTriggerObject.GetComponent<Trigger>());
