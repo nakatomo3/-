@@ -15,6 +15,11 @@ public class Parts : MonoBehaviour {
 	[HideInInspector]
 	public PartsType thisType = PartsType.Default;
 
+	private const float DOOR_UP_VALUE = 5;
+	private const float DOOR_UP_SPEED = 0.8f;
+
+	private const float BRIDGE_SPEED = 20;
+
 	// Start is called before the first frame update
 	void Start() {
         thisTransform = gameObject.GetComponent<Transform>();
@@ -36,14 +41,14 @@ public class Parts : MonoBehaviour {
 	public void ActionParts() {
         switch (thisType) {
             case PartsType.Door:
-                if (thisTransform.position.y <= doorFirstPosY + 5) {
-                    thisTransform.Translate(0, 0.8f * Time.deltaTime, 0);
+                if (thisTransform.position.y <= doorFirstPosY + DOOR_UP_VALUE) {
+                    thisTransform.Translate(0, DOOR_UP_SPEED * Time.deltaTime, 0);
                 }
                 break;
 
             case PartsType.Bridge:
                 if (thisTransform.rotation.eulerAngles.z <= 85) {
-                    var rot = new Vector3(0, 0, 20 * Time.deltaTime);
+                    var rot = new Vector3(0, 0, BRIDGE_SPEED * Time.deltaTime);
                     transform.Rotate(rot);
                 }
                 break;

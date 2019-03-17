@@ -10,8 +10,6 @@ public class SystemManager : MonoBehaviour {
 
 	public static SystemManager instance;
 
-	private bool isPause = false;
-
 	/// <summary>
 	/// 現在遊んでいるステージのナンバー
 	/// </summary>
@@ -46,11 +44,7 @@ public class SystemManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
-		if(isPause == false) {
-			//通常処理
-		} else {
-			Pause();
-		}
+
 
     }
 
