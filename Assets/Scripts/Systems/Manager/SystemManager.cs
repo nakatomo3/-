@@ -16,12 +16,8 @@ public class SystemManager : MonoBehaviour {
 	public int stageNum { get; private set; }
 
 	private struct Gimmick {
-		public Trigger trigger;
+		public List<Trigger> triggers;
 		public List<Parts> parts;
-		public Gimmick(Trigger t) {
-			trigger = t;
-			parts = new List<Parts>();
-		}
 	}
 	private Dictionary<int, Gimmick> gimmicks = new Dictionary<int, Gimmick>();
 
@@ -79,9 +75,6 @@ public class SystemManager : MonoBehaviour {
 		var triggers = xmlDoc.GetElementsByTagName("Trigger");
 		for(int i = 0; i < triggers.Count; i++) {
 			int connectNum = int.Parse(triggers.Item(i).ChildNodes.Item(0).InnerText);
-			if(gimmicks.ContainsKey(connectNum) == true) {
-				Debug.LogError(connectNum+"番はすでに登録されているconnectNumberです");
-			}
 			string name = triggers.Item(i).ChildNodes.Item(1).InnerText;
 			float x, y;
 			x = float.Parse(triggers.Item(i).ChildNodes.Item(2).InnerText);
@@ -111,10 +104,18 @@ public class SystemManager : MonoBehaviour {
 					break;
 			}
 			var newTriggerObject = Instantiate(triggerObject, new Vector3(x, y, 0), Quaternion.identity, transform) as GameObject;
-			Gimmick newGimmick = new Gimmick(newTriggerObject.GetComponent<Trigger>());
-			newGimmick.trigger.thisType = triggerType;
-			newGimmick.trigger.connectNum = connectNum;
-			gimmicks.Add(connectNum, newGimmick);
+			Trigger trigger = newTriggerObject.GetComponent<Trigger>();
+			trigger.thisType = triggerType;
+			trigger.connectNum = connectNum;
+			if (gimmicks.ContainsKey(connectNum)) {
+				gimmicks[connectNum].triggers.Add(trigger);
+			} else {
+				Gimmick newGimmick = new Gimmick();
+				newGimmick.triggers = new List<Trigger>();
+				newGimmick.parts = new List<Parts>();
+				newGimmick.triggers.Add(trigger);
+				gimmicks.Add(connectNum, newGimmick);
+			}
 		}
 
 
@@ -142,7 +143,17 @@ public class SystemManager : MonoBehaviour {
 						//partsObject = hoge;
 						//partsType = hoge;
 						break;
-				}
+
+                    case "Bridge":
+                        partsObject = Resources.Load("Prefabs/Parts/Bridge") as GameObject;
+                        partsType = Parts.PartsType.Bridge;
+                        break;
+
+                    case "Bomb":
+                        partsObject = Resources.Load("Prefabs/Parts/Bomb") as GameObject;
+                        partsType = Parts.PartsType.Bomb;
+                        break;
+                }
 				var newPartsObject = Instantiate(partsObject, new Vector3(x, y, 0), Quaternion.identity, transform) as GameObject;
 				var newParts = newPartsObject.GetComponent<Parts>();
 				newParts.thisType = partsType;
@@ -179,7 +190,6 @@ public class SystemManager : MonoBehaviour {
 				Destroy(parts.gameObject);
 				Debug.LogError("すでに生成されているステージの初期化ができていませんでした。報告してください");
 			}
-			Destroy(gimmicks[key].trigger.gameObject);
 		}
 		gimmicks.Clear();
 	}

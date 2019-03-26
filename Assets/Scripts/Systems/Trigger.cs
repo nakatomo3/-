@@ -24,6 +24,8 @@ public class Trigger : MonoBehaviour {
 	[HideInInspector]
 	public bool isThisGimmick = false;
 
+	private float value = -1;
+
 	//ボタンの時に使う
 	private float defaultY;
 
@@ -46,7 +48,6 @@ public class Trigger : MonoBehaviour {
 
     private void CheckTrigger() {
         var isTriggerOn = false;
-
 
 		switch (thisType) {
 			case TriggerType.RighrtGear:
