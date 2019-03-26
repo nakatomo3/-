@@ -63,7 +63,7 @@
 
 				v2f vert(appdata v) {
 					v2f o;
-					v.vertex += float4(v.normal * 0.04f, 0);
+					v.vertex += float4(v.normal * 0.03f, 0);
 					o.vertex = UnityObjectToClipPos(v.vertex);
 					return o;
 				}
@@ -75,6 +75,7 @@
 				}
 				ENDCG
 			}
+
 			Pass{
 				Cull Front
 
@@ -95,7 +96,7 @@
 
 				v2f vert(appdata v) {
 					v2f o;
-					v.vertex += float4(v.normal * 0.06f, 0);
+					v.vertex += float4(v.normal * 0.04f, 0);
 					o.vertex = UnityObjectToClipPos(v.vertex);
 					return o;
 				}
@@ -106,9 +107,7 @@
 					return col;
 				}
 				ENDCG
-				}
-
-			
+			}			
 
 	}
 	FallBack "Diffuse"

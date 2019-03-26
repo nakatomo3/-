@@ -1,0 +1,32 @@
+﻿<Stage>
+    
+    <!-- トリガーを増やす場合は<Trigger>から</Trigger>までをコピーしてください -->
+    <!-- 連動するパーツを増やす場合は<Parts>を増やしてください-->
+    <!-- ConnectNumberが同じならば、一つのTriggerで複数のパーツが動かせます-->
+    <Gimmick>    
+        <Trigger>
+            <ConnectNumber>1</ConnectNumber>
+            <Type>Button</Type>
+            <X>5</X>
+            <Y>-1</Y>
+        </Trigger>
+        <Parts>
+            <ConnectNumber>1</ConnectNumber>
+            <Name>Door</Name>
+            <X>0</X>
+            <Y>0</Y>
+        </Parts>
+
+
+
+    </Gimmick>
+
+
+    <!-- ゲームに影響のない見た目だけの部分。　未実装-->
+    <BackGround>
+        <Name></Name>
+        <X>0</X>
+        <Y>0</Y>
+    </BackGround>
+
+</Stage>

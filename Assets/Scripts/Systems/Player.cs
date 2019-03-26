@@ -8,7 +8,8 @@ public class Player : MonoBehaviour {
 
 	[SerializeField]
     private float moveSpeed = MOVE_SPEED;
-	private const float MOVE_SPEED = 1.0f;
+	private const float MOVE_SPEED = 10f;
+	private float rotateSpeed = 225f;
 
 	/// <summary>
 	/// transformを使う際にはこれを使用すること
@@ -25,12 +26,16 @@ public class Player : MonoBehaviour {
 	//[SerializeField]
 	private bool isJumping;
 	private float jumpRotateSpeed;
-	private const float ROTATE_ADD_SPEED = 20f;
 	private float jumpRange;
 	private const float JUMP_RANGE_ADD_VALUE = 10f;
+	private const float ROTATE_ADD_SPEED = 20f;
+
+	private bool canRightMove = true;
+	private bool canLeftMove = true;
 
     private void Awake() {
         instance = this;
+		Destroy(Camera.main.gameObject);
     }
 
     // Start is called before the first frame update
@@ -67,7 +72,7 @@ public class Player : MonoBehaviour {
 		}
 
 		if(isJumping == true) {
-			visualTransform.Rotate(0, jumpRotateSpeed,0);
+			visualTransform.Rotate(0, -jumpRotateSpeed,0);
 			jumpRotateSpeed *= 0.98f;
 		}
 	}
@@ -100,20 +105,19 @@ public class Player : MonoBehaviour {
 		}
 
 		if (Input.GetKey(KeyCode.D)) {
-			if(isGimmickMode == false) {
-				thisTransform.position += Vector3.right * moveSpeed * 10 * Time.deltaTime;
+			if(isGimmickMode == false && canRightMove) {
+				transform.position += Vector3.right * moveSpeed * Time.deltaTime;
 			}
-			var rot = new Vector3(0, -moveSpeed * 225 * Time.deltaTime,0);
+			var rot = new Vector3(0, -rotateSpeed * Time.deltaTime,0);
 			visualTransform.Rotate(rot);
-
 		}
 
 		if (Input.GetKey(KeyCode.A) && isGimmickMode == false) {
-			if (isGimmickMode == false) { 
-				thisTransform.position -= Vector3.right * moveSpeed * 10 * Time.deltaTime;
+			if (isGimmickMode == false && canLeftMove) {
+				transform.position -= Vector3.right * moveSpeed * Time.deltaTime;
 			}
-			var rote = new Vector3(0, moveSpeed * 225 * Time.deltaTime,0);
-			visualTransform.Rotate(rote);
+			var rot = new Vector3(0, rotateSpeed * Time.deltaTime,0);
+			visualTransform.Rotate(rot);
 		}
 
 	}
@@ -147,6 +151,23 @@ public class Player : MonoBehaviour {
 			if (collision.gameObject.transform.position.y <= thisTransform.position.y) {
 				isJumping = false;
 			}
+		}
+
+		if (collision.gameObject.CompareTag("Wall")) {
+			if(collision.gameObject.transform.position.x >= thisTransform.position.x) {
+				//右側に行けない
+				canRightMove = false;
+			} else {
+				canLeftMove = false;
+				//左側
+			}
+		}
+	}
+
+	private void OnCollisionExit(Collision collision) {
+		if (collision.gameObject.CompareTag("Wall")) {
+			canLeftMove = true;
+			canRightMove = true;
 		}
 	}
 

@@ -71,6 +71,7 @@
     <Compile Include="Assets\Scripts\Systems\Trigger.cs" />
     <None Include="Assets\Shaders\ToonOutline.shader" />
     <None Include="Assets\Resources\XMLs\Stages\0.xml" />
+    <None Include="Assets\Resources\XMLs\Stages\1.xml" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/nakat/OneDrive/ドキュメント/Unity/ゲーム大賞/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
