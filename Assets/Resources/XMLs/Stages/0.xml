@@ -7,24 +7,26 @@
         <Trigger>
             <ConnectNumber>1</ConnectNumber>
             <Type>Button</Type>
-            <X>2</X>
+            <X>5</X>
+            <Y>-1</Y>
+        </Trigger>
+        <Trigger>
+            <ConnectNumber>1</ConnectNumber>
+            <Type>Button</Type>
+            <X>-5</X>
             <Y>-1</Y>
         </Trigger>
     
         <Parts>
             <ConnectNumber>1</ConnectNumber>
             <Name>Door</Name>
-            <X>0</X>
+            <X>10</X>
             <Y>0</Y>
         </Parts>
-    </Gimmick>
 
-    <Trigger>
-        <ConnectNumber>2</ConnectNumber>
-        <Type>RightGear</Type>
-        <X>-2</X>
-        <Y>2</Y>
-    </Trigger>
+
+
+    </Gimmick>
 
 
     <!-- ゲームに影響のない見た目だけの部分。　未実装-->

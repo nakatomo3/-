@@ -60,6 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Systems\Manager\CameraManager.cs" />
     <Compile Include="Assets\Scripts\Systems\Manager\OptionManager.cs" />
     <Compile Include="Assets\Scripts\Systems\Manager\StageClearManager.cs" />
     <Compile Include="Assets\Scripts\Systems\Manager\StageSelectManager.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Assets\Scripts\Systems\Parts.cs" />
     <Compile Include="Assets\Scripts\Systems\Player.cs" />
     <Compile Include="Assets\Scripts\Systems\Trigger.cs" />
+    <None Include="Assets\Shaders\ToonOutline.shader" />
     <None Include="Assets\Resources\XMLs\Stages\0.xml" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/nakat/OneDrive/ドキュメント/Unity/ゲーム大賞/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

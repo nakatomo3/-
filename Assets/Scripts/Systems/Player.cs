@@ -6,16 +6,28 @@ public class Player : MonoBehaviour {
 
     public static Player instance;
 
-    private float moveSpeed = 1.0f;
-	private float jumpSpeed = 2f;
+	[SerializeField]
+    private float moveSpeed = MOVE_SPEED;
+	private const float MOVE_SPEED = 1.0f;
 
 	/// <summary>
 	/// transformを使う際にはこれを使用すること
 	/// </summary>
 	private Transform thisTransform;
+	public Transform visualTransform;
+	public Transform underTransform;
 
-	//[HideInInspector]
+	[HideInInspector]
 	public bool isGimmickMode = false;
+	private Rigidbody rigidbody;
+	private Collider thisCollider;
+
+	//[SerializeField]
+	private bool isJumping;
+	private float jumpRotateSpeed;
+	private const float ROTATE_ADD_SPEED = 20f;
+	private float jumpRange;
+	private const float JUMP_RANGE_ADD_VALUE = 10f;
 
     private void Awake() {
         instance = this;
@@ -24,11 +36,40 @@ public class Player : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
 		thisTransform = GetComponent<Transform>();
+		rigidbody = gameObject.GetComponent<Rigidbody>();
+		thisCollider = gameObject.GetComponent<Collider>();
 	}
 
 	// Update is called once per frame
 	void Update() {
 		MovePlayer();
+
+		if (Input.GetKeyDown(KeyCode.W) && isJumping != true) {
+			jumpRange += 2f;
+			jumpRotateSpeed = 0;
+		}
+
+		if (Input.GetKey(KeyCode.W) && isJumping != true) {
+			if(jumpRange < 10) {
+				jumpRange += JUMP_RANGE_ADD_VALUE * Time.deltaTime;
+				thisTransform.localScale -= new Vector3(0,0.005f,0f);
+				visualTransform.position -= (visualTransform.position - underTransform.position) * 0.015f;
+				jumpRotateSpeed += ROTATE_ADD_SPEED * Time.deltaTime;
+			}
+
+		}
+		if (Input.GetKeyUp(KeyCode.W) && isJumping != true) {
+			rigidbody.velocity = new Vector3(0, jumpRange, 0);
+			thisTransform.localScale = new Vector3(1, 1, 1);
+			visualTransform.localPosition = new Vector3(0, 0, 0);
+			isJumping = true;
+			jumpRange = 0;
+		}
+
+		if(isJumping == true) {
+			visualTransform.Rotate(0, jumpRotateSpeed,0);
+			jumpRotateSpeed *= 0.98f;
+		}
 	}
 
 	/// <summary>
@@ -51,24 +92,28 @@ public class Player : MonoBehaviour {
 	/// コントローラーとキーボード押したら移動
 	/// </summary>
 	private void MovePlayer() {
+		if (Input.GetKey(KeyCode.W)) {
+			moveSpeed = MOVE_SPEED / 5;
+
+		} else {
+			moveSpeed = MOVE_SPEED;
+		}
 
 		if (Input.GetKey(KeyCode.D)) {
 			if(isGimmickMode == false) {
-
-			thisTransform.position += Vector3.right * moveSpeed * 10 * Time.deltaTime;
+				thisTransform.position += Vector3.right * moveSpeed * 10 * Time.deltaTime;
 			}
-			var rot = new Vector3(0, 0, -moveSpeed * 225 * Time.deltaTime);
-			transform.Rotate(rot);
+			var rot = new Vector3(0, -moveSpeed * 225 * Time.deltaTime,0);
+			visualTransform.Rotate(rot);
 
 		}
 
 		if (Input.GetKey(KeyCode.A) && isGimmickMode == false) {
-			if (isGimmickMode == false) {
-
+			if (isGimmickMode == false) { 
 				thisTransform.position -= Vector3.right * moveSpeed * 10 * Time.deltaTime;
 			}
-			var rote = new Vector3(0, 0, moveSpeed * 225 * Time.deltaTime);
-			transform.Rotate(rote);
+			var rote = new Vector3(0, moveSpeed * 225 * Time.deltaTime,0);
+			visualTransform.Rotate(rote);
 		}
 
 	}
@@ -95,7 +140,17 @@ public class Player : MonoBehaviour {
 		
 	}
 
-    private void OnTriggerStay(Collider other) {
+	private void OnCollisionEnter(Collision collision) {
+		if (collision.gameObject.CompareTag("Ground")) {
+			rigidbody.AddForce(new Vector3(0, 1, 0));
+
+			if (collision.gameObject.transform.position.y <= thisTransform.position.y) {
+				isJumping = false;
+			}
+		}
+	}
+
+	private void OnTriggerStay(Collider other) {
         if (other.gameObject.CompareTag("Trigger")) { 
 			Trigger trigger = other.gameObject.transform.parent.gameObject.GetComponent<Trigger>();
 			if(trigger.thisType == Trigger.TriggerType.Button) {
@@ -103,13 +158,13 @@ public class Player : MonoBehaviour {
 			}
 
 			if (Input.GetKeyDown(KeyCode.Space)) {
-				isGimmickMode = !isGimmickMode;
-				trigger.isThisGimmick = true;
-				trigger.mesh.enabled = !isGimmickMode;
 
 				if (trigger.thisType == Trigger.TriggerType.Electrical ||
 					trigger.thisType == Trigger.TriggerType.LeftGear ||
 					trigger.thisType == Trigger.TriggerType.RighrtGear) {
+				isGimmickMode = !isGimmickMode;
+				trigger.isThisGimmick = true;
+				trigger.mesh.enabled = !isGimmickMode;
 					thisTransform.position = other.gameObject.transform.position;
 				}
 			}

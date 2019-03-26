@@ -47,7 +47,6 @@ public class Trigger : MonoBehaviour {
     private void CheckTrigger() {
         var isTriggerOn = false;
 
-
 		switch (thisType) {
 			case TriggerType.RighrtGear:
 				if (Input.GetKey(KeyCode.D) && Player.instance.isGimmickMode == true && isThisGimmick == true) {
