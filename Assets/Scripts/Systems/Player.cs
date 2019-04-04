@@ -171,6 +171,13 @@ public class Player : MonoBehaviour {
 		}
 	}
 
+	private void OnCollisionStay(Collision collision) {
+
+		Debug.Log(collision.gameObject.tag);
+
+		Debug.Log(rigidbody.velocity);
+	}
+
 	private void OnTriggerStay(Collider other) {
         if (other.gameObject.CompareTag("Trigger")) { 
 			Trigger trigger = other.gameObject.transform.parent.gameObject.GetComponent<Trigger>();
