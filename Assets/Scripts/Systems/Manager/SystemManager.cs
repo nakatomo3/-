@@ -21,15 +21,18 @@ public class SystemManager : MonoBehaviour {
 	}
 	private Dictionary<int, Gimmick> gimmicks = new Dictionary<int, Gimmick>();
 
+	private float width;
+	private float height;
 
 	private void Awake() {
 		stageNum = PlayerPrefs.GetInt("stage");
 		instance = this;
 		DestroyStage();
 		CreateStage();
+
+		SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 	}
 
-	// Start is called before the first frame update
 	void Start() {
 		//OptionManager.instance.ChangeScreenSize(800,450);
 	}
@@ -38,7 +41,6 @@ public class SystemManager : MonoBehaviour {
 
 	}
 
-	// Update is called once per frame
 	void Update() {
 
 
@@ -58,6 +60,9 @@ public class SystemManager : MonoBehaviour {
 	 
 	}
 
+	/// <summary>
+	/// ステージを読み込んで生成する
+	/// </summary>
 	private void CreateStage() {
 		TextAsset xmlTextAsset;
 		XmlDocument xmlDoc = new XmlDocument();
@@ -68,6 +73,14 @@ public class SystemManager : MonoBehaviour {
 			xmlDoc.LoadXml(xmlTextAsset.text);
 		} catch {
 			Debug.LogError("XMLs/Stages/" + stageNum.ToString() + ".xmlが存在していないか、正しく読み込めません。");
+			return;
+		}
+
+		try {
+			width = int.Parse(xmlDoc.GetElementsByTagName("Width").Item(0).InnerText);
+			height = int.Parse(xmlDoc.GetElementsByTagName("Height").Item(0).InnerText);
+		} catch {
+			Debug.LogError("Width,Heightタグ内に値を記入してください");
 			return;
 		}
 
@@ -91,9 +104,6 @@ public class SystemManager : MonoBehaviour {
 					triggerObject = Resources.Load("Prefabs/Triggers/RightGear") as GameObject;
 					triggerType = Trigger.TriggerType.RighrtGear;
 					break;
-				//他のギミック
-				//triggerObject = hoge;
-				//triggerType = hoge;
 				case "Button":
 					triggerObject = Resources.Load("Prefabs/Triggers/ButtonTrigger") as GameObject;
 					triggerType = Trigger.TriggerType.Button;
@@ -165,8 +175,19 @@ public class SystemManager : MonoBehaviour {
 			}
 		}
 
-		var player = Instantiate(Resources.Load("Prefabs/Systems/Player") as GameObject, new Vector3(0, 0, 0), Quaternion.identity, transform);
+		var wall = Resources.Load("Prefabs/StageFrames/Wall") as GameObject;
+		var ground = Resources.Load("Prefabs/StageFrames/Ground") as GameObject;
+		var player = Instantiate(Resources.Load("Prefabs/Systems/Player") as GameObject, new Vector3(int.Parse(xmlDoc.GetElementsByTagName("StartX").Item(0).InnerText), int.Parse(xmlDoc.GetElementsByTagName("StartY").Item(0).InnerText), 0), Quaternion.identity, transform);
 
+		var wallObject = Instantiate(wall, new Vector3(0, height / 2, 0), Quaternion.identity, transform);
+		wallObject.transform.localScale = new Vector3(1, height+1, 1);
+		wallObject = Instantiate(wall, new Vector3(width, height / 2, 0), Quaternion.identity, transform);
+		wallObject.transform.localScale = new Vector3(1, height+1, 1);
+
+		var groundObject = Instantiate(ground, new Vector3(width/2, 0, 0), Quaternion.identity, transform);
+		groundObject.transform.localScale = new Vector3(width+1, 1, 1);
+		groundObject = Instantiate(ground, new Vector3(width / 2, height, 0), Quaternion.identity, transform);
+		groundObject.transform.localScale = new Vector3(width+1, 1, 1);
 		//Todo 背景オブジェクトの追加
 	}
 
