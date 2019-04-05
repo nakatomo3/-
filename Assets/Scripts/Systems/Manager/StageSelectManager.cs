@@ -24,6 +24,7 @@ public class StageSelectManager : MonoBehaviour {
 		if (Input.anyKey) {
 			PlayerPrefs.SetInt("stage", selectingStageNum);
 			SceneManager.LoadScene("Game");
+            //Scenemanager.LoadScene(SceneManager.GetActiveScene().name);
 		}
 #endif
 	}
