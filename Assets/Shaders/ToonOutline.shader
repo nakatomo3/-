@@ -30,7 +30,7 @@
 			fixed3 ramp = tex2D(_RampTex, fixed2(d, 0.5)).rgb;
 			fixed4 c;
 			c.rgb = s.Albedo * _LightColor0.rgb * ramp;
-			c.a = 0.1f;
+			c.a = 1;			
 			return c;
 		}
 
@@ -41,73 +41,86 @@
 		}
 		ENDCG
 
+//		CGPROGRAM
+//#pragma surface surf Lambert
+//
+//		struct Input {
+//			float3 worldPos;
+//		};
+//
+//		float4 _Color;
+//
+//		void surf(Input IN, inout SurfaceOutput o) {
+//			o.Albedo = _Color;
+//			clip(frac(IN.worldPos.y * 0.4) - 0.7);
+//		}
+//		ENDCG
 
-
-			Pass{
-				Cull Front
+		Pass {
+			Cull Front
 
 				CGPROGRAM
-				#pragma vertex vert
-				#pragma fragment frag
+#pragma vertex vert
+#pragma fragment frag
 
-				#include "UnityCG.cginc"
+#include "UnityCG.cginc"
 
 				struct appdata {
-					float4 vertex : POSITION;
-					float3 normal : NORMAL;
-				};
+				float4 vertex : POSITION;
+				float3 normal : NORMAL;
+			};
 
-				struct v2f {
-					float4 vertex : SV_POSITION;
-				};
+			struct v2f {
+				float4 vertex : SV_POSITION;
+			};
 
-				v2f vert(appdata v) {
-					v2f o;
-					v.vertex += float4(v.normal * 0.03f, 0);
-					o.vertex = UnityObjectToClipPos(v.vertex);
-					return o;
-				}
-
-				fixed4 frag(v2f i) : SV_Target
-				{
-					fixed4 col = fixed4(0.1,0.1,0.1,1);
-					return col;
-				}
-				ENDCG
+			v2f vert(appdata v) {
+				v2f o;
+				v.vertex += float4(v.normal * 0.03f, 0);
+				o.vertex = UnityObjectToClipPos(v.vertex);
+				return o;
 			}
 
-			Pass{
-				Cull Front
-
-				CGPROGRAM
-				#pragma vertex vert
-				#pragma fragment frag
-
-				#include "UnityCG.cginc"
-
-				struct appdata {
-					float4 vertex : POSITION;
-					float3 normal : NORMAL;
-				};
-
-				struct v2f {
-					float4 vertex : SV_POSITION;
-				};
-
-				v2f vert(appdata v) {
-					v2f o;
-					v.vertex += float4(v.normal * 0.04f, 0);
-					o.vertex = UnityObjectToClipPos(v.vertex);
-					return o;
-				}
-
-				fixed4 frag(v2f i) : SV_Target
-				{
-					fixed4 col = fixed4(0.1,0.1,0.1,1);
-					return col;
-				}
+			fixed4 frag(v2f i) : SV_Target
+			{
+				fixed4 col = fixed4(0.1,0.1,0.1,1);
+				return col;
+			}
 				ENDCG
-			}			
+		}
+
+		Pass{
+			Cull Front
+
+			CGPROGRAM
+			#pragma vertex vert
+			#pragma fragment frag
+
+			#include "UnityCG.cginc"
+
+			struct appdata {
+				float4 vertex : POSITION;
+				float3 normal : NORMAL;
+			};
+
+			struct v2f {
+				float4 vertex : SV_POSITION;
+			};
+
+			v2f vert(appdata v) {
+				v2f o;
+				v.vertex += float4(v.normal * 0.04f, 0);
+				o.vertex = UnityObjectToClipPos(v.vertex);
+				return o;
+			}
+
+			fixed4 frag(v2f i) : SV_Target
+			{
+				fixed4 col = fixed4(0.1,0.1,0.1,1);
+				return col;
+			}
+			ENDCG
+		}
 
 	}
 	FallBack "Diffuse"

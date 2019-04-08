@@ -3,7 +3,7 @@
     <Width>100</Width>
     <Height>100</Height>
     <StartX>5</StartX>
-    <StartY>2</StartY>
+    <StartY>4</StartY>
     
     <!-- トリガーを増やす場合は<Trigger>から</Trigger>までをコピーしてください -->
     <!-- 連動するパーツを増やす場合は<Parts>を増やしてください-->
@@ -12,11 +12,11 @@
         <Trigger>
             <ConnectNumber>1</ConnectNumber>
             <Type>Button</Type>
-            <X>5</X>
+            <X>7</X>
             <Y>1</Y>
         </Trigger>
         <Trigger>
-            <ConnectNumber>1</ConnectNumber>
+            <ConnectNumber>2</ConnectNumber>
             <Type>Button</Type>
             <X>15</X>
             <Y>1</Y>
@@ -29,9 +29,24 @@
             <Y>1</Y>
         </Parts>
 
+        <Parts>
+            <ConnectNumber>2</ConnectNumber>
+            <Name>ChangeScene</Name>
+            <X>20</X>
+            <Y>1</Y>
+        </Parts>
 
 
     </Gimmick>
+
+    <Grounda>
+        <Ground>
+            <PosX>20</PosX>
+            <PosY>1</PosY>
+            <Long>40</Long>
+            <Rotate>0</Rotate> <!-- 0～360. 無ければ自動で0-->
+        </Ground>
+    </Grounda>
 
 
     <!-- ゲームに影響のない見た目だけの部分。　未実装-->
