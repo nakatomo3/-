@@ -9,6 +9,11 @@ TagManager:
   - Parts
   - Ground
   - Wall
+  - Title
+  - Game
+  - StageRetry
+  - StageSelect
+  - MissGround
   layers:
   - Default
   - TransparentFX

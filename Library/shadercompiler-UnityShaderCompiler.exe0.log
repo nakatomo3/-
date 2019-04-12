@@ -26,6 +26,8 @@ Cmd: initializeCompiler
 Cmd: initializeCompiler
 Cmd: initializeCompiler
 Cmd: initializeCompiler
+<<<<<<< HEAD
+=======
 Cmd: initializeCompiler
 Cmd: initializeCompiler
 Cmd: initializeCompiler
@@ -71,3 +73,4 @@ Cmd: preprocess
 Cmd: initializeCompiler
 Cmd: initializeCompiler
 >>>>>>> ee69208cd578ed3666e9933d5b65d531e0f52dc1
+>>>>>>> 1bc19efef290fd286e0e03e7fddd9937b78c6925
