@@ -1,0 +1,147 @@
+﻿<Stage>
+
+    <Width>100</Width>
+    <Height>100</Height>
+    <StartX>5</StartX>
+    <StartY>12</StartY>
+    
+    <!-- トリガーを増やす場合は<Trigger>から</Trigger>までをコピーしてください -->
+    <!-- 連動するパーツを増やす場合は<Parts>を増やしてください-->
+    <!-- ConnectNumberが同じならば、一つのTriggerで複数のパーツが動かせます-->
+    <Gimmick>    
+        <Trigger>
+            <ConnectNumber>1</ConnectNumber>
+            <Type>MinusButton</Type>
+            <X>12</X>
+            <Y>12</Y>
+        </Trigger>
+        <Trigger>
+            <ConnectNumber>1</ConnectNumber>
+            <Type>Button</Type>
+            <X>43</X>
+            <Y>3</Y>
+        </Trigger>
+    
+        <Parts>
+            <ConnectNumber>1</ConnectNumber>
+            <Name>Bridge</Name>
+            <X>20</X>
+            <Y>12</Y>
+        </Parts>
+
+      <Trigger>
+        <ConnectNumber>2</ConnectNumber>
+        <Type>Button</Type>
+        <X>43</X>
+        <Y>31</Y>
+      </Trigger>
+
+      <Trigger>
+        <ConnectNumber>2</ConnectNumber>
+        <Type>MinusButton</Type>
+        <X>71</X>
+        <Y>12</Y>
+      </Trigger>
+      
+      <Parts>
+        <ConnectNumber>2</ConnectNumber>
+        <Name>MoveFordBackFloor</Name>
+        <X>30</X>
+        <Y>12</Y>
+      </Parts>
+      
+      <Trigger>
+        <ConnectNumber>3</ConnectNumber>
+        <Type>Button</Type>
+        <X>68</X>
+        <Y>12</Y>
+      </Trigger>
+
+      <Parts>
+        <ConnectNumber>3</ConnectNumber>
+        <Name>Bridge</Name>
+        <X>65</X>
+        <Y>11</Y>
+      </Parts>
+
+
+    </Gimmick>
+
+  
+  <Grounda>
+    <Ground>
+      <PosX>5</PosX>
+      <PosY>30</PosY>
+      <Long>10</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+  </Grounda>
+
+  <Grounda>
+    <Ground>
+      <PosX>45</PosX>
+      <PosY>30</PosY>
+      <Long>10</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+  </Grounda>
+
+  <Grounda>
+    <Ground>
+      <PosX>74</PosX>
+      <PosY>30</PosY>
+      <Long>10</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+  </Grounda>
+
+  <Grounda>
+        <Ground>
+            <PosX>10</PosX>
+            <PosY>11</PosY>
+            <Long>20</Long>
+            <Rotate>0</Rotate> <!-- 0～360. 無ければ自動で0-->
+        </Ground>
+    </Grounda>
+
+  <Grounda>
+    <Ground>
+      <PosX>25</PosX>
+      <PosY>2</PosY>
+      <Long>50</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+  </Grounda>
+
+  <Grounda>
+    <Ground>
+      <PosX>72</PosX>
+      <PosY>11</PosY>
+      <Long>15</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+  </Grounda>
+
+  <Grounda>
+    <Ground>
+      <PosX>70</PosX>
+      <PosY>2</PosY>
+      <Long>20</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+  </Grounda>
+
+    <!-- ゲームに影響のない見た目だけの部分。　未実装-->
+    <BackGround>
+        <Name></Name>
+        <X>0</X>
+        <Y>0</Y>
+    </BackGround>
+
+</Stage>

@@ -7,6 +7,7 @@ public class Parts : MonoBehaviour {
 
     private Transform thisTransform;
     private float doorFirstPosY;
+    private float floorFirstPosX;
 
     private float explosionCounter = 0;
     private bool explosionActive = false;
@@ -18,20 +19,25 @@ public class Parts : MonoBehaviour {
 		Door,
 		Bridge,
         Bomb,
-        ChangeScene
-	}
+        ChangeScene,
+        MoveFordBackFloor
+    }
 	[HideInInspector]
 	public PartsType thisType = PartsType.Default;
 
 	private const float DOOR_UP_RANGE = 5;
 	private const float DOOR_UP_SPEED = 0.8f;
 
-	private const float BRIDGE_SPEED = 20;
+	private const float BRIDGE_SPEED = 45;
+
+    private const float FLOOR_FRONT_RANGE = 7;
+    private const float FLOOR_MOVE_FRONT_SPEED = 2;
 
 	// Start is called before the first frame update
 	void Start() {
         thisTransform = gameObject.GetComponent<Transform>();
         doorFirstPosY = thisTransform.position.y;
+        floorFirstPosX = thisTransform.position.x;
         if (thisType == PartsType.Default) {
 			Debug.Log("エラー文");
 		}
@@ -67,10 +73,10 @@ public class Parts : MonoBehaviour {
                 break;
 
             case PartsType.Bridge:
-                if (thisTransform.rotation.eulerAngles.z <= 90) {
+                
                     var rot = new Vector3(0, 0, BRIDGE_SPEED * Time.deltaTime);
                     transform.Rotate(rot);
-                }
+                
                 break;
 
             case PartsType.Bomb:
@@ -88,7 +94,12 @@ public class Parts : MonoBehaviour {
 					Destroy(this);
 					Destroy(Player.instance);
                 }
-                
+                break;
+
+            case PartsType.MoveFordBackFloor:
+                if (thisTransform.position.x <= floorFirstPosX + FLOOR_FRONT_RANGE) {
+                    thisTransform.Translate(FLOOR_MOVE_FRONT_SPEED * Time.deltaTime, 0, 0);
+                }
                 break;
 
             default:
@@ -105,20 +116,30 @@ public class Parts : MonoBehaviour {
 	public void ActionPartsMinus() {
 		switch (thisType) {
 			case PartsType.Door:
-				
-				break;
+                if (thisTransform.position.y >= doorFirstPosY) {
+                    thisTransform.Translate(0, -DOOR_UP_SPEED * Time.deltaTime, 0);
+                }
+                break;
 
 			case PartsType.Bridge:
-				
-				break;
+                
+                    var rot = new Vector3(0, 0, -BRIDGE_SPEED * Time.deltaTime);
+                    transform.Rotate(rot);
+                
+                break;
 
 			case PartsType.Bomb:
                 //none
-				
 				break;
 
             case PartsType.ChangeScene:
                //none
+                break;
+
+            case PartsType.MoveFordBackFloor:
+                //if (thisTransform.position.x >= floorFirstPosX - FLOOR_FRONT_RANGE) {
+                //    thisTransform.Translate(-FLOOR_MOVE_FRONT_SPEED * Time.deltaTime, 0, 0);
+                //}
                 break;
 
             default:
