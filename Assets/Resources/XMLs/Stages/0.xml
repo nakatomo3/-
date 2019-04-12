@@ -1,4 +1,9 @@
 ﻿<Stage>
+
+    <Width>100</Width>
+    <Height>100</Height>
+    <StartX>5</StartX>
+    <StartY>2</StartY>
     
     <!-- トリガーを増やす場合は<Trigger>から</Trigger>までをコピーしてください -->
     <!-- 連動するパーツを増やす場合は<Parts>を増やしてください-->
@@ -8,20 +13,20 @@
             <ConnectNumber>1</ConnectNumber>
             <Type>Button</Type>
             <X>5</X>
-            <Y>-1</Y>
+            <Y>1</Y>
         </Trigger>
         <Trigger>
             <ConnectNumber>1</ConnectNumber>
             <Type>Button</Type>
-            <X>-5</X>
-            <Y>-1</Y>
+            <X>15</X>
+            <Y>1</Y>
         </Trigger>
     
         <Parts>
             <ConnectNumber>1</ConnectNumber>
             <Name>Door</Name>
-            <X>10</X>
-            <Y>0</Y>
+            <X>20</X>
+            <Y>1</Y>
         </Parts>
 
 
