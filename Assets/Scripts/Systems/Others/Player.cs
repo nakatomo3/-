@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-    public static Player instance;
+	public static Player instance;
 
 	private bool isRight = true;
 
-	[SerializeField]
-    private float moveSpeed = MOVE_SPEED;
+	[HideInInspector]
+	public float moveSpeed { private set; get; } = MOVE_SPEED;
 	private const float MOVE_SPEED = 10f;
 	private float rotateSpeed = 225f;
 
@@ -105,26 +105,19 @@ public class Player : MonoBehaviour {
 		if (Input.GetKey(KeyCode.W)) {
 			moveSpeed = MOVE_SPEED / 5;
 
-		} else {
+		} else if (isJumping) {
+			moveSpeed = MOVE_SPEED * 0.8f;
+		} else { 
+		
 			moveSpeed = MOVE_SPEED;
 		}
 
 		if (Input.GetKey(KeyCode.D)) {
-			if(isGimmickMode == false && canRightMove) {
-				transform.position += Vector3.right * moveSpeed * Time.deltaTime;
-			}
-			var rot = new Vector3(0, -rotateSpeed * Time.deltaTime,0);
-			visualTransform.Rotate(rot);
-			isRight = true;
+			MoveRight();
 		}
 
 		if (Input.GetKey(KeyCode.A) && isGimmickMode == false) {
-			if (isGimmickMode == false && canLeftMove) {
-				transform.position -= Vector3.right * moveSpeed * Time.deltaTime;
-			}
-			var rot = new Vector3(0, rotateSpeed * Time.deltaTime,0);
-			visualTransform.Rotate(rot);
-			isRight = false;
+			MoveLeft();
 		}
 
 	}
@@ -216,5 +209,26 @@ public class Player : MonoBehaviour {
 		}
     }
 
-   
+	public void MoveRight() {
+		if (isGimmickMode == false && canRightMove) {
+			transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+		}
+		var rot = new Vector3(0, -rotateSpeed * Time.deltaTime, 0);
+		visualTransform.Rotate(rot);
+		isRight = true;
+
+		CameraManager.instance.MoveRight();
+	}
+
+	public void MoveLeft() {
+		if (isGimmickMode == false && canLeftMove) {
+			transform.position -= Vector3.right * moveSpeed * Time.deltaTime;
+		}
+		var rot = new Vector3(0, rotateSpeed * Time.deltaTime, 0);
+		visualTransform.Rotate(rot);
+		isRight = false;
+
+		CameraManager.instance.MoveLeft();
+	}
+
 }

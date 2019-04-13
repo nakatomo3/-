@@ -120,6 +120,11 @@ public class SystemManager : MonoBehaviour {
 			}
 			var newTriggerObject = Instantiate(triggerObject, new Vector3(x, y, 0), Quaternion.identity, transform) as GameObject;
 			Trigger trigger = newTriggerObject.GetComponent<Trigger>();
+			if (triggers.Item(i).ChildNodes.Count > 4) {
+				var rotate = float.Parse(triggers.Item(i).ChildNodes.Item(4).InnerText);
+				newTriggerObject.transform.Rotate(0, 0, rotate);
+			}
+
 			trigger.thisType = triggerType;
 			trigger.connectNum = connectNum;
 			if (gimmicks.ContainsKey(connectNum)) {
@@ -177,12 +182,15 @@ public class SystemManager : MonoBehaviour {
 
                     case "MoveFordBackFloor":
                         partsObject = Resources.Load("Prefabs/Parts/MoveFordBackFloor") as GameObject;
-                        Debug.Log(partsObject);
                         partsType = Parts.PartsType.MoveFordBackFloor;
                         break;
                 }
 				var newPartsObject = Instantiate(partsObject, new Vector3(x, y, 0), Quaternion.identity, transform) as GameObject;
 				var newParts = newPartsObject.GetComponent<Parts>();
+				if(parts.Item(i).ChildNodes.Count > 4) {
+					var rotate = float.Parse(parts.Item(i).ChildNodes.Item(4).InnerText);
+					newPartsObject.transform.Rotate(0, 0, rotate);
+				}
 				newParts.thisType = partsType;
 				gimmicks[connectNum].parts.Add(newParts);
 
@@ -223,6 +231,7 @@ public class SystemManager : MonoBehaviour {
 		
 		var missGround = Resources.Load("Prefabs/StageFrames/missGround") as GameObject;
 		var player = Instantiate(Resources.Load("Prefabs/Systems/Player") as GameObject, new Vector3(int.Parse(xmlDoc.GetElementsByTagName("StartX").Item(0).InnerText), int.Parse(xmlDoc.GetElementsByTagName("StartY").Item(0).InnerText), 0), Quaternion.identity, transform);
+		Instantiate(Resources.Load("Prefabs/Systems/Camera") as GameObject,new Vector3(int.Parse(xmlDoc.GetElementsByTagName("StartX").Item(0).InnerText), int.Parse(xmlDoc.GetElementsByTagName("StartY").Item(0).InnerText), -10), Quaternion.identity, transform);
 
 		var wallObject = Instantiate(wall, new Vector3(0, height / 2, 0), Quaternion.identity, transform);
 		wallObject.transform.localScale = new Vector3(1, height+1, 2);
