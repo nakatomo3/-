@@ -13,13 +13,13 @@
             <ConnectNumber>1</ConnectNumber>
             <Type>MinusButton</Type>
             <X>12</X>
-            <Y>12</Y>
+            <Y>11.5</Y>
         </Trigger>
         <Trigger>
             <ConnectNumber>1</ConnectNumber>
             <Type>Button</Type>
-            <X>43</X>
-            <Y>3</Y>
+            <X>5</X>
+            <Y>11.5</Y>
         </Trigger>
     
         <Parts>
@@ -64,78 +64,98 @@
         <Y>11</Y>
       </Parts>
 
+      <Trigger>
+        <ConnectNumber>4</ConnectNumber>
+        <Type>MinusButton</Type>
+        <X>45</X>
+        <Y>3</Y>
+      </Trigger>
+      <Trigger>
+        <ConnectNumber>4</ConnectNumber>
+        <Type>Button</Type>
+        <X>38</X>
+        <Y>3</Y>
+      </Trigger>
+
+      <Parts>
+        <ConnectNumber>4</ConnectNumber>
+        <Name>Pitfall</Name>
+        <X>55</X>
+        <Y>2</Y>
+      </Parts>
+
 
     </Gimmick>
 
   
-  <Grounda>
-    <Ground>
-      <PosX>5</PosX>
-      <PosY>30</PosY>
-      <Long>10</Long>
-      <Rotate>0</Rotate>
-      <!-- 0～360. 無ければ自動で0-->
-    </Ground>
-  </Grounda>
+  <Grounds>
+      <Ground>
+          <PosX>5</PosX>
+          <PosY>30</PosY>
+          <Long>10</Long>
+          <Rotate>0</Rotate>
+          <!-- 0～360. 無ければ自動で0-->
+      </Ground>
 
-  <Grounda>
-    <Ground>
-      <PosX>45</PosX>
-      <PosY>30</PosY>
-      <Long>10</Long>
-      <Rotate>0</Rotate>
-      <!-- 0～360. 無ければ自動で0-->
-    </Ground>
-  </Grounda>
+      <Ground>
+          <PosX>45</PosX>
+          <PosY>30</PosY>
+          <Long>10</Long>
+          <Rotate>0</Rotate>
+          <!-- 0～360. 無ければ自動で0-->
+      </Ground>
 
-  <Grounda>
-    <Ground>
-      <PosX>74</PosX>
-      <PosY>30</PosY>
-      <Long>10</Long>
-      <Rotate>0</Rotate>
-      <!-- 0～360. 無ければ自動で0-->
-    </Ground>
-  </Grounda>
+      <Ground>
+          <PosX>74</PosX>
+          <PosY>30</PosY>
+          <Long>10</Long>
+          <Rotate>0</Rotate>
+          <!-- 0～360. 無ければ自動で0-->
+      </Ground>
 
-  <Grounda>
-        <Ground>
-            <PosX>10</PosX>
-            <PosY>11</PosY>
-            <Long>20</Long>
-            <Rotate>0</Rotate> <!-- 0～360. 無ければ自動で0-->
-        </Ground>
-    </Grounda>
+      <Ground>
+          <PosX>10</PosX>
+          <PosY>11</PosY>
+          <Long>20</Long>
+          <Rotate>0</Rotate>
+          <!-- 0～360. 無ければ自動で0-->
+      </Ground>
 
-  <Grounda>
-    <Ground>
-      <PosX>25</PosX>
-      <PosY>2</PosY>
-      <Long>50</Long>
-      <Rotate>0</Rotate>
-      <!-- 0～360. 無ければ自動で0-->
-    </Ground>
-  </Grounda>
+      <Ground>
+          <PosX>25</PosX>
+          <PosY>2</PosY>
+          <Long>50</Long>
+          <Rotate>0</Rotate>
+          <!-- 0～360. 無ければ自動で0-->
+      </Ground>
 
-  <Grounda>
-    <Ground>
-      <PosX>72</PosX>
-      <PosY>11</PosY>
-      <Long>15</Long>
-      <Rotate>0</Rotate>
-      <!-- 0～360. 無ければ自動で0-->
-    </Ground>
-  </Grounda>
+      <Ground>
+          <PosX>72</PosX>
+          <PosY>11</PosY>
+          <Long>15</Long>
+          <Rotate>0</Rotate>
+          <!-- 0～360. 無ければ自動で0-->
+      </Ground>
 
-  <Grounda>
-    <Ground>
-      <PosX>70</PosX>
-      <PosY>2</PosY>
-      <Long>20</Long>
-      <Rotate>0</Rotate>
-      <!-- 0～360. 無ければ自動で0-->
-    </Ground>
-  </Grounda>
+      <Ground>
+          <PosX>70</PosX>
+          <PosY>2</PosY>
+          <Long>20</Long>
+          <Rotate>0</Rotate>
+          <!-- 0～360. 無ければ自動で0-->
+      </Ground>
+  </Grounds>
+
+    <Walls>
+        <Wall>
+            <PosX>5</PosX>
+            <PosY>100</PosY>
+            <Long>10</Long>
+            <Rotate>0</Rotate>
+            <!-- 自動で90度。それに対してどれだけ回転するか。無ければ自動で+0-->
+        </Wall>
+    </Walls>
+
 
     <!-- ゲームに影響のない見た目だけの部分。　未実装-->
     <BackGround>

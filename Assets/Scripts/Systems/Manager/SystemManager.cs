@@ -105,6 +105,10 @@ public class SystemManager : MonoBehaviour {
 					triggerObject = Resources.Load("Prefabs/Triggers/RightGear") as GameObject;
 					triggerType = Trigger.TriggerType.RightGear;
 					break;
+				case "LeftGear":
+					triggerObject = Resources.Load("Prefabs/Triggers/LeftGear") as GameObject;
+					triggerType = Trigger.TriggerType.LeftGear;
+					break;
 				case "Button":
 					triggerObject = Resources.Load("Prefabs/Triggers/ButtonTrigger") as GameObject;
 					triggerType = Trigger.TriggerType.Button;
@@ -183,6 +187,16 @@ public class SystemManager : MonoBehaviour {
                     case "MoveFordBackFloor":
                         partsObject = Resources.Load("Prefabs/Parts/MoveFordBackFloor") as GameObject;
                         partsType = Parts.PartsType.MoveFordBackFloor;
+                        break;
+
+                    case "Slope":
+                        partsObject = Resources.Load("Prefabs/Parts/Slope") as GameObject;
+                        partsType = Parts.PartsType.Slope;
+                        break;
+
+                    case "Pitfall":
+                        partsObject = Resources.Load("Prefabs/Parts/Pitfall") as GameObject;
+                        partsType = Parts.PartsType.Pitfall;
                         break;
                 }
 				var newPartsObject = Instantiate(partsObject, new Vector3(x, y, 0), Quaternion.identity, transform) as GameObject;

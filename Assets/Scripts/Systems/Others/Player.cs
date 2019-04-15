@@ -102,7 +102,7 @@ public class Player : MonoBehaviour {
 	/// コントローラーとキーボード押したら移動
 	/// </summary>
 	private void MovePlayer() {
-		if (Input.GetKey(KeyCode.W)) {
+		if (Input.GetKey(KeyCode.W) && isJumping == false) {
 			moveSpeed = MOVE_SPEED / 5;
 
 		} else if (isJumping) {
@@ -116,7 +116,7 @@ public class Player : MonoBehaviour {
 			MoveRight();
 		}
 
-		if (Input.GetKey(KeyCode.A) && isGimmickMode == false) {
+		if (Input.GetKey(KeyCode.A)) {
 			MoveLeft();
 		}
 
@@ -172,6 +172,7 @@ public class Player : MonoBehaviour {
 	}
 
 	private void OnCollisionStay(Collision collision) {
+
 	}
 
 	private void OnTriggerStay(Collider other) {
@@ -179,6 +180,7 @@ public class Player : MonoBehaviour {
 			Trigger trigger = other.gameObject.transform.parent.gameObject.GetComponent<Trigger>();
 			if(trigger.thisType == Trigger.TriggerType.Button|| trigger.thisType == Trigger.TriggerType.MinusButton) {
 				trigger.isThisGimmick = true;
+
             }
 
 			if (Input.GetKeyDown(KeyCode.Space)) {
@@ -186,9 +188,12 @@ public class Player : MonoBehaviour {
 				if (trigger.thisType == Trigger.TriggerType.Electrical ||
 					trigger.thisType == Trigger.TriggerType.LeftGear ||
 					trigger.thisType == Trigger.TriggerType.RightGear) {
-				isGimmickMode = !isGimmickMode;
-				trigger.isThisGimmick = true;
-				trigger.mesh.enabled = !isGimmickMode;
+
+					rigidbody.useGravity = !rigidbody.useGravity;
+					rigidbody.velocity = Vector3.zero;
+					isGimmickMode = !isGimmickMode;
+					trigger.isThisGimmick = true;
+					trigger.mesh.enabled = !isGimmickMode;
 					thisTransform.position = other.gameObject.transform.position;
 				}
 			}

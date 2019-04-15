@@ -67,7 +67,7 @@ public class Trigger : MonoBehaviour {
 						isTriggerOn = true;
 
 					} else {
-						isTriggerOn = true;
+						isTriggerOn = false;
 					}
 					break;
 
@@ -127,7 +127,7 @@ public class Trigger : MonoBehaviour {
 					if (Input.GetKey(KeyCode.D) && Player.instance.isGimmickMode == true && isThisGimmick == true) {
 						isTriggerOn = true;
 					} else {
-						isTriggerOn = true;
+						isTriggerOn = false;
 					}
 					break;
 

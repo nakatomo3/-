@@ -3,7 +3,7 @@
     <Width>100</Width>
     <Height>100</Height>
     <StartX>5</StartX>
-    <StartY>12</StartY>
+    <StartY>15</StartY>
     
     <!-- トリガーを増やす場合は<Trigger>から</Trigger>までをコピーしてください -->
     <!-- 連動するパーツを増やす場合は<Parts>を増やしてください-->
@@ -11,15 +11,15 @@
     <Gimmick>    
         <Trigger>
             <ConnectNumber>1</ConnectNumber>
-            <Type>MinusButton</Type>
+            <Type>LeftGear</Type>
             <X>12</X>
-            <Y>11.5</Y>
+            <Y>13.5</Y>
         </Trigger>
         <Trigger>
             <ConnectNumber>1</ConnectNumber>
-            <Type>Button</Type>
+            <Type>RightGear</Type>
             <X>5</X>
-            <Y>11.5</Y>
+            <Y>13.5</Y>
         </Trigger>
     
         <Parts>
@@ -62,6 +62,26 @@
         <Name>Bridge</Name>
         <X>65</X>
         <Y>11</Y>
+      </Parts>
+
+      <Trigger>
+        <ConnectNumber>4</ConnectNumber>
+        <Type>MinusButton</Type>
+        <X>45</X>
+        <Y>3</Y>
+      </Trigger>
+      <Trigger>
+        <ConnectNumber>4</ConnectNumber>
+        <Type>Button</Type>
+        <X>38</X>
+        <Y>3</Y>
+      </Trigger>
+
+      <Parts>
+        <ConnectNumber>4</ConnectNumber>
+        <Name>Pitfall</Name>
+        <X>55</X>
+        <Y>2</Y>
       </Parts>
 
 

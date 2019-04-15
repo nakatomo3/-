@@ -33,21 +33,26 @@ public class CameraManager : MonoBehaviour {
 	void Update() {
 
 		thisTransform.position = new Vector3(playerTransform.position.x + SideRange, posY, thisTransform.position.z);
+		thisTransform.localRotation = Quaternion.Euler(0,SideRange,0);
 	}
 
 	public void MoveRight() {
-		SideRange += Time.deltaTime * Player.instance.moveSpeed;
+		if (Player.instance.isGimmickMode == false) {
+			SideRange += Time.deltaTime * Player.instance.moveSpeed;
 
-		if(SideRange >= SIDE_MAX_RAMGE) {
-			SideRange = SIDE_MAX_RAMGE;
+			if (SideRange >= SIDE_MAX_RAMGE) {
+				SideRange = SIDE_MAX_RAMGE;
+			}
 		}
 	}
 
 	public void MoveLeft() {
-		SideRange -= Time.deltaTime * Player.instance.moveSpeed;
+		if (Player.instance.isGimmickMode == false) {
+			SideRange -= Time.deltaTime * Player.instance.moveSpeed;
 
-		if (SideRange <= -SIDE_MAX_RAMGE) {
-			SideRange = -SIDE_MAX_RAMGE;
+			if (SideRange <= -SIDE_MAX_RAMGE) {
+				SideRange = -SIDE_MAX_RAMGE;
+			}
 		}
 
 	}
