@@ -10,8 +10,8 @@
     <!-- ConnectNumberが同じならば、一つのTriggerで複数のパーツが動かせます-->
     <Gimmick>    
         <Trigger>
-            <ConnectNumber>1</ConnectNumber>
-            <Type>LeftGear</Type>
+            <ConnectNumber>2</ConnectNumber>
+            <Type>Forever</Type>
             <X>12</X>
             <Y>13.5</Y>
         </Trigger>
@@ -45,7 +45,7 @@
       
       <Parts>
         <ConnectNumber>2</ConnectNumber>
-        <Name>MoveFordBackFloor</Name>
+        <Name>MoveHorizontalObj</Name>
         <X>30</X>
         <Y>12</Y>
       </Parts>

@@ -8,9 +8,9 @@ public class Parts : MonoBehaviour {
     private Transform thisTransform;
     private Transform pitfallLeftAxis;
     private Transform pitfallRightAxis;
-    private float doorFirstPosY;
-    private float floorFirstPosX;
-    private float slopeFirstPosX;
+    private float objFirstPosY;
+    private float objFirstPosX;
+    private float objFirstPosZ;
 
     private float explosionCounter = 0;
     private bool explosionActive = false;
@@ -28,7 +28,9 @@ public class Parts : MonoBehaviour {
 		Bridge,
         Bomb,
         ChangeScene,
-        MoveFordBackFloor,
+        MoveHorizontalObj,
+        MoveVerticalObj,
+        MoveDepthObj,
         Slope,
         Pitfall    //＋トリガー動作で停止、-トリガー動作で動く
     }
@@ -40,8 +42,14 @@ public class Parts : MonoBehaviour {
 
 	private const float BRIDGE_SPEED = 45;
 
-    private const float FLOOR_SIDE_RANGE = 7;
-    private const float FLOOR_MOVE_SIDE_SPEED = 2;
+    private const float MOVE_HORIZONTAL_OBJ_RANGE = 7;
+    private const float MOVE_HORIZONTAL_OBJ_SPEED = 2;
+
+    private const float MOVE_VIRTICAL_OBJ_RANGE = 7;
+    private const float MOVE_VIRTICAL_OBJ_SPEED = 2;
+
+    private const float MOVE_DEPTH_OBJ_RANGE = 7;
+    private const float MOVE_DEPTH_OBJ_SPEED = 2;
 
     private const float SLOPE_UP_SPEED = 1;
     private const float SLOPE_SIDE_SPEED = 1;
@@ -53,9 +61,9 @@ public class Parts : MonoBehaviour {
 	// Start is called before the first frame update
 	void Start() {
         thisTransform = gameObject.GetComponent<Transform>();
-        doorFirstPosY = thisTransform.position.y;
-        floorFirstPosX = thisTransform.position.x;
-        slopeFirstPosX = thisTransform.position.x;
+        objFirstPosY = thisTransform.position.y;
+        objFirstPosX = thisTransform.position.x;
+        objFirstPosZ = thisTransform.position.z;
 
         if (thisType == PartsType.Pitfall) {
             pitfallLeftAxis = transform.GetChild(0).transform;
@@ -92,7 +100,7 @@ public class Parts : MonoBehaviour {
 	public void ActionPartsPlus() {
         switch (thisType) {
             case PartsType.Door:
-                if (thisTransform.position.y <= doorFirstPosY + DOOR_UP_RANGE) {
+                if (thisTransform.position.y <= objFirstPosY + DOOR_UP_RANGE) {
                     thisTransform.Translate(0, DOOR_UP_SPEED * Time.deltaTime, 0);
                 }
                 break;
@@ -121,14 +129,26 @@ public class Parts : MonoBehaviour {
                 }
                 break;
 
-            case PartsType.MoveFordBackFloor:
-                if (thisTransform.position.x <= floorFirstPosX + FLOOR_SIDE_RANGE) {
-                    thisTransform.Translate(FLOOR_MOVE_SIDE_SPEED * Time.deltaTime, 0, 0);
+            case PartsType.MoveHorizontalObj:
+                if (thisTransform.position.x <= objFirstPosX + MOVE_HORIZONTAL_OBJ_RANGE) {
+                    thisTransform.Translate(MOVE_HORIZONTAL_OBJ_SPEED * Time.deltaTime, 0, 0);
+                }
+                break;
+
+            case PartsType.MoveVerticalObj:
+                if (thisTransform.position.y <= objFirstPosY + MOVE_VIRTICAL_OBJ_RANGE) {
+                    thisTransform.Translate(0, MOVE_VIRTICAL_OBJ_SPEED * Time.deltaTime, 0);
+                }
+                break;
+
+            case PartsType.MoveDepthObj:
+                if (thisTransform.position.z <= objFirstPosZ + MOVE_DEPTH_OBJ_RANGE) {
+                    thisTransform.Translate(0,0, MOVE_DEPTH_OBJ_SPEED * Time.deltaTime);
                 }
                 break;
 
             case PartsType.Slope:
-                if (thisTransform.position.x <= slopeFirstPosX + SLOPE_SIDE_RANGE) {
+                if (thisTransform.position.x <= objFirstPosX + SLOPE_SIDE_RANGE) {
                     thisTransform.Translate(SLOPE_SIDE_SPEED * Time.deltaTime, SLOPE_UP_SPEED * Time.deltaTime, 0);
                 }
                 break;
@@ -151,7 +171,7 @@ public class Parts : MonoBehaviour {
 	public void ActionPartsMinus() {
 		switch (thisType) {
 			case PartsType.Door:
-                if (thisTransform.position.y >= doorFirstPosY) {
+                if (thisTransform.position.y >= objFirstPosY) {
                     thisTransform.Translate(0, -DOOR_UP_SPEED * Time.deltaTime, 0);
                 }
                 break;
@@ -171,14 +191,26 @@ public class Parts : MonoBehaviour {
                //none
                 break;
 
-            case PartsType.MoveFordBackFloor:
-                //if (thisTransform.position.x >= floorFirstPosX - FLOOR_SIDE_RANGE) {
-                //    thisTransform.Translate(-FLOOR_MOVE_SIDE_SPEED * Time.deltaTime, 0, 0);
-                //}
+            case PartsType.MoveHorizontalObj:
+				if (thisTransform.position.x >= objFirstPosX) {
+					thisTransform.Translate(-MOVE_HORIZONTAL_OBJ_SPEED * Time.deltaTime, 0, 0);
+				}
+				break;
+
+            case PartsType.MoveVerticalObj:
+                if (thisTransform.position.y >= objFirstPosY) {
+                    thisTransform.Translate(0, -MOVE_VIRTICAL_OBJ_SPEED * Time.deltaTime, 0);
+                }
+                break;
+
+            case PartsType.MoveDepthObj:
+                if (thisTransform.position.z >= objFirstPosZ) {
+                    thisTransform.Translate(0, 0, -MOVE_DEPTH_OBJ_SPEED * Time.deltaTime);
+                }
                 break;
 
             case PartsType.Slope:
-                if (thisTransform.position.x >= slopeFirstPosX) {
+                if (thisTransform.position.x >= objFirstPosX) {
                     thisTransform.Translate(-SLOPE_SIDE_SPEED * Time.deltaTime, -SLOPE_UP_SPEED * Time.deltaTime, 0);
                 }
                 break;

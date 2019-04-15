@@ -10,7 +10,8 @@ public class Trigger : MonoBehaviour {
 		LeftGear,
 		Button,
 		MinusButton,
-		Electrical
+		Electrical,
+		Forever
 	}
 	//[HideInInspector]
     public TriggerType thisType = TriggerType.Default;
@@ -29,6 +30,9 @@ public class Trigger : MonoBehaviour {
 	private float defaultY;
 
 	public Transform visualObject;
+
+	[SerializeField]
+	private bool isPlus = true;
 
 	// Start is called before the first frame update
 	void Start() {
@@ -52,7 +56,9 @@ public class Trigger : MonoBehaviour {
 		var isTriggerOn = false;
 		float buttonPushRange = 0;
 
-		if (SystemManager.instance.GetGimmickValue(connectNum) < 1) {
+		Debug.Log(SystemManager.instance.GetGimmickValue(connectNum));
+
+		if (SystemManager.instance.GetGimmickValue(connectNum) <=1) {
 			switch (thisType) {
 				case TriggerType.RightGear:
 					if (Input.GetKey(KeyCode.D) && Player.instance.isGimmickMode == true && isThisGimmick == true) {
@@ -85,6 +91,11 @@ public class Trigger : MonoBehaviour {
 						isTriggerOn = true;
 					}
 					break;
+				case TriggerType.Forever:
+					if(isThisGimmick == true && isPlus) {
+						isTriggerOn = true;
+					}
+					break;
 
 				default:
 					isTriggerOn = false;
@@ -94,13 +105,17 @@ public class Trigger : MonoBehaviour {
 
 		}
 
-		if (thisType == TriggerType.Button) {
+		if (thisType == TriggerType.Button || thisType == TriggerType.Forever) {
 			if (isThisGimmick) {
 				buttonPushRange = 0.5f;
 			} else {
 				buttonPushRange = 0f;
 			}
 			visualObject.position = new Vector3(thisTransform.position.x, defaultY - buttonPushRange, thisTransform.position.z);
+		}
+
+		if(thisType == TriggerType.Forever && SystemManager.instance.GetGimmickValue(connectNum) >= 1) {
+			isPlus = false;
 		}
 
 		if (isTriggerOn == true) {
@@ -113,7 +128,7 @@ public class Trigger : MonoBehaviour {
 		var isTriggerOn = false;
 		float buttonPushRange = 0;
 
-		if (SystemManager.instance.GetGimmickValue(connectNum) > -1) {
+		if (SystemManager.instance.GetGimmickValue(connectNum) >= -1) {
 			switch (thisType) {
 				case TriggerType.RightGear:
 					if (Input.GetKey(KeyCode.A) && Player.instance.isGimmickMode == true && isThisGimmick == true) {
@@ -147,19 +162,32 @@ public class Trigger : MonoBehaviour {
 					}
 					break;
 
+				case TriggerType.Forever:
+					if (isThisGimmick == true && isPlus == false) {
+						isTriggerOn = true;
+					}
+					if (SystemManager.instance.GetGimmickValue(connectNum) <= -1) {
+						isPlus = true;
+					}
+					break;
+
 				default:
 					isTriggerOn = false;
 					break;
 			}
 		}
 
-		if (thisType == TriggerType.MinusButton) {
+		if (thisType == TriggerType.MinusButton || thisType == TriggerType.Forever) {
 			if (isThisGimmick) {
 				buttonPushRange = 0.5f;
 			} else {
 				buttonPushRange = 0f;
 			}
 			visualObject.position = new Vector3(thisTransform.position.x, defaultY - buttonPushRange, thisTransform.position.z);
+		}
+
+		if (thisType == TriggerType.Forever && SystemManager.instance.GetGimmickValue(connectNum) <= -1) {
+			isPlus = true;
 		}
 
 

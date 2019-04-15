@@ -162,6 +162,8 @@ public class Player : MonoBehaviour {
 				//左側
 			}
 		}
+
+		
 	}
 
 	private void OnCollisionExit(Collision collision) {
@@ -173,6 +175,15 @@ public class Player : MonoBehaviour {
 
 	private void OnCollisionStay(Collision collision) {
 
+	}
+
+	private void OnTriggerEnter(Collider other) {
+		if (other.gameObject.CompareTag("Trigger")) {
+			Trigger trigger = other.gameObject.transform.parent.gameObject.GetComponent<Trigger>();
+			if (trigger.thisType == Trigger.TriggerType.Forever) {
+				trigger.isThisGimmick = !trigger.isThisGimmick;
+			}
+		}
 	}
 
 	private void OnTriggerStay(Collider other) {
@@ -208,8 +219,11 @@ public class Player : MonoBehaviour {
 
 	private void OnTriggerExit(Collider other) {
 		if (other.gameObject.CompareTag("Trigger")) {
-			isGimmickMode = false;
-            other.gameObject.transform.parent.gameObject.GetComponent<Trigger>().isThisGimmick = false;
+			Trigger trigger = other.gameObject.transform.parent.gameObject.GetComponent<Trigger>();
+			if (trigger.thisType != Trigger.TriggerType.Forever) {
+				trigger.isThisGimmick = false;
+			}
+				isGimmickMode = false;
 
 		}
     }

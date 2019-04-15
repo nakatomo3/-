@@ -110,7 +110,7 @@ public class SystemManager : MonoBehaviour {
 					triggerType = Trigger.TriggerType.LeftGear;
 					break;
 				case "Button":
-					triggerObject = Resources.Load("Prefabs/Triggers/ButtonTrigger") as GameObject;
+					triggerObject = Resources.Load("Prefabs/Triggers/PlusButton") as GameObject;
 					triggerType = Trigger.TriggerType.Button;
 					break;
                 case "MinusButton":
@@ -120,6 +120,10 @@ public class SystemManager : MonoBehaviour {
                 case "Electrical":
 					triggerObject = Resources.Load("Prefabs/Triggers/Electrical") as GameObject;
 					triggerType = Trigger.TriggerType.Electrical;
+					break;
+				case "Forever":
+					triggerObject = Resources.Load("Prefabs/Triggers/ForeverButton") as GameObject;
+					triggerType = Trigger.TriggerType.Forever;
 					break;
 			}
 			var newTriggerObject = Instantiate(triggerObject, new Vector3(x, y, 0), Quaternion.identity, transform) as GameObject;
@@ -184,9 +188,19 @@ public class SystemManager : MonoBehaviour {
                         partsType = Parts.PartsType.ChangeScene;
                         break;
 
-                    case "MoveFordBackFloor":
-                        partsObject = Resources.Load("Prefabs/Parts/MoveFordBackFloor") as GameObject;
-                        partsType = Parts.PartsType.MoveFordBackFloor;
+                    case "MoveHorizontalObj":
+                        partsObject = Resources.Load("Prefabs/Parts/MoveHorizontalObj") as GameObject;
+                        partsType = Parts.PartsType.MoveHorizontalObj;
+                        break;
+
+                    case "MoveVerticalObj":
+                        partsObject = Resources.Load("Prefabs/Parts/MoveVerticalObj") as GameObject;
+                        partsType = Parts.PartsType.MoveVerticalObj;
+                        break;
+
+                    case "MoveDepthObj":
+                        partsObject = Resources.Load("Prefabs/Parts/MoveDepthObj") as GameObject;
+                        partsType = Parts.PartsType.MoveDepthObj;
                         break;
 
                     case "Slope":
@@ -198,6 +212,7 @@ public class SystemManager : MonoBehaviour {
                         partsObject = Resources.Load("Prefabs/Parts/Pitfall") as GameObject;
                         partsType = Parts.PartsType.Pitfall;
                         break;
+
                 }
 				var newPartsObject = Instantiate(partsObject, new Vector3(x, y, 0), Quaternion.identity, transform) as GameObject;
 				var newParts = newPartsObject.GetComponent<Parts>();
@@ -303,9 +318,9 @@ public class SystemManager : MonoBehaviour {
 	public void ChangeGimmickValue(bool isPlus, int num) {
 		var gimmick = gimmicks[num];
 		if (isPlus) {
-			gimmick.value += Time.deltaTime;
+			gimmick.value += Time.deltaTime/2;
 		} else {
-			gimmick.value -= Time.deltaTime;
+			gimmick.value -= Time.deltaTime/2;
 		}
 		gimmicks[num] = gimmick;
 	}

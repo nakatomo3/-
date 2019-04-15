@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 3487279351739051759}
   - component: {fileID: 3457521433324120557}
   m_Layer: 0
-  m_Name: ButtonTrigger
+  m_Name: PlusButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -142,6 +142,7 @@ MonoBehaviour:
   mesh: {fileID: 1110097142878952668}
   isThisGimmick: 0
   visualObject: {fileID: 1110097142877052476}
+  isPlus: 1
 --- !u!1001 &1110097142876914878
 PrefabInstance:
   m_ObjectHideFlags: 0
