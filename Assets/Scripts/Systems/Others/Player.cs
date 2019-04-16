@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-    public static Player instance;
+	public static Player instance;
 
 	private bool isRight = true;
 
-	[SerializeField]
-    private float moveSpeed = MOVE_SPEED;
+	[HideInInspector]
+	public float moveSpeed { private set; get; } = MOVE_SPEED;
 	private const float MOVE_SPEED = 10f;
 	private float rotateSpeed = 225f;
 
@@ -102,29 +102,22 @@ public class Player : MonoBehaviour {
 	/// コントローラーとキーボード押したら移動
 	/// </summary>
 	private void MovePlayer() {
-		if (Input.GetKey(KeyCode.W)) {
+		if (Input.GetKey(KeyCode.W) && isJumping == false) {
 			moveSpeed = MOVE_SPEED / 5;
 
-		} else {
+		} else if (isJumping) {
+			moveSpeed = MOVE_SPEED * 0.8f;
+		} else { 
+		
 			moveSpeed = MOVE_SPEED;
 		}
 
 		if (Input.GetKey(KeyCode.D)) {
-			if(isGimmickMode == false && canRightMove) {
-				transform.position += Vector3.right * moveSpeed * Time.deltaTime;
-			}
-			var rot = new Vector3(0, -rotateSpeed * Time.deltaTime,0);
-			visualTransform.Rotate(rot);
-			isRight = true;
+			MoveRight();
 		}
 
-		if (Input.GetKey(KeyCode.A) && isGimmickMode == false) {
-			if (isGimmickMode == false && canLeftMove) {
-				transform.position -= Vector3.right * moveSpeed * Time.deltaTime;
-			}
-			var rot = new Vector3(0, rotateSpeed * Time.deltaTime,0);
-			visualTransform.Rotate(rot);
-			isRight = false;
+		if (Input.GetKey(KeyCode.A)) {
+			MoveLeft();
 		}
 
 	}
@@ -169,6 +162,8 @@ public class Player : MonoBehaviour {
 				//左側
 			}
 		}
+
+		
 	}
 
 	private void OnCollisionExit(Collision collision) {
@@ -179,6 +174,16 @@ public class Player : MonoBehaviour {
 	}
 
 	private void OnCollisionStay(Collision collision) {
+
+	}
+
+	private void OnTriggerEnter(Collider other) {
+		if (other.gameObject.CompareTag("Trigger")) {
+			Trigger trigger = other.gameObject.transform.parent.gameObject.GetComponent<Trigger>();
+			if (trigger.thisType == Trigger.TriggerType.Forever) {
+				trigger.isThisGimmick = !trigger.isThisGimmick;
+			}
+		}
 	}
 
 	private void OnTriggerStay(Collider other) {
@@ -186,16 +191,23 @@ public class Player : MonoBehaviour {
 			Trigger trigger = other.gameObject.transform.parent.gameObject.GetComponent<Trigger>();
 			if(trigger.thisType == Trigger.TriggerType.Button|| trigger.thisType == Trigger.TriggerType.MinusButton) {
 				trigger.isThisGimmick = true;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 980f8ca3ebe86dc5cfa3bfffbbe2acd023f072c8
             }
 
 			if (Input.GetKeyDown(KeyCode.Space)) {
 
 				if (trigger.thisType == Trigger.TriggerType.Electrical ||
 					trigger.thisType == Trigger.TriggerType.LeftGear ||
-					trigger.thisType == Trigger.TriggerType.RighrtGear) {
-				isGimmickMode = !isGimmickMode;
-				trigger.isThisGimmick = true;
-				trigger.mesh.enabled = !isGimmickMode;
+					trigger.thisType == Trigger.TriggerType.RightGear) {
+
+					rigidbody.useGravity = !rigidbody.useGravity;
+					rigidbody.velocity = Vector3.zero;
+					isGimmickMode = !isGimmickMode;
+					trigger.isThisGimmick = true;
+					trigger.mesh.enabled = !isGimmickMode;
 					thisTransform.position = other.gameObject.transform.position;
 				}
 			}
@@ -210,11 +222,35 @@ public class Player : MonoBehaviour {
 
 	private void OnTriggerExit(Collider other) {
 		if (other.gameObject.CompareTag("Trigger")) {
-			isGimmickMode = false;
-            other.gameObject.transform.parent.gameObject.GetComponent<Trigger>().isThisGimmick = false;
+			Trigger trigger = other.gameObject.transform.parent.gameObject.GetComponent<Trigger>();
+			if (trigger.thisType != Trigger.TriggerType.Forever) {
+				trigger.isThisGimmick = false;
+			}
+				isGimmickMode = false;
 
 		}
     }
 
-   
+	public void MoveRight() {
+		if (isGimmickMode == false && canRightMove) {
+			transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+		}
+		var rot = new Vector3(0, -rotateSpeed * Time.deltaTime, 0);
+		visualTransform.Rotate(rot);
+		isRight = true;
+
+		CameraManager.instance.MoveRight();
+	}
+
+	public void MoveLeft() {
+		if (isGimmickMode == false && canLeftMove) {
+			transform.position -= Vector3.right * moveSpeed * Time.deltaTime;
+		}
+		var rot = new Vector3(0, rotateSpeed * Time.deltaTime, 0);
+		visualTransform.Rotate(rot);
+		isRight = false;
+
+		CameraManager.instance.MoveLeft();
+	}
+
 }

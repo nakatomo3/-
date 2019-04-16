@@ -3,13 +3,18 @@
     <Width>100</Width>
     <Height>100</Height>
     <StartX>5</StartX>
+<<<<<<< HEAD
     <StartY>12</StartY>
+=======
+    <StartY>15</StartY>
+>>>>>>> 980f8ca3ebe86dc5cfa3bfffbbe2acd023f072c8
     
     <!-- トリガーを増やす場合は<Trigger>から</Trigger>までをコピーしてください -->
     <!-- 連動するパーツを増やす場合は<Parts>を増やしてください-->
     <!-- ConnectNumberが同じならば、一つのTriggerで複数のパーツが動かせます-->
     <Gimmick>    
         <Trigger>
+<<<<<<< HEAD
             <ConnectNumber>1</ConnectNumber>
             <Type>MinusButton</Type>
             <X>12</X>
@@ -20,6 +25,18 @@
             <Type>Button</Type>
             <X>43</X>
             <Y>3</Y>
+=======
+            <ConnectNumber>2</ConnectNumber>
+            <Type>Forever</Type>
+            <X>12</X>
+            <Y>13.5</Y>
+        </Trigger>
+        <Trigger>
+            <ConnectNumber>1</ConnectNumber>
+            <Type>RightGear</Type>
+            <X>5</X>
+            <Y>13.5</Y>
+>>>>>>> 980f8ca3ebe86dc5cfa3bfffbbe2acd023f072c8
         </Trigger>
     
         <Parts>
@@ -45,7 +62,11 @@
       
       <Parts>
         <ConnectNumber>2</ConnectNumber>
+<<<<<<< HEAD
         <Name>MoveFordBackFloor</Name>
+=======
+        <Name>MoveHorizontalObj</Name>
+>>>>>>> 980f8ca3ebe86dc5cfa3bfffbbe2acd023f072c8
         <X>30</X>
         <Y>12</Y>
       </Parts>
@@ -63,11 +84,35 @@
         <X>65</X>
         <Y>11</Y>
       </Parts>
+<<<<<<< HEAD
+=======
+
+      <Trigger>
+        <ConnectNumber>4</ConnectNumber>
+        <Type>MinusButton</Type>
+        <X>45</X>
+        <Y>3</Y>
+      </Trigger>
+      <Trigger>
+        <ConnectNumber>4</ConnectNumber>
+        <Type>Button</Type>
+        <X>38</X>
+        <Y>3</Y>
+      </Trigger>
+
+      <Parts>
+        <ConnectNumber>4</ConnectNumber>
+        <Name>Pitfall</Name>
+        <X>55</X>
+        <Y>2</Y>
+      </Parts>
+>>>>>>> 980f8ca3ebe86dc5cfa3bfffbbe2acd023f072c8
 
 
     </Gimmick>
 
   
+<<<<<<< HEAD
   <Grounda>
     <Ground>
       <PosX>5</PosX>
@@ -106,6 +151,75 @@
             <Rotate>0</Rotate> <!-- 0～360. 無ければ自動で0-->
         </Ground>
     </Grounda>
+=======
+  <Grounds>
+      <Ground>
+          <PosX>5</PosX>
+          <PosY>30</PosY>
+          <Long>10</Long>
+          <Rotate>0</Rotate>
+          <!-- 0～360. 無ければ自動で0-->
+      </Ground>
+
+      <Ground>
+          <PosX>45</PosX>
+          <PosY>30</PosY>
+          <Long>10</Long>
+          <Rotate>0</Rotate>
+          <!-- 0～360. 無ければ自動で0-->
+      </Ground>
+
+      <Ground>
+          <PosX>74</PosX>
+          <PosY>30</PosY>
+          <Long>10</Long>
+          <Rotate>0</Rotate>
+          <!-- 0～360. 無ければ自動で0-->
+      </Ground>
+
+      <Ground>
+          <PosX>10</PosX>
+          <PosY>11</PosY>
+          <Long>20</Long>
+          <Rotate>0</Rotate>
+          <!-- 0～360. 無ければ自動で0-->
+      </Ground>
+
+      <Ground>
+          <PosX>25</PosX>
+          <PosY>2</PosY>
+          <Long>50</Long>
+          <Rotate>0</Rotate>
+          <!-- 0～360. 無ければ自動で0-->
+      </Ground>
+
+      <Ground>
+          <PosX>72</PosX>
+          <PosY>11</PosY>
+          <Long>15</Long>
+          <Rotate>0</Rotate>
+          <!-- 0～360. 無ければ自動で0-->
+      </Ground>
+
+      <Ground>
+          <PosX>70</PosX>
+          <PosY>2</PosY>
+          <Long>20</Long>
+          <Rotate>0</Rotate>
+          <!-- 0～360. 無ければ自動で0-->
+      </Ground>
+  </Grounds>
+
+    <Walls>
+        <Wall>
+            <PosX>5</PosX>
+            <PosY>100</PosY>
+            <Long>10</Long>
+            <Rotate>0</Rotate>
+            <!-- 自動で90度。それに対してどれだけ回転するか。無ければ自動で+0-->
+        </Wall>
+    </Walls>
+>>>>>>> 980f8ca3ebe86dc5cfa3bfffbbe2acd023f072c8
 
   <Grounda>
     <Ground>

@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 7761492125837636498}
-  GameOverUI: {fileID: 3014704185470332025, guid: 0354e55223cf51d4a88242a315be5072,
+  GameOverUI: {fileID: 3014704185470332025, guid: 8f0bed879c5e61249a4ac335e89e1146,
     type: 3}
   isGameOver: 0
 --- !u!1 &7761492125837636500
