@@ -109,7 +109,11 @@ public class SystemManager : MonoBehaviour {
 					triggerObject = Resources.Load("Prefabs/Triggers/ButtonTrigger") as GameObject;
 					triggerType = Trigger.TriggerType.Button;
 					break;
-				case "Electrical":
+                case "MinusButton":
+                    triggerObject = Resources.Load("Prefabs/Triggers/MinusButton") as GameObject;
+                    triggerType = Trigger.TriggerType.MinusButton;
+                    break;
+                case "Electrical":
 					triggerObject = Resources.Load("Prefabs/Triggers/Electrical") as GameObject;
 					triggerType = Trigger.TriggerType.Electrical;
 					break;
@@ -169,6 +173,12 @@ public class SystemManager : MonoBehaviour {
                     case "ChangeScene":
                         partsObject = Resources.Load("Prefabs/Parts/ChangeScene") as GameObject;
                         partsType = Parts.PartsType.ChangeScene;
+                        break;
+
+                    case "MoveFordBackFloor":
+                        partsObject = Resources.Load("Prefabs/Parts/MoveFordBackFloor") as GameObject;
+                        Debug.Log(partsObject);
+                        partsType = Parts.PartsType.MoveFordBackFloor;
                         break;
                 }
 				var newPartsObject = Instantiate(partsObject, new Vector3(x, y, 0), Quaternion.identity, transform) as GameObject;

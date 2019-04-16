@@ -184,9 +184,9 @@ public class Player : MonoBehaviour {
 	private void OnTriggerStay(Collider other) {
         if (other.gameObject.CompareTag("Trigger")) {
 			Trigger trigger = other.gameObject.transform.parent.gameObject.GetComponent<Trigger>();
-			if(trigger.thisType == Trigger.TriggerType.Button) {
+			if(trigger.thisType == Trigger.TriggerType.Button|| trigger.thisType == Trigger.TriggerType.MinusButton) {
 				trigger.isThisGimmick = true;
-			}
+            }
 
 			if (Input.GetKeyDown(KeyCode.Space)) {
 
