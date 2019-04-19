@@ -8,19 +8,22 @@ public class Parts : MonoBehaviour {
     private Transform thisTransform;
     private Transform pitfallLeftAxis;
     private Transform pitfallRightAxis;
-    private float objFirstPosY;
-    private float objFirstPosX;
-    private float objFirstPosZ;
+    private float thisFirstPosY;
+    private float thisFirstPosX;
+    private float thisFirstPosZ;
 
     private float explosionCounter = 0;
     private bool explosionActive = false;
 
     private float changeSceneTime = 0;
 
+    private bool isTrapAction = false;
+    private bool isTrapActionStop = false;
+
     private float pitfallRotateCounter = 0;
 
-    private bool trapAction = false;
-    private bool trapActionStop = false;
+    private float upInterval = 0;
+    private bool willMoveUp = false;
 
     public enum PartsType {
 		Default,
@@ -32,7 +35,8 @@ public class Parts : MonoBehaviour {
         MoveVerticalObj,
         MoveDepthObj,
         Slope,
-        Pitfall    //＋トリガー動作で停止、-トリガー動作で動く
+        Pitfall,
+        ThingFallTrap
     }
 	[HideInInspector]
 	public PartsType thisType = PartsType.Default;
@@ -58,12 +62,16 @@ public class Parts : MonoBehaviour {
     private const float PITFALL_ROTATE_SPEED = 300;
     private const float PITFALL_RANGE = 90;
 
+    private const float FALL_SPEED = 10;
+    private const float UP_INTERVAL = 1;
+    private const float UP_SPEED = 1;
+
 	// Start is called before the first frame update
 	void Start() {
         thisTransform = gameObject.GetComponent<Transform>();
-        objFirstPosY = thisTransform.position.y;
-        objFirstPosX = thisTransform.position.x;
-        objFirstPosZ = thisTransform.position.z;
+        thisFirstPosY = thisTransform.position.y;
+        thisFirstPosX = thisTransform.position.x;
+        thisFirstPosZ = thisTransform.position.z;
 
         if (thisType == PartsType.Pitfall) {
             pitfallLeftAxis = transform.GetChild(0).transform;
@@ -100,7 +108,7 @@ public class Parts : MonoBehaviour {
 	public void ActionPartsPlus() {
         switch (thisType) {
             case PartsType.Door:
-                if (thisTransform.position.y <= objFirstPosY + DOOR_UP_RANGE) {
+                if (thisTransform.position.y <= thisFirstPosY + DOOR_UP_RANGE) {
                     thisTransform.Translate(0, DOOR_UP_SPEED * Time.deltaTime, 0);
                 }
                 break;
@@ -130,31 +138,35 @@ public class Parts : MonoBehaviour {
                 break;
 
             case PartsType.MoveHorizontalObj:
-                if (thisTransform.position.x <= objFirstPosX + MOVE_HORIZONTAL_OBJ_RANGE) {
+                if (thisTransform.position.x <= thisFirstPosX + MOVE_HORIZONTAL_OBJ_RANGE) {
                     thisTransform.Translate(MOVE_HORIZONTAL_OBJ_SPEED * Time.deltaTime, 0, 0);
                 }
                 break;
 
             case PartsType.MoveVerticalObj:
-                if (thisTransform.position.y <= objFirstPosY + MOVE_VIRTICAL_OBJ_RANGE) {
+                if (thisTransform.position.y <= thisFirstPosY + MOVE_VIRTICAL_OBJ_RANGE) {
                     thisTransform.Translate(0, MOVE_VIRTICAL_OBJ_SPEED * Time.deltaTime, 0);
                 }
                 break;
 
             case PartsType.MoveDepthObj:
-                if (thisTransform.position.z <= objFirstPosZ + MOVE_DEPTH_OBJ_RANGE) {
+                if (thisTransform.position.z <= thisFirstPosZ + MOVE_DEPTH_OBJ_RANGE) {
                     thisTransform.Translate(0,0, MOVE_DEPTH_OBJ_SPEED * Time.deltaTime);
                 }
                 break;
 
             case PartsType.Slope:
-                if (thisTransform.position.x <= objFirstPosX + SLOPE_SIDE_RANGE) {
+                if (thisTransform.position.x <= thisFirstPosX + SLOPE_SIDE_RANGE) {
                     thisTransform.Translate(SLOPE_SIDE_SPEED * Time.deltaTime, SLOPE_UP_SPEED * Time.deltaTime, 0);
                 }
                 break;
 
             case PartsType.Pitfall:
-                trapActionStop = true;
+                isTrapActionStop = true;
+                break;
+
+            case PartsType.ThingFallTrap:
+                isTrapActionStop = true;
                 break;
 
             default:
@@ -171,7 +183,7 @@ public class Parts : MonoBehaviour {
 	public void ActionPartsMinus() {
 		switch (thisType) {
 			case PartsType.Door:
-                if (thisTransform.position.y >= objFirstPosY) {
+                if (thisTransform.position.y >= thisFirstPosY) {
                     thisTransform.Translate(0, -DOOR_UP_SPEED * Time.deltaTime, 0);
                 }
                 break;
@@ -192,31 +204,35 @@ public class Parts : MonoBehaviour {
                 break;
 
             case PartsType.MoveHorizontalObj:
-				if (thisTransform.position.x >= objFirstPosX) {
+				if (thisTransform.position.x >= thisFirstPosX) {
 					thisTransform.Translate(-MOVE_HORIZONTAL_OBJ_SPEED * Time.deltaTime, 0, 0);
 				}
 				break;
 
             case PartsType.MoveVerticalObj:
-                if (thisTransform.position.y >= objFirstPosY) {
+                if (thisTransform.position.y >= thisFirstPosY) {
                     thisTransform.Translate(0, -MOVE_VIRTICAL_OBJ_SPEED * Time.deltaTime, 0);
                 }
                 break;
 
             case PartsType.MoveDepthObj:
-                if (thisTransform.position.z >= objFirstPosZ) {
+                if (thisTransform.position.z >= thisFirstPosZ) {
                     thisTransform.Translate(0, 0, -MOVE_DEPTH_OBJ_SPEED * Time.deltaTime);
                 }
                 break;
 
             case PartsType.Slope:
-                if (thisTransform.position.x >= objFirstPosX) {
+                if (thisTransform.position.x >= thisFirstPosX) {
                     thisTransform.Translate(-SLOPE_SIDE_SPEED * Time.deltaTime, -SLOPE_UP_SPEED * Time.deltaTime, 0);
                 }
                 break;
 
             case PartsType.Pitfall:
-                trapActionStop = false;
+                isTrapActionStop = false;
+                break;
+
+            case PartsType.ThingFallTrap:
+                isTrapActionStop = false;
                 break;
 
             default:
@@ -229,13 +245,13 @@ public class Parts : MonoBehaviour {
     public void TrapAction() {
         switch (thisType) {
             case PartsType.Pitfall:
-                if (trapActionStop == false) {
-                    if (pitfallRotateCounter <= PITFALL_RANGE && trapAction == true) {
+                if (isTrapActionStop == false) {
+                    if (pitfallRotateCounter <= PITFALL_RANGE && isTrapActionStop == true) {
                         pitfallLeftAxis.Rotate(0, 0, -PITFALL_ROTATE_SPEED * Time.deltaTime);
                         pitfallRightAxis.Rotate(0, 0, PITFALL_ROTATE_SPEED * Time.deltaTime);
                         pitfallRotateCounter += PITFALL_ROTATE_SPEED * Time.deltaTime;
 
-                    } else if (pitfallRotateCounter >= 5 && trapAction == false) {
+                    } else if (pitfallRotateCounter >= 5 && isTrapActionStop == false) {
                         pitfallLeftAxis.Rotate(0, 0, PITFALL_ROTATE_SPEED * Time.deltaTime);
                         pitfallRightAxis.Rotate(0, 0, -PITFALL_ROTATE_SPEED * Time.deltaTime);
                         pitfallRotateCounter -= PITFALL_ROTATE_SPEED * Time.deltaTime;
@@ -244,18 +260,71 @@ public class Parts : MonoBehaviour {
                 }
 
                 break;
+
+            case PartsType.ThingFallTrap:
+                if (isTrapActionStop == false) {
+                    if (isTrapAction == true) {
+                        thisTransform.Translate(0, -FALL_SPEED*Time.deltaTime, 0);
+
+                    }else if (willMoveUp == true) {                       
+                        if (upInterval >= UP_INTERVAL) {  
+                            if (thisFirstPosY <= thisTransform.position.y) {
+                                willMoveUp = false;
+                            }
+                            thisTransform.Translate(0, UP_SPEED * Time.deltaTime, 0);
+                        }
+                        upInterval += Time.deltaTime;
+                    }
+                    
+                }
+
+                break;
         }
+    }
+
+    private void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.tag == "Ground" ) {
+        switch (thisType) {
+            case PartsType.ThingFallTrap:
+                willMoveUp = true;
+                isTrapAction = false;
+                break;
+        }
+       }
     }
 
     private void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player") {
-            trapAction = true;
+            switch (thisType) {
+                case PartsType.Pitfall:
+                    isTrapAction = true;
+                    break;
+
+            }
         }
     }
 
     private void OnTriggerExit(Collider other) {
         if (other.gameObject.tag == "Player") {
-            trapAction = false;
+            switch (thisType) {
+                case PartsType.Pitfall:
+                    isTrapAction = false;
+                    break;
+            }
         }
     }
+
+    private void OnTriggerStay(Collider other) {
+        if (other.gameObject.tag == "Player") {
+            switch (thisType) {
+                case PartsType.ThingFallTrap:
+                    if (willMoveUp == false) {
+                        isTrapAction = true;
+                    }
+                    break;
+            }
+        }
+    }
+
+
 }

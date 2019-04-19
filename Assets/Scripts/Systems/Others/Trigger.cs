@@ -56,8 +56,6 @@ public class Trigger : MonoBehaviour {
 		var isTriggerOn = false;
 		float buttonPushRange = 0;
 
-		Debug.Log(SystemManager.instance.GetGimmickValue(connectNum));
-
 		if (SystemManager.instance.GetGimmickValue(connectNum) <=1) {
 			switch (thisType) {
 				case TriggerType.RightGear:

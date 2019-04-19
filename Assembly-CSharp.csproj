@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\Systems\Others\Clear.cs" />
     <Compile Include="Assets\Scripts\Systems\Others\GameOver\FadeOut.cs" />
     <Compile Include="Assets\Scripts\Systems\Others\GameOver\GameOver.cs" />
+    <Compile Include="Assets\Scripts\Systems\Others\GameOver\Thing.cs" />
     <Compile Include="Assets\Scripts\Systems\Others\Parts.cs" />
     <Compile Include="Assets\Scripts\Systems\Others\Player.cs" />
     <Compile Include="Assets\Scripts\Systems\Others\Trigger.cs" />

@@ -213,6 +213,11 @@ public class SystemManager : MonoBehaviour {
                         partsType = Parts.PartsType.Pitfall;
                         break;
 
+                    case "ThingFallTrap":
+                        partsObject = Resources.Load("Prefabs/Parts/ThingFallTrap") as GameObject;
+                        partsType = Parts.PartsType.ThingFallTrap;
+                        break;
+
                 }
 				var newPartsObject = Instantiate(partsObject, new Vector3(x, y, 0), Quaternion.identity, transform) as GameObject;
 				var newParts = newPartsObject.GetComponent<Parts>();
