@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 2684149751172981625}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 375.38773, y: 185.8877, z: -1.2066109}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children:
   - {fileID: 7809390309946589220}
   m_Father: {fileID: 0}
@@ -63,7 +63,7 @@ MonoBehaviour:
   exitYesCorsor: {fileID: 7809390308685376980}
   exitNoCorsor: {fileID: 7809390309034781300}
   canvas: {fileID: 7809390309946589240}
-  isPauseObject: {fileID: 0}
+  isPauseObject: {fileID: 8924952880282354167}
 --- !u!1 &7809390308205595615
 GameObject:
   m_ObjectHideFlags: 0
@@ -3650,7 +3650,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7809390309946589220
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3660,7 +3660,7 @@ RectTransform:
   m_GameObject: {fileID: 7809390309946589240}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.20724787, y: 0.20724787, z: 0.20724787}
   m_Children:
   - {fileID: 7809390309077493484}
   - {fileID: 7809390308682669970}
@@ -3672,8 +3672,8 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
+  m_SizeDelta: {x: 800, y: 450}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &7809390309946589243
 Canvas:
   m_ObjectHideFlags: 0

@@ -9,7 +9,6 @@ public class CameraManager : MonoBehaviour {
 	private Transform playerTransform;
 	private Transform thisTransform;
 
-	[SerializeField]
 	private float SideRange = 0;
 	private const float SIDE_MAX_RAMGE = 3;
 
