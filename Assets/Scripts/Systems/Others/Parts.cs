@@ -6,16 +6,11 @@ using UnityEngine.SceneManagement;
 public class Parts : MonoBehaviour {
 
     private Transform thisTransform;
-
-    private float doorFirstPosY;
-    private float floorFirstPosX;
-
     private Transform pitfallLeftAxis;
     private Transform pitfallRightAxis;
     private float thisFirstPosY;
     private float thisFirstPosX;
     private float thisFirstPosZ;
-
 
     private float explosionCounter = 0;
     private bool explosionActive = false;
@@ -36,7 +31,6 @@ public class Parts : MonoBehaviour {
 		Bridge,
         Bomb,
         ChangeScene,
-        MoveFordBackFloor,
         MoveHorizontalObj,
         MoveVerticalObj,
         MoveDepthObj,
@@ -68,29 +62,16 @@ public class Parts : MonoBehaviour {
     private const float PITFALL_ROTATE_SPEED = 300;
     private const float PITFALL_RANGE = 90;
 
-<<<<<<< HEAD
-    private const float FLOOR_FRONT_RANGE = 7;
-    private const float FLOOR_MOVE_FRONT_SPEED = 2;
-=======
     private const float FALL_SPEED = 10;
     private const float UP_INTERVAL = 1;
     private const float UP_SPEED = 1;
->>>>>>> adfaa5eb7999520716218361d5644e1959d9ac0f
 
 	// Start is called before the first frame update
 	void Start() {
         thisTransform = gameObject.GetComponent<Transform>();
-<<<<<<< HEAD
-        doorFirstPosY = thisTransform.position.y;
-        floorFirstPosX = thisTransform.position.x;
-        objFirstPosY = thisTransform.position.y;
-        objFirstPosX = thisTransform.position.x;
-        objFirstPosZ = thisTransform.position.z;
-=======
         thisFirstPosY = thisTransform.position.y;
         thisFirstPosX = thisTransform.position.x;
         thisFirstPosZ = thisTransform.position.z;
->>>>>>> adfaa5eb7999520716218361d5644e1959d9ac0f
 
         if (thisType == PartsType.Pitfall) {
             pitfallLeftAxis = transform.GetChild(0).transform;
@@ -156,12 +137,6 @@ public class Parts : MonoBehaviour {
                 }
                 break;
 
-            case PartsType.MoveFordBackFloor:
-                if (thisTransform.position.x <= floorFirstPosX + FLOOR_FRONT_RANGE) {
-                    thisTransform.Translate(FLOOR_MOVE_FRONT_SPEED * Time.deltaTime, 0, 0);
-                }
-                break;
-
             case PartsType.MoveHorizontalObj:
                 if (thisTransform.position.x <= thisFirstPosX + MOVE_HORIZONTAL_OBJ_RANGE) {
                     thisTransform.Translate(MOVE_HORIZONTAL_OBJ_SPEED * Time.deltaTime, 0, 0);
@@ -208,25 +183,12 @@ public class Parts : MonoBehaviour {
 	public void ActionPartsMinus() {
 		switch (thisType) {
 			case PartsType.Door:
-<<<<<<< HEAD
-                if (thisTransform.position.y >= doorFirstPosY)
-                {
-                    if (thisTransform.position.y >= objFirstPosY)
-                    {
-                        thisTransform.Translate(0, -DOOR_UP_SPEED * Time.deltaTime, 0);
-                    }
-                    break;
-=======
                 if (thisTransform.position.y >= thisFirstPosY) {
                     thisTransform.Translate(0, -DOOR_UP_SPEED * Time.deltaTime, 0);
->>>>>>> adfaa5eb7999520716218361d5644e1959d9ac0f
                 }
                 break;
+
 			case PartsType.Bridge:
-                if (thisTransform.rotation.eulerAngles.z >= -90) {
-                    var rotn = new Vector3(0, 0, -BRIDGE_SPEED * Time.deltaTime);
-                    transform.Rotate(rotn);
-                }
                 
                     var rot = new Vector3(0, 0, -BRIDGE_SPEED * Time.deltaTime);
                     transform.Rotate(rot);
@@ -241,10 +203,6 @@ public class Parts : MonoBehaviour {
                //none
                 break;
 
-            case PartsType.MoveFordBackFloor:
-                //if (thisTransform.position.x >= floorFirstPosX - FLOOR_FRONT_RANGE) {
-                //    thisTransform.Translate(-FLOOR_MOVE_FRONT_SPEED * Time.deltaTime, 0, 0);
-                //}
             case PartsType.MoveHorizontalObj:
 				if (thisTransform.position.x >= thisFirstPosX) {
 					thisTransform.Translate(-MOVE_HORIZONTAL_OBJ_SPEED * Time.deltaTime, 0, 0);

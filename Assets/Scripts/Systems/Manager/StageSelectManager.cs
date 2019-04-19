@@ -22,7 +22,6 @@ public class StageSelectManager : MonoBehaviour {
 	void Update() {
 
 	}
-
         //#if UNITY_EDITOR
         //		if (Input.anyKey) {
         //			PlayerPrefs.SetInt("stage", selectingStageNum);
@@ -56,11 +55,7 @@ public class StageSelectManager : MonoBehaviour {
 //            }
 //        }
 
-
     //}
-
-    //}
-
 
 	public void ChangeStage() {
 		//selectingStageNumのステージに移動

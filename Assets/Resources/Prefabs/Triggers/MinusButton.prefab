@@ -30,11 +30,8 @@ Transform:
   m_Children:
   - {fileID: 4022480283531866648}
   - {fileID: 2732634300783981485}
-<<<<<<< HEAD
-=======
   - {fileID: 1153056077275344798}
   - {fileID: 7226983374035877236}
->>>>>>> 980f8ca3ebe86dc5cfa3bfffbbe2acd023f072c8
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -50,19 +47,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b8d9b1f914994b4f995741945c7be65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-  thisType: 0
-  connectNum: -1
-  mesh: {fileID: 3286881763194350335}
-  isThisGimmick: 0
-  visualObject: {fileID: 2732634300783981485}
-=======
   thisType: 4
   connectNum: -1
   mesh: {fileID: 1153056077277769086}
   isThisGimmick: 0
   visualObject: {fileID: 1153056077275344798}
->>>>>>> 980f8ca3ebe86dc5cfa3bfffbbe2acd023f072c8
 --- !u!1 &4022480283531866628
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,11 +161,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-<<<<<<< HEAD
-  m_IsActive: 1
-=======
   m_IsActive: 0
->>>>>>> 980f8ca3ebe86dc5cfa3bfffbbe2acd023f072c8
 --- !u!4 &2732634300783981485
 Transform:
   m_ObjectHideFlags: 0
@@ -249,8 +234,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
-=======
 --- !u!1001 &1153056077275477276
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -427,4 +410,3 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7226983374035478520}
   m_PrefabAsset: {fileID: 0}
->>>>>>> 980f8ca3ebe86dc5cfa3bfffbbe2acd023f072c8

@@ -3,7 +3,6 @@
     <Width>100</Width>
     <Height>100</Height>
     <StartX>5</StartX>
-    <StartY>12</StartY>
     <StartY>15</StartY>
     
     <!-- トリガーを増やす場合は<Trigger>から</Trigger>までをコピーしてください -->
@@ -11,16 +10,6 @@
     <!-- ConnectNumberが同じならば、一つのTriggerで複数のパーツが動かせます-->
     <Gimmick>    
         <Trigger>
-            <ConnectNumber>1</ConnectNumber>
-            <Type>MinusButton</Type>
-            <X>12</X>
-            <Y>12</Y>
-        </Trigger>
-        <Trigger>
-            <ConnectNumber>1</ConnectNumber>
-            <Type>Button</Type>
-            <X>43</X>
-            <Y>3</Y>
             <ConnectNumber>2</ConnectNumber>
             <Type>Forever</Type>
             <X>12</X>
@@ -99,44 +88,6 @@
     </Gimmick>
 
   
-  <Grounda>
-    <Ground>
-      <PosX>5</PosX>
-      <PosY>30</PosY>
-      <Long>10</Long>
-      <Rotate>0</Rotate>
-      <!-- 0～360. 無ければ自動で0-->
-    </Ground>
-  </Grounda>
-
-  <Grounda>
-    <Ground>
-      <PosX>45</PosX>
-      <PosY>30</PosY>
-      <Long>10</Long>
-      <Rotate>0</Rotate>
-      <!-- 0～360. 無ければ自動で0-->
-    </Ground>
-  </Grounda>
-
-  <Grounda>
-    <Ground>
-      <PosX>74</PosX>
-      <PosY>30</PosY>
-      <Long>10</Long>
-      <Rotate>0</Rotate>
-      <!-- 0～360. 無ければ自動で0-->
-    </Ground>
-  </Grounda>
-
-  <Grounda>
-        <Ground>
-            <PosX>10</PosX>
-            <PosY>11</PosY>
-            <Long>20</Long>
-            <Rotate>0</Rotate> <!-- 0～360. 無ければ自動で0-->
-        </Ground>
-    </Grounda>
   <Grounds>
       <Ground>
           <PosX>5</PosX>
@@ -205,35 +156,6 @@
         </Wall>
     </Walls>
 
-  <Grounda>
-    <Ground>
-      <PosX>25</PosX>
-      <PosY>2</PosY>
-      <Long>50</Long>
-      <Rotate>0</Rotate>
-      <!-- 0～360. 無ければ自動で0-->
-    </Ground>
-  </Grounda>
-
-  <Grounda>
-    <Ground>
-      <PosX>72</PosX>
-      <PosY>11</PosY>
-      <Long>15</Long>
-      <Rotate>0</Rotate>
-      <!-- 0～360. 無ければ自動で0-->
-    </Ground>
-  </Grounda>
-
-  <Grounda>
-    <Ground>
-      <PosX>70</PosX>
-      <PosY>2</PosY>
-      <Long>20</Long>
-      <Rotate>0</Rotate>
-      <!-- 0～360. 無ければ自動で0-->
-    </Ground>
-  </Grounda>
 
     <!-- ゲームに影響のない見た目だけの部分。　未実装-->
     <BackGround>

@@ -188,11 +188,6 @@ public class SystemManager : MonoBehaviour {
                         partsType = Parts.PartsType.ChangeScene;
                         break;
 
-                    case "MoveFordBackFloor":
-                        partsObject = Resources.Load("Prefabs/Parts/MoveFordBackFloor") as GameObject;
-                        Debug.Log(partsObject);
-                        partsType = Parts.PartsType.MoveFordBackFloor;
-                        break;
                     case "MoveHorizontalObj":
                         partsObject = Resources.Load("Prefabs/Parts/MoveHorizontalObj") as GameObject;
                         partsType = Parts.PartsType.MoveHorizontalObj;
