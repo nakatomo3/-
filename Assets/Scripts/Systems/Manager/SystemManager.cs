@@ -188,13 +188,11 @@ public class SystemManager : MonoBehaviour {
                         partsType = Parts.PartsType.ChangeScene;
                         break;
 
-<<<<<<< HEAD
                     case "MoveFordBackFloor":
                         partsObject = Resources.Load("Prefabs/Parts/MoveFordBackFloor") as GameObject;
                         Debug.Log(partsObject);
                         partsType = Parts.PartsType.MoveFordBackFloor;
                         break;
-=======
                     case "MoveHorizontalObj":
                         partsObject = Resources.Load("Prefabs/Parts/MoveHorizontalObj") as GameObject;
                         partsType = Parts.PartsType.MoveHorizontalObj;
@@ -220,7 +218,6 @@ public class SystemManager : MonoBehaviour {
                         partsType = Parts.PartsType.Pitfall;
                         break;
 
->>>>>>> 980f8ca3ebe86dc5cfa3bfffbbe2acd023f072c8
                 }
 				var newPartsObject = Instantiate(partsObject, new Vector3(x, y, 0), Quaternion.identity, transform) as GameObject;
 				var newParts = newPartsObject.GetComponent<Parts>();

@@ -191,10 +191,6 @@ public class Player : MonoBehaviour {
 			Trigger trigger = other.gameObject.transform.parent.gameObject.GetComponent<Trigger>();
 			if(trigger.thisType == Trigger.TriggerType.Button|| trigger.thisType == Trigger.TriggerType.MinusButton) {
 				trigger.isThisGimmick = true;
-<<<<<<< HEAD
-=======
-
->>>>>>> 980f8ca3ebe86dc5cfa3bfffbbe2acd023f072c8
             }
 
 			if (Input.GetKeyDown(KeyCode.Space)) {

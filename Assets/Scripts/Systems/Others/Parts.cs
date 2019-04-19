@@ -6,16 +6,16 @@ using UnityEngine.SceneManagement;
 public class Parts : MonoBehaviour {
 
     private Transform thisTransform;
-<<<<<<< HEAD
+
     private float doorFirstPosY;
     private float floorFirstPosX;
-=======
+
     private Transform pitfallLeftAxis;
     private Transform pitfallRightAxis;
     private float objFirstPosY;
     private float objFirstPosX;
     private float objFirstPosZ;
->>>>>>> 980f8ca3ebe86dc5cfa3bfffbbe2acd023f072c8
+
 
     private float explosionCounter = 0;
     private bool explosionActive = false;
@@ -33,15 +33,12 @@ public class Parts : MonoBehaviour {
 		Bridge,
         Bomb,
         ChangeScene,
-<<<<<<< HEAD
         MoveFordBackFloor,
-=======
         MoveHorizontalObj,
         MoveVerticalObj,
         MoveDepthObj,
         Slope,
         Pitfall    //＋トリガー動作で停止、-トリガー動作で動く
->>>>>>> 980f8ca3ebe86dc5cfa3bfffbbe2acd023f072c8
     }
 	[HideInInspector]
 	public PartsType thisType = PartsType.Default;
@@ -73,10 +70,8 @@ public class Parts : MonoBehaviour {
 	// Start is called before the first frame update
 	void Start() {
         thisTransform = gameObject.GetComponent<Transform>();
-<<<<<<< HEAD
         doorFirstPosY = thisTransform.position.y;
         floorFirstPosX = thisTransform.position.x;
-=======
         objFirstPosY = thisTransform.position.y;
         objFirstPosX = thisTransform.position.x;
         objFirstPosZ = thisTransform.position.z;
@@ -86,7 +81,6 @@ public class Parts : MonoBehaviour {
             pitfallRightAxis = transform.GetChild(1).transform;
         }
 
->>>>>>> 980f8ca3ebe86dc5cfa3bfffbbe2acd023f072c8
         if (thisType == PartsType.Default) {
 			Debug.Log("エラー文");
 		}
@@ -146,12 +140,12 @@ public class Parts : MonoBehaviour {
                 }
                 break;
 
-<<<<<<< HEAD
             case PartsType.MoveFordBackFloor:
                 if (thisTransform.position.x <= floorFirstPosX + FLOOR_FRONT_RANGE) {
                     thisTransform.Translate(FLOOR_MOVE_FRONT_SPEED * Time.deltaTime, 0, 0);
                 }
-=======
+                break;
+
             case PartsType.MoveHorizontalObj:
                 if (thisTransform.position.x <= objFirstPosX + MOVE_HORIZONTAL_OBJ_RANGE) {
                     thisTransform.Translate(MOVE_HORIZONTAL_OBJ_SPEED * Time.deltaTime, 0, 0);
@@ -178,7 +172,6 @@ public class Parts : MonoBehaviour {
 
             case PartsType.Pitfall:
                 trapActionStop = true;
->>>>>>> 980f8ca3ebe86dc5cfa3bfffbbe2acd023f072c8
                 break;
 
             default:
@@ -195,27 +188,24 @@ public class Parts : MonoBehaviour {
 	public void ActionPartsMinus() {
 		switch (thisType) {
 			case PartsType.Door:
-<<<<<<< HEAD
-                if (thisTransform.position.y >= doorFirstPosY) {
-=======
-                if (thisTransform.position.y >= objFirstPosY) {
->>>>>>> 980f8ca3ebe86dc5cfa3bfffbbe2acd023f072c8
-                    thisTransform.Translate(0, -DOOR_UP_SPEED * Time.deltaTime, 0);
+                if (thisTransform.position.y >= doorFirstPosY)
+                {
+                    if (thisTransform.position.y >= objFirstPosY)
+                    {
+                        thisTransform.Translate(0, -DOOR_UP_SPEED * Time.deltaTime, 0);
+                    }
+                    break;
                 }
                 break;
-
 			case PartsType.Bridge:
-<<<<<<< HEAD
                 if (thisTransform.rotation.eulerAngles.z >= -90) {
-                    var rot = new Vector3(0, 0, -BRIDGE_SPEED * Time.deltaTime);
-                    transform.Rotate(rot);
+                    var rotn = new Vector3(0, 0, -BRIDGE_SPEED * Time.deltaTime);
+                    transform.Rotate(rotn);
                 }
-=======
                 
                     var rot = new Vector3(0, 0, -BRIDGE_SPEED * Time.deltaTime);
                     transform.Rotate(rot);
                 
->>>>>>> 980f8ca3ebe86dc5cfa3bfffbbe2acd023f072c8
                 break;
 
 			case PartsType.Bomb:
@@ -226,12 +216,10 @@ public class Parts : MonoBehaviour {
                //none
                 break;
 
-<<<<<<< HEAD
             case PartsType.MoveFordBackFloor:
                 //if (thisTransform.position.x >= floorFirstPosX - FLOOR_FRONT_RANGE) {
                 //    thisTransform.Translate(-FLOOR_MOVE_FRONT_SPEED * Time.deltaTime, 0, 0);
                 //}
-=======
             case PartsType.MoveHorizontalObj:
 				if (thisTransform.position.x >= objFirstPosX) {
 					thisTransform.Translate(-MOVE_HORIZONTAL_OBJ_SPEED * Time.deltaTime, 0, 0);
@@ -258,7 +246,6 @@ public class Parts : MonoBehaviour {
 
             case PartsType.Pitfall:
                 trapActionStop = false;
->>>>>>> 980f8ca3ebe86dc5cfa3bfffbbe2acd023f072c8
                 break;
 
             default:

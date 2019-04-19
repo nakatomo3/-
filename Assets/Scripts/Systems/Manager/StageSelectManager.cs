@@ -20,11 +20,9 @@ public class StageSelectManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
-<<<<<<< HEAD
-=======
 
 	}
->>>>>>> 980f8ca3ebe86dc5cfa3bfffbbe2acd023f072c8
+
         //#if UNITY_EDITOR
         //		if (Input.anyKey) {
         //			PlayerPrefs.SetInt("stage", selectingStageNum);
@@ -58,11 +56,11 @@ public class StageSelectManager : MonoBehaviour {
 //            }
 //        }
 
-<<<<<<< HEAD
-    }
-=======
+
     //}
->>>>>>> 980f8ca3ebe86dc5cfa3bfffbbe2acd023f072c8
+
+    //}
+
 
 	public void ChangeStage() {
 		//selectingStageNumのステージに移動
