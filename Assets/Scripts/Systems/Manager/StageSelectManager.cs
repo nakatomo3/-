@@ -63,4 +63,28 @@ public class StageSelectManager : MonoBehaviour {
 		PlayerPrefs.SetInt("stage", selectingStageNum);
 		SceneManager.LoadScene("Game");
 	}
+
+    public void ChangeStage2() {
+        selectingStageNum = 1;
+        PlayerPrefs.SetInt("stage", selectingStageNum);
+        SceneManager.LoadScene("Game");
+
+    }
+
+    public void ChangeStage3() {
+        selectingStageNum = 2;
+        PlayerPrefs.SetInt("stage", selectingStageNum);
+        SceneManager.LoadScene("Game");
+    }
+
+    public void ChangeStage4() {
+        selectingStageNum = 3;
+        PlayerPrefs.SetInt("stage", selectingStageNum);
+        SceneManager.LoadScene("Game");
+    }
+    public void ChangeStage5() {
+        selectingStageNum = 4;
+        PlayerPrefs.SetInt("stage", selectingStageNum);
+        SceneManager.LoadScene("Game");
+    }
 }

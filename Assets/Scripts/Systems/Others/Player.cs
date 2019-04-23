@@ -22,7 +22,7 @@ public class Player : MonoBehaviour {
 
 	[HideInInspector]
 	public bool isGimmickMode = false;
-	private Rigidbody rigidbody;
+	public Rigidbody rigidbody;
 	private Collider thisCollider;
 
 	//[SerializeField]
@@ -34,6 +34,10 @@ public class Player : MonoBehaviour {
 
 	private bool canRightMove = true;
 	private bool canLeftMove = true;
+
+   // [HideInInspector]
+    public float springSpeed = 0;
+    private const float SPRING_COEFFICIENT = 0.9f;
 
     private void Awake() {
         instance = this;
@@ -65,8 +69,10 @@ public class Player : MonoBehaviour {
 			}
 
 		}
-		if (Input.GetKeyUp(KeyCode.W) && isJumping != true) {
-			rigidbody.velocity = new Vector3(0, jumpRange, 0);
+		if (Input.GetKeyUp(KeyCode.W)) {
+            if (isJumping != true) {
+                rigidbody.velocity = new Vector3(0, jumpRange, 0);
+            }
 			thisTransform.localScale = new Vector3(1, 1, 1);
 			visualTransform.localPosition = new Vector3(0, 0, 0);
 			isJumping = true;
@@ -80,7 +86,23 @@ public class Player : MonoBehaviour {
 			visualTransform.Rotate(0, -jumpRotateSpeed,0);
 			jumpRotateSpeed *= 0.98f;
 		}
-	}
+
+        springSpeed *= SPRING_COEFFICIENT;
+        if(springSpeed < 0) {
+            if(canLeftMove == true) {
+                thisTransform.position += new Vector3(springSpeed, 0, 0);
+            } else {
+                springSpeed = 0;
+            }
+        }
+        if (springSpeed > 0) {
+            if(canLeftMove == true) {
+                thisTransform.position += new Vector3(springSpeed, 0, 0);
+            } else {
+                springSpeed = 0;
+            }
+        }
+    }
 
 	/// <summary>
 	/// プレイヤーが死んだときの処理
@@ -157,7 +179,7 @@ public class Player : MonoBehaviour {
 			if(collision.gameObject.transform.position.x >= thisTransform.position.x) {
 				//右側に行けない
 				canRightMove = false;
-			} else {
+            } else {
 				canLeftMove = false;
 				//左側
 			}
@@ -171,6 +193,9 @@ public class Player : MonoBehaviour {
 			canLeftMove = true;
 			canRightMove = true;
 		}
+        if (collision.gameObject.CompareTag("Ground")) {
+            isJumping = true;
+        }
 	}
 
 	private void OnCollisionStay(Collision collision) {

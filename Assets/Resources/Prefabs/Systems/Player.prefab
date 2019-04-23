@@ -142,6 +142,7 @@ MonoBehaviour:
   visualTransform: {fileID: 8050999089791901510}
   underTransform: {fileID: 4910923404560032670}
   isGimmickMode: 0
+  rigidbody: {fileID: 0}
 --- !u!54 &3346028013632739254
 Rigidbody:
   m_ObjectHideFlags: 0

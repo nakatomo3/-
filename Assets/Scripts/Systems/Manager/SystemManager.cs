@@ -213,11 +213,35 @@ public class SystemManager : MonoBehaviour {
                         partsType = Parts.PartsType.Pitfall;
                         break;
 
-                    case "ThingFallTrap":
-                        partsObject = Resources.Load("Prefabs/Parts/ThingFallTrap") as GameObject;
-                        partsType = Parts.PartsType.ThingFallTrap;
+                    case "ObjFallTrap":
+                        partsObject = Resources.Load("Prefabs/Parts/ObjFallTrap") as GameObject;
+                        partsType = Parts.PartsType.ObjFallTrap;
                         break;
 
+                    case "FlameThrower":
+                        partsObject = Resources.Load("Prefabs/Parts/FlameThrower") as GameObject;
+                        partsType = Parts.PartsType.FlameThrower;
+                        break;
+
+                    case "InterposeTrap":
+                        partsObject = Resources.Load("Prefabs/Parts/InterposeTrap") as GameObject;
+                        partsType = Parts.PartsType.InterposeTrap;
+                        break;
+
+                    case "ImpulseUp":
+                        partsObject = Resources.Load("Prefabs/Parts/ImpulseUp") as GameObject;
+                        partsType = Parts.PartsType.ImpulseUp;
+                        break;
+
+                    case "ImpulseLeft":
+                        partsObject = Resources.Load("Prefabs/Parts/ImpulseLeft") as GameObject;
+                        partsType = Parts.PartsType.ImpulseLeft;
+                        break;
+
+                    case "ImpulseRight":
+                        partsObject = Resources.Load("Prefabs/Parts/ImpulseRight") as GameObject;
+                        partsType = Parts.PartsType.ImpulseRight;
+                        break;
                 }
 				var newPartsObject = Instantiate(partsObject, new Vector3(x, y, 0), Quaternion.identity, transform) as GameObject;
 				var newParts = newPartsObject.GetComponent<Parts>();

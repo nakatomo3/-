@@ -24,9 +24,9 @@
     
         <Parts>
             <ConnectNumber>1</ConnectNumber>
-            <Name>ThingFallTrap</Name>
-            <X>19</X>
-            <Y>15</Y>
+            <Name>ImpulseRight</Name>
+            <X>2</X>
+            <Y>13</Y>
         </Parts>
 
       <Trigger>

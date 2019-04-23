@@ -6,8 +6,10 @@ using UnityEngine.SceneManagement;
 public class Parts : MonoBehaviour {
 
     private Transform thisTransform;
-    private Transform pitfallLeftAxis;
-    private Transform pitfallRightAxis;
+    private Transform leftRotateAxis;
+    private Transform rightRotateAxis;
+    private GameObject Flame;
+    private Vector3 impulseVector;
     private float thisFirstPosY;
     private float thisFirstPosX;
     private float thisFirstPosZ;
@@ -20,10 +22,12 @@ public class Parts : MonoBehaviour {
     private bool isTrapAction = false;
     private bool isTrapActionStop = false;
 
-    private float pitfallRotateCounter = 0;
+    private float trapRotateCounter = 0;
 
-    private float upInterval = 0;
-    private bool willMoveUp = false;
+    private float positionResetInterval = 0;
+    private bool willPositionReset = false;
+
+    private bool isImpulse = true;
 
     public enum PartsType {
 		Default,
@@ -35,8 +39,13 @@ public class Parts : MonoBehaviour {
         MoveVerticalObj,
         MoveDepthObj,
         Slope,
-        Pitfall,
-        ThingFallTrap
+        Pitfall,        //落とし穴
+        ObjFallTrap,   //落下してくるトラップ
+        FlameThrower,  //炎が出るトラップ
+        InterposeTrap,   //挟むトラップ
+        ImpulseUp,
+        ImpulseLeft,
+        ImpulseRight
     }
 	[HideInInspector]
 	public PartsType thisType = PartsType.Default;
@@ -59,23 +68,43 @@ public class Parts : MonoBehaviour {
     private const float SLOPE_SIDE_SPEED = 1;
     private const float SLOPE_SIDE_RANGE = 10;
 
-    private const float PITFALL_ROTATE_SPEED = 300;
-    private const float PITFALL_RANGE = 90;
+    private const float TRAP_ROTATE_SPEED = 300;
+    private const float TRAP_ROTATE_RANGE = 90;
 
-    private const float FALL_SPEED = 10;
-    private const float UP_INTERVAL = 1;
-    private const float UP_SPEED = 1;
+    private const float FALL_SPEED = 15;
+    private const float POSITION_RESET_INTERVAL = 1.5f;
+    private const float POSITION_RESET_MOVE_SPEED = 1;
 
-	// Start is called before the first frame update
-	void Start() {
+    private const float IMPULSE_UP_POWER =10;
+    private const float IMPULSE_VIRTICAL_POWER = 2.0f;
+    private const float IMPULSE_ACTION_SPEED = 40;
+    private const float IMPULSE_ACTION_RANGE = 1;
+
+    // Start is called before the first frame update
+    void Start() {
         thisTransform = gameObject.GetComponent<Transform>();
         thisFirstPosY = thisTransform.position.y;
         thisFirstPosX = thisTransform.position.x;
         thisFirstPosZ = thisTransform.position.z;
 
-        if (thisType == PartsType.Pitfall) {
-            pitfallLeftAxis = transform.GetChild(0).transform;
-            pitfallRightAxis = transform.GetChild(1).transform;
+        switch (thisType) {
+            case PartsType.Pitfall:
+                leftRotateAxis = transform.GetChild(0).transform;
+                rightRotateAxis = transform.GetChild(1).transform;
+                break;
+
+            case PartsType.FlameThrower:
+                Flame = transform.GetChild(0).gameObject;
+                break;
+
+            case PartsType.InterposeTrap:
+                leftRotateAxis = transform.GetChild(0).transform;
+                rightRotateAxis = transform.GetChild(1).transform;
+                break;
+
+            case PartsType.ImpulseUp:
+                impulseVector = new Vector3(0, IMPULSE_UP_POWER, 0);
+                break;
         }
 
         if (thisType == PartsType.Default) {
@@ -165,7 +194,27 @@ public class Parts : MonoBehaviour {
                 isTrapActionStop = true;
                 break;
 
-            case PartsType.ThingFallTrap:
+            case PartsType.ObjFallTrap:
+                isTrapActionStop = true;
+                break;
+
+            case PartsType.FlameThrower:
+                isTrapAction = false;
+                break;
+
+            case PartsType.InterposeTrap:
+                isTrapActionStop = true;
+                break;
+
+            case PartsType.ImpulseUp:
+                isTrapActionStop = true;
+                break;
+
+            case PartsType.ImpulseLeft:
+                isTrapActionStop = true;
+                break;
+
+            case PartsType.ImpulseRight:
                 isTrapActionStop = true;
                 break;
 
@@ -189,10 +238,8 @@ public class Parts : MonoBehaviour {
                 break;
 
 			case PartsType.Bridge:
-                
                     var rot = new Vector3(0, 0, -BRIDGE_SPEED * Time.deltaTime);
                     transform.Rotate(rot);
-                
                 break;
 
 			case PartsType.Bomb:
@@ -231,8 +278,28 @@ public class Parts : MonoBehaviour {
                 isTrapActionStop = false;
                 break;
 
-            case PartsType.ThingFallTrap:
+            case PartsType.ObjFallTrap:
                 isTrapActionStop = false;
+                break;
+
+            case PartsType.FlameThrower:
+                isTrapAction = true;
+                break;
+
+            case PartsType.InterposeTrap:
+                isTrapActionStop = false;
+                break;
+
+            case PartsType.ImpulseUp:
+                isTrapActionStop = false;
+                break;
+
+            case PartsType.ImpulseLeft:
+                isTrapActionStop = true;
+                break;
+
+            case PartsType.ImpulseRight:
+                isTrapActionStop = true;
                 break;
 
             default:
@@ -246,51 +313,191 @@ public class Parts : MonoBehaviour {
         switch (thisType) {
             case PartsType.Pitfall:
                 if (isTrapActionStop == false) {
-                    if (pitfallRotateCounter <= PITFALL_RANGE && isTrapActionStop == true) {
-                        pitfallLeftAxis.Rotate(0, 0, -PITFALL_ROTATE_SPEED * Time.deltaTime);
-                        pitfallRightAxis.Rotate(0, 0, PITFALL_ROTATE_SPEED * Time.deltaTime);
-                        pitfallRotateCounter += PITFALL_ROTATE_SPEED * Time.deltaTime;
+                    if (trapRotateCounter <= TRAP_ROTATE_RANGE && isTrapAction == true) {
+                        leftRotateAxis.Rotate(0, 0, -TRAP_ROTATE_SPEED * Time.deltaTime);
+                        rightRotateAxis.Rotate(0, 0, TRAP_ROTATE_SPEED * Time.deltaTime);
+                        trapRotateCounter += TRAP_ROTATE_SPEED * Time.deltaTime;
 
-                    } else if (pitfallRotateCounter >= 5 && isTrapActionStop == false) {
-                        pitfallLeftAxis.Rotate(0, 0, PITFALL_ROTATE_SPEED * Time.deltaTime);
-                        pitfallRightAxis.Rotate(0, 0, -PITFALL_ROTATE_SPEED * Time.deltaTime);
-                        pitfallRotateCounter -= PITFALL_ROTATE_SPEED * Time.deltaTime;
+                    } else if (trapRotateCounter >= 5 && isTrapAction == false) {
+                        leftRotateAxis.Rotate(0, 0, TRAP_ROTATE_SPEED * Time.deltaTime);
+                        rightRotateAxis.Rotate(0, 0, -TRAP_ROTATE_SPEED * Time.deltaTime);
+                        trapRotateCounter -= TRAP_ROTATE_SPEED * Time.deltaTime;
 
                     }
                 }
 
                 break;
 
-            case PartsType.ThingFallTrap:
+            case PartsType.ObjFallTrap:
                 if (isTrapActionStop == false) {
                     if (isTrapAction == true) {
                         thisTransform.Translate(0, -FALL_SPEED*Time.deltaTime, 0);
+                        positionResetInterval = 0;
 
-                    }else if (willMoveUp == true) {                       
-                        if (upInterval >= UP_INTERVAL) {  
+                    } else if (willPositionReset == true) {                       
+                        if (positionResetInterval >= POSITION_RESET_INTERVAL) {  
                             if (thisFirstPosY <= thisTransform.position.y) {
-                                willMoveUp = false;
+                                willPositionReset = false;
                             }
-                            thisTransform.Translate(0, UP_SPEED * Time.deltaTime, 0);
+                            thisTransform.Translate(0, POSITION_RESET_MOVE_SPEED * Time.deltaTime, 0);
                         }
-                        upInterval += Time.deltaTime;
+                        positionResetInterval += Time.deltaTime;
                     }
                     
                 }
+                break;
 
+            case PartsType.FlameThrower:
+                Flame.SetActive(!isTrapAction);
+                break;
+
+            case PartsType.InterposeTrap:
+                if (isTrapActionStop == false) {
+                    if (trapRotateCounter <= TRAP_ROTATE_RANGE && isTrapAction == true) {
+                        leftRotateAxis.Rotate(0, 0, -TRAP_ROTATE_SPEED * Time.deltaTime);
+                        rightRotateAxis.Rotate(0, 0, TRAP_ROTATE_SPEED * Time.deltaTime);
+                        trapRotateCounter += TRAP_ROTATE_SPEED * Time.deltaTime;
+
+                    } else if (trapRotateCounter >= 5 && isTrapAction == false) {
+                        leftRotateAxis.Rotate(0, 0, TRAP_ROTATE_SPEED * Time.deltaTime);
+                        rightRotateAxis.Rotate(0, 0, -TRAP_ROTATE_SPEED * Time.deltaTime);
+                        trapRotateCounter -= TRAP_ROTATE_SPEED * Time.deltaTime;
+
+                    }
+                }
+                break;
+
+            case PartsType.ImpulseUp:
+                if (isTrapAction == true) {
+
+                    if (isImpulse == true && willPositionReset == false) {
+                        //   Player.instance.rigidbody.velocity = new Vector3(0, IMPULSE_POWER, 0);
+                        Player.instance.rigidbody.AddForce(impulseVector, ForceMode.Impulse);
+                        isImpulse = false;
+                    }
+                    if (thisTransform.position.y <= thisFirstPosY + IMPULSE_ACTION_RANGE && willPositionReset == false) {
+                        thisTransform.Translate(0, IMPULSE_ACTION_SPEED * Time.deltaTime, 0);
+
+                        if (thisTransform.position.y >= thisFirstPosY + IMPULSE_ACTION_RANGE) {
+                            willPositionReset = true;
+                        }
+                    }
+                    if (willPositionReset == true) {
+                        if (positionResetInterval >= POSITION_RESET_INTERVAL) {
+                            thisTransform.Translate(0, -IMPULSE_ACTION_SPEED * Time.deltaTime, 0);
+
+                        }
+                        if (thisTransform.position.y <= thisFirstPosY) {
+                            willPositionReset = false;
+                            isTrapAction = false;
+                            isImpulse = true;
+                            positionResetInterval = 0;
+                        }
+                        positionResetInterval += Time.deltaTime;
+                    }
+                    
+                }
+                break;
+
+            case PartsType.ImpulseLeft:
+                if (isTrapAction == true) {
+
+                    Debug.Log(isImpulse + ":" + willPositionReset);
+                    if (isImpulse == true && willPositionReset == false) {
+                        Player.instance.springSpeed = -IMPULSE_VIRTICAL_POWER;
+                        isImpulse = false;
+                    }
+                    if (thisTransform.position.x >= thisFirstPosX - IMPULSE_ACTION_RANGE && willPositionReset == false) {
+                        thisTransform.Translate(-IMPULSE_ACTION_SPEED * Time.deltaTime, 0, 0);
+
+                        if (thisTransform.position.x <= thisFirstPosX - IMPULSE_ACTION_RANGE) {
+                            willPositionReset = true;
+                        }
+                    }
+                    if (willPositionReset == true) {
+                        if (positionResetInterval >= POSITION_RESET_INTERVAL) {
+                            thisTransform.Translate(IMPULSE_ACTION_SPEED * Time.deltaTime, 0, 0);
+                        }
+                        if (thisTransform.position.x >= thisFirstPosX) {
+                            willPositionReset = false;
+                            isTrapAction = false;
+                            isImpulse = true;
+                            positionResetInterval = 0;
+                        }
+                        positionResetInterval += Time.deltaTime;
+                    }
+                    Debug.Log(isImpulse + ":" + willPositionReset);
+                }
+                break;
+
+            case PartsType.ImpulseRight:
+                if (isTrapAction == true) {
+
+                    Debug.Log(isImpulse + ":" + willPositionReset);
+                    if (isImpulse == true && willPositionReset == false) {
+                        Player.instance.springSpeed = IMPULSE_VIRTICAL_POWER;
+                        isImpulse = false;
+                    }
+                    if (thisTransform.position.x <= thisFirstPosX + IMPULSE_ACTION_RANGE && willPositionReset == false) {
+                        thisTransform.Translate(IMPULSE_ACTION_SPEED * Time.deltaTime, 0, 0);
+
+                        if (thisTransform.position.x >= thisFirstPosX + IMPULSE_ACTION_RANGE) {
+                            willPositionReset = true;
+                        }
+                    }
+                    if (willPositionReset == true) {
+                        if (positionResetInterval >= POSITION_RESET_INTERVAL) {
+                            thisTransform.Translate(-IMPULSE_ACTION_SPEED * Time.deltaTime, 0, 0);
+                        }
+                        if (thisTransform.position.x <= thisFirstPosX) {
+                            willPositionReset = false;
+                            isTrapAction = false;
+                            isImpulse = true;
+                            positionResetInterval = 0;
+                        }
+                        positionResetInterval += Time.deltaTime;
+                    }
+
+                }
                 break;
         }
     }
 
     private void OnCollisionEnter(Collision collision) {
-        if (collision.gameObject.tag == "Ground" ) {
-        switch (thisType) {
-            case PartsType.ThingFallTrap:
-                willMoveUp = true;
-                isTrapAction = false;
-                break;
+        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag=="Player") {
+            switch (thisType) {
+                case PartsType.ObjFallTrap:
+                    willPositionReset = true;
+                    isTrapAction = false;
+                    break;
+            }
+
         }
-       }
+        
+    }
+
+    private void OnCollisionStay(Collision collision) {
+        if (collision.gameObject.tag == "Player") {
+            switch (thisType) {
+                case PartsType.ImpulseUp:
+                    if (isTrapAction == true) {
+                        isImpulse = true;
+                    }
+                    break;
+
+                case PartsType.ImpulseLeft:
+                    if (isTrapAction == true) {
+                        isImpulse = true;
+                    }
+                    break;
+
+                case PartsType.ImpulseRight:
+                    if (isTrapAction == true) {
+                        isImpulse = true;
+                    }
+                    break;
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other) {
@@ -300,14 +507,42 @@ public class Parts : MonoBehaviour {
                     isTrapAction = true;
                     break;
 
+                case PartsType.InterposeTrap:
+                    isTrapAction = true;
+                    break;
+
+                case PartsType.ImpulseUp:
+                    if (willPositionReset == false && isTrapActionStop == false) {
+                        isTrapAction = true;
+                    }
+                    break;
+
+                case PartsType.ImpulseLeft:
+                    if (willPositionReset == false && isTrapActionStop == false) {
+                        isTrapAction = true;
+                    }
+                    break;
+
+                case PartsType.ImpulseRight:
+                    if (willPositionReset == false && isTrapActionStop == false) {
+                        isTrapAction = true;
+                    }
+                    break;
+
+
             }
         }
+      
     }
 
     private void OnTriggerExit(Collider other) {
         if (other.gameObject.tag == "Player") {
             switch (thisType) {
                 case PartsType.Pitfall:
+                    isTrapAction = false;
+                    break;
+
+                case PartsType.InterposeTrap:
                     isTrapAction = false;
                     break;
             }
@@ -317,11 +552,13 @@ public class Parts : MonoBehaviour {
     private void OnTriggerStay(Collider other) {
         if (other.gameObject.tag == "Player") {
             switch (thisType) {
-                case PartsType.ThingFallTrap:
-                    if (willMoveUp == false) {
+                case PartsType.ObjFallTrap:
+                    if (willPositionReset == false) {
                         isTrapAction = true;
                     }
                     break;
+
+               
             }
         }
     }

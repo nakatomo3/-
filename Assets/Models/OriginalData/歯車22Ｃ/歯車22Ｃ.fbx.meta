@@ -3,27 +3,17 @@ guid: 673ed03986065ee4f8b89f4872c650f3
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: obj1
-    100002: obj2
-    100004: obj3
-    100006: //RootNode
-    400000: obj1
-    400002: obj2
-    400004: obj3
-    400006: //RootNode
+    100000: obj2
+    100002: //RootNode
+    400000: obj2
+    400002: //RootNode
     2100000: mat1
-    2300000: obj1
-    2300002: obj2
-    2300004: obj3
-    2300006: //RootNode
-    3300000: obj1
-    3300002: obj2
-    3300004: obj3
-    3300006: //RootNode
+    2300000: obj2
+    2300002: //RootNode
+    3300000: obj2
+    3300002: //RootNode
     4300000: RootNode
     4300002: obj2
-    4300004: obj3
-    4300006: obj1
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
