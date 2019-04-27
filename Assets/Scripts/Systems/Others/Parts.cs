@@ -8,6 +8,7 @@ public class Parts : MonoBehaviour {
     private Transform thisTransform;
     private Transform leftRotateAxis;
     private Transform rightRotateAxis;
+    private Transform impulseObj;
     private GameObject Flame;
     private Vector3 impulseVector;
     private float thisFirstPosY;
@@ -29,10 +30,13 @@ public class Parts : MonoBehaviour {
 
     private bool isImpulse = true;
 
+    private float goalCounter = 0;
+    private bool willGoal = false;
+
     public enum PartsType {
-		Default,
-		Door,
-		Bridge,
+        Default,
+        Door,
+        Bridge,
         Bomb,
         ChangeScene,
         MoveHorizontalObj,
@@ -45,15 +49,16 @@ public class Parts : MonoBehaviour {
         InterposeTrap,   //挟むトラップ
         ImpulseUp,
         ImpulseLeft,
-        ImpulseRight
+        ImpulseRight,
+        Goal
     }
-	[HideInInspector]
-	public PartsType thisType = PartsType.Default;
+    [HideInInspector]
+    public PartsType thisType = PartsType.Default;
 
-	private const float DOOR_UP_RANGE = 5;
-	private const float DOOR_UP_SPEED = 0.8f;
+    private const float DOOR_UP_RANGE = 5;
+    private const float DOOR_UP_SPEED = 0.8f;
 
-	private const float BRIDGE_SPEED = 45;
+    private const float BRIDGE_SPEED = 45;
 
     private const float MOVE_HORIZONTAL_OBJ_RANGE = 46;
     private const float MOVE_HORIZONTAL_OBJ_SPEED = 20;
@@ -75,10 +80,13 @@ public class Parts : MonoBehaviour {
     private const float POSITION_RESET_INTERVAL = 1.5f;
     private const float POSITION_RESET_MOVE_SPEED = 1;
 
-    private const float IMPULSE_UP_POWER =10;
+    private const float IMPULSE_UP_POWER = 10;
     private const float IMPULSE_VIRTICAL_POWER = 2.0f;
     private const float IMPULSE_ACTION_SPEED = 40;
     private const float IMPULSE_ACTION_RANGE = 1;
+
+    private const float GOAL_ANIMATION = 3.0f;
+    private const float GOAL = 5.0f;
 
     // Start is called before the first frame update
     void Start() {
@@ -104,16 +112,26 @@ public class Parts : MonoBehaviour {
 
             case PartsType.ImpulseUp:
                 impulseVector = new Vector3(0, IMPULSE_UP_POWER, 0);
+                impulseObj = transform.GetChild(0).transform;
+                thisFirstPosY = impulseObj.position.y;
+                break;
+            case PartsType.ImpulseLeft:
+                impulseObj = transform.GetChild(0).transform;
+                thisFirstPosX = impulseObj.position.x;
+                break;
+            case PartsType.ImpulseRight:
+                impulseObj = transform.GetChild(0).transform;
+                thisFirstPosX = impulseObj.position.x;
                 break;
         }
 
         if (thisType == PartsType.Default) {
-			Debug.Log("エラー文");
-		}
-	}
+            Debug.Log("エラー文");
+        }
+    }
 
-	// Update is called once per frame
-	void Update() {
+    // Update is called once per frame
+    void Update() {
 
         //一定時間爆弾の爆発が残る
         if (explosionActive == true) {
@@ -131,10 +149,10 @@ public class Parts : MonoBehaviour {
     }
 
 
-	/// <summary>
-	/// 各パーツが+方向にプラス方向に動作する条件を満たしたときに呼び出される関数
-	/// </summary>
-	public void ActionPartsPlus() {
+    /// <summary>
+    /// 各パーツが+方向にプラス方向に動作する条件を満たしたときに呼び出される関数
+    /// </summary>
+    public void ActionPartsPlus() {
         switch (thisType) {
             case PartsType.Door:
                 if (thisTransform.position.y <= thisFirstPosY + DOOR_UP_RANGE) {
@@ -143,10 +161,10 @@ public class Parts : MonoBehaviour {
                 break;
 
             case PartsType.Bridge:
-                
-                    var rot = new Vector3(0, 0, BRIDGE_SPEED * Time.deltaTime);
-                    transform.Rotate(rot);
-                
+
+                var rot = new Vector3(0, 0, BRIDGE_SPEED * Time.deltaTime);
+                transform.Rotate(rot);
+
                 break;
 
             case PartsType.Bomb:
@@ -158,11 +176,11 @@ public class Parts : MonoBehaviour {
 
             case PartsType.ChangeScene:
                 changeSceneTime += Time.deltaTime;
-                
+
                 if (changeSceneTime >= 1.0) {
-					Instantiate(Resources.Load("Prefabs/Systems/Clear"),SystemManager.instance.transform);
-					Destroy(this);
-					Destroy(Player.instance);
+                    Instantiate(Resources.Load("Prefabs/Systems/Clear"), SystemManager.instance.transform);
+                    Destroy(this);
+                    Destroy(Player.instance);
                 }
                 break;
 
@@ -180,7 +198,7 @@ public class Parts : MonoBehaviour {
 
             case PartsType.MoveDepthObj:
                 if (thisTransform.position.z <= thisFirstPosZ + MOVE_DEPTH_OBJ_RANGE) {
-                    thisTransform.Translate(0,0, MOVE_DEPTH_OBJ_SPEED * Time.deltaTime);
+                    thisTransform.Translate(0, 0, MOVE_DEPTH_OBJ_SPEED * Time.deltaTime);
                 }
                 break;
 
@@ -218,43 +236,59 @@ public class Parts : MonoBehaviour {
                 isTrapActionStop = true;
                 break;
 
+            case PartsType.Goal:
+                goalCounter += Time.deltaTime;
+                Debug.Log("GoalCounter:" + goalCounter);
+                if (goalCounter <= GOAL_ANIMATION) {
+                } else if (goalCounter >= GOAL) {
+                    //SceneManager.LoadScene("StageSelect");
+                    if (Player.instance.isCollectGets[0] == true) {
+                        PlayerPrefs.SetInt(SystemManager.instance.stageNum + "1", 1);
+                    }
+                    if (Player.instance.isCollectGets[1] == true) {
+                        PlayerPrefs.SetInt(SystemManager.instance.stageNum + "2", 1);
+                    }
+                    Destroy(gameObject);
+                }
+                break;
+
             default:
-               
+
                 break;
 
         }
-	}
+    }
 
-	/// <summary>
-	/// パーツがマイナス方向に動作するときの関数
-	/// もしなかったらその旨をコメントに残しておくこと
-	/// </summary>
-	public void ActionPartsMinus() {
-		switch (thisType) {
-			case PartsType.Door:
+    /// <summary>
+    /// パーツがマイナス方向に動作するときの関数
+    /// もしなかったらその旨をコメントに残しておくこと
+    /// </summary>
+    public void ActionPartsMinus() {
+        switch (thisType) {
+            case PartsType.Door:
                 if (thisTransform.position.y >= thisFirstPosY) {
                     thisTransform.Translate(0, -DOOR_UP_SPEED * Time.deltaTime, 0);
                 }
                 break;
 
-			case PartsType.Bridge:
-                    var rot = new Vector3(0, 0, -BRIDGE_SPEED * Time.deltaTime);
-                    transform.Rotate(rot);
+            case PartsType.Bridge:
+                var rot = new Vector3(0, 0, -BRIDGE_SPEED * Time.deltaTime);
+                transform.Rotate(rot);
                 break;
 
-			case PartsType.Bomb:
+            case PartsType.Bomb:
                 //none
-				break;
+                break;
 
             case PartsType.ChangeScene:
-               //none
+                //none
                 break;
 
             case PartsType.MoveHorizontalObj:
-				if (thisTransform.position.x >= thisFirstPosX) {
-					thisTransform.Translate(-MOVE_HORIZONTAL_OBJ_SPEED * Time.deltaTime, 0, 0);
-				}
-				break;
+                if (thisTransform.position.x >= thisFirstPosX) {
+                    thisTransform.Translate(-MOVE_HORIZONTAL_OBJ_SPEED * Time.deltaTime, 0, 0);
+                }
+                break;
 
             case PartsType.MoveVerticalObj:
                 if (thisTransform.position.y >= thisFirstPosY) {
@@ -301,13 +335,27 @@ public class Parts : MonoBehaviour {
             case PartsType.ImpulseRight:
                 isTrapActionStop = true;
                 break;
-
+            case PartsType.Goal:
+                goalCounter += Time.deltaTime;
+                Debug.Log("GoalCounter:" + goalCounter);
+                if (goalCounter <= GOAL_ANIMATION) {
+                } else if (goalCounter >= GOAL) {
+                    //SceneManager.LoadScene("StageSelect");
+                    if (Player.instance.isCollectGets[0] == true) {
+                        PlayerPrefs.SetInt(SystemManager.instance.stageNum + "1", 1);
+                    }
+                    if (Player.instance.isCollectGets[1] == true) {
+                        PlayerPrefs.SetInt(SystemManager.instance.stageNum + "2", 1);
+                    }
+                    Destroy(gameObject);
+                }
+                break;
             default:
 
-				break;
+                break;
 
-		}
-	}
+        }
+    }
 
     public void TrapAction() {
         switch (thisType) {
@@ -331,11 +379,11 @@ public class Parts : MonoBehaviour {
             case PartsType.ObjFallTrap:
                 if (isTrapActionStop == false) {
                     if (isTrapAction == true) {
-                        thisTransform.Translate(0, -FALL_SPEED*Time.deltaTime, 0);
+                        thisTransform.Translate(0, -FALL_SPEED * Time.deltaTime, 0);
                         positionResetInterval = 0;
 
-                    } else if (willPositionReset == true) {                       
-                        if (positionResetInterval >= POSITION_RESET_INTERVAL) {  
+                    } else if (willPositionReset == true) {
+                        if (positionResetInterval >= POSITION_RESET_INTERVAL) {
                             if (thisFirstPosY <= thisTransform.position.y) {
                                 willPositionReset = false;
                             }
@@ -343,7 +391,7 @@ public class Parts : MonoBehaviour {
                         }
                         positionResetInterval += Time.deltaTime;
                     }
-                    
+
                 }
                 break;
 
@@ -375,19 +423,19 @@ public class Parts : MonoBehaviour {
                         Player.instance.rigidbody.AddForce(impulseVector, ForceMode.Impulse);
                         isImpulse = false;
                     }
-                    if (thisTransform.position.y <= thisFirstPosY + IMPULSE_ACTION_RANGE && willPositionReset == false) {
-                        thisTransform.Translate(0, IMPULSE_ACTION_SPEED * Time.deltaTime, 0);
+                    if (impulseObj.position.y <= thisFirstPosY + IMPULSE_ACTION_RANGE && willPositionReset == false) {
+                        impulseObj.Translate(0, IMPULSE_ACTION_SPEED * Time.deltaTime, 0);
 
-                        if (thisTransform.position.y >= thisFirstPosY + IMPULSE_ACTION_RANGE) {
+                        if (impulseObj.position.y >= thisFirstPosY + IMPULSE_ACTION_RANGE) {
                             willPositionReset = true;
                         }
                     }
                     if (willPositionReset == true) {
                         if (positionResetInterval >= POSITION_RESET_INTERVAL) {
-                            thisTransform.Translate(0, -IMPULSE_ACTION_SPEED * Time.deltaTime, 0);
+                            impulseObj.Translate(0, -IMPULSE_ACTION_SPEED * Time.deltaTime, 0);
 
                         }
-                        if (thisTransform.position.y <= thisFirstPosY) {
+                        if (impulseObj.position.y <= thisFirstPosY) {
                             willPositionReset = false;
                             isTrapAction = false;
                             isImpulse = true;
@@ -395,7 +443,7 @@ public class Parts : MonoBehaviour {
                         }
                         positionResetInterval += Time.deltaTime;
                     }
-                    
+
                 }
                 break;
 
@@ -407,18 +455,18 @@ public class Parts : MonoBehaviour {
                         Player.instance.springSpeed = -IMPULSE_VIRTICAL_POWER;
                         isImpulse = false;
                     }
-                    if (thisTransform.position.x >= thisFirstPosX - IMPULSE_ACTION_RANGE && willPositionReset == false) {
-                        thisTransform.Translate(-IMPULSE_ACTION_SPEED * Time.deltaTime, 0, 0);
+                    if (impulseObj.position.x >= thisFirstPosX - IMPULSE_ACTION_RANGE && willPositionReset == false) {
+                        impulseObj.Translate(-IMPULSE_ACTION_SPEED * Time.deltaTime, 0, 0);
 
-                        if (thisTransform.position.x <= thisFirstPosX - IMPULSE_ACTION_RANGE) {
+                        if (impulseObj.position.x <= thisFirstPosX - IMPULSE_ACTION_RANGE) {
                             willPositionReset = true;
                         }
                     }
                     if (willPositionReset == true) {
                         if (positionResetInterval >= POSITION_RESET_INTERVAL) {
-                            thisTransform.Translate(IMPULSE_ACTION_SPEED * Time.deltaTime, 0, 0);
+                            impulseObj.Translate(IMPULSE_ACTION_SPEED * Time.deltaTime, 0, 0);
                         }
-                        if (thisTransform.position.x >= thisFirstPosX) {
+                        if (impulseObj.position.x >= thisFirstPosX) {
                             willPositionReset = false;
                             isTrapAction = false;
                             isImpulse = true;
@@ -438,18 +486,18 @@ public class Parts : MonoBehaviour {
                         Player.instance.springSpeed = IMPULSE_VIRTICAL_POWER;
                         isImpulse = false;
                     }
-                    if (thisTransform.position.x <= thisFirstPosX + IMPULSE_ACTION_RANGE && willPositionReset == false) {
-                        thisTransform.Translate(IMPULSE_ACTION_SPEED * Time.deltaTime, 0, 0);
+                    if (impulseObj.position.x <= thisFirstPosX + IMPULSE_ACTION_RANGE && willPositionReset == false) {
+                        impulseObj.Translate(IMPULSE_ACTION_SPEED * Time.deltaTime, 0, 0);
 
-                        if (thisTransform.position.x >= thisFirstPosX + IMPULSE_ACTION_RANGE) {
+                        if (impulseObj.position.x >= thisFirstPosX + IMPULSE_ACTION_RANGE) {
                             willPositionReset = true;
                         }
                     }
                     if (willPositionReset == true) {
                         if (positionResetInterval >= POSITION_RESET_INTERVAL) {
-                            thisTransform.Translate(-IMPULSE_ACTION_SPEED * Time.deltaTime, 0, 0);
+                            impulseObj.Translate(-IMPULSE_ACTION_SPEED * Time.deltaTime, 0, 0);
                         }
-                        if (thisTransform.position.x <= thisFirstPosX) {
+                        if (impulseObj.position.x <= thisFirstPosX) {
                             willPositionReset = false;
                             isTrapAction = false;
                             isImpulse = true;
@@ -464,7 +512,7 @@ public class Parts : MonoBehaviour {
     }
 
     private void OnCollisionEnter(Collision collision) {
-        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag=="Player") {
+        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Player") {
             switch (thisType) {
                 case PartsType.ObjFallTrap:
                     willPositionReset = true;
@@ -473,7 +521,7 @@ public class Parts : MonoBehaviour {
             }
 
         }
-        
+
     }
 
     private void OnCollisionStay(Collision collision) {
@@ -482,6 +530,9 @@ public class Parts : MonoBehaviour {
                 case PartsType.ImpulseUp:
                     if (isTrapAction == true) {
                         isImpulse = true;
+                    }
+                    if (willPositionReset == false && isTrapActionStop == false) {
+                        isTrapAction = true;
                     }
                     break;
 
@@ -532,7 +583,7 @@ public class Parts : MonoBehaviour {
 
             }
         }
-      
+
     }
 
     private void OnTriggerExit(Collider other) {
@@ -558,7 +609,7 @@ public class Parts : MonoBehaviour {
                     }
                     break;
 
-               
+
             }
         }
     }

@@ -21,26 +21,13 @@ public class OptionManager : MonoBehaviour {
     private bool isConfirmation = false;
     private bool isScreenSelect = false;
 
-    public GameObject mainRestartCursor;
     public GameObject restartConfirmation;
-    public GameObject restartYesCorsor;
-    public GameObject restartNoCorsor;
 
-    public GameObject mainOptionCursor;
     public GameObject optionSound;
-    public GameObject optionBGMCorsor;
-    public GameObject optionSECorsor;
-    public GameObject optionScreenCorsor;
-    public GameObject optionSoundBackCorsor;
     public GameObject optionScreenSelect;
-    public GameObject optionFullScreenCorsor;
-    public GameObject optionWindowCorsor;
     public GameObject optionScreenBack;
 
-    public GameObject mainExitCursor;
     public GameObject exitConfirmation;
-    public GameObject exitYesCorsor;
-    public GameObject exitNoCorsor;
 
 	public Text BGMValue;
 	public Text SEValue;
@@ -103,6 +90,8 @@ public class OptionManager : MonoBehaviour {
 			}
 		}
 
+		
+
         //----------ポーズ中の処理------------------
         if (isPause == true) {
             if (isConfirmation == false) {
@@ -127,9 +116,6 @@ public class OptionManager : MonoBehaviour {
             if (mainCursorPos == 0) {
                 //-----------Restart-----------
                 if (isConfirmation == false) {
-                    mainRestartCursor.SetActive(true);
-                    mainOptionCursor.SetActive(false);
-                    mainExitCursor.SetActive(false);
                 }
                 
                 if (isConfirmation == true) {
@@ -150,12 +136,8 @@ public class OptionManager : MonoBehaviour {
                     }
                     //カーソルの表示
                     if (restartCorsorPos == 0) {
-                        restartYesCorsor.SetActive(true);
-                        restartNoCorsor.SetActive(false);
 
                     } else if (restartCorsorPos == 1) {
-                        restartYesCorsor.SetActive(false);
-                        restartNoCorsor.SetActive(true);
                     }
 
                     //Yes or Noを選択した時の処理
@@ -166,21 +148,16 @@ public class OptionManager : MonoBehaviour {
                     } else if (restartCorsorPos == 1 && Input.GetKeyDown(KeyCode.Return)) {
                         restartConfirmation.SetActive(false);
                         isConfirmation = false;
-                        mainRestartCursor.SetActive(true);
                     }
 
                 } else if (Input.GetKeyDown(KeyCode.Return)) {
                     restartConfirmation.SetActive(true);
                     isConfirmation = true;
-                    mainRestartCursor.SetActive(false);
                 }
                 
             } else if (mainCursorPos == 1) {
                 //------------Option
                 if (isConfirmation == false) {
-                    mainRestartCursor.SetActive(false);
-                    mainOptionCursor.SetActive(true);
-                    mainExitCursor.SetActive(false);
                 }
 
                 if (isConfirmation == true) {
@@ -203,28 +180,12 @@ public class OptionManager : MonoBehaviour {
 
                         //カーソルの表示
                         if (optionSoundCorsorPos == 0) {
-                            optionBGMCorsor.SetActive(true);
-                            optionSECorsor.SetActive(false);
-                            optionScreenCorsor.SetActive(false);
-                            optionSoundBackCorsor.SetActive(false);
 
                         } else if (optionSoundCorsorPos == 1) {
-                            optionBGMCorsor.SetActive(false);
-                            optionSECorsor.SetActive(true);
-                            optionScreenCorsor.SetActive(false);
-                            optionSoundBackCorsor.SetActive(false);
 
                         } else if (optionSoundCorsorPos == 2) {
-                            optionBGMCorsor.SetActive(false);
-                            optionSECorsor.SetActive(false);
-                            optionScreenCorsor.SetActive(true);
-                            optionSoundBackCorsor.SetActive(false);
 
                         } else if (optionSoundCorsorPos == 3) {
-                            optionBGMCorsor.SetActive(false);
-                            optionSECorsor.SetActive(false);
-                            optionScreenCorsor.SetActive(false);
-                            optionSoundBackCorsor.SetActive(true);
 
                         }
 
@@ -268,14 +229,12 @@ public class OptionManager : MonoBehaviour {
 						} else if (optionSoundCorsorPos == 2 && Input.GetKeyDown(KeyCode.Return)) {
                             //Screenの大きさを変更
                             isScreenSelect = true;
-                            optionScreenCorsor.SetActive(false);
                             optionScreenSelect.SetActive(true);
 
                         } else if (optionSoundCorsorPos == 3 && Input.GetKeyDown(KeyCode.Return)) {
                             //戻る
                             optionSound.SetActive(false);
                             isConfirmation = false;
-                            mainOptionCursor.SetActive(true);
                         }
 
                         //スクリーンの大きさを選択する
@@ -298,18 +257,12 @@ public class OptionManager : MonoBehaviour {
 
                         //カーソルの表示
                         if (optionScreenCrsorPos == 0) {
-                            optionFullScreenCorsor.SetActive(true);
-                            optionWindowCorsor.SetActive(false);
                             optionScreenBack.SetActive(false);
 
                         } else if (optionScreenCrsorPos == 1) {
-                            optionFullScreenCorsor.SetActive(false);
-                            optionWindowCorsor.SetActive(true);
                             optionScreenBack.SetActive(false);
 
                         } else if (optionScreenCrsorPos == 2) {
-                            optionFullScreenCorsor.SetActive(false);
-                            optionWindowCorsor.SetActive(false);
                             optionScreenBack.SetActive(true);
 
                         }
@@ -329,14 +282,12 @@ public class OptionManager : MonoBehaviour {
                             //戻る
                             optionScreenSelect.SetActive(false);
                             isScreenSelect = false;
-                            optionScreenCorsor.SetActive(true);
                         }
                     }
 
                 } else if (Input.GetKeyDown(KeyCode.Return)) {
                     optionSound.SetActive(true);
                     isConfirmation = true;
-                    mainOptionCursor.SetActive(false);
                 }
 
 
@@ -344,9 +295,6 @@ public class OptionManager : MonoBehaviour {
             } else if (mainCursorPos == 2) {
                 //-----------Exit------------
                 if (isConfirmation == false) {
-                    mainRestartCursor.SetActive(false);
-                    mainOptionCursor.SetActive(false);
-                    mainExitCursor.SetActive(true);
                 }
 
                 if (isConfirmation == true) {
@@ -367,12 +315,8 @@ public class OptionManager : MonoBehaviour {
                     }
                     //カーソルの表示
                     if (exitCorsorPos == 0) {
-                        exitYesCorsor.SetActive(true);
-                        exitNoCorsor.SetActive(false);
 
                     } else if (exitCorsorPos == 1) {
-                        exitYesCorsor.SetActive(false);
-                        exitNoCorsor.SetActive(true);
                     }
 
                     //Yes or Noを選択した時の処理
@@ -383,13 +327,11 @@ public class OptionManager : MonoBehaviour {
                     } else if (exitCorsorPos == 1 && Input.GetKeyDown(KeyCode.Return)) {
                         exitConfirmation.SetActive(false);
                         isConfirmation = false;
-                        mainExitCursor.SetActive(true);
                     }
 
                 } else if (Input.GetKeyDown(KeyCode.Return)) {
                     exitConfirmation.SetActive(true);
                     isConfirmation = true;
-                    mainExitCursor.SetActive(false);
                 }
             }
 
