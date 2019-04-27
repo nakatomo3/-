@@ -53,6 +53,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Systems\CollectParts.cs" />
      <Compile Include="Assets\Scripts\Systems\Manager\CameraManager.cs" />
      <Compile Include="Assets\Scripts\Systems\Manager\GameOverManager.cs" />
      <Compile Include="Assets\Scripts\Systems\Manager\OptionManager.cs" />
@@ -63,14 +64,20 @@
      <Compile Include="Assets\Scripts\Systems\Others\Clear.cs" />
      <Compile Include="Assets\Scripts\Systems\Others\GameOver\FadeOut.cs" />
      <Compile Include="Assets\Scripts\Systems\Others\GameOver\GameOver.cs" />
-     <Compile Include="Assets\Scripts\Systems\Others\GameOver\Thing.cs" />
      <Compile Include="Assets\Scripts\Systems\Others\Parts.cs" />
      <Compile Include="Assets\Scripts\Systems\Others\Player.cs" />
+     <Compile Include="Assets\Scripts\Systems\Others\Thing.cs" />
      <Compile Include="Assets\Scripts\Systems\Others\Trigger.cs" />
+     <None Include="Assets\Shaders\Collect.shader" />
      <None Include="Assets\Shaders\ToonOutline.shader" />
-     <None Include="Assets\Shaders\SemiTransparent.shader" />
-     <None Include="Assets\Resources\XMLs\Stages\1.xml" />
      <None Include="Assets\Resources\XMLs\Stages\0.xml" />
+     <None Include="Assets\Shaders\SemiTransparent.shader" />
+     <None Include="Assets\Resources\XMLs\Stages\5.xml" />
+     <None Include="Assets\Resources\XMLs\Stages\1.xml" />
+     <None Include="Assets\Resources\XMLs\Stages\3.xml" />
+     <None Include="Assets\Shaders\NewUnlitShader.shader" />
+     <None Include="Assets\Resources\XMLs\Stages\4.xml" />
+     <None Include="Assets\Resources\XMLs\Stages\2.xml" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/亮介/Documents/2019.ExitFromSchool/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
