@@ -55,8 +55,8 @@ public class Parts : MonoBehaviour {
 
 	private const float BRIDGE_SPEED = 45;
 
-    private const float MOVE_HORIZONTAL_OBJ_RANGE = 7;
-    private const float MOVE_HORIZONTAL_OBJ_SPEED = 2;
+    private const float MOVE_HORIZONTAL_OBJ_RANGE = 46;
+    private const float MOVE_HORIZONTAL_OBJ_SPEED = 20;
 
     private const float MOVE_VIRTICAL_OBJ_RANGE = 7;
     private const float MOVE_VIRTICAL_OBJ_SPEED = 2;
