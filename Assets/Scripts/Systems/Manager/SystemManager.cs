@@ -85,6 +85,25 @@ public class SystemManager : MonoBehaviour {
 			return;
 		}
 
+
+		var collectParts = Resources.Load("Prefabs/Systems/CollectParts") as GameObject;
+
+		try {
+			var collect1 = xmlDoc.GetElementsByTagName("Collect1");
+			Debug.Log(collect1.Item(0).ChildNodes.Item(0).InnerText);
+
+			var pos = new Vector3(float.Parse(collect1.Item(0).ChildNodes.Item(0).InnerText), float.Parse(collect1.Item(0).ChildNodes.Item(0).InnerText), 0);
+			var newCollectParts = Instantiate(collectParts, pos, Quaternion.identity, transform);
+			newCollectParts.name = "1";
+
+			var collect2 = xmlDoc.GetElementsByTagName("Collect2");
+			pos = new Vector3(float.Parse(collect2.Item(0).ChildNodes.Item(0).InnerText), float.Parse(collect2.Item(0).ChildNodes.Item(0).InnerText), 0);
+			newCollectParts = Instantiate(collectParts, pos, Quaternion.identity, transform);
+			newCollectParts.name = "2";
+		} catch {
+			Debug.LogError("CollectPartsが指定されていません");
+		}
+
 		//トリガーの追加
 		var triggers = xmlDoc.GetElementsByTagName("Trigger");
 		for(int i = 0; i < triggers.Count; i++) {

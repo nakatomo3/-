@@ -1,15 +1,66 @@
 fileFormatVersion: 2
-guid: eae4671cd99faaa41aee70a74ed2bdf3
+guid: 407cbf1e1d3b27b4291c4f05aa2e44fd
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2100000: mat1
-    2100002: No Name
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: obj2
+    100000: obj10
+    100002: obj11
+    100004: obj12
+    100006: obj13
+    100008: obj6
+    100010: obj7
+    100012: obj8
+    100014: obj9
+    100016: parts2
+    100018: parts3
+    100020: //RootNode
+    400000: obj10
+    400002: obj11
+    400004: obj12
+    400006: obj13
+    400008: obj6
+    400010: obj7
+    400012: obj8
+    400014: obj9
+    400016: parts2
+    400018: parts3
+    400020: //RootNode
+    2100000: "\u91D1\u5C5E"
+    2100002: mat1
+    2300000: obj10
+    2300002: obj11
+    2300004: obj12
+    2300006: obj13
+    2300008: obj6
+    2300010: obj7
+    2300012: obj8
+    2300014: obj9
+    2300016: parts2
+    2300018: parts3
+    2300020: //RootNode
+    3300000: obj10
+    3300002: obj11
+    3300004: obj12
+    3300006: obj13
+    3300008: obj6
+    3300010: obj7
+    3300012: obj8
+    3300014: obj9
+    3300016: parts2
+    3300018: parts3
+    3300020: //RootNode
+    4300000: RootNode
+    4300002: parts2
+    4300004: obj6
+    4300006: obj7
+    4300008: obj9
+    4300010: obj12
+    4300012: obj13
+    4300014: parts3
+    4300016: obj8
+    4300018: obj10
+    4300020: obj11
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1

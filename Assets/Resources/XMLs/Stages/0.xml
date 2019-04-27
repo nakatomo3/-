@@ -87,6 +87,17 @@
 
     </Gimmick>
 
+    <CollectParts>
+        <Collect1>
+            <X>10</X>
+            <Y>10</Y>
+        </Collect1>
+        <Collect2>
+            <X>20</X>
+            <Y>10</Y>
+        </Collect2>
+    </CollectParts>
+
   
   <Grounds>
       <Ground>
