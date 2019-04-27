@@ -57,34 +57,12 @@ public class StageSelectManager : MonoBehaviour {
 
     //}
 
-	public void ChangeStage() {
+	public void ChangeStage(int n) {
 		//selectingStageNumのステージに移動
-		selectingStageNum = 1;
+		selectingStageNum = n;
 		PlayerPrefs.SetInt("stage", selectingStageNum);
 		SceneManager.LoadScene("Game");
 	}
 
-    public void ChangeStage2() {
-        selectingStageNum = 2;
-        PlayerPrefs.SetInt("stage", selectingStageNum);
-        SceneManager.LoadScene("Game");
 
-    }
-
-    public void ChangeStage3() {
-        selectingStageNum = 3;
-        PlayerPrefs.SetInt("stage", selectingStageNum);
-        SceneManager.LoadScene("Game");
-    }
-
-    public void ChangeStage4() {
-        selectingStageNum = 4;
-        PlayerPrefs.SetInt("stage", selectingStageNum);
-        SceneManager.LoadScene("Game");
-    }
-    public void ChangeStage5() {
-        selectingStageNum = 5;
-        PlayerPrefs.SetInt("stage", selectingStageNum);
-        SceneManager.LoadScene("Game");
-    }
 }

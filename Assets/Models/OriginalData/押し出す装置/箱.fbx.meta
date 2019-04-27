@@ -1,22 +1,14 @@
 fileFormatVersion: 2
-guid: 1988ab1957e60d147bf58ac969180459
+guid: 3d1bf398920b95a49a5d0c1c68b26a0c
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
-    100002: "\u62BC\u3057\u51FA\u3059\u90E8\u5206"
-    100004: "\u7BB1"
     400000: //RootNode
-    400002: "\u62BC\u3057\u51FA\u3059\u90E8\u5206"
-    400004: "\u7BB1"
-    2100000: mat1
-    2100002: mat2
-    2300000: "\u62BC\u3057\u51FA\u3059\u90E8\u5206"
-    2300002: "\u7BB1"
-    3300000: "\u62BC\u3057\u51FA\u3059\u90E8\u5206"
-    3300002: "\u7BB1"
-    4300000: "\u62BC\u3057\u51FA\u3059\u90E8\u5206"
-    4300002: "\u7BB1"
+    2100000: mat2
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: "\u7BB1"
   externalObjects: {}
   materials:
     importMaterials: 1
