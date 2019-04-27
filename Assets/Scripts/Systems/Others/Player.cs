@@ -35,6 +35,8 @@ public class Player : MonoBehaviour {
 	private bool canRightMove = true;
 	private bool canLeftMove = true;
 
+    public bool[] isCollectGets { private set; get; } = { false, false };
+
    // [HideInInspector]
     public float springSpeed = 0;
     private const float SPRING_COEFFICIENT = 0.9f;
