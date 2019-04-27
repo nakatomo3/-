@@ -42,7 +42,7 @@
         <Parts>
             <ConnectNumber>2</ConnectNumber>
             <Name>Bridge</Name>
-            <X>75.3</X>
+            <X>75.5</X>
             <Y>17.4</Y>
             <Rotate>315</Rotate>
         </Parts>
@@ -63,8 +63,8 @@
       <Trigger>
         <ConnectNumber>4</ConnectNumber>
         <Type>LeftGear</Type>
-        <X>90</X>
-        <Y>4</Y>
+        <X>95</X>
+        <Y>5</Y>
       </Trigger>
       <Parts>
         <ConnectNumber>4</ConnectNumber>
@@ -78,10 +78,10 @@
     <CollectParts>
        <Collect1>
          <X>5</X>
-         <Y>32</Y>
+         <Y>33</Y>
        </Collect1>
        <Collect2>
-         <X>10</X>
+         <X>87</X>
          <Y>5</Y>
        </Collect2>
     </CollectParts>
@@ -150,8 +150,25 @@
           <Rotate>0</Rotate>
           <!-- 0～360. 無ければ自動で0-->
       </Ground>
+
+    <Ground>
+      <PosX>50</PosX>
+      <PosY>40</PosY>
+      <Long>100</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
   </Grounds>
 
+  <Walls>
+    <Wall>
+      <PosX>49.5</PosX>
+      <PosY>35</PosY>
+      <Long>10</Long>
+      <Rotate>0</Rotate>
+      <!-- 自動で90度。それに対してどれだけ回転するか。無ければ自動で+0-->
+    </Wall>
+  </Walls>
 
     <!-- ゲームに影響のない見た目だけの部分。　未実装-->
     <BackGround>
