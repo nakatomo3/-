@@ -79,13 +79,13 @@
     <ConnectNumber>5</ConnectNumber>
     <Type>LeftGear</Type>
     <X>95</X>
-    <Y>32</Y>
+    <Y>33</Y>
   </Trigger>
   <Parts>
     <ConnectNumber>5</ConnectNumber>
     <Name>Goal</Name>
     <X>95</X>
-    <Y>32</Y>
+    <Y>33</Y>
   </Parts>
   
 
