@@ -60,7 +60,7 @@ public class Parts : MonoBehaviour {
 
     private const float BRIDGE_SPEED = 45;
 
-    private const float MOVE_HORIZONTAL_OBJ_RANGE = 46;
+    private const float MOVE_HORIZONTAL_OBJ_RANGE = 23;
     private const float MOVE_HORIZONTAL_OBJ_SPEED = 20;
 
     private const float MOVE_VIRTICAL_OBJ_RANGE = 7;
@@ -285,7 +285,7 @@ public class Parts : MonoBehaviour {
                 break;
 
             case PartsType.MoveHorizontalObj:
-                if (thisTransform.position.x >= thisFirstPosX) {
+                if (thisTransform.position.x >= thisFirstPosX- MOVE_HORIZONTAL_OBJ_RANGE) {
                     thisTransform.Translate(-MOVE_HORIZONTAL_OBJ_SPEED * Time.deltaTime, 0, 0);
                 }
                 break;
