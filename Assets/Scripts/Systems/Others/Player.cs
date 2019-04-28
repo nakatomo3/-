@@ -277,4 +277,14 @@ public class Player : MonoBehaviour {
 		CameraManager.instance.MoveLeft();
 	}
 
+    public void CollisionMove(bool isRight, bool isLeft) {
+        if (isRight == true) {
+            thisTransform.Translate(20 * Time.deltaTime, 0, 0);
+
+        }else if (isLeft == true) {
+            thisTransform.Translate(-20 * Time.deltaTime, 0, 0);
+        }
+        
+    }
+
 }

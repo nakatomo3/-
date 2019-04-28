@@ -262,6 +262,11 @@ public class SystemManager : MonoBehaviour {
                         partsObject = Resources.Load("Prefabs/Parts/ImpulseRight") as GameObject;
                         partsType = Parts.PartsType.ImpulseRight;
                         break;
+
+                    case "Goal":
+                        partsObject = Resources.Load("Prefabs/Parts/Goal") as GameObject;
+                        partsType = Parts.PartsType.Goal;
+                        break;
                 }
 				var newPartsObject = Instantiate(partsObject, new Vector3(x, y, 0), Quaternion.identity, transform) as GameObject;
 				var newParts = newPartsObject.GetComponent<Parts>();
