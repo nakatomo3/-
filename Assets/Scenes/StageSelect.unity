@@ -1770,6 +1770,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2684149751172981625, guid: 38aac0a364bde7f4689bbc2ae1523782,
+        type: 3}
+      propertyPath: m_Name
+      value: OptionManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2684149751172981625, guid: 38aac0a364bde7f4689bbc2ae1523782,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3533796937334878975, guid: 38aac0a364bde7f4689bbc2ae1523782,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1823,16 +1833,6 @@ PrefabInstance:
     - target: {fileID: 3533796937334878975, guid: 38aac0a364bde7f4689bbc2ae1523782,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2684149751172981625, guid: 38aac0a364bde7f4689bbc2ae1523782,
-        type: 3}
-      propertyPath: m_Name
-      value: OptionManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 2684149751172981625, guid: 38aac0a364bde7f4689bbc2ae1523782,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7809390309946589220, guid: 38aac0a364bde7f4689bbc2ae1523782,
