@@ -33,6 +33,8 @@ public class Parts : MonoBehaviour {
     private float goalCounter = 0;
     private bool willGoal = false;
 
+    private bool isMoveRight = false;
+    private bool isMoveLeft = false;
     public enum PartsType {
         Default,
         Door,
@@ -55,6 +57,7 @@ public class Parts : MonoBehaviour {
     [HideInInspector]
     public PartsType thisType = PartsType.Default;
 
+    
     private const float DOOR_UP_RANGE = 5;
     private const float DOOR_UP_SPEED = 0.8f;
 
@@ -80,10 +83,11 @@ public class Parts : MonoBehaviour {
     private const float POSITION_RESET_INTERVAL = 1.5f;
     private const float POSITION_RESET_MOVE_SPEED = 1;
 
-    private const float IMPULSE_UP_POWER = 10;
+    private const float IMPULSE_UP_POWER = 38;
     private const float IMPULSE_VIRTICAL_POWER = 2.0f;
-    private const float IMPULSE_ACTION_SPEED = 40;
-    private const float IMPULSE_ACTION_RANGE = 1;
+    private const float IMPULSE_ACTION_SPEED = 17;
+    private const float IMPULSE_ACTION_RESET_SPEED = 5;
+    private const float IMPULSE_ACTION_RANGE = 0.2f;
 
     private const float GOAL_ANIMATION = 3.0f;
     private const float GOAL = 5.0f;
@@ -148,6 +152,14 @@ public class Parts : MonoBehaviour {
         TrapAction();
     }
 
+    private void FixedUpdate() {
+        if (isMoveRight == true) {
+            thisTransform.Translate(MOVE_HORIZONTAL_OBJ_SPEED * Time.deltaTime, 0, 0);
+
+        } else if (isMoveLeft == true) {
+            thisTransform.Translate(-MOVE_HORIZONTAL_OBJ_SPEED * Time.deltaTime, 0, 0);
+        }
+    }
 
     /// <summary>
     /// 各パーツが+方向にプラス方向に動作する条件を満たしたときに呼び出される関数
@@ -161,7 +173,6 @@ public class Parts : MonoBehaviour {
                 break;
 
             case PartsType.Bridge:
-
                 var rot = new Vector3(0, 0, BRIDGE_SPEED * Time.deltaTime);
                 transform.Rotate(rot);
 
@@ -186,7 +197,10 @@ public class Parts : MonoBehaviour {
 
             case PartsType.MoveHorizontalObj:
                 if (thisTransform.position.x <= thisFirstPosX + MOVE_HORIZONTAL_OBJ_RANGE) {
-                    thisTransform.Translate(MOVE_HORIZONTAL_OBJ_SPEED * Time.deltaTime, 0, 0);
+                    isMoveRight = true;
+
+                } else {
+                    isMoveRight = false;
                 }
                 break;
 
@@ -286,7 +300,10 @@ public class Parts : MonoBehaviour {
 
             case PartsType.MoveHorizontalObj:
                 if (thisTransform.position.x >= thisFirstPosX- MOVE_HORIZONTAL_OBJ_RANGE) {
-                    thisTransform.Translate(-MOVE_HORIZONTAL_OBJ_SPEED * Time.deltaTime, 0, 0);
+                    isMoveLeft = true;
+
+                } else {
+                    isMoveLeft = false;
                 }
                 break;
 
@@ -432,7 +449,7 @@ public class Parts : MonoBehaviour {
                     }
                     if (willPositionReset == true) {
                         if (positionResetInterval >= POSITION_RESET_INTERVAL) {
-                            impulseObj.Translate(0, -IMPULSE_ACTION_SPEED * Time.deltaTime, 0);
+                            impulseObj.Translate(0, -IMPULSE_ACTION_RESET_SPEED * Time.deltaTime, 0);
 
                         }
                         if (impulseObj.position.y <= thisFirstPosY) {
@@ -464,7 +481,7 @@ public class Parts : MonoBehaviour {
                     }
                     if (willPositionReset == true) {
                         if (positionResetInterval >= POSITION_RESET_INTERVAL) {
-                            impulseObj.Translate(IMPULSE_ACTION_SPEED * Time.deltaTime, 0, 0);
+                            impulseObj.Translate(IMPULSE_ACTION_RESET_SPEED * Time.deltaTime, 0, 0);
                         }
                         if (impulseObj.position.x >= thisFirstPosX) {
                             willPositionReset = false;
@@ -495,7 +512,7 @@ public class Parts : MonoBehaviour {
                     }
                     if (willPositionReset == true) {
                         if (positionResetInterval >= POSITION_RESET_INTERVAL) {
-                            impulseObj.Translate(-IMPULSE_ACTION_SPEED * Time.deltaTime, 0, 0);
+                            impulseObj.Translate(-IMPULSE_ACTION_RESET_SPEED * Time.deltaTime, 0, 0);
                         }
                         if (impulseObj.position.x <= thisFirstPosX) {
                             willPositionReset = false;
@@ -547,6 +564,11 @@ public class Parts : MonoBehaviour {
                         isImpulse = true;
                     }
                     break;
+
+                case PartsType.MoveHorizontalObj:
+                    Player.instance.CollisionMove(isMoveRight, isMoveLeft);
+                    break;
+
             }
         }
     }
@@ -613,6 +635,5 @@ public class Parts : MonoBehaviour {
             }
         }
     }
-
 
 }
