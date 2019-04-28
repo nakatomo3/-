@@ -83,7 +83,7 @@ public class Parts : MonoBehaviour {
     private const float POSITION_RESET_INTERVAL = 1.5f;
     private const float POSITION_RESET_MOVE_SPEED = 1;
 
-    private const float IMPULSE_UP_POWER = 38;
+    private const float IMPULSE_UP_POWER = 45;
     private const float IMPULSE_VIRTICAL_POWER = 2.0f;
     private const float IMPULSE_ACTION_SPEED = 17;
     private const float IMPULSE_ACTION_RESET_SPEED = 5;
@@ -153,11 +153,13 @@ public class Parts : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        if (isMoveRight == true) {
+        if (isMoveRight == true&& thisTransform.position.x <= thisFirstPosX + MOVE_HORIZONTAL_OBJ_RANGE) {
             thisTransform.Translate(MOVE_HORIZONTAL_OBJ_SPEED * Time.deltaTime, 0, 0);
+            isMoveRight = false;
 
-        } else if (isMoveLeft == true) {
+        } else if (isMoveLeft == true&& thisTransform.position.x >= thisFirstPosX - MOVE_HORIZONTAL_OBJ_RANGE) {
             thisTransform.Translate(-MOVE_HORIZONTAL_OBJ_SPEED * Time.deltaTime, 0, 0);
+            isMoveLeft = false;
         }
     }
 
@@ -198,6 +200,7 @@ public class Parts : MonoBehaviour {
             case PartsType.MoveHorizontalObj:
                 if (thisTransform.position.x <= thisFirstPosX + MOVE_HORIZONTAL_OBJ_RANGE) {
                     isMoveRight = true;
+                    isMoveLeft = false;
 
                 } else {
                     isMoveRight = false;
@@ -301,6 +304,7 @@ public class Parts : MonoBehaviour {
             case PartsType.MoveHorizontalObj:
                 if (thisTransform.position.x >= thisFirstPosX- MOVE_HORIZONTAL_OBJ_RANGE) {
                     isMoveLeft = true;
+                    isMoveRight = false;
 
                 } else {
                     isMoveLeft = false;
