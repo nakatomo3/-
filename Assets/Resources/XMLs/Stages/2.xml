@@ -16,7 +16,7 @@
         <Parts>
             <ConnectNumber>1</ConnectNumber>
             <Name>ImpulseUp</Name>
-            <X>15</X>
+            <X>14</X>
             <Y>10</Y>
         </Parts>
       <Parts>
@@ -28,7 +28,7 @@
       <Parts>
         <ConnectNumber>1</ConnectNumber>
         <Name>ImpulseUp</Name>
-        <X>25</X>
+        <X>26</X>
         <Y>10</Y>
       </Parts>
 
