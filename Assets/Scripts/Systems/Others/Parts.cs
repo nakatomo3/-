@@ -35,6 +35,9 @@ public class Parts : MonoBehaviour {
 
     private bool isMoveRight = false;
     private bool isMoveLeft = false;
+
+    private bool isPlayerMoveRight = false;
+    private bool isPlayerMoveLeft = false;
     public enum PartsType {
         Default,
         Door,
@@ -83,7 +86,7 @@ public class Parts : MonoBehaviour {
     private const float POSITION_RESET_INTERVAL = 1.5f;
     private const float POSITION_RESET_MOVE_SPEED = 1;
 
-    private const float IMPULSE_UP_POWER = 45;
+    private const float IMPULSE_UP_POWER = 1500;
     private const float IMPULSE_VIRTICAL_POWER = 2.0f;
     private const float IMPULSE_ACTION_SPEED = 17;
     private const float IMPULSE_ACTION_RESET_SPEED = 5;
@@ -115,7 +118,7 @@ public class Parts : MonoBehaviour {
                 break;
 
             case PartsType.ImpulseUp:
-                impulseVector = new Vector3(0, IMPULSE_UP_POWER, 0);
+                impulseVector = new Vector3(0, IMPULSE_UP_POWER * Time.deltaTime, 0);
                 impulseObj = transform.GetChild(0).transform;
                 thisFirstPosY = impulseObj.position.y;
                 break;
@@ -200,10 +203,12 @@ public class Parts : MonoBehaviour {
             case PartsType.MoveHorizontalObj:
                 if (thisTransform.position.x <= thisFirstPosX + MOVE_HORIZONTAL_OBJ_RANGE) {
                     isMoveRight = true;
+                    isPlayerMoveRight = true;
                     isMoveLeft = false;
 
                 } else {
                     isMoveRight = false;
+                    isPlayerMoveRight = false;
                 }
                 break;
 
@@ -304,10 +309,12 @@ public class Parts : MonoBehaviour {
             case PartsType.MoveHorizontalObj:
                 if (thisTransform.position.x >= thisFirstPosX- MOVE_HORIZONTAL_OBJ_RANGE) {
                     isMoveLeft = true;
+                    isPlayerMoveLeft = true;
                     isMoveRight = false;
 
                 } else {
                     isMoveLeft = false;
+                    isPlayerMoveLeft = false;
                 }
                 break;
 
@@ -441,7 +448,7 @@ public class Parts : MonoBehaviour {
 
                     if (isImpulse == true && willPositionReset == false) {
                         //   Player.instance.rigidbody.velocity = new Vector3(0, IMPULSE_POWER, 0);
-                        Player.instance.rigidbody.AddForce(impulseVector, ForceMode.Impulse);
+                        Player.instance.rigidbody.AddForce(impulseVector, ForceMode.VelocityChange);
                         isImpulse = false;
                     }
                     if (impulseObj.position.y <= thisFirstPosY + IMPULSE_ACTION_RANGE && willPositionReset == false) {
@@ -473,7 +480,7 @@ public class Parts : MonoBehaviour {
 
                     Debug.Log(isImpulse + ":" + willPositionReset);
                     if (isImpulse == true && willPositionReset == false) {
-                        Player.instance.springSpeed = -IMPULSE_VIRTICAL_POWER;
+                        Player.instance.springSpeed = -IMPULSE_VIRTICAL_POWER * Time.deltaTime;
                         isImpulse = false;
                     }
                     if (impulseObj.position.x >= thisFirstPosX - IMPULSE_ACTION_RANGE && willPositionReset == false) {
@@ -504,7 +511,7 @@ public class Parts : MonoBehaviour {
 
                     Debug.Log(isImpulse + ":" + willPositionReset);
                     if (isImpulse == true && willPositionReset == false) {
-                        Player.instance.springSpeed = IMPULSE_VIRTICAL_POWER;
+                        Player.instance.springSpeed = IMPULSE_VIRTICAL_POWER*Time.deltaTime;
                         isImpulse = false;
                     }
                     if (impulseObj.position.x <= thisFirstPosX + IMPULSE_ACTION_RANGE && willPositionReset == false) {
@@ -570,7 +577,9 @@ public class Parts : MonoBehaviour {
                     break;
 
                 case PartsType.MoveHorizontalObj:
-                    Player.instance.CollisionMove(isMoveRight, isMoveLeft);
+                    Player.instance.CollisionMove(isPlayerMoveRight, isPlayerMoveLeft);
+                    isPlayerMoveLeft = false;
+                    isPlayerMoveRight = false;
                     break;
 
             }
