@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 ﻿﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":-1000.0,"y":1.0,"z":0.0},"rotation":{"x":-0.030304942280054094,"y":-0.005400240421295166,"z":0.00016372122627217323,"w":-0.9995261430740356},"size":5.097517013549805,"orthographic":false}
+=======
+﻿{"cameraMode":{"drawMode":0,"name":"Shaded","section":"Shading Mode"},"sceneLighting":true,"audioPlay":false,"sceneViewState":{"showFog":true,"showMaterialUpdate":false,"showSkybox":true,"showFlares":true,"showImageEffects":true,"showParticleSystems":true},"in2DMode":false,"pivot":{"x":65.54215240478516,"y":24.03257942199707,"z":16.612979888916017},"rotation":{"x":0.008687175810337067,"y":-0.02489917166531086,"z":-0.0002163876488339156,"w":-0.9996522068977356},"size":73.27909851074219,"orthographic":false}
+>>>>>>> pr/9
