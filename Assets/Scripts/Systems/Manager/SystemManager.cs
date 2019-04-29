@@ -295,8 +295,9 @@ public class SystemManager : MonoBehaviour {
 
 			var groundImageObject = Instantiate(groundImage, new Vector3(posX, posY,0), Quaternion.identity, transform);
 
-			groundImageObject.transform.GetChild(0).gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(groundWidth * 32+2, 64);
-			groundImageObject.transform.GetChild(1).gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(groundWidth*32+2, 32);
+			groundImageObject.transform.GetChild(0).gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(groundWidth * 32+2, 32);
+			groundImageObject.transform.GetChild(1).gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(groundWidth * 32+2, 64);
+			groundImageObject.transform.GetChild(2).gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(groundWidth * 32 + 2, 64);
 			if (grounds.Item(i).ChildNodes.Count > 4) {
 				float rotate = float.Parse(grounds.Item(i).ChildNodes.Item(3).InnerText);
 				groundObject.transform.Rotate(0, 0, rotate);
@@ -306,11 +307,17 @@ public class SystemManager : MonoBehaviour {
 
 		var walls = xmlDoc.GetElementsByTagName("Wall");
 		var wall = Resources.Load("Prefabs/StageFrames/Wall") as GameObject;
+		var wallImage = Resources.Load("Prefabs/StageFrames/WallImage") as GameObject;
 		for (int i = 0; i < walls.Count; i++) {
 			float posX = float.Parse(walls.Item(i).ChildNodes.Item(0).InnerText);
 			float posY = float.Parse(walls.Item(i).ChildNodes.Item(1).InnerText);
 			float wallWidth = float.Parse(walls.Item(i).ChildNodes.Item(2).InnerText);
 			var wallObj = Instantiate(wall, new Vector3(posX, posY, 0), Quaternion.identity, transform);
+			var wallImageObject = Instantiate(wallImage, new Vector3(posX, posY, 0), Quaternion.identity, transform);
+
+			wallImageObject.transform.GetChild(0).gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(wallWidth * 32, 32);
+			wallImageObject.transform.GetChild(1).gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(wallWidth * 32, 32 * 2);
+			wallImageObject.transform.GetChild(2).gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(wallWidth * 32, 32 * 2);
 			wallObj.transform.localScale = new Vector3(wallWidth, 1, 2);
 			wallObj.transform.Rotate(0, 0, 90);
 			if (walls.Item(i).ChildNodes.Count > 4) {
