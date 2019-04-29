@@ -2,7 +2,7 @@
   <Width>100</Width>
   <Height>100</Height>
   <StartX>5</StartX>
-  <StartY>15</StartY>
+  <StartY>32</StartY>
     <!-- トリガーを増やす場合は<Trigger>から</Trigger>までをコピーしてください -->
     <!-- 連動するパーツを増やす場合は<Parts>を増やしてください-->
     <!-- ConnectNumberが同じならば、一つのTriggerで複数のパーツが動かせます-->
@@ -15,16 +15,82 @@
         </Trigger>
         <Parts>
             <ConnectNumber>1</ConnectNumber>
-            <Name>Door</Name>
-            <X>0</X>
-            <Y>0</Y>
+            <Name>ImpulseUp</Name>
+            <X>14</X>
+            <Y>10</Y>
         </Parts>
+      <Parts>
+        <ConnectNumber>1</ConnectNumber>
+        <Name>ImpulseUp</Name>
+        <X>20</X>
+        <Y>10</Y>
+      </Parts>
+      <Parts>
+        <ConnectNumber>1</ConnectNumber>
+        <Name>ImpulseUp</Name>
+        <X>26</X>
+        <Y>10</Y>
+      </Parts>
+
+      
+      <Trigger>
+        <ConnectNumber>2</ConnectNumber>
+        <Type>Forever</Type>
+        <X>38</X>
+        <Y>33.5</Y>
+      </Trigger>
+      <Parts>
+        <ConnectNumber>2</ConnectNumber>
+        <Name>MoveHorizontalObj</Name>
+        <X>70</X>
+        <Y>33</Y>
+      </Parts>
 
 
     </Gimmick>
 
+     <CollectParts>
+        <Collect1>
+            <X>10</X>
+            <Y>10</Y>
+        </Collect1>
+        <Collect2>
+            <X>20</X>
+            <Y>10</Y>
+        </Collect2>
+    </CollectParts>
 
-    <!-- ゲームに影響のない見た目だけの部分。　未実装-->
+  <Grounds>
+  <Ground>
+    <PosX>4.5</PosX>
+    <PosY>31</PosY>
+    <Long>10</Long>
+    <Rotate>0</Rotate>
+    <!-- 0～360. 無ければ自動で0-->
+  </Ground>
+
+    <Ground>
+      <PosX>35</PosX>
+      <PosY>33</PosY>
+      <Long>15</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+  </Grounds>
+
+  <Walls>
+    <Wall>
+      <PosX>28</PosX>
+      <PosY>28</PosY>
+      <Long>10</Long>
+      <Rotate>0</Rotate>
+      <!-- 自動で90度。それに対してどれだけ回転するか。無ければ自動で+0-->
+    </Wall>
+    
+  </Walls>
+
+
+  <!-- ゲームに影響のない見た目だけの部分。　未実装-->
     <BackGround>
         <Name></Name>
         <X>0</X>
