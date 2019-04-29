@@ -204,8 +204,14 @@ public class Player : MonoBehaviour {
 	}
 
 	private void OnCollisionStay(Collision collision) {
+        if (collision.gameObject.CompareTag("Ground")) {
+            rigidbody.AddForce(new Vector3(0, 1, 0));
 
-	}
+            if (collision.gameObject.transform.position.y <= thisTransform.position.y) {
+                isJumping = false;
+            }
+        }
+    }
 
 	private void OnTriggerEnter(Collider other) {
 		if (other.gameObject.CompareTag("Trigger")) {

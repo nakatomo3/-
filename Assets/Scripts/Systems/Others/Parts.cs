@@ -57,7 +57,7 @@ public class Parts : MonoBehaviour {
         ImpulseRight,
         Goal
     }
-    [HideInInspector]
+
     public PartsType thisType = PartsType.Default;
 
     
@@ -86,7 +86,7 @@ public class Parts : MonoBehaviour {
     private const float POSITION_RESET_INTERVAL = 1.5f;
     private const float POSITION_RESET_MOVE_SPEED = 1;
 
-    private const float IMPULSE_UP_POWER = 1500;
+    private const float IMPULSE_UP_POWER = 20;
     private const float IMPULSE_VIRTICAL_POWER = 2.0f;
     private const float IMPULSE_ACTION_SPEED = 17;
     private const float IMPULSE_ACTION_RESET_SPEED = 5;
@@ -447,8 +447,8 @@ public class Parts : MonoBehaviour {
                 if (isTrapAction == true) {
 
                     if (isImpulse == true && willPositionReset == false) {
-                        //   Player.instance.rigidbody.velocity = new Vector3(0, IMPULSE_POWER, 0);
-                        Player.instance.rigidbody.AddForce(impulseVector, ForceMode.VelocityChange);
+                        Player.instance.rigidbody.velocity = new Vector3(0, IMPULSE_UP_POWER, 0);
+                        //Player.instance.rigidbody.AddForce(impulseVector, ForceMode.VelocityChange);
                         isImpulse = false;
                     }
                     if (impulseObj.position.y <= thisFirstPosY + IMPULSE_ACTION_RANGE && willPositionReset == false) {
