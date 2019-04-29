@@ -315,7 +315,6 @@ public class OptionManager : MonoBehaviour {
 				switch (optionScreenCursorPos) {
 					case (int)WindowOptionCursor.IsFullScreen:
 
-						Debug.Log(isFullScreen);
 						if(isFullScreen == true && isStartLeft == true) {
 							isFullScreen = false;
 						}
