@@ -71,19 +71,18 @@ public class CameraManager : MonoBehaviour {
 	}
 
 	private void ChangeWholeMode() {
-		bool changeKey = Input.GetKeyDown(KeyCode.Q);
+		bool changeKey = Input.GetKey(KeyCode.Q);
 
-		if (changeKey == true) {
-			if (isWholeMode == true) {
-				isWholeMode = false;
-				moveToPosition = new Vector3(playerTransform.position.x,playerTransform.position.y+4.8f,-20);
-			} else {
-				isWholeMode = true;
-				originPosition = thisTransform.position;
-				moveToPosition = new Vector3(SystemManager.instance.width / 2, SystemManager.instance.height / 2, -70);
-			}
+		if (changeKey == false) {
+			isWholeMode = false;
+			moveToPosition = new Vector3(playerTransform.position.x,playerTransform.position.y+4.8f,-20);
 			SideRange = 0;
+		} else {
+			isWholeMode = true;
+			originPosition = thisTransform.position;
+			moveToPosition = new Vector3(SystemManager.instance.width / 2, SystemManager.instance.height / 2, -70);
 		}
+
 		if(isWholeMode == true) {
 			SideRange = 0;
 		}
