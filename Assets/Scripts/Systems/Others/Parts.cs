@@ -66,7 +66,7 @@ public class Parts : MonoBehaviour {
 
     private const float BRIDGE_SPEED = 45;
 
-    private const float MOVE_HORIZONTAL_OBJ_RANGE = 23;
+    private const float MOVE_HORIZONTAL_OBJ_RANGE = 50;
     private const float MOVE_HORIZONTAL_OBJ_SPEED = 20;
 
     private const float MOVE_VIRTICAL_OBJ_RANGE = 7;
@@ -86,7 +86,7 @@ public class Parts : MonoBehaviour {
     private const float POSITION_RESET_INTERVAL = 1.5f;
     private const float POSITION_RESET_MOVE_SPEED = 1;
 
-    private const float IMPULSE_UP_POWER = 20;
+    private const float IMPULSE_UP_POWER = 22;
     private const float IMPULSE_VIRTICAL_POWER = 2.0f;
     private const float IMPULSE_ACTION_SPEED = 17;
     private const float IMPULSE_ACTION_RESET_SPEED = 5;
@@ -160,7 +160,8 @@ public class Parts : MonoBehaviour {
             thisTransform.Translate(MOVE_HORIZONTAL_OBJ_SPEED * Time.deltaTime, 0, 0);
             isMoveRight = false;
 
-        } else if (isMoveLeft == true&& thisTransform.position.x >= thisFirstPosX - MOVE_HORIZONTAL_OBJ_RANGE) {
+        }
+        if (isMoveLeft == true&& thisTransform.position.x >= thisFirstPosX - MOVE_HORIZONTAL_OBJ_RANGE) {
             thisTransform.Translate(-MOVE_HORIZONTAL_OBJ_SPEED * Time.deltaTime, 0, 0);
             isMoveLeft = false;
         }
@@ -319,13 +320,13 @@ public class Parts : MonoBehaviour {
                 break;
 
             case PartsType.MoveVerticalObj:
-                if (thisTransform.position.y >= thisFirstPosY) {
+                if (thisTransform.position.y >= thisFirstPosY- MOVE_VIRTICAL_OBJ_RANGE) {
                     thisTransform.Translate(0, -MOVE_VIRTICAL_OBJ_SPEED * Time.deltaTime, 0);
                 }
                 break;
 
             case PartsType.MoveDepthObj:
-                if (thisTransform.position.z >= thisFirstPosZ) {
+                if (thisTransform.position.z >= thisFirstPosZ- MOVE_DEPTH_OBJ_RANGE) {
                     thisTransform.Translate(0, 0, -MOVE_DEPTH_OBJ_SPEED * Time.deltaTime);
                 }
                 break;

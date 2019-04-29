@@ -1,5 +1,5 @@
 ﻿<Stage>
-  <Width>144</Width>
+  <Width>179</Width>
   <Height>150</Height>
   <StartX>5</StartX>
   <StartY>32</StartY>
@@ -42,27 +42,27 @@
         <Parts>
             <ConnectNumber>1</ConnectNumber>
             <Name>ImpulseUp</Name>
-            <X>142</X>
+            <X>177</X>
             <Y>3.5</Y>
         </Parts>
       
         <Parts>
             <ConnectNumber>1</ConnectNumber>
             <Name>ImpulseUp</Name>
-            <X>119</X>
+            <X>155</X>
             <Y>28</Y>
         </Parts>
        <Parts>
             <ConnectNumber>1</ConnectNumber>
             <Name>ImpulseUp</Name>
-            <X>119</X>
+            <X>155</X>
             <Y>65</Y>
         </Parts>
       
         <Parts>
             <ConnectNumber>1</ConnectNumber>
             <Name>ImpulseUp</Name>
-            <X>142</X>
+            <X>177</X>
             <Y>45</Y>
         </Parts>
         <Parts>
@@ -77,6 +77,12 @@
             <X>41.2</X>
             <Y>10</Y>
         </Parts>
+      <Parts>
+        <ConnectNumber>1</ConnectNumber>
+        <Name>Pitfall</Name>
+        <X>142</X>
+        <Y>33</Y>
+      </Parts>
       
       <Trigger>
         <ConnectNumber>2</ConnectNumber>
@@ -87,13 +93,13 @@
       <Parts>
         <ConnectNumber>2</ConnectNumber>
         <Name>MoveHorizontalObj</Name>
-        <X>72</X>
+        <X>78</X>
         <Y>33</Y>
       </Parts>
          <Parts>
         <ConnectNumber>2</ConnectNumber>
         <Name>MoveHorizontalObj</Name>
-        <X>68</X>
+        <X>74</X>
         <Y>33</Y>
       </Parts>
           <Trigger>
@@ -105,7 +111,13 @@
        <Parts>
         <ConnectNumber>3</ConnectNumber>
         <Name>MoveHorizontalObj</Name>
-        <X>46</X>
+        <X>55</X>
+        <Y>53</Y>
+      </Parts>
+      <Parts>
+        <ConnectNumber>3</ConnectNumber>
+        <Name>MoveHorizontalObj</Name>
+        <X>59</X>
         <Y>53</Y>
       </Parts>
           <Trigger>
@@ -117,7 +129,7 @@
        <Parts>
         <ConnectNumber>4</ConnectNumber>
         <Name>MoveHorizontalObj</Name>
-        <X>41</X>
+        <X>6</X>
         <Y>55</Y>
       </Parts>
           <Trigger>
@@ -129,29 +141,10 @@
          <Parts>
         <ConnectNumber>5</ConnectNumber>
         <Name>MoveHorizontalObj</Name>
-        <X>36</X>
+        <X>6</X>
         <Y>57</Y>
       </Parts>
-
-       <Trigger>
-        <ConnectNumber>6</ConnectNumber>
-        <Type>RightGear</Type>
-        <X>7</X>
-        <Y>62</Y>
-      </Trigger>
-      <Parts>
-        <ConnectNumber>6</ConnectNumber>
-        <Name>Pitfall</Name>
-        <X>107</X>
-        <Y>33</Y>
-      </Parts>
-        <Parts>
-        <ConnectNumber>6</ConnectNumber>
-        <Name>Pitfall</Name>
-        <X>30.5</X>
-        <Y>80</Y>
-      </Parts>
-      
+   
       <Trigger>
         <ConnectNumber>7</ConnectNumber>
         <Type>LeftGear</Type>
@@ -161,7 +154,7 @@
       <Parts>
         <ConnectNumber>7</ConnectNumber>
         <Name>Bridge</Name>
-        <X>116.5</X>
+        <X>151.5</X>
         <Y>67</Y>
       </Parts>
       
@@ -194,13 +187,13 @@
     <Trigger>
         <ConnectNumber>9</ConnectNumber>
         <Type>LeftGear</Type>
-        <X>140</X>
+        <X>173</X>
         <Y>82.5</Y>
       </Trigger>
       <Parts>
         <ConnectNumber>9</ConnectNumber>
         <Name>Goal</Name>
-        <X>140</X>
+        <X>173</X>
         <Y>82.5</Y>
       </Parts>
 
@@ -212,7 +205,7 @@
             <Y>28.5</Y>
         </Collect1>
         <Collect2>
-            <X>45.5</X>
+            <X>15</X>
             <Y>82</Y>
         </Collect2>
     </CollectParts>
@@ -241,13 +234,6 @@
     <Rotate>0</Rotate>
     <!-- 0～360. 無ければ自動で0-->
   </Ground>
-          <Ground>
-    <PosX>45.5</PosX>
-    <PosY>80</PosY>
-    <Long>10</Long>
-    <Rotate>0</Rotate>
-    <!-- 0～360. 無ければ自動で0-->
-  </Ground>
 
     <Ground>
       <PosX>35</PosX>
@@ -257,14 +243,14 @@
       <!-- 0～360. 無ければ自動で0-->
     </Ground>
       <Ground>
-      <PosX>120</PosX>
+      <PosX>155</PosX>
       <PosY>1</PosY>
       <Long>47</Long>
       <Rotate>0</Rotate>
       <!-- 0～360. 無ければ自動で0-->
     </Ground>
    <Ground>
-      <PosX>139</PosX>
+      <PosX>173</PosX>
       <PosY>80</PosY>
       <Long>11</Long>
       <Rotate>0</Rotate>
@@ -288,14 +274,14 @@
       <!-- 自動で90度。それに対してどれだけ回転するか。無ければ自動で+0-->
     </Wall>   
     <Wall>
-      <PosX>97</PosX>
+      <PosX>132</PosX>
       <PosY>15.5</PosY>
       <Long>35</Long>
       <Rotate>0</Rotate>
       <!-- 自動で90度。それに対してどれだけ回転するか。無ければ自動で+0-->
     </Wall>   
      <Wall>
-      <PosX>117</PosX>
+      <PosX>152</PosX>
       <PosY>50</PosY>
       <Long>35</Long>
       <Rotate>0</Rotate>
