@@ -136,11 +136,14 @@ public class Player : MonoBehaviour {
 			moveSpeed = MOVE_SPEED;
 		}
 
-		if (Input.GetKey(KeyCode.D)) {
+		bool isRight = Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow);
+		bool isLeft = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow);
+
+		if (isRight) {
 			MoveRight();
 		}
 
-		if (Input.GetKey(KeyCode.A)) {
+		if (isLeft) {
 			MoveLeft();
 		}
 

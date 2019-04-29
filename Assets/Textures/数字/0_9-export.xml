@@ -1,0 +1,25 @@
+<font>
+	<info face="C:\Users
+akat\OneDrive\ドキュメント\Unity\ゲーム大賞\Assets\Textures\数字\0_9-export" size="80" />
+	<common lineHeight="80" scaleW="1390" scaleH="1370" pages="1" />
+	<pages>
+		<page id="0" file="C:\Users
+akat\OneDrive\ドキュメント\Unity\ゲーム大賞\Assets\Textures\数字\0_9-export.png" />
+	</pages>
+	<chars count="81">
+		<char id="48" x="0" y="448" width="353" height="458" xoffset="0" yoffset="-387" xadvance="354" /><!-- 0 -->
+		<char id="49" x="366" y="0" width="278" height="445" xoffset="0" yoffset="-372" xadvance="279" /><!-- 1 -->
+		<char id="50" x="704" y="453" width="332" height="449" xoffset="0" yoffset="-379" xadvance="333" /><!-- 2 -->
+		<char id="51" x="703" y="909" width="347" height="458" xoffset="0" yoffset="-384" xadvance="348" /><!-- 3 -->
+		<char id="52" x="0" y="0" width="365" height="447" xoffset="0" yoffset="-375" xadvance="366" /><!-- 4 -->
+		<char id="53" x="1048" y="0" width="341" height="460" xoffset="0" yoffset="-375" xadvance="342" /><!-- 5 -->
+		<char id="54" x="354" y="909" width="348" height="460" xoffset="0" yoffset="-378" xadvance="349" /><!-- 6 -->
+		<char id="55" x="704" y="0" width="343" height="452" xoffset="0" yoffset="-372" xadvance="344" /><!-- 7 -->
+		<char id="56" x="0" y="907" width="353" height="460" xoffset="0" yoffset="-380" xadvance="354" /><!-- 8 -->
+		<char id="57" x="354" y="448" width="349" height="460" xoffset="0" yoffset="-381" xadvance="350" /><!-- 9 -->
+		<char id="32" x="0" y="0" width="0" height="0" xoffset="0" yoffset="0" xadvance="20" /><!--   -->
+		<char id="9" x="0" y="0" width="0" height="0" xoffset="0" yoffset="0" xadvance="160" /><!-- 	 -->
+	</chars>
+	<kernings count="0">
+	</kernings>
+</font>

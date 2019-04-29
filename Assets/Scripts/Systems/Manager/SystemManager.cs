@@ -34,7 +34,6 @@ public class SystemManager : MonoBehaviour {
 
 	void Start() {
         //OptionManager.instance.ChangeScreenSize(800,450);
-        Debug.Log(stageNum);
 	}
 
 	private void OnEnable() {
@@ -91,7 +90,6 @@ public class SystemManager : MonoBehaviour {
 
 		try {
 			var collect1 = xmlDoc.GetElementsByTagName("Collect1");
-			Debug.Log(collect1.Item(0).ChildNodes.Item(0).InnerText);
 
 			var pos = new Vector3(float.Parse(collect1.Item(0).ChildNodes.Item(0).InnerText), float.Parse(collect1.Item(0).ChildNodes.Item(1).InnerText), 0);
 			var newCollectParts = Instantiate(collectParts, pos, Quaternion.identity, transform);
