@@ -106,8 +106,6 @@ public class OptionManager : MonoBehaviour {
 				gears[i, j] = GearParents[i].transform.GetChild(j).gameObject;
 			}
 		}
-
-		Debug.Log(fullScreenSprite[0]);
 	}
 
     // Update is called once per frame

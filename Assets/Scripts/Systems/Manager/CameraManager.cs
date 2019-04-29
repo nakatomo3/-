@@ -15,6 +15,12 @@ public class CameraManager : MonoBehaviour {
 	float posX;
 	float posY;
 
+	private bool isWholeMode = false;
+
+	private Vector3 originPosition = new Vector3();
+	[SerializeField]
+	private Vector3 moveToPosition = new Vector3();
+
 	private void Awake() {
 		instance = this;
 		thisTransform = transform;
@@ -26,13 +32,17 @@ public class CameraManager : MonoBehaviour {
 	void Start() {
 		thisTransform.Rotate(0, -0.8f, 0);
 		thisTransform.position = playerTransform.position + new Vector3(0, 4.8f, -20f);
+		moveToPosition = thisTransform.position;
 	}
 
 	// Update is called once per frame
 	void Update() {
+		if(isWholeMode == false) {
+			thisTransform.position = new Vector3(playerTransform.position.x + SideRange, posY, thisTransform.position.z);
+			thisTransform.localRotation = Quaternion.Euler(0,SideRange,0);
+		}
 
-		thisTransform.position = new Vector3(playerTransform.position.x + SideRange, posY, thisTransform.position.z);
-		thisTransform.localRotation = Quaternion.Euler(0,SideRange,0);
+		ChangeWholeMode();
 	}
 
 	public void MoveRight() {
@@ -58,5 +68,27 @@ public class CameraManager : MonoBehaviour {
 
 	private void FixedUpdate() {
 		posY = Mathf.Lerp(thisTransform.position.y, playerTransform.position.y+4f, 0.1f);
+	}
+
+	private void ChangeWholeMode() {
+		bool changeKey = Input.GetKeyDown(KeyCode.Q);
+
+		if (changeKey == true) {
+			if (isWholeMode == true) {
+				isWholeMode = false;
+				moveToPosition = new Vector3(playerTransform.position.x,playerTransform.position.y+4.8f,-20);
+			} else {
+				isWholeMode = true;
+				originPosition = thisTransform.position;
+				moveToPosition = new Vector3(SystemManager.instance.width / 2, SystemManager.instance.height / 2, -70);
+			}
+			SideRange = 0;
+		}
+		if(isWholeMode == true) {
+			SideRange = 0;
+		}
+
+		thisTransform.position += new Vector3((moveToPosition.x - thisTransform.position.x) /50, (moveToPosition.y - thisTransform.position.y) / 50, (moveToPosition.z - thisTransform.position.z) / 80);
+		thisTransform.localRotation = Quaternion.Euler(new Vector3(0, SideRange, 0));
 	}
 }

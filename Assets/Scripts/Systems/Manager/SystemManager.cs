@@ -22,8 +22,10 @@ public class SystemManager : MonoBehaviour {
 	}
 	private Dictionary<int, Gimmick> gimmicks = new Dictionary<int, Gimmick>();
 
-	private float width;
-	private float height;
+	[HideInInspector]
+	public float width;
+	[HideInInspector]
+	public float height;
 
 	private void Awake() {
 		stageNum = PlayerPrefs.GetInt("stage");
