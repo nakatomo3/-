@@ -37,10 +37,10 @@ public class CameraManager : MonoBehaviour {
 		moveToPosition = thisTransform.position;
 
 		if(SystemManager.instance.width >= SystemManager.instance.height) {
-			smallerLong = SystemManager.instance.height;
-		} else {
 			smallerLong = SystemManager.instance.width;
-		}
+		} else {
+			smallerLong = SystemManager.instance.height;
+        }
 
 		wholeRange = -70 * smallerLong/100;
 	}
@@ -48,8 +48,9 @@ public class CameraManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
 		if(isWholeMode == false) {
-			thisTransform.position = new Vector3(playerTransform.position.x + SideRange, posY, thisTransform.position.z);
-			thisTransform.localRotation = Quaternion.Euler(0,SideRange,0);
+            //	thisTransform.position = new Vector3(playerTransform.position.x + SideRange, posY, thisTransform.position.z);
+            thisTransform.position = new Vector3(posX + SideRange, posY, thisTransform.position.z);
+            thisTransform.localRotation = Quaternion.Euler(0,SideRange,0);
 		}
 
 		ChangeWholeMode();
@@ -78,7 +79,8 @@ public class CameraManager : MonoBehaviour {
 
 	private void FixedUpdate() {
 		posY = Mathf.Lerp(thisTransform.position.y, playerTransform.position.y+4f, 0.1f);
-	}
+        posX = Mathf.Lerp(thisTransform.position.x, playerTransform.position.x + 4f, 0.1f);
+    }
 
 	private void ChangeWholeMode() {
 		bool changeKey = Input.GetKey(KeyCode.Q);

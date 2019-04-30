@@ -1,34 +1,196 @@
 ﻿<Stage>
   <Width>100</Width>
   <Height>100</Height>
-  <StartX>5</StartX>
-  <StartY>15</StartY>
-    <!-- トリガーを増やす場合は<Trigger>から</Trigger>までをコピーしてください -->
-    <!-- 連動するパーツを増やす場合は<Parts>を増やしてください-->
-    <!-- ConnectNumberが同じならば、一つのTriggerで複数のパーツが動かせます-->
-    <Gimmick>    
-        <Trigger>
-            <ConnectNumber>1</ConnectNumber>
-            <Type>Button</Type>
-            <X>5</X>
-            <Y>-1</Y>
-        </Trigger>
-        <Parts>
-            <ConnectNumber>1</ConnectNumber>
-            <Name>Door</Name>
-            <X>0</X>
-            <Y>0</Y>
-        </Parts>
+  <StartX>35</StartX>
+  <StartY>21</StartY>
+  <!-- トリガーを増やす場合は<Trigger>から</Trigger>までをコピーしてください -->
+  <!-- 連動するパーツを増やす場合は<Parts>を増やしてください-->
+  <!-- ConnectNumberが同じならば、一つのTriggerで複数のパーツが動かせます-->
+  <Gimmick>
+    <Trigger>
+      <ConnectNumber>1</ConnectNumber>
+      <Type>RightGear</Type>
+      <X>12</X>
+      <Y>36</Y>
+    </Trigger>
+
+    <Parts>
+      <ConnectNumber>1</ConnectNumber>
+      <Name>MoveHorizontalObj</Name>
+      <X>3</X>
+      <Y>34</Y>
+      <Rotate>0</Rotate>
+    </Parts>
+    <Parts>
+      <ConnectNumber>1</ConnectNumber>
+      <Name>MoveHorizontalObj</Name>
+      <X>7</X>
+      <Y>34</Y>
+      <Rotate>0</Rotate>
+    </Parts>
+    
+    <Trigger>
+      <ConnectNumber>2</ConnectNumber>
+      <Type>RightGear</Type>
+      <X>40</X>
+      <Y>21</Y>
+    </Trigger>
+    <Parts>
+      <ConnectNumber>2</ConnectNumber>
+      <Name>MoveHorizontalObj</Name>
+      <X>10</X>
+      <Y>35</Y>
+      <Rotate>0</Rotate>
+    </Parts>
+    <Parts>
+      <ConnectNumber>2</ConnectNumber>
+      <Name>MoveHorizontalObj</Name>
+      <X>14</X>
+      <Y>35</Y>
+      <Rotate>0</Rotate>
+    </Parts>
+
+    <Parts>
+      <ConnectNumber>2</ConnectNumber>
+      <Name>MoveHorizontalObj</Name>
+      <X>6</X>
+      <Y>19</Y>
+      <Rotate>0</Rotate>
+    </Parts>
+    <Parts>
+      <ConnectNumber>2</ConnectNumber>
+      <Name>MoveHorizontalObj</Name>
+      <X>6</X>
+      <Y>19.5</Y>
+      <Rotate>0</Rotate>
+    </Parts>
+    <Parts>
+      <ConnectNumber>2</ConnectNumber>
+      <Name>MoveHorizontalObj</Name>
+      <X>6</X>
+      <Y>20</Y>
+      <Rotate>0</Rotate>
+    </Parts>
+    <Parts>
+      <ConnectNumber>2</ConnectNumber>
+      <Name>MoveHorizontalObj</Name>
+      <X>6</X>
+      <Y>20.5</Y>
+      <Rotate>0</Rotate>
+    </Parts>
+    <Parts>
+      <ConnectNumber>2</ConnectNumber>
+      <Name>MoveHorizontalObj</Name>
+      <X>6</X>
+      <Y>21</Y>
+      <Rotate>0</Rotate>
+    </Parts>
+    <Parts>
+      <ConnectNumber>2</ConnectNumber>
+      <Name>MoveHorizontalObj</Name>
+      <X>6</X>
+      <Y>21.5</Y>
+      <Rotate>0</Rotate>
+    </Parts>
+
+    <Trigger>
+      <ConnectNumber>5</ConnectNumber>
+      <Type>Button</Type>
+      <X>46</X>
+      <Y>19.5</Y>
+    </Trigger>
+    <Trigger>
+      <ConnectNumber>5</ConnectNumber>
+      <Type>MinusButton</Type>
+      <X>71</X>
+      <Y>19.5</Y>
+    </Trigger>
+
+    <Parts>
+      <ConnectNumber>5</ConnectNumber>
+      <Name>Pitfall</Name>
+      <X>58</X>
+      <Y>19</Y>
+      <Rotate>0</Rotate>
+    </Parts>
+
+    <Trigger>
+      <ConnectNumber>8</ConnectNumber>
+      <Type>RightGear</Type>
+      <X>-1000</X>
+      <Y>-1000</Y>
+    </Trigger>   
+     <Parts>
+        <ConnectNumber>8</ConnectNumber>
+        <Name>ImpulseUp</Name>
+        <X>62</X>
+        <Y>11</Y>
+        <Rotate>0</Rotate>
+    </Parts>
+
+    <Trigger>
+      <ConnectNumber>6</ConnectNumber>
+      <Type>RightGear</Type>
+      <X>28</X>
+      <Y>21</Y>
+    </Trigger>
+
+    <Parts>
+      <ConnectNumber>6</ConnectNumber>
+      <Name>Goal</Name>
+      <X>3</X>
+      <Y>34</Y>
+      <Rotate>0</Rotate>
+    </Parts>
+  </Gimmick>
 
 
-    </Gimmick>
 
+  <CollectParts>
+    <Collect1>
+      <X>5</X>
+      <Y>33</Y>
+    </Collect1>
+    <Collect2>
+      <X>87</X>
+      <Y>5</Y>
+    </Collect2>
+  </CollectParts>
 
-    <!-- ゲームに影響のない見た目だけの部分。　未実装-->
-    <BackGround>
-        <Name></Name>
-        <X>0</X>
-        <Y>0</Y>
-    </BackGround>
+  <Grounds>
+   <Ground>
+      <PosX>21</PosX>
+      <PosY>34</PosY>
+      <Long>23</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+
+    <Ground>
+      <PosX>35</PosX>
+      <PosY>19</PosY>
+      <Long>25</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+
+  </Grounds>
+
+  <Walls>
+    <Wall>
+      <PosX>32</PosX>
+      <PosY>26</PosY>
+      <Long>15</Long>
+      <Rotate>0</Rotate>
+      <!-- 自動で90度。それに対してどれだけ回転するか。無ければ自動で+0-->
+    </Wall>
+  </Walls>
+
+  <!-- ゲームに影響のない見た目だけの部分。　未実装-->
+  <BackGround>
+    <Name></Name>
+    <X>0</X>
+    <Y>0</Y>
+  </BackGround>
 
 </Stage>
