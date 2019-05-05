@@ -84,10 +84,10 @@ public class Parts : MonoBehaviour {
 
     private const float FALL_SPEED = 15;
     private const float POSITION_RESET_INTERVAL = 1.5f;
-    private const float POSITION_RESET_MOVE_SPEED = 1;
+    private const float POSITION_RESET_MOVE_SPEED = 2;
 
     private const float IMPULSE_UP_POWER = 22;
-    private const float IMPULSE_VIRTICAL_POWER = 2.0f;
+    private const float IMPULSE_VIRTICAL_POWER = 85.0f;
     private const float IMPULSE_ACTION_SPEED = 17;
     private const float IMPULSE_ACTION_RESET_SPEED = 5;
     private const float IMPULSE_ACTION_RANGE = 0.2f;
