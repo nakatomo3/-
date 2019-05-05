@@ -54,7 +54,9 @@ public class CameraManager : MonoBehaviour {
             thisTransform.localRotation = Quaternion.Euler(0,SideRange,0);
 		}
 
-		ChangeWholeMode();
+		if(SystemManager.instance.isDeath == false) {
+			ChangeWholeMode();
+		}
 	}
 
 	public void MoveRight() {
