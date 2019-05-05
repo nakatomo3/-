@@ -69,8 +69,8 @@ public class Parts : MonoBehaviour {
     private const float MOVE_HORIZONTAL_OBJ_RANGE = 50;
     private const float MOVE_HORIZONTAL_OBJ_SPEED = 20;
 
-    private const float MOVE_VIRTICAL_OBJ_RANGE = 7;
-    private const float MOVE_VIRTICAL_OBJ_SPEED = 2;
+    private const float MOVE_VIRTICAL_OBJ_RANGE = 20;
+    private const float MOVE_VIRTICAL_OBJ_SPEED = 8;
 
     private const float MOVE_DEPTH_OBJ_RANGE = 7;
     private const float MOVE_DEPTH_OBJ_SPEED = 2;

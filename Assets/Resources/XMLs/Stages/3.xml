@@ -1,29 +1,300 @@
 ﻿<Stage>
-  <Width>100</Width>
+  <Width>200</Width>
   <Height>100</Height>
-  <StartX>5</StartX>
-  <StartY>15</StartY>
+  <StartX>100</StartX>
+  <StartY>55</StartY>
     <!-- トリガーを増やす場合は<Trigger>から</Trigger>までをコピーしてください -->
     <!-- 連動するパーツを増やす場合は<Parts>を増やしてください-->
     <!-- ConnectNumberが同じならば、一つのTriggerで複数のパーツが動かせます-->
     <Gimmick>    
         <Trigger>
-            <ConnectNumber>1</ConnectNumber>
-            <Type>Button</Type>
-            <X>5</X>
-            <Y>-1</Y>
+            <ConnectNumber>0</ConnectNumber>
+            <Type>RightGear</Type>
+            <X>103.5</X>
+            <Y>55</Y>
         </Trigger>
         <Parts>
-            <ConnectNumber>1</ConnectNumber>
-            <Name>Door</Name>
-            <X>0</X>
-            <Y>0</Y>
+            <ConnectNumber>0</ConnectNumber>
+            <Name>MoveVerticalObj</Name>
+            <X>140</X>
+            <Y>50</Y>
         </Parts>
+      
+      <Parts>
+        <ConnectNumber>0</ConnectNumber>
+        <Name>MoveVerticalObj</Name>
+        <X>91.4</X>
+        <Y>23.2</Y>
+      </Parts>
 
+      <Parts>
+        <ConnectNumber>0</ConnectNumber>
+        <Name>MoveVerticalObj</Name>
+        <X>83.2</X>
+        <Y>59</Y>
+      </Parts>
 
+      <Parts>
+        <ConnectNumber>0</ConnectNumber>
+        <Name>MoveVerticalObj</Name>
+        <X>162.2</X>
+        <Y>57.2</Y>
+      </Parts>
+
+      <Parts>
+        <ConnectNumber>0</ConnectNumber>
+        <Name>MoveVerticalObj</Name>
+        <X>78</X>
+        <Y>61.1</Y>
+      </Parts>
+
+      <Parts>
+        <ConnectNumber>0</ConnectNumber>
+        <Name>MoveVerticalObj</Name>
+        <X>126.8</X>
+        <Y>-4.74</Y>
+      </Parts>
+      
+      <Parts>
+        <ConnectNumber>0</ConnectNumber>
+        <Name>MoveVerticalObj</Name>
+        <X>100.22</X>
+        <Y>63.9</Y>
+      </Parts>
+
+      <Parts>
+        <ConnectNumber>0</ConnectNumber>
+        <Name>MoveHorizontalObj</Name>
+        <X>33.4</X>
+        <Y>61.3</Y>
+      </Parts>
+
+      <Parts>
+        <ConnectNumber>0</ConnectNumber>
+        <Name>MoveHorizontalObj</Name>
+        <X>111.9</X>
+        <Y>40.3</Y>
+      </Parts>
+
+      <Parts>
+        <ConnectNumber>0</ConnectNumber>
+        <Name>MoveHorizontalObj</Name>
+        <X>52.5</X>
+        <Y>41.8</Y>
+      </Parts>
+      
+      <Parts>
+        <ConnectNumber>0</ConnectNumber>
+        <Name>MoveHorizontalObj</Name>
+        <X>100.4</X>
+        <Y>77.5</Y>
+      </Parts>
+
+      <Parts>
+        <ConnectNumber>0</ConnectNumber>
+        <Name>MoveDepthObj</Name>
+        <X>124.9</X>
+        <Y>58.8</Y>
+      </Parts>  
+            
+      //////////////////////////////////////////////////
+      <Trigger>
+        <ConnectNumber>1</ConnectNumber>
+        <Type>LeftGear</Type>
+        <X>96.5</X>
+        <Y>55</Y>
+      </Trigger>
+      
+      <Parts>
+        <ConnectNumber>1</ConnectNumber>
+        <Name>MoveVerticalObj</Name>
+        <X>112</X>
+        <Y>56.1</Y>
+      </Parts>
+
+      <Parts>
+        <ConnectNumber>1</ConnectNumber>
+        <Name>MoveVerticalObj</Name>
+        <X>40.2</X>
+        <Y>50.6</Y>
+      </Parts>
+
+      <Parts>
+        <ConnectNumber>1</ConnectNumber>
+        <Name>MoveVerticalObj</Name>
+        <X>68.7</X>
+        <Y>60.9</Y>
+      </Parts>
+
+      <Parts>
+        <ConnectNumber>1</ConnectNumber>
+        <Name>MoveVerticalObj</Name>
+        <X>61.2</X>
+        <Y>77.1</Y>
+      </Parts>
+
+      <Parts>
+        <ConnectNumber>1</ConnectNumber>
+        <Name>MoveVerticalObj</Name>
+        <X>56.7</X>
+        <Y>36.7</Y>
+      </Parts>
+
+      <Parts>
+        <ConnectNumber>1</ConnectNumber>
+        <Name>MoveHorizontalObj</Name>
+        <X>118.5</X>
+        <Y>66</Y>
+      </Parts>
+
+      <Parts>
+        <ConnectNumber>1</ConnectNumber>
+        <Name>MoveHorizontalObj</Name>
+        <X>105.8</X>
+        <Y>10.4</Y>
+      </Parts>
+
+      <Parts>
+        <ConnectNumber>1</ConnectNumber>
+        <Name>MoveHorizontalObj</Name>
+        <X>5.3</X>
+        <Y>36.6</Y>
+      </Parts>
+
+      <Parts>
+        <ConnectNumber>1</ConnectNumber>
+        <Name>MoveDepthObj</Name>
+        <X>100.3</X>
+        <Y>41.8</Y>
+      </Parts>
+     
+      //////////////////////////////////////////////////
+      <Trigger>
+        <ConnectNumber>2</ConnectNumber>
+        <Type>RightGear</Type>
+        <X>91.5</X>
+        <Y>57</Y>
+      </Trigger>
+      
+      <Parts>
+        <ConnectNumber>2</ConnectNumber>
+        <Name>MoveVerticalObj</Name>
+        <X>81.9</X>
+        <Y>45.1</Y>
+      </Parts>
+  
+      <Parts>
+        <ConnectNumber>2</ConnectNumber>
+        <Name>MoveVerticalObj</Name>
+        <X>63.4</X>
+        <Y>31.2</Y>
+      </Parts>
+      
+      <Parts>
+        <ConnectNumber>2</ConnectNumber>
+        <Name>MoveVerticalObj</Name>
+        <X>135</X>
+        <Y>63.3</Y>
+      </Parts>
+
+      <Parts>
+        <ConnectNumber>2</ConnectNumber>
+        <Name>MoveHorizontalObj</Name>
+        <X>19.2</X>
+        <Y>39.6</Y>
+      </Parts>
+
+      <Parts>
+        <ConnectNumber>2</ConnectNumber>
+        <Name>MoveHorizontalObj</Name>
+        <X>78</X>
+        <Y>81.1</Y>
+      </Parts>
+
+      <Parts>
+        <ConnectNumber>2</ConnectNumber>
+        <Name>MoveHorizontalObj</Name>
+        <X>135.3</X>
+        <Y>1.5</Y>
+      </Parts>
+    
+      <Parts>
+        <ConnectNumber>2</ConnectNumber>
+        <Name>MoveDepthObj</Name>
+        <X>114.1</X>
+        <Y>6.6</Y>
+      </Parts>
+      
+      <Parts>
+        <ConnectNumber>2</ConnectNumber>
+        <Name>MoveDepthObj</Name>
+        <X>151.5</X>
+        <Y>51.9</Y>
+      </Parts>
+     
+      /////////////////////////////////////////////////
     </Gimmick>
 
+  <Grounds>
+    <Ground>
+      <PosX>100</PosX>
+      <PosY>53</PosY>
+      <Long>12</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    
+    <Ground>
+      <PosX>91</PosX>
+      <PosY>54.5</PosY>
+      <Long>6</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    
+  <Ground>
+      <PosX>165</PosX>
+      <PosY>15.5</PosY>
+      <Long>16</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    
+  <Ground>
+      <PosX>165</PosX>
+      <PosY>9.5</PosY>
+      <Long>6</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
 
+    <Ground>
+      <PosX>91</PosX>
+      <PosY>19.3</PosY>
+      <Long>31</Long>
+      <Rotate>-30</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+
+    <Ground>
+      <PosX>90</PosX>
+      <PosY>50</PosY>
+      <Long>7</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    
+  <Ground>
+      <PosX>191.93</PosX>
+      <PosY>66.8</PosY>
+      <Long>15</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    
+  </Grounds>
+  
+  
     <!-- ゲームに影響のない見た目だけの部分。　未実装-->
     <BackGround>
         <Name></Name>
