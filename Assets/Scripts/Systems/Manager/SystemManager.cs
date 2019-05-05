@@ -285,7 +285,7 @@ public class SystemManager : MonoBehaviour {
 
 		var grounds = xmlDoc.GetElementsByTagName("Ground");
 		var ground = Resources.Load("Prefabs/StageFrames/Ground") as GameObject;
-		var groundImage = Resources.Load("Prefabs/StageFrames/GroundImage") as GameObject;
+		//var groundImage = Resources.Load("Prefabs/StageFrames/GroundImage") as GameObject;
 		for (int i = 0; i < grounds.Count; i++) {
 			float posX = float.Parse(grounds.Item(i).ChildNodes.Item(0).InnerText);
 			float posY = float.Parse(grounds.Item(i).ChildNodes.Item(1).InnerText);
@@ -293,15 +293,24 @@ public class SystemManager : MonoBehaviour {
 			var groundObject = Instantiate(ground, new Vector3(posX, posY, 0), Quaternion.identity, transform);
 			groundObject.transform.localScale = new Vector3(groundWidth, 1,2);
 
-			var groundImageObject = Instantiate(groundImage, new Vector3(posX, posY,0), Quaternion.identity, transform);
+			//var groundImageObject = Instantiate(groundImage, new Vector3(posX, posY,0), Quaternion.identity, transform);
+			//groundImageObject.transform.GetChild(0).gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(groundWidth * 32+2, 32);
+			//groundImageObject.transform.GetChild(1).gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(groundWidth * 32+2, 64);
+			//groundImageObject.transform.GetChild(2).gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(groundWidth * 32 + 2, 64);
+			var groundPipe = Resources.Load("Prefabs/StageFrames/Pipe") as GameObject;
+			var groundPipeObject = Instantiate(groundPipe, new Vector3(posX, posY), Quaternion.identity,transform);
+			groundPipeObject.transform.localScale = new Vector3(groundWidth, 0.6f, 0.6f);
+			var pipeConnection = Resources.Load("Prefabs/StageFrames/PipeConnection") as GameObject;
+			for(int j = 0; j < groundWidth; j += 8) {
+				var connectionObject = Instantiate(pipeConnection, new Vector3(posX-groundWidth/2+j, posY), Quaternion.identity, transform);
+			}
+			Instantiate(pipeConnection, new Vector3(posX + groundWidth / 2, posY), Quaternion.identity, transform);
 
-			groundImageObject.transform.GetChild(0).gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(groundWidth * 32+2, 32);
-			groundImageObject.transform.GetChild(1).gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(groundWidth * 32+2, 64);
-			groundImageObject.transform.GetChild(2).gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(groundWidth * 32 + 2, 64);
 			if (grounds.Item(i).ChildNodes.Count > 4) {
 				float rotate = float.Parse(grounds.Item(i).ChildNodes.Item(3).InnerText);
 				groundObject.transform.Rotate(0, 0, rotate);
-				groundImageObject.transform.Rotate(0, 0, rotate);
+				//groundImageObject.transform.Rotate(0, 0, rotate);
+				groundPipeObject.transform.Rotate(0, 0, rotate);
 			}
 		}
 
@@ -343,7 +352,7 @@ public class SystemManager : MonoBehaviour {
 
 
 		var backGround = Resources.Load("Prefabs/StageFrames/BackGround") as GameObject;
-		var backGroundObject = Instantiate(backGround,new Vector3(width/2,height/2-8),Quaternion.identity) as GameObject;
+		var backGroundObject = Instantiate(backGround,new Vector3(width/2,height/2-8,1),Quaternion.identity) as GameObject;
 		backGroundObject.transform.GetChild(0).GetChild(0).gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(width * 100+2000, height * 100+5000);
 	}
 
@@ -385,14 +394,14 @@ public class SystemManager : MonoBehaviour {
 	}
 
 	public float GetGimmickValue(int num) {
-		Gimmick gimmick = gimmicks[num];
-		if(gimmick.value <= -1) {
-			gimmick.value = -1;
-		}
-		if(gimmick.value >= 1) {
-			gimmick.value = 1;
-		}
-		gimmicks[num] = gimmick;
+		//Gimmick gimmick = gimmicks[num];
+		//if(gimmick.value <= -1) {
+		//	gimmick.value = -1;
+		//}
+		//if(gimmick.value >= 1) {
+		//	gimmick.value = 1;
+		//}
+		//gimmicks[num] = gimmick;
 		return gimmicks[num].value;
 	}
 
