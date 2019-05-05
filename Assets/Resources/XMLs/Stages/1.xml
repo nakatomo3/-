@@ -1,6 +1,6 @@
 ﻿<Stage>
   <Width>100</Width>
-  <Height>100</Height>
+  <Height>40</Height>
   <StartX>5</StartX>
   <StartY>19</StartY>
     <!-- トリガーを増やす場合は<Trigger>から</Trigger>までをコピーしてください -->

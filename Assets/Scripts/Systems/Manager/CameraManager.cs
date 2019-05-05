@@ -37,9 +37,16 @@ public class CameraManager : MonoBehaviour {
 		moveToPosition = thisTransform.position;
 
 		if(SystemManager.instance.width >= SystemManager.instance.height) {
+<<<<<<< HEAD
 			smallerLong = SystemManager.instance.width;
 		} else {
 			smallerLong = SystemManager.instance.height;
+=======
+            smallerLong = SystemManager.instance.width;
+        } else {
+			
+            smallerLong = SystemManager.instance.height;
+>>>>>>> 4cbf1e14e34de63153a200bafd570e3c0b0a2f4e
         }
 
 		wholeRange = -70 * smallerLong/100;
