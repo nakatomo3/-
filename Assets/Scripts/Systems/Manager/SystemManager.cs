@@ -34,6 +34,9 @@ public class SystemManager : MonoBehaviour {
 		CreateStage();
 	}
 
+	[HideInInspector]
+	public bool isDeath = false;
+
 	void Start() {
 
 	}
@@ -344,15 +347,13 @@ public class SystemManager : MonoBehaviour {
 		wallObject = Instantiate(wall, new Vector3(width, height / 2, 0), Quaternion.identity, transform);
 		wallObject.transform.localScale = new Vector3(1, height+1, 2);
 
-		var missGroundObject = Instantiate(missGround, new Vector3(width/2, 0, 0), Quaternion.identity, transform);
-		missGroundObject.transform.localScale = new Vector3(width+1, 1, 2);
-		missGroundObject.transform.GetChild(0).GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2((width + 1) * 100, 570);
-		missGroundObject = Instantiate(missGround, new Vector3(width / 2, height, 0), Quaternion.identity, transform);
-		missGroundObject.transform.localScale = new Vector3(width+1, 1, 2);
-
+		var missGroundObject = Instantiate(missGround, new Vector3(width/2, 0, 0f), Quaternion.identity, transform);
+		missGroundObject.transform.localScale = new Vector3(width+1, 1, 1);
+		missGroundObject.transform.GetChild(0).GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(100, 570);
+		missGroundObject.transform.GetChild(0).transform.localPosition = new Vector3(0, 0, 0.5f);
 
 		var backGround = Resources.Load("Prefabs/StageFrames/BackGround") as GameObject;
-		var backGroundObject = Instantiate(backGround,new Vector3(width/2,height/2-8,1),Quaternion.identity) as GameObject;
+		var backGroundObject = Instantiate(backGround,new Vector3(width/2,height/2-8,1),Quaternion.identity,transform) as GameObject;
 		backGroundObject.transform.GetChild(0).GetChild(0).gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(width * 100+2000, height * 100+5000);
 	}
 

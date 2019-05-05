@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 6237491969135790811}
   - component: {fileID: 7021119968832039232}
   - component: {fileID: 6146054480608544156}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!224 &6237491969135790811
 RectTransform:
@@ -86,12 +86,12 @@ GameObject:
   - component: {fileID: 8729109520874176020}
   - component: {fileID: 147561786933573859}
   - component: {fileID: 996164452668802618}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!224 &7711724095693847695
 RectTransform:
@@ -185,9 +185,9 @@ GameObject:
   - component: {fileID: 8142156987192382471}
   - component: {fileID: 8142156987192382470}
   - component: {fileID: 8142156987192382469}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MissGround
-  m_TagString: SquashGround
+  m_TagString: MissGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
