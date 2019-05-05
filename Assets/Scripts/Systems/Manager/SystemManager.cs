@@ -394,7 +394,6 @@ public class SystemManager : MonoBehaviour {
 	}
 
 	public float GetGimmickValue(int num) {
-<<<<<<< HEAD
 		//Gimmick gimmick = gimmicks[num];
 		//if(gimmick.value <= -1) {
 		//	gimmick.value = -1;
@@ -404,19 +403,6 @@ public class SystemManager : MonoBehaviour {
 		//}
 		//gimmicks[num] = gimmick;
 		return gimmicks[num].value;
-=======
-        /*
-		Gimmick gimmick = gimmicks[num];
-		if(gimmick.value <= -1) {
-			gimmick.value = -1;
-		}
-		if(gimmick.value >= 1) {
-			gimmick.value = 1;
-		}
-		gimmicks[num] = gimmick;
-		*/
-        return gimmicks[num].value;
->>>>>>> 4cbf1e14e34de63153a200bafd570e3c0b0a2f4e
 	}
 
 	public void ChangeGimmickValue(bool isPlus, int num) {
