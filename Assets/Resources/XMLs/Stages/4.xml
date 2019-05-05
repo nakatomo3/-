@@ -194,6 +194,13 @@
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseUp</Name>
       <X>69.5</X>
+      <Y>16</Y>
+      <Rotate>0</Rotate>
+    </Parts>
+    <Parts>
+      <ConnectNumber>1</ConnectNumber>
+      <Name>ImpulseUp</Name>
+      <X>69.5</X>
       <Y>13</Y>
       <Rotate>0</Rotate>
     </Parts>
@@ -201,7 +208,14 @@
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseUp</Name>
       <X>69.5</X>
-      <Y>8.5</Y>
+      <Y>10</Y>
+      <Rotate>0</Rotate>
+    </Parts>
+    <Parts>
+      <ConnectNumber>1</ConnectNumber>
+      <Name>ImpulseUp</Name>
+      <X>69.5</X>
+      <Y>7</Y>
       <Rotate>0</Rotate>
     </Parts>
     <Parts>
@@ -214,7 +228,7 @@
     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseUp</Name>
-      <X>73</X>
+      <X>72.5</X>
       <Y>1</Y>
       <Rotate>0</Rotate>
     </Parts>
@@ -361,49 +375,7 @@
     <Parts>
       <ConnectNumber>2</ConnectNumber>
       <Name>MoveDepthObj</Name>
-      <X>5</X>
-      <Y>30</Y>
-      <Rotate>0</Rotate>
-    </Parts>
-    <Parts>
-      <ConnectNumber>2</ConnectNumber>
-      <Name>MoveDepthObj</Name>
-      <X>6.5</X>
-      <Y>30</Y>
-      <Rotate>0</Rotate>
-    </Parts>
-    <Parts>
-      <ConnectNumber>2</ConnectNumber>
-      <Name>MoveDepthObj</Name>
-      <X>8</X>
-      <Y>30</Y>
-      <Rotate>0</Rotate>
-    </Parts>
-    <Parts>
-      <ConnectNumber>2</ConnectNumber>
-      <Name>MoveDepthObj</Name>
-      <X>9.5</X>
-      <Y>30</Y>
-      <Rotate>0</Rotate>
-    </Parts>
-    <Parts>
-      <ConnectNumber>2</ConnectNumber>
-      <Name>MoveDepthObj</Name>
-      <X>11</X>
-      <Y>30</Y>
-      <Rotate>0</Rotate>
-    </Parts>
-    <Parts>
-      <ConnectNumber>2</ConnectNumber>
-      <Name>MoveDepthObj</Name>
-      <X>12.5</X>
-      <Y>30</Y>
-      <Rotate>0</Rotate>
-    </Parts>
-    <Parts>
-      <ConnectNumber>2</ConnectNumber>
-      <Name>MoveDepthObj</Name>
-      <X>14</X>
+      <X>11.5</X>
       <Y>30</Y>
       <Rotate>0</Rotate>
     </Parts>
@@ -433,7 +405,7 @@
       <Name>Bridge</Name>
       <X>102.5</X>
       <Y>70</Y>
-      <Rotate>-180</Rotate>
+      <Rotate>-130</Rotate>
     </Parts>
     
     <Trigger>
@@ -442,13 +414,6 @@
       <X>79.5</X>
       <Y>28</Y>
     </Trigger>
-    <Parts>
-      <ConnectNumber>4</ConnectNumber>
-      <Name>MoveDepthObj</Name>
-      <X>108</X>
-      <Y>42</Y>
-      <Rotate>0</Rotate>
-    </Parts>
     <Parts>
       <ConnectNumber>4</ConnectNumber>
       <Name>MoveDepthObj</Name>
@@ -484,7 +449,43 @@
       <Y>60</Y>
       <Rotate>0</Rotate>
     </Parts>
-    
+
+    <Trigger>
+      <ConnectNumber>5</ConnectNumber>
+      <Type>LeftGear</Type>
+      <X>55.5</X>
+      <Y>71.5</Y>
+    </Trigger>
+    <Parts>
+      <ConnectNumber>5</ConnectNumber>
+      <Name>MoveHorizontalObj</Name>
+      <X>4.5</X>
+      <Y>68.5</Y>
+      <Rotate>0</Rotate>
+    </Parts>
+    <Parts>
+      <ConnectNumber>5</ConnectNumber>
+      <Name>MoveHorizontalObj</Name>
+      <X>-3.5</X>
+      <Y>68.5</Y>
+      <Rotate>0</Rotate>
+    </Parts>
+    <Parts>
+      <ConnectNumber>5</ConnectNumber>
+      <Name>MoveHorizontalObj</Name>
+      <X>-10.5</X>
+      <Y>68.5</Y>
+      <Rotate>0</Rotate>
+    </Parts>
+    <Parts>
+      <ConnectNumber>5</ConnectNumber>
+      <Name>MoveHorizontalObj</Name>
+      <X>-17.5</X>
+      <Y>68.5</Y>
+      <Rotate>0</Rotate>
+    </Parts>
+
+
     <Trigger>
       <ConnectNumber>6</ConnectNumber>
       <Type>RightGear</Type>
@@ -533,6 +534,20 @@
       <PosX>140.5</PosX>
       <PosY>36</PosY>
       <Long>12</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    <Ground>
+      <PosX>107.7</PosX>
+      <PosY>48</PosY>
+      <Long>1.5</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    <Ground>
+      <PosX>79</PosX>
+      <PosY>70</PosY>
+      <Long>43</Long>
       <Rotate>0</Rotate>
       <!-- 0～360. 無ければ自動で0-->
     </Ground>
