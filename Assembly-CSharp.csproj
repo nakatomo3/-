@@ -9,7 +9,11 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
+<<<<<<< HEAD
     <ProjectGuid>{1B1A5FED-0F43-E962-B45B-E254C326D056}</ProjectGuid>
+=======
+    <ProjectGuid>{DE3FE445-B037-BC67-3389-982382BF665F}</ProjectGuid>
+>>>>>>> origin/sugimoto
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
