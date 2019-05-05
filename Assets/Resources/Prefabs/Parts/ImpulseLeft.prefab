@@ -93,7 +93,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.8, z: 1}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: -0.1, z: 0}
 --- !u!65 &4761701964822739163
 BoxCollider:
@@ -106,7 +106,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.7, z: 1}
+  m_Size: {x: 1, y: 1.35, z: 1}
   m_Center: {x: -1, y: -0.08, z: 0}
 --- !u!114 &7996577885854635569
 MonoBehaviour:
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d4617b621f3ee74eb18c550c430a902, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisType: 0
+  thisType: 14
 --- !u!1 &6275467006629887029
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,15 +207,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ac1cffbb9bb58c74284432aa09f17d06, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.32000017
+      value: -0.33024
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ac1cffbb9bb58c74284432aa09f17d06, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.6170399
+      value: 0.88001
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ac1cffbb9bb58c74284432aa09f17d06, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.01999998
+      value: 0.044762
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ac1cffbb9bb58c74284432aa09f17d06, type: 3}
       propertyPath: m_LocalRotation.x
@@ -251,15 +251,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ac1cffbb9bb58c74284432aa09f17d06, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.21744512
+      value: 0.30568153
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ac1cffbb9bb58c74284432aa09f17d06, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.22214903
+      value: 0.30568153
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ac1cffbb9bb58c74284432aa09f17d06, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.43489
+      value: 0.5196586
       objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: ac1cffbb9bb58c74284432aa09f17d06, type: 3}
       propertyPath: m_Materials.Array.data[0]
