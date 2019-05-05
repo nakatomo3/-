@@ -337,13 +337,14 @@ public class SystemManager : MonoBehaviour {
 
 		var missGroundObject = Instantiate(missGround, new Vector3(width/2, 0, 0), Quaternion.identity, transform);
 		missGroundObject.transform.localScale = new Vector3(width+1, 1, 2);
+		missGroundObject.transform.GetChild(0).GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2((width + 1) * 100, 570);
 		missGroundObject = Instantiate(missGround, new Vector3(width / 2, height, 0), Quaternion.identity, transform);
 		missGroundObject.transform.localScale = new Vector3(width+1, 1, 2);
 
 
 		var backGround = Resources.Load("Prefabs/StageFrames/BackGround") as GameObject;
-		var backGroundObject = Instantiate(backGround,new Vector3(width/2,height/2),Quaternion.identity) as GameObject;
-		backGroundObject.transform.GetChild(0).GetChild(0).gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(width * 100+1000, height * 100+1000);
+		var backGroundObject = Instantiate(backGround,new Vector3(width/2,height/2-8),Quaternion.identity) as GameObject;
+		backGroundObject.transform.GetChild(0).GetChild(0).gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(width * 100+2000, height * 100+5000);
 	}
 
 	/// <summary>
