@@ -8,6 +8,10 @@ public class Player : MonoBehaviour {
 
 	private bool isRight = true;
 
+    //壊れた歯車
+    public GameObject gearobject;
+
+
 	[HideInInspector]
 	public float moveSpeed { private set; get; } = MOVE_SPEED;
 	private const float MOVE_SPEED = 10f;
@@ -237,11 +241,48 @@ public class Player : MonoBehaviour {
 			}
 
 		}
-
+        //落下死
 		if (other.gameObject.CompareTag("MissGround")) {
 			Instantiate(Resources.Load("Prefabs/Systems/GameOver") as GameObject, transform.position, Quaternion.identity);
 			Destroy(this);
 		}
+        //圧死
+        if (other.gameObject.CompareTag("SquashGround"))
+        {
+            Vector3 Gearb = GameObject.FindGameObjectWithTag("Player").transform.position;
+
+            Destroy(this.gameObject);
+
+            Instantiate(gearobject, new Vector3(Gearb.x, Gearb.y, Gearb.z), Quaternion.identity);
+
+            Instantiate(Resources.Load("Prefabs/Systems/GameOver") as GameObject, transform.position, Quaternion.identity);
+           
+        }
+        //挟死
+        if (other.gameObject.CompareTag("SandwichedGround"))
+        {
+            Vector3 Gearb = GameObject.FindGameObjectWithTag("Player").transform.position;
+
+            Destroy(this.gameObject);
+
+            Instantiate(gearobject, new Vector3(Gearb.x, Gearb.y, Gearb.z), Quaternion.identity);
+
+            Instantiate(Resources.Load("Prefabs/Systems/GameOver") as GameObject, transform.position, Quaternion.identity);
+           
+        }
+        //爆死
+        //出現方法は一緒で複数のパーツをそれぞれ座標をずらして出現させる回転も加えてもいいが時間がかかる
+        if (other.gameObject.CompareTag("ExplosivedeathGround"))
+        {
+            Vector3 Gearb = GameObject.FindGameObjectWithTag("Player").transform.position;
+
+            Destroy(this.gameObject);
+
+            Instantiate(gearobject, new Vector3(Gearb.x, Gearb.y, Gearb.z), Quaternion.identity);
+
+            Instantiate(Resources.Load("Prefabs/Systems/GameOver") as GameObject, transform.position, Quaternion.identity);
+            
+        }
     }
 
 	private void OnTriggerExit(Collider other) {
