@@ -135,6 +135,10 @@ public class OptionManager : MonoBehaviour {
 				Time.timeScale = 1f;
 				canvas.SetActive(false);
 				mainCursorPos = 0;
+				isConfirmation = false;
+				isOpeningOptionWindow = false;
+				isSelectingBGM_SE = false;
+				isScreenSelect = false;
 			} else {
 				isPause = true;
 				Time.timeScale = 0f;

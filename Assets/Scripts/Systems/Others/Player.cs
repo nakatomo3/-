@@ -47,7 +47,7 @@ public class Player : MonoBehaviour {
 
     private void Awake() {
         instance = this;
-		Destroy(Camera.main.gameObject);
+		//Destroy(Camera.main.gameObject);
     }
 
     // Start is called before the first frame update
@@ -250,6 +250,18 @@ public class Player : MonoBehaviour {
 			}
 
 		}
+
+		if (other.gameObject.CompareTag("StageMover")) {
+			if (Input.GetKeyDown(KeyCode.Space)) {
+				StageMover stageMover = other.transform.parent.gameObject.GetComponent<StageMover>();
+				stageMover.isConnect = !stageMover.isConnect;
+				rigidbody.useGravity = !rigidbody.useGravity;
+				rigidbody.velocity = Vector3.zero;
+				isGimmickMode = !isGimmickMode;
+				thisTransform.position = other.gameObject.transform.position;
+			}
+		}
+
         //落下死
 		if (other.gameObject.CompareTag("MissGround")) {
 			Instantiate(Resources.Load("Prefabs/Systems/GameOver") as GameObject, transform.position, Quaternion.identity);

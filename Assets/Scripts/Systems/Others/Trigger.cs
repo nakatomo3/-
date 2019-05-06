@@ -74,17 +74,22 @@ public class Trigger : MonoBehaviour {
 		if (SystemManager.instance.GetGimmickValue(connectNum) <=1) {
 			switch (thisType) {
 				case TriggerType.RightGear:
-					if (Input.GetKey(KeyCode.D) && Player.instance.isGimmickMode == true && isThisGimmick == true) {
-						isTriggerOn = true;
+					if (Player.instance.isGimmickMode == true && isThisGimmick == true) {
+						if (Input.GetKey(KeyCode.D)) {
+							isTriggerOn = true;
+						}
+						Player.instance.transform.position = transform.position;
 					} else {
 						isTriggerOn = false;
 					}
 					break;
 
 				case TriggerType.LeftGear:
-					if (Input.GetKey(KeyCode.A) && Player.instance.isGimmickMode == true && isThisGimmick == true) {
-						isTriggerOn = true;
-
+					if (Player.instance.isGimmickMode == true && isThisGimmick == true) {
+						if (Input.GetKey(KeyCode.A)) {
+							isTriggerOn = true;
+						}
+						Player.instance.transform.position = transform.position;
 					} else {
 						isTriggerOn = false;
 					}
@@ -144,16 +149,22 @@ public class Trigger : MonoBehaviour {
 		if (SystemManager.instance.GetGimmickValue(connectNum) >= -1) {
 			switch (thisType) {
 				case TriggerType.RightGear:
-					if (Input.GetKey(KeyCode.A) && Player.instance.isGimmickMode == true && isThisGimmick == true) {
-						isTriggerOn = true;
+					if (Player.instance.isGimmickMode == true && isThisGimmick == true) {
+						if (Input.GetKey(KeyCode.A)) {
+							isTriggerOn = true;
+						}
+						Player.instance.transform.position = transform.position;
 					} else {
 						isTriggerOn = false;
 					}
 					break;
 
 				case TriggerType.LeftGear:
-					if (Input.GetKey(KeyCode.D) && Player.instance.isGimmickMode == true && isThisGimmick == true) {
-						isTriggerOn = true;
+					if (Player.instance.isGimmickMode == true && isThisGimmick == true) {
+						if (Input.GetKey(KeyCode.D)) {
+							isTriggerOn = true;
+						}
+						Player.instance.transform.position = transform.position;
 					} else {
 						isTriggerOn = false;
 					}

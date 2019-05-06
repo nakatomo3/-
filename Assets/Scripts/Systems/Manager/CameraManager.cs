@@ -1,14 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraManager : MonoBehaviour {
 
 	public static CameraManager instance;
 
-	private Transform playerTransform;
+	public Transform playerTransform;
 	private Transform thisTransform;
 
+	[SerializeField]
 	private float SideRange = 0;
 	private const float SIDE_MAX_RAMGE = 3;
 
@@ -26,37 +28,51 @@ public class CameraManager : MonoBehaviour {
 	private void Awake() {
 		instance = this;
 		thisTransform = transform;
-		playerTransform = Player.instance.gameObject.transform;
 	}
 
 
 	// Start is called before the first frame update
 	void Start() {
+		playerTransform = Player.instance.gameObject.transform;
+
 		thisTransform.Rotate(0, -0.8f, 0);
 		thisTransform.position = playerTransform.position + new Vector3(0, 4.8f, -20f);
 		moveToPosition = thisTransform.position;
 
-		if(SystemManager.instance.width >= SystemManager.instance.height) {
-            smallerLong = SystemManager.instance.width;
-        } else {
-			
-            smallerLong = SystemManager.instance.height;
-        }
+		if (SceneManager.GetActiveScene().name == "Game") {
+			if (SystemManager.instance.width >= SystemManager.instance.height) {
+				smallerLong = SystemManager.instance.width;
+			} else {
 
+				smallerLong = SystemManager.instance.height;
+			}
+		} else {
+			smallerLong = 50;
+		}
 		wholeRange = -70 * smallerLong/100;
+		
 	}
 
 	// Update is called once per frame
 	void Update() {
 		if(isWholeMode == false) {
             //	thisTransform.position = new Vector3(playerTransform.position.x + SideRange, posY, thisTransform.position.z);
-            thisTransform.position = new Vector3(posX + SideRange, posY, thisTransform.position.z);
-            thisTransform.localRotation = Quaternion.Euler(0,SideRange,0);
+			if (SceneManager.GetActiveScene().name == "Game") {
+				thisTransform.position = new Vector3(posX + SideRange, posY, thisTransform.position.z);
+				thisTransform.localRotation = Quaternion.Euler(0, SideRange, 0);
+			} else {
+				thisTransform.position = playerTransform.position + new Vector3(0,4,-20);
+			}
+
 		}
 
-		if(SystemManager.instance.isDeath == false) {
-			ChangeWholeMode();
+		if (SceneManager.GetActiveScene().name == "Game") {
+			if (SystemManager.instance.isDeath == false) {
+				ChangeWholeMode();
+			}
 		}
+
+		posX = Mathf.Lerp(thisTransform.position.x, playerTransform.position.x, 0.1f);
 	}
 
 	public void MoveRight() {
@@ -81,8 +97,7 @@ public class CameraManager : MonoBehaviour {
 	}
 
 	private void FixedUpdate() {
-		posY = Mathf.Lerp(thisTransform.position.y, playerTransform.position.y+4f, 0.1f);
-        posX = Mathf.Lerp(thisTransform.position.x, playerTransform.position.x + 4f, 0.1f);
+		posY = Mathf.Lerp(thisTransform.position.y, playerTransform.position.y + 4f, 0.1f);
     }
 
 	private void ChangeWholeMode() {
