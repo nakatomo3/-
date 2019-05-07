@@ -349,7 +349,7 @@ public class SystemManager : MonoBehaviour {
 			}
 		}
 
-		var changeZ = xmlDoc.GetElementsByTagName("ChangeX");
+		var changeZ = xmlDoc.GetElementsByTagName("ChangeZ");
 		for(int i= 0; i < changeZ.Count; i++) {
 			var id = changeZ.Item(i).ChildNodes.Item(0).InnerText;
 			var z = float.Parse(changeZ.Item(i).ChildNodes.Item(1).InnerText);
