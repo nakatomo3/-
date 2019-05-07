@@ -5,6 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Parts : MonoBehaviour {
 
+	[HideInInspector]
+	public string id = "";
+
     private Transform thisTransform;
     private Transform leftRotateAxis;
     private Transform rightRotateAxis;
@@ -67,14 +70,17 @@ public class Parts : MonoBehaviour {
 
     private const float BRIDGE_SPEED = 45;
 
-    private const float MOVE_HORIZONTAL_OBJ_RANGE = 50;
-    private const float MOVE_HORIZONTAL_OBJ_SPEED = 20;
+	[HideInInspector]
+    public float MOVE_HORIZONTAL_OBJ_RANGE = 50;
+    //private const float MOVE_HORIZONTAL_OBJ_SPEED = 20;
 
-    private const float MOVE_VIRTICAL_OBJ_RANGE = 20;
-    private const float MOVE_VIRTICAL_OBJ_SPEED = 8;
+	[HideInInspector]
+    public float MOVE_VIRTICAL_OBJ_RANGE = 20;
+    //private const float MOVE_VIRTICAL_OBJ_SPEED = 8;
 
-    private const float MOVE_DEPTH_OBJ_RANGE = 7;
-    private const float MOVE_DEPTH_OBJ_SPEED = 2;
+	[HideInInspector]
+    public float MOVE_DEPTH_OBJ_RANGE = 7;
+    //private const float MOVE_DEPTH_OBJ_SPEED = 2;
 
     private const float SLOPE_UP_SPEED = 1;
     private const float SLOPE_SIDE_SPEED = 1;
@@ -337,15 +343,15 @@ public class Parts : MonoBehaviour {
                 break;
 
             case PartsType.MoveVerticalObj:
-                if (thisTransform.position.y >= thisFirstPosY- MOVE_VIRTICAL_OBJ_RANGE) {
-                    thisTransform.Translate(0, -MOVE_VIRTICAL_OBJ_SPEED * Time.deltaTime, 0);
-                }
+                //if (thisTransform.position.y >= thisFirstPosY- MOVE_VIRTICAL_OBJ_RANGE) {
+                //    thisTransform.Translate(0, -MOVE_VIRTICAL_OBJ_SPEED * Time.deltaTime, 0);
+                //}
                 break;
 
             case PartsType.MoveDepthObj:
-                if (thisTransform.position.z >= thisFirstPosZ- MOVE_DEPTH_OBJ_RANGE) {
-                    thisTransform.Translate(0, 0, -MOVE_DEPTH_OBJ_SPEED * Time.deltaTime);
-                }
+                //if (thisTransform.position.z >= thisFirstPosZ- MOVE_DEPTH_OBJ_RANGE) {
+                //    thisTransform.Translate(0, 0, -MOVE_DEPTH_OBJ_SPEED * Time.deltaTime);
+                //}
                 break;
 
             case PartsType.Slope:

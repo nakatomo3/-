@@ -23,9 +23,7 @@ public class SystemManager : MonoBehaviour {
 	private Dictionary<int, Gimmick> gimmicks = new Dictionary<int, Gimmick>();
 
 	[HideInInspector]
-	public float width;
-	[HideInInspector]
-	public float height;
+	public float width,height;
 
 	private void Awake() {
 		stageNum = PlayerPrefs.GetInt("stage");
@@ -289,9 +287,12 @@ public class SystemManager : MonoBehaviour {
 					var rotate = float.Parse(parts.Item(i).ChildNodes.Item(4).InnerText);
 					newPartsObject.transform.Rotate(0, 0, rotate);
 				}
+				if(parts.Item(i).ChildNodes.Count > 5) {
+					var id = parts.Item(i).ChildNodes.Item(5).InnerText;
+					newParts.id = id;
+				}
 				newParts.thisType = partsType;
 				gimmicks[connectNum].parts.Add(newParts);
-
 			} else {
 				Debug.LogError(connectNum + "番のトリガーを登録してください");
 				continue;
@@ -305,7 +306,7 @@ public class SystemManager : MonoBehaviour {
 			float posY = float.Parse(grounds.Item(i).ChildNodes.Item(1).InnerText);
 			float groundWidth = float.Parse(grounds.Item(i).ChildNodes.Item(2).InnerText);
 			var groundObject = Instantiate(ground, new Vector3(posX, posY, 0), Quaternion.identity, transform);
-			groundObject.transform.localScale = new Vector3(groundWidth, 1,2);
+			groundObject.transform.localScale = new Vector3(groundWidth, 1, 2);
 
 			var groundPipe = Resources.Load("Prefabs/StageFrames/Pipe") as GameObject;
 			var groundPipeObject = Instantiate(groundPipe, new Vector3(posX, posY), Quaternion.identity,transform);
@@ -345,6 +346,46 @@ public class SystemManager : MonoBehaviour {
 			if (walls.Item(i).ChildNodes.Count > 4) {
 				float rotate = float.Parse(walls.Item(i).ChildNodes.Item(3).InnerText);
 				wallObj.transform.Rotate(0, 0, rotate);
+			}
+		}
+
+		var changeZ = xmlDoc.GetElementsByTagName("ChangeX");
+		for(int i= 0; i < changeZ.Count; i++) {
+			var id = changeZ.Item(i).ChildNodes.Item(0).InnerText;
+			var z = float.Parse(changeZ.Item(i).ChildNodes.Item(1).InnerText);
+
+			for(int j = 0; j < gimmicks.Count; j++) {
+				for(int k = 0; k < gimmicks[j].parts.Count; k++) {
+					if(gimmicks[j].parts[k].id == id) {
+						gimmicks[j].parts[k].transform.position += new Vector3(0, 0, z);
+					}
+				}
+			}
+		}
+
+		//TODO 範囲の変更
+		var changeRange = xmlDoc.GetElementsByTagName("ChangeRange");
+		for(int i = 0; i < changeRange.Count; i++) {
+			var id = changeRange.Item(i).ChildNodes.Item(0).InnerText;
+			var range = float.Parse(changeRange.Item(i).ChildNodes.Item(1).InnerText);
+			for(int j = 0; j < gimmicks.Count; j++) {
+				for(int k = 0; k < gimmicks[j].parts.Count; k++) {
+					var part = gimmicks[j].parts[k];
+					if(part.id == id) {
+						switch (part.thisType) {
+							case Parts.PartsType.MoveHorizontalObj:
+								part.MOVE_HORIZONTAL_OBJ_RANGE = range;
+								break;
+							case Parts.PartsType.MoveVerticalObj:
+								part.MOVE_VIRTICAL_OBJ_RANGE = range;
+								break;
+							case Parts.PartsType.MoveDepthObj:
+								part.MOVE_DEPTH_OBJ_RANGE = range;
+								break;
+						}
+						
+					}
+				}
 			}
 		}
 		
