@@ -12,7 +12,11 @@ public class StageSelectManager : MonoBehaviour {
 	public GameObject hiddenStagePipe;
 
 	public GameObject collectPartsObject;
-	public GameObject[,] collectParts = new GameObject[5,2];
+	private GameObject[,] collectParts = new GameObject[5,2];
+
+	public GameObject Door;
+	public Transform doorParent;
+	public GameObject[] doors = new GameObject[5];
 
 	private void Awake() {
 		instance = this;
@@ -25,11 +29,20 @@ public class StageSelectManager : MonoBehaviour {
 				collectParts[i, j] = Instantiate(collectPartsObject, new Vector3(21 + j * 3, 5.6f + 9.4f * i, -1.8f), Quaternion.identity) as GameObject;
 			}
 		}
+		for(int i = 0; i < 5; i++) {
+			doors[i] = Instantiate(Door, new Vector3(27,1.6f+9*i,1.8f), Quaternion.identity, doorParent);
+		}
 	}
 
 	// Update is called once per frame
 	void Update() {
 		hiddenStagePipe.SetActive(!CheckCollectpartsAll());
+
+		for(int i = 0;i <5; i++) {
+			if(doors[i].transform.localRotation.y < 0) {
+				doors[i].transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
+			}
+		}
 
 	}
 
