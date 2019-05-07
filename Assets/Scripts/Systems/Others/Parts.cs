@@ -10,6 +10,7 @@ public class Parts : MonoBehaviour {
     private Transform rightRotateAxis;
     private Transform impulseObj;
     private GameObject Flame;
+    private GameObject goalAnimation;
     private Vector3 impulseVector;
     private float thisFirstPosY;
     private float thisFirstPosX;
@@ -92,8 +93,9 @@ public class Parts : MonoBehaviour {
     private const float IMPULSE_ACTION_RESET_SPEED = 5;
     private const float IMPULSE_ACTION_RANGE = 0.2f;
 
-    private const float GOAL_ANIMATION = 3.0f;
-    private const float GOAL = 5.0f;
+    private const float GOAL = 1.5f;
+    [HideInInspector]
+    public int connectNumber = 0;
 
     // Start is called before the first frame update
     void Start() {
@@ -130,6 +132,9 @@ public class Parts : MonoBehaviour {
                 impulseObj = transform.GetChild(0).transform;
                 thisFirstPosX = impulseObj.position.x;
                 break;
+            case PartsType.Goal:
+                goalAnimation = (GameObject)Resources.Load("Prefabs/Systems/GameOvers/GoalAnimation");
+                break;
         }
 
         if (thisType == PartsType.Default) {
@@ -153,18 +158,30 @@ public class Parts : MonoBehaviour {
             explosionCounter += 1 * Time.deltaTime;
         }
         TrapAction();
+
+        if (thisType == PartsType.MoveHorizontalObj) {
+            transform.position = new Vector3(thisFirstPosX + SystemManager.instance.GetGimmickValue(connectNumber) * MOVE_HORIZONTAL_OBJ_RANGE, thisTransform.position.y, thisTransform.position.z);
+
+        }else if (thisType == PartsType.MoveVerticalObj) {
+            transform.position = new Vector3(thisTransform.position.x, thisFirstPosY + SystemManager.instance.GetGimmickValue(connectNumber) * MOVE_VIRTICAL_OBJ_RANGE, thisTransform.position.z);
+
+        } else if (thisType == PartsType.MoveDepthObj) {
+            transform.position = new Vector3(thisTransform.position.x, thisTransform.position.y, thisFirstPosZ + SystemManager.instance.GetGimmickValue(connectNumber) * MOVE_DEPTH_OBJ_RANGE);
+
+        }
+
     }
 
     private void FixedUpdate() {
-        if (isMoveRight == true&& thisTransform.position.x <= thisFirstPosX + MOVE_HORIZONTAL_OBJ_RANGE) {
-            thisTransform.Translate(MOVE_HORIZONTAL_OBJ_SPEED * Time.deltaTime, 0, 0);
-            isMoveRight = false;
+        //if (isMoveRight == true&& thisTransform.position.x <= thisFirstPosX + MOVE_HORIZONTAL_OBJ_RANGE) {
+        //    thisTransform.Translate(MOVE_HORIZONTAL_OBJ_SPEED * Time.deltaTime, 0, 0);
+        //    isMoveRight = false;
 
-        }
-        if (isMoveLeft == true&& thisTransform.position.x >= thisFirstPosX - MOVE_HORIZONTAL_OBJ_RANGE) {
-            thisTransform.Translate(-MOVE_HORIZONTAL_OBJ_SPEED * Time.deltaTime, 0, 0);
-            isMoveLeft = false;
-        }
+        //}
+        //if (isMoveLeft == true&& thisTransform.position.x >= thisFirstPosX - MOVE_HORIZONTAL_OBJ_RANGE) {
+        //    thisTransform.Translate(-MOVE_HORIZONTAL_OBJ_SPEED * Time.deltaTime, 0, 0);
+        //    isMoveLeft = false;
+        //}
     }
 
     /// <summary>
@@ -215,13 +232,14 @@ public class Parts : MonoBehaviour {
 
             case PartsType.MoveVerticalObj:
                 if (thisTransform.position.y <= thisFirstPosY + MOVE_VIRTICAL_OBJ_RANGE) {
-                    thisTransform.Translate(0, MOVE_VIRTICAL_OBJ_SPEED * Time.deltaTime, 0);
+                    //thisTransform.Translate(0, MOVE_VIRTICAL_OBJ_SPEED * Time.deltaTime, 0);
+                   // transform.position = new Vector3(thisTransform.position.x, thisFirstPosY + SystemManager.instance.GetGimmickValue(connectNumber) * MOVE_VIRTICAL_OBJ_RANGE, thisTransform.position.z);
                 }
                 break;
 
             case PartsType.MoveDepthObj:
                 if (thisTransform.position.z <= thisFirstPosZ + MOVE_DEPTH_OBJ_RANGE) {
-                    thisTransform.Translate(0, 0, MOVE_DEPTH_OBJ_SPEED * Time.deltaTime);
+                    //transform.position = new Vector3(thisTransform.position.x, thisTransform.position.y, thisFirstPosZ + SystemManager.instance.GetGimmickValue(connectNumber) * MOVE_DEPTH_OBJ_RANGE);
                 }
                 break;
 
@@ -262,8 +280,7 @@ public class Parts : MonoBehaviour {
             case PartsType.Goal:
                 goalCounter += Time.deltaTime;
                 Debug.Log("GoalCounter:" + goalCounter);
-                if (goalCounter <= GOAL_ANIMATION) {
-                } else if (goalCounter >= GOAL) {
+                if (goalCounter <= GOAL) {
                     //SceneManager.LoadScene("StageSelect");
                     if (Player.instance.isCollectGets[0] == true) {
                         PlayerPrefs.SetInt(SystemManager.instance.stageNum + "1", 1);
@@ -271,6 +288,7 @@ public class Parts : MonoBehaviour {
                     if (Player.instance.isCollectGets[1] == true) {
                         PlayerPrefs.SetInt(SystemManager.instance.stageNum + "2", 1);
                     }
+                    Instantiate(goalAnimation, thisTransform.position, Quaternion.identity);
                     Destroy(gameObject);
                 }
                 break;
@@ -278,7 +296,6 @@ public class Parts : MonoBehaviour {
             default:
 
                 break;
-
         }
     }
 
@@ -367,7 +384,7 @@ public class Parts : MonoBehaviour {
             case PartsType.Goal:
                 goalCounter += Time.deltaTime;
                 Debug.Log("GoalCounter:" + goalCounter);
-                if (goalCounter <= GOAL_ANIMATION) {
+                if (goalCounter <= GOAL) {
                 } else if (goalCounter >= GOAL) {
                     //SceneManager.LoadScene("StageSelect");
                     if (Player.instance.isCollectGets[0] == true) {
@@ -376,6 +393,7 @@ public class Parts : MonoBehaviour {
                     if (Player.instance.isCollectGets[1] == true) {
                         PlayerPrefs.SetInt(SystemManager.instance.stageNum + "2", 1);
                     }
+                    Instantiate(goalAnimation, thisTransform.position, Quaternion.identity);
                     Destroy(gameObject);
                 }
                 break;

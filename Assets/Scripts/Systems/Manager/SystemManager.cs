@@ -46,7 +46,18 @@ public class SystemManager : MonoBehaviour {
 	}
 
 	void Update() {
-
+        for(int i = 0; i < gimmicks.Count; i++) {
+            if(gimmicks[i].value > 1) {
+                var newGimmick = gimmicks[i];
+                newGimmick.value = 1;
+                gimmicks[i] = newGimmick;
+            }
+            if(gimmicks[i].value < -1) {
+                var newGimmick = gimmicks[i];
+                newGimmick.value = -1;
+                gimmicks[i] = newGimmick;
+            }
+        }
 
     }
 
@@ -273,6 +284,7 @@ public class SystemManager : MonoBehaviour {
                 }
 				var newPartsObject = Instantiate(partsObject, new Vector3(x, y, 0), Quaternion.identity, transform) as GameObject;
 				var newParts = newPartsObject.GetComponent<Parts>();
+                newParts.connectNumber = connectNum;
 				if(parts.Item(i).ChildNodes.Count > 4) {
 					var rotate = float.Parse(parts.Item(i).ChildNodes.Item(4).InnerText);
 					newPartsObject.transform.Rotate(0, 0, rotate);
@@ -360,9 +372,11 @@ public class SystemManager : MonoBehaviour {
 	/// </summary>
 	/// <param name="num"></param>
 	public void ActionGimmickPlus(int num) {
-		foreach(var parts in gimmicks[num].parts) {
-			parts.ActionPartsPlus();
-		}
+        if (gimmicks[num].value < 1) {
+            foreach (var parts in gimmicks[num].parts) {
+                parts.ActionPartsPlus();
+            }
+        }
 	}
 
 	/// <summary>
@@ -370,9 +384,11 @@ public class SystemManager : MonoBehaviour {
 	/// </summary>
 	/// <param name="num"></param>
 	public void ActionGimmickMinus(int num) {
-		foreach (var parts in gimmicks[num].parts) {
-			parts.ActionPartsMinus();
-		}
+        if (gimmicks[num].value > -1) {
+            foreach (var parts in gimmicks[num].parts) {
+                parts.ActionPartsMinus();
+            }
+        }
 	}
 
 
@@ -393,14 +409,6 @@ public class SystemManager : MonoBehaviour {
 	}
 
 	public float GetGimmickValue(int num) {
-		//Gimmick gimmick = gimmicks[num];
-		//if(gimmick.value <= -1) {
-		//	gimmick.value = -1;
-		//}
-		//if(gimmick.value >= 1) {
-		//	gimmick.value = 1;
-		//}
-		//gimmicks[num] = gimmick;
 		return gimmicks[num].value;
 	}
 
@@ -408,9 +416,15 @@ public class SystemManager : MonoBehaviour {
 		var gimmick = gimmicks[num];
 		if (isPlus) {
 			gimmick.value += Time.deltaTime/2;
+            if(gimmick.value > 1) {
+                gimmick.value = 1;
+            }
 		} else {
 			gimmick.value -= Time.deltaTime/2;
-		}
+            if (gimmick.value < -1) {
+                gimmick.value = -1;
+            }
+        }
 		gimmicks[num] = gimmick;
 	}
 }
