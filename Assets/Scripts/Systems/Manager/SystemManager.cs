@@ -46,18 +46,18 @@ public class SystemManager : MonoBehaviour {
 	}
 
 	void Update() {
-        for(int i = 0; i < gimmicks.Count; i++) {
-            if(gimmicks[i].value > 1) {
-                var newGimmick = gimmicks[i];
-                newGimmick.value = 1;
-                gimmicks[i] = newGimmick;
-            }
-            if(gimmicks[i].value < -1) {
-                var newGimmick = gimmicks[i];
-                newGimmick.value = -1;
-                gimmicks[i] = newGimmick;
-            }
-        }
+        //for(int i = 0; i < gimmicks.Count; i++) {
+        //    if(gimmicks[i].value > 1) {
+        //        var newGimmick = gimmicks[i];
+        //        newGimmick.value = 1;
+        //        gimmicks[i] = newGimmick;
+        //    }
+        //    if(gimmicks[i].value < -1) {
+        //        var newGimmick = gimmicks[i];
+        //        newGimmick.value = -1;
+        //        gimmicks[i] = newGimmick;
+        //    }
+        //}
 
     }
 
