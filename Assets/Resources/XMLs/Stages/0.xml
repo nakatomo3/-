@@ -157,6 +157,15 @@
       </Ground>
   </Grounds>
 
+    <!--
+    <Concrete>
+        <PosX>60</PosX>
+        <PosY>40</PosY>
+        <Long>100</Long>
+        <Rotate>0</Rotate>
+    </Concrete>
+    -->
+
     <Walls>
         <Wall>
             <PosX>5</PosX>
