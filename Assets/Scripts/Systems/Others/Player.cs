@@ -26,7 +26,6 @@ public class Player : MonoBehaviour {
 
 	[HideInInspector]
 	public bool isGimmickMode = false;
-	private float changeTimer = 0;
 	[HideInInspector]
 	public Rigidbody rigidbody;
 	private Collider thisCollider;
@@ -236,7 +235,7 @@ public class Player : MonoBehaviour {
 
             }
 
-			if (Input.GetKey(KeyCode.Space)) {
+			if (Input.GetKeyDown(KeyCode.Space)) {
 
 				if (trigger.thisType == Trigger.TriggerType.Electrical ||
 					trigger.thisType == Trigger.TriggerType.LeftGear ||
