@@ -23,9 +23,7 @@ public class SystemManager : MonoBehaviour {
 	private Dictionary<int, Gimmick> gimmicks = new Dictionary<int, Gimmick>();
 
 	[HideInInspector]
-	public float width;
-	[HideInInspector]
-	public float height;
+	public float width,height;
 
 	private void Awake() {
 		stageNum = PlayerPrefs.GetInt("stage");
@@ -46,18 +44,6 @@ public class SystemManager : MonoBehaviour {
 	}
 
 	void Update() {
-        //for(int i = 0; i < gimmicks.Count; i++) {
-        //    if(gimmicks[i].value > 1) {
-        //        var newGimmick = gimmicks[i];
-        //        newGimmick.value = 1;
-        //        gimmicks[i] = newGimmick;
-        //    }
-        //    if(gimmicks[i].value < -1) {
-        //        var newGimmick = gimmicks[i];
-        //        newGimmick.value = -1;
-        //        gimmicks[i] = newGimmick;
-        //    }
-        //}
 
     }
 
@@ -103,17 +89,19 @@ public class SystemManager : MonoBehaviour {
 
 
 		var collectParts = Resources.Load("Prefabs/Systems/CollectParts") as GameObject;
+		GameObject collectPartsParent = new GameObject("CollectPartsParent");
+		collectPartsParent.transform.parent = transform;
 
 		try {
 			var collect1 = xmlDoc.GetElementsByTagName("Collect1");
 
 			var pos = new Vector3(float.Parse(collect1.Item(0).ChildNodes.Item(0).InnerText), float.Parse(collect1.Item(0).ChildNodes.Item(1).InnerText), 0);
-			var newCollectParts = Instantiate(collectParts, pos, Quaternion.identity, transform);
+			var newCollectParts = Instantiate(collectParts, pos, Quaternion.identity, collectPartsParent.transform);
 			newCollectParts.name = "1";
 
 			var collect2 = xmlDoc.GetElementsByTagName("Collect2");
 			pos = new Vector3(float.Parse(collect2.Item(0).ChildNodes.Item(0).InnerText), float.Parse(collect2.Item(0).ChildNodes.Item(1).InnerText), 0);
-			newCollectParts = Instantiate(collectParts, pos, Quaternion.identity, transform);
+			newCollectParts = Instantiate(collectParts, pos, Quaternion.identity, collectPartsParent.transform);
 			newCollectParts.name = "2";
 		} catch {
 			Debug.LogError("CollectPartsが指定されていません");
@@ -121,6 +109,7 @@ public class SystemManager : MonoBehaviour {
 
 		//トリガーの追加
 		var triggers = xmlDoc.GetElementsByTagName("Trigger");
+		GameObject triggerParents = new GameObject("TriggerParent");
 		for(int i = 0; i < triggers.Count; i++) {
 			int connectNum = int.Parse(triggers.Item(i).ChildNodes.Item(0).InnerText);
 			string name = triggers.Item(i).ChildNodes.Item(1).InnerText;
@@ -160,7 +149,7 @@ public class SystemManager : MonoBehaviour {
 					triggerType = Trigger.TriggerType.Forever;
 					break;
 			}
-			var newTriggerObject = Instantiate(triggerObject, new Vector3(x, y, 0), Quaternion.identity, transform) as GameObject;
+			var newTriggerObject = Instantiate(triggerObject, new Vector3(x, y, 0), Quaternion.identity, triggerParents.transform) as GameObject;
 			Trigger trigger = newTriggerObject.GetComponent<Trigger>();
 			if (triggers.Item(i).ChildNodes.Count > 4) {
 				var rotate = float.Parse(triggers.Item(i).ChildNodes.Item(4).InnerText);
@@ -184,6 +173,8 @@ public class SystemManager : MonoBehaviour {
 
 		//パーツの追加
 		var parts = xmlDoc.GetElementsByTagName("Parts");
+		GameObject partsParent = new GameObject("PartsParent");
+		partsParent.transform.parent = transform;
 		for(int i = 0; i < parts.Count; i++) {
 			int connectNum = int.Parse(parts.Item(i).ChildNodes.Item(0).InnerText);
 			if (gimmicks.ContainsKey(connectNum)) {
@@ -282,16 +273,19 @@ public class SystemManager : MonoBehaviour {
                         partsType = Parts.PartsType.Goal;
                         break;
                 }
-				var newPartsObject = Instantiate(partsObject, new Vector3(x, y, 0), Quaternion.identity, transform) as GameObject;
+				var newPartsObject = Instantiate(partsObject, new Vector3(x, y, 0), Quaternion.identity, partsParent.transform) as GameObject;
 				var newParts = newPartsObject.GetComponent<Parts>();
                 newParts.connectNumber = connectNum;
 				if(parts.Item(i).ChildNodes.Count > 4) {
 					var rotate = float.Parse(parts.Item(i).ChildNodes.Item(4).InnerText);
 					newPartsObject.transform.Rotate(0, 0, rotate);
 				}
+				if(parts.Item(i).ChildNodes.Count > 5) {
+					var id = parts.Item(i).ChildNodes.Item(5).InnerText;
+					newParts.id = id;
+				}
 				newParts.thisType = partsType;
 				gimmicks[connectNum].parts.Add(newParts);
-
 			} else {
 				Debug.LogError(connectNum + "番のトリガーを登録してください");
 				continue;
@@ -299,21 +293,22 @@ public class SystemManager : MonoBehaviour {
 		}
 
 		var grounds = xmlDoc.GetElementsByTagName("Ground");
+		GameObject groundParent = new GameObject("GroundParent");
 		var ground = Resources.Load("Prefabs/StageFrames/Ground") as GameObject;
 		for (int i = 0; i < grounds.Count; i++) {
 			float posX = float.Parse(grounds.Item(i).ChildNodes.Item(0).InnerText);
 			float posY = float.Parse(grounds.Item(i).ChildNodes.Item(1).InnerText);
 			float groundWidth = float.Parse(grounds.Item(i).ChildNodes.Item(2).InnerText);
-			var groundObject = Instantiate(ground, new Vector3(posX, posY, 0), Quaternion.identity, transform);
-			groundObject.transform.localScale = new Vector3(groundWidth, 1,2);
+			var groundObject = Instantiate(ground, new Vector3(posX, posY, 0), Quaternion.identity, groundParent.transform);
+			groundObject.transform.localScale = new Vector3(groundWidth, 1, 2);
 
 			var groundPipe = Resources.Load("Prefabs/StageFrames/Pipe") as GameObject;
-			var groundPipeObject = Instantiate(groundPipe, new Vector3(posX, posY), Quaternion.identity,transform);
+			var groundPipeObject = Instantiate(groundPipe, new Vector3(posX, posY), Quaternion.identity, groundParent.transform);
 			groundPipeObject.transform.localScale = new Vector3(groundWidth, 0.6f, 0.6f);
 			var pipeConnection = Resources.Load("Prefabs/StageFrames/PipeConnection") as GameObject;
 			var empty = new GameObject("PipeCollectParent");
 			empty.transform.position = new Vector3(posX, posY);
-			empty.transform.parent = transform;
+			empty.transform.parent = groundParent.transform;
 			for(int j = 0; j < groundWidth; j += 8) {
 				var connectionObject = Instantiate(pipeConnection, new Vector3(posX-groundWidth/2+j, posY), Quaternion.identity, empty.transform);
 			}
@@ -324,6 +319,24 @@ public class SystemManager : MonoBehaviour {
 				groundObject.transform.Rotate(0, 0, rotate);
 				groundPipeObject.transform.Rotate(0, 0, rotate);
 				empty.transform.Rotate(0, 0, rotate);
+			}
+		}
+
+		var concretes = xmlDoc.GetElementsByTagName("Concrete");
+		var concrete = Resources.Load("Prefabs/StageFrames/Concrete") as GameObject;
+		for(int i = 0; i < concretes.Count; i++) {
+			float posX = float.Parse(concretes.Item(i).ChildNodes.Item(0).InnerText);
+			float posY = float.Parse(concretes.Item(i).ChildNodes.Item(1).InnerText);
+			float groundWidth = float.Parse(concretes.Item(i).ChildNodes.Item(2).InnerText);
+			var groundObject = Instantiate(concrete, new Vector3(posX, posY, 0), Quaternion.identity, transform);
+			groundObject.transform.GetChild(0).localScale = new Vector3(groundWidth, 1, 2); //当たり判定
+			groundObject.transform.GetChild(1).GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector3(groundWidth * 100, 100, 2);
+			groundObject.transform.GetChild(1).GetChild(1).GetComponent<RectTransform>().sizeDelta = new Vector3(groundWidth * 100, 100, 2);
+			groundObject.transform.GetChild(1).GetChild(2).GetComponent<RectTransform>().sizeDelta = new Vector3(groundWidth*100, 100, 2);
+
+			if(concretes.Item(i).ChildNodes.Count > 4) {
+				float rotate = float.Parse(concretes.Item(i).ChildNodes.Item(3).InnerText);
+				groundObject.transform.Rotate(0, 0, rotate);
 			}
 		}
 
@@ -345,6 +358,46 @@ public class SystemManager : MonoBehaviour {
 			if (walls.Item(i).ChildNodes.Count > 4) {
 				float rotate = float.Parse(walls.Item(i).ChildNodes.Item(3).InnerText);
 				wallObj.transform.Rotate(0, 0, rotate);
+			}
+		}
+
+		var changeZ = xmlDoc.GetElementsByTagName("ChangeZ");
+		for(int i= 0; i < changeZ.Count; i++) {
+			var id = changeZ.Item(i).ChildNodes.Item(0).InnerText;
+			var z = float.Parse(changeZ.Item(i).ChildNodes.Item(1).InnerText);
+
+			for(int j = 0; j < gimmicks.Count; j++) {
+				for(int k = 0; k < gimmicks[j].parts.Count; k++) {
+					if(gimmicks[j].parts[k].id == id) {
+						gimmicks[j].parts[k].transform.position += new Vector3(0, 0, z);
+					}
+				}
+			}
+		}
+
+		//TODO 範囲の変更
+		var changeRange = xmlDoc.GetElementsByTagName("ChangeRange");
+		for(int i = 0; i < changeRange.Count; i++) {
+			var id = changeRange.Item(i).ChildNodes.Item(0).InnerText;
+			var range = float.Parse(changeRange.Item(i).ChildNodes.Item(1).InnerText);
+			for(int j = 0; j < gimmicks.Count; j++) {
+				for(int k = 0; k < gimmicks[j].parts.Count; k++) {
+					var part = gimmicks[j].parts[k];
+					if(part.id == id) {
+						switch (part.thisType) {
+							case Parts.PartsType.MoveHorizontalObj:
+								part.MOVE_HORIZONTAL_OBJ_RANGE = range;
+								break;
+							case Parts.PartsType.MoveVerticalObj:
+								part.MOVE_VIRTICAL_OBJ_RANGE = range;
+								break;
+							case Parts.PartsType.MoveDepthObj:
+								part.MOVE_DEPTH_OBJ_RANGE = range;
+								break;
+						}
+						
+					}
+				}
 			}
 		}
 		
