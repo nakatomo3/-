@@ -99,7 +99,7 @@ public class Parts : MonoBehaviour {
     private const float IMPULSE_ACTION_RESET_SPEED = 5;
     private const float IMPULSE_ACTION_RANGE = 0.2f;
 
-    private const float GOAL = 1.5f;
+    private const float GOAL = 1.0f;
     [HideInInspector]
     public int connectNumber = 0;
 
@@ -295,7 +295,8 @@ public class Parts : MonoBehaviour {
                         PlayerPrefs.SetInt(SystemManager.instance.stageNum + "2", 1);
                     }
                     Instantiate(goalAnimation, thisTransform.position, Quaternion.identity);
-                    Destroy(gameObject);
+                    this.gameObject.SetActive(false);
+                    //Destroy(gameObject);
                 }
                 break;
 
