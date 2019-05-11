@@ -129,7 +129,7 @@ public class OptionManager : MonoBehaviour {
 		bool isInputDown = Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S);
 
 
-		if (Input.GetKeyDown(KeyCode.Escape)) {
+		if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name == "Game") {
 			if(isPause == true) {
 				isPause = false;
 				Time.timeScale = 1f;
