@@ -109,15 +109,14 @@ public class SystemManager : MonoBehaviour {
 
 		//トリガーの追加
 		var triggers = xmlDoc.GetElementsByTagName("Trigger");
-		GameObject triggerParents = new GameObject("TriggerParent");
-		for(int i = 0; i < triggers.Count; i++) {
+		for (int i = 0; i < triggers.Count; i++) {
 			int connectNum = int.Parse(triggers.Item(i).ChildNodes.Item(0).InnerText);
 			string name = triggers.Item(i).ChildNodes.Item(1).InnerText;
 			float x, y;
 			x = float.Parse(triggers.Item(i).ChildNodes.Item(2).InnerText);
 			y = float.Parse(triggers.Item(i).ChildNodes.Item(3).InnerText);
 
-			GameObject triggerObject = new GameObject();
+			GameObject triggerObject;
 			Trigger.TriggerType triggerType = Trigger.TriggerType.Default;
 			switch (name) {
 				default:
@@ -149,7 +148,7 @@ public class SystemManager : MonoBehaviour {
 					triggerType = Trigger.TriggerType.Forever;
 					break;
 			}
-			var newTriggerObject = Instantiate(triggerObject, new Vector3(x, y, 0), Quaternion.identity, triggerParents.transform) as GameObject;
+			var newTriggerObject = Instantiate(triggerObject, new Vector3(x, y, 0), Quaternion.identity, transform) as GameObject;
 			Trigger trigger = newTriggerObject.GetComponent<Trigger>();
 			if (triggers.Item(i).ChildNodes.Count > 4) {
 				var rotate = float.Parse(triggers.Item(i).ChildNodes.Item(4).InnerText);
@@ -173,8 +172,6 @@ public class SystemManager : MonoBehaviour {
 
 		//パーツの追加
 		var parts = xmlDoc.GetElementsByTagName("Parts");
-		GameObject partsParent = new GameObject("PartsParent");
-		partsParent.transform.parent = transform;
 		for(int i = 0; i < parts.Count; i++) {
 			int connectNum = int.Parse(parts.Item(i).ChildNodes.Item(0).InnerText);
 			if (gimmicks.ContainsKey(connectNum)) {
@@ -183,7 +180,7 @@ public class SystemManager : MonoBehaviour {
 				x = float.Parse(parts.Item(i).ChildNodes.Item(2).InnerText);
 				y = float.Parse(parts.Item(i).ChildNodes.Item(3).InnerText);
 
-				GameObject partsObject = new GameObject();
+				GameObject partsObject;
 				Parts.PartsType partsType = Parts.PartsType.Default;
 				switch (name) {
 					default:
@@ -273,7 +270,7 @@ public class SystemManager : MonoBehaviour {
                         partsType = Parts.PartsType.Goal;
                         break;
                 }
-				var newPartsObject = Instantiate(partsObject, new Vector3(x, y, 0), Quaternion.identity, partsParent.transform) as GameObject;
+				var newPartsObject = Instantiate(partsObject, new Vector3(x, y, 0), Quaternion.identity, transform) as GameObject;
 				var newParts = newPartsObject.GetComponent<Parts>();
                 newParts.connectNumber = connectNum;
 				if(parts.Item(i).ChildNodes.Count > 4) {
@@ -293,22 +290,21 @@ public class SystemManager : MonoBehaviour {
 		}
 
 		var grounds = xmlDoc.GetElementsByTagName("Ground");
-		GameObject groundParent = new GameObject("GroundParent");
 		var ground = Resources.Load("Prefabs/StageFrames/Ground") as GameObject;
 		for (int i = 0; i < grounds.Count; i++) {
 			float posX = float.Parse(grounds.Item(i).ChildNodes.Item(0).InnerText);
 			float posY = float.Parse(grounds.Item(i).ChildNodes.Item(1).InnerText);
 			float groundWidth = float.Parse(grounds.Item(i).ChildNodes.Item(2).InnerText);
-			var groundObject = Instantiate(ground, new Vector3(posX, posY, 0), Quaternion.identity, groundParent.transform);
+			var groundObject = Instantiate(ground, new Vector3(posX, posY, 0), Quaternion.identity, transform);
 			groundObject.transform.localScale = new Vector3(groundWidth, 1, 2);
 
 			var groundPipe = Resources.Load("Prefabs/StageFrames/Pipe") as GameObject;
-			var groundPipeObject = Instantiate(groundPipe, new Vector3(posX, posY), Quaternion.identity, groundParent.transform);
+			var groundPipeObject = Instantiate(groundPipe, new Vector3(posX, posY), Quaternion.identity, transform);
 			groundPipeObject.transform.localScale = new Vector3(groundWidth, 0.6f, 0.6f);
 			var pipeConnection = Resources.Load("Prefabs/StageFrames/PipeConnection") as GameObject;
 			var empty = new GameObject("PipeCollectParent");
 			empty.transform.position = new Vector3(posX, posY);
-			empty.transform.parent = groundParent.transform;
+			empty.transform.parent = transform;
 			for(int j = 0; j < groundWidth; j += 8) {
 				var connectionObject = Instantiate(pipeConnection, new Vector3(posX-groundWidth/2+j, posY), Quaternion.identity, empty.transform);
 			}

@@ -166,13 +166,13 @@ public class Parts : MonoBehaviour {
         TrapAction();
 
         if (thisType == PartsType.MoveHorizontalObj) {
-            transform.position = new Vector3(thisFirstPosX + SystemManager.instance.GetGimmickValue(connectNumber) * MOVE_HORIZONTAL_OBJ_RANGE, thisTransform.position.y, thisTransform.position.z);
+            transform.position = new Vector3(thisFirstPosX + (SystemManager.instance.GetGimmickValue(connectNumber)+1) * MOVE_HORIZONTAL_OBJ_RANGE/2, thisTransform.position.y, thisTransform.position.z);
 
         }else if (thisType == PartsType.MoveVerticalObj) {
-            transform.position = new Vector3(thisTransform.position.x, thisFirstPosY + SystemManager.instance.GetGimmickValue(connectNumber) * MOVE_VIRTICAL_OBJ_RANGE, thisTransform.position.z);
+            transform.position = new Vector3(thisTransform.position.x, thisFirstPosY + (SystemManager.instance.GetGimmickValue(connectNumber)+1) * MOVE_VIRTICAL_OBJ_RANGE/2, thisTransform.position.z);
 
         } else if (thisType == PartsType.MoveDepthObj) {
-            transform.position = new Vector3(thisTransform.position.x, thisTransform.position.y, thisFirstPosZ + SystemManager.instance.GetGimmickValue(connectNumber) * MOVE_DEPTH_OBJ_RANGE);
+            transform.position = new Vector3(thisTransform.position.x, thisTransform.position.y, thisFirstPosZ + (SystemManager.instance.GetGimmickValue(connectNumber)+1) * MOVE_DEPTH_OBJ_RANGE/2);
 
         }
 
