@@ -256,6 +256,11 @@ public class SystemManager : MonoBehaviour {
                         partsType = Parts.PartsType.ImpulseUp;
                         break;
 
+                    case "ImpulseUp_2":
+                        partsObject = Resources.Load("Prefabs/Parts/ImpulseUp_2") as GameObject;
+                        partsType = Parts.PartsType.ImpulseUp_2;
+                        break;
+
                     case "ImpulseLeft":
                         partsObject = Resources.Load("Prefabs/Parts/ImpulseLeft") as GameObject;
                         partsType = Parts.PartsType.ImpulseLeft;

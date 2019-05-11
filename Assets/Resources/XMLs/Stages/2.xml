@@ -13,23 +13,23 @@
             <X>-1000</X>
             <Y>1</Y>
         </Trigger>
-        <Parts>
+       <Parts>
             <ConnectNumber>1</ConnectNumber>
-            <Name>ImpulseUp</Name>
-            <X>14</X>
-            <Y>10</Y>
+            <Name>ImpulseUp_2</Name>
+            <X>15</X>
+            <Y>28</Y>
         </Parts>
       <Parts>
         <ConnectNumber>1</ConnectNumber>
-        <Name>ImpulseUp</Name>
-        <X>20</X>
-        <Y>10</Y>
+        <Name>ImpulseUp_2</Name>
+        <X>30</X>
+        <Y>30</Y>
       </Parts>
       <Parts>
         <ConnectNumber>1</ConnectNumber>
-        <Name>ImpulseUp</Name>
-        <X>26</X>
-        <Y>10</Y>
+        <Name>ImpulseUp_2</Name>
+        <X>43</X>
+        <Y>29</Y>
       </Parts>
 
         <Parts>
@@ -68,14 +68,20 @@
         <Parts>
             <ConnectNumber>1</ConnectNumber>
             <Name>ImpulseUp</Name>
-            <X>32</X>
+            <X>33</X>
             <Y>10</Y>
         </Parts>
        <Parts>
             <ConnectNumber>1</ConnectNumber>
             <Name>ImpulseUp</Name>
-            <X>41.2</X>
+            <X>20</X>
             <Y>10</Y>
+        </Parts>
+        <Parts>
+            <ConnectNumber>1</ConnectNumber>
+            <Name>ImpulseUp</Name>
+            <X>70</X>
+            <Y>9</Y>
         </Parts>
       <Parts>
         <ConnectNumber>1</ConnectNumber>
@@ -87,7 +93,7 @@
       <Trigger>
         <ConnectNumber>2</ConnectNumber>
         <Type>Forever</Type>
-        <X>40</X>
+        <X>64</X>
         <Y>33.5</Y>
       </Trigger>
       <Parts>
@@ -105,7 +111,7 @@
           <Trigger>
         <ConnectNumber>3</ConnectNumber>
         <Type>Forever</Type>
-        <X>37</X>
+        <X>58</X>
         <Y>33.5</Y>
       </Trigger>
        <Parts>
@@ -123,8 +129,8 @@
           <Trigger>
         <ConnectNumber>4</ConnectNumber>
         <Type>RightGear</Type>
-        <X>34</X>
-        <Y>35</Y>
+        <X>61</X>
+        <Y>40</Y>
       </Trigger>
        <Parts>
         <ConnectNumber>4</ConnectNumber>
@@ -135,8 +141,8 @@
           <Trigger>
         <ConnectNumber>5</ConnectNumber>
         <Type>LeftGear</Type>
-        <X>31</X>
-        <Y>35</Y>
+        <X>55</X>
+        <Y>40</Y>
       </Trigger>
          <Parts>
         <ConnectNumber>5</ConnectNumber>
@@ -148,8 +154,8 @@
       <Trigger>
         <ConnectNumber>7</ConnectNumber>
         <Type>LeftGear</Type>
-        <X>6</X>
-        <Y>33</Y>
+        <X>55</X>
+        <Y>35</Y>
       </Trigger>
       <Parts>
         <ConnectNumber>7</ConnectNumber>
@@ -161,8 +167,8 @@
       <Trigger>
         <ConnectNumber>8</ConnectNumber>
         <Type>RightGear</Type>
-        <X>2</X>
-        <Y>33</Y>
+        <X>61</X>
+        <Y>35</Y>
       </Trigger>
             <Parts>
         <ConnectNumber>8</ConnectNumber>
@@ -236,7 +242,7 @@
   </Ground>
 
     <Ground>
-      <PosX>35</PosX>
+      <PosX>60</PosX>
       <PosY>33</PosY>
       <Long>15</Long>
       <Rotate>0</Rotate>
@@ -267,8 +273,8 @@
       <!-- 自動で90度。それに対してどれだけ回転するか。無ければ自動で+0-->
     </Wall> 
     <Wall>
-      <PosX>28</PosX>
-      <PosY>15</PosY>
+      <PosX>60</PosX>
+      <PosY>15.5</PosY>
       <Long>35</Long>
       <Rotate>0</Rotate>
       <!-- 自動で90度。それに対してどれだけ回転するか。無ければ自動で+0-->
