@@ -7,7 +7,7 @@ public class GoalAnimation : MonoBehaviour
 {
     private float changeSceneCounter = 0;
 
-    const float CHANGE_SCENE = 5.0f;
+    const float CHANGE_SCENE = 0.0f;
     // Start is called before the first frame update
     void Start()
     {
