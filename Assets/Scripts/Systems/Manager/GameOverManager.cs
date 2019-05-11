@@ -6,14 +6,35 @@ using UnityEngine.SceneManagement;
 public class GameOverManager : MonoBehaviour {
 	public static GameOverManager instance;
 
-	private void Awake() {
+    private bool isSelectingRetry = true;
+
+    public Transform restartparent;
+    public Transform returnParent;
+
+    public Transform[] restartGears;
+    public Transform[] returnGears;
+
+    private float rotateSpeed = 0;
+
+    private void Awake() {
 		instance = this;
 	}
 
 	// Start is called before the first frame update
 	void Start() {
+        restartGears = new Transform[restartparent.childCount];
+        returnGears = new Transform[returnParent.childCount];
 
-	}
+        for(int i = 0; i < restartparent.childCount; i++)
+        {
+            restartGears[i] = restartparent.GetChild(i);
+        }
+        for (int i = 0; i < returnParent.childCount; i++)
+        {
+            returnGears[i] = returnParent.GetChild(i);
+        }
+
+    }
 
 	// Update is called once per frame
 	void Update() {
@@ -38,6 +59,43 @@ public class GameOverManager : MonoBehaviour {
 				}
 			}
 		}
+
+        if (isSelectingRetry)
+        {
+            for(int i = 0; i < restartGears.Length; i++)
+            {
+                restartGears[i].Rotate(new Vector3(0,0,100*Time.deltaTime*(-1 * i % 2) + 0.5f) * 2);
+            }
+        }
+        else
+        {
+            for (int i = 0; i < returnGears.Length; i++)
+            {
+                returnGears[i].Rotate(new Vector3(0, 0, 100 * Time.deltaTime * (-1 * i % 2) + 0.5f) * 2);
+            }
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            isSelectingRetry = false;
+        }
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            isSelectingRetry = true;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            if(isSelectingRetry == true)
+            {
+                StageRetry();
+            }
+            else
+            {
+                StageSelect();
+            }
+        }
 	}
 
 	public void StageRetry() {
@@ -48,5 +106,6 @@ public class GameOverManager : MonoBehaviour {
 	public void StageSelect() {
 		SceneManager.LoadScene("StageSelect");
 	}
+
 
 }
