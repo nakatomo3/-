@@ -57,6 +57,7 @@ public class Parts : MonoBehaviour {
         FlameThrower,  //炎が出るトラップ
         InterposeTrap,   //挟むトラップ
         ImpulseUp,
+        ImpulseUp_2,
         ImpulseLeft,
         ImpulseRight,
         Goal
@@ -94,6 +95,7 @@ public class Parts : MonoBehaviour {
     private const float POSITION_RESET_MOVE_SPEED = 2;
 
     private const float IMPULSE_UP_POWER = 22;
+    private const float IMPULSE_UP_POWER_2 = 10;
     private const float IMPULSE_VIRTICAL_POWER = 85.0f;
     private const float IMPULSE_ACTION_SPEED = 17;
     private const float IMPULSE_ACTION_RESET_SPEED = 5;
@@ -275,6 +277,10 @@ public class Parts : MonoBehaviour {
                 isTrapActionStop = true;
                 break;
 
+            case PartsType.ImpulseUp_2:
+                isTrapActionStop = true;
+                break;
+
             case PartsType.ImpulseLeft:
                 isTrapActionStop = true;
                 break;
@@ -378,6 +384,10 @@ public class Parts : MonoBehaviour {
                 break;
 
             case PartsType.ImpulseUp:
+                isTrapActionStop = false;
+                break;
+
+            case PartsType.ImpulseUp_2:
                 isTrapActionStop = false;
                 break;
 
@@ -501,6 +511,45 @@ public class Parts : MonoBehaviour {
                 }
                 break;
 
+            case PartsType.ImpulseUp_2:
+                if (isTrapAction == true)
+                {
+
+                    if (isImpulse == true && willPositionReset == false)
+                    {
+                        Player.instance.rigidbody.velocity = new Vector3(0, IMPULSE_UP_POWER_2, 0);
+                        //Player.instance.rigidbody.AddForce(impulseVector, ForceMode.VelocityChange);
+                        isImpulse = false;
+                    }
+                    if (impulseObj.position.y <= thisFirstPosY + IMPULSE_ACTION_RANGE && willPositionReset == false)
+                    {
+                        impulseObj.Translate(0, IMPULSE_ACTION_SPEED * Time.deltaTime, 0);
+
+                        if (impulseObj.position.y >= thisFirstPosY + IMPULSE_ACTION_RANGE)
+                        {
+                            willPositionReset = true;
+                        }
+                    }
+                    if (willPositionReset == true)
+                    {
+                        if (positionResetInterval >= POSITION_RESET_INTERVAL)
+                        {
+                            impulseObj.Translate(0, -IMPULSE_ACTION_RESET_SPEED * Time.deltaTime, 0);
+
+                        }
+                        if (impulseObj.position.y <= thisFirstPosY)
+                        {
+                            willPositionReset = false;
+                            isTrapAction = false;
+                            isImpulse = true;
+                            positionResetInterval = 0;
+                        }
+                        positionResetInterval += Time.deltaTime;
+                    }
+
+                }
+                break;
+
             case PartsType.ImpulseLeft:
                 if (isTrapAction == true) {
 
@@ -590,6 +639,17 @@ public class Parts : MonoBehaviour {
                     }
                     break;
 
+                case PartsType.ImpulseUp_2:
+                    if (isTrapAction == true)
+                    {
+                        isImpulse = true;
+                    }
+                    if (willPositionReset == false && isTrapActionStop == false)
+                    {
+                        isTrapAction = true;
+                    }
+                    break;
+
                 case PartsType.ImpulseLeft:
                     if (isTrapAction == true) {
                         isImpulse = true;
@@ -625,6 +685,13 @@ public class Parts : MonoBehaviour {
 
                 case PartsType.ImpulseUp:
                     if (willPositionReset == false && isTrapActionStop == false) {
+                        isTrapAction = true;
+                    }
+                    break;
+
+                case PartsType.ImpulseUp_2:
+                    if (willPositionReset == false && isTrapActionStop == false)
+                    {
                         isTrapAction = true;
                     }
                     break;
