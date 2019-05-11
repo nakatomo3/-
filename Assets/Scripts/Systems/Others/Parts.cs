@@ -14,10 +14,13 @@ public class Parts : MonoBehaviour {
     private Transform impulseObj;
     private GameObject Flame;
     private GameObject goalAnimation;
+    private GameObject goalCanvas;
+    private GameObject clearImage;
     private Vector3 impulseVector;
     private float thisFirstPosY;
     private float thisFirstPosX;
     private float thisFirstPosZ;
+    private float clearFirstPosY;
 
     private float explosionCounter = 0;
     private bool explosionActive = false;
@@ -42,6 +45,8 @@ public class Parts : MonoBehaviour {
 
     private bool isPlayerMoveRight = false;
     private bool isPlayerMoveLeft = false;
+
+    private bool isGenelate = false;
     public enum PartsType {
         Default,
         Door,
@@ -101,7 +106,9 @@ public class Parts : MonoBehaviour {
     private const float IMPULSE_ACTION_RESET_SPEED = 5;
     private const float IMPULSE_ACTION_RANGE = 0.2f;
 
-    private const float GOAL = 1.0f;
+    private const float GOAL = 3.8f;
+    private const float CLEAR_IMAGE_RANGE = 100;
+    private const float CLEAR_IMAGE_SPEED = 80;
     [HideInInspector]
     public int connectNumber = 0;
 
@@ -142,6 +149,8 @@ public class Parts : MonoBehaviour {
                 break;
             case PartsType.Goal:
                 goalAnimation = (GameObject)Resources.Load("Prefabs/Systems/GameOvers/GoalAnimation");
+                goalCanvas = transform.GetChild(0).gameObject;
+                clearImage = goalCanvas.transform.GetChild(0).gameObject;
                 break;
         }
 
@@ -290,19 +299,24 @@ public class Parts : MonoBehaviour {
                 break;
 
             case PartsType.Goal:
+                if (goalCounter<=GOAL-1.0f) {
+                    clearImage.transform.position += new Vector3(0, -CLEAR_IMAGE_SPEED * Time.deltaTime, 0);
+                }
+
                 goalCounter += Time.deltaTime;
-                Debug.Log("GoalCounter:" + goalCounter);
-                if (goalCounter <= GOAL) {
-                    //SceneManager.LoadScene("StageSelect");
+                Debug.Log(goalCounter);
+                if (goalCounter >= GOAL) {
                     if (Player.instance.isCollectGets[0] == true) {
                         PlayerPrefs.SetInt(SystemManager.instance.stageNum + "1", 1);
                     }
                     if (Player.instance.isCollectGets[1] == true) {
                         PlayerPrefs.SetInt(SystemManager.instance.stageNum + "2", 1);
                     }
-                    Instantiate(goalAnimation, thisTransform.position, Quaternion.identity);
+                    if (isGenelate == false) {
+                        Instantiate(goalAnimation, thisTransform.position, Quaternion.identity);
+                        isGenelate = true;
+                    }
                     this.gameObject.SetActive(false);
-                    //Destroy(gameObject);
                 }
                 break;
 
@@ -399,19 +413,24 @@ public class Parts : MonoBehaviour {
                 isTrapActionStop = true;
                 break;
             case PartsType.Goal:
-                goalCounter += Time.deltaTime;
-                Debug.Log("GoalCounter:" + goalCounter);
+                if (goalCounter>=0) {
+                    clearImage.transform.position += new Vector3(0, CLEAR_IMAGE_SPEED * Time.deltaTime, 0);
+                }
+                goalCounter -= Time.deltaTime;
+                Debug.Log(goalCounter);
                 if (goalCounter <= GOAL) {
                 } else if (goalCounter >= GOAL) {
-                    //SceneManager.LoadScene("StageSelect");
                     if (Player.instance.isCollectGets[0] == true) {
                         PlayerPrefs.SetInt(SystemManager.instance.stageNum + "1", 1);
                     }
                     if (Player.instance.isCollectGets[1] == true) {
                         PlayerPrefs.SetInt(SystemManager.instance.stageNum + "2", 1);
                     }
-                    Instantiate(goalAnimation, thisTransform.position, Quaternion.identity);
-                    Destroy(gameObject);
+                    if (isGenelate == false) {
+                        Instantiate(goalAnimation, thisTransform.position, Quaternion.identity);
+                        isGenelate = true;
+                    }
+                    this.gameObject.SetActive(false);
                 }
                 break;
             default:
