@@ -1,6 +1,6 @@
 ﻿<Stage>
   <Width>179</Width>
-  <Height>150</Height>
+  <Height>110</Height>
   <StartX>5</StartX>
   <StartY>32</StartY>
     <!-- トリガーを増やす場合は<Trigger>から</Trigger>までをコピーしてください -->
@@ -54,16 +54,22 @@
         </Parts>
        <Parts>
             <ConnectNumber>1</ConnectNumber>
-            <Name>ImpulseUp</Name>
+            <Name>ImpulseUp_2</Name>
             <X>155</X>
-            <Y>65</Y>
+            <Y>71</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>1</ConnectNumber>
+            <Name>ImpulseUp_2</Name>
+            <X>165</X>
+            <Y>77</Y>
         </Parts>
       
         <Parts>
             <ConnectNumber>1</ConnectNumber>
             <Name>ImpulseUp</Name>
-            <X>177</X>
-            <Y>45</Y>
+            <X>172</X>
+            <Y>48</Y>
         </Parts>
         <Parts>
             <ConnectNumber>1</ConnectNumber>
@@ -80,8 +86,44 @@
         <Parts>
             <ConnectNumber>1</ConnectNumber>
             <Name>ImpulseUp</Name>
-            <X>70</X>
-            <Y>9</Y>
+            <X>65</X>
+            <Y>4</Y>
+        </Parts>
+       <Parts>
+            <ConnectNumber>1</ConnectNumber>
+            <Name>ImpulseUp_2</Name>
+            <X>75</X>
+            <Y>19</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>1</ConnectNumber>
+            <Name>ImpulseUp</Name>
+            <X>85</X>
+            <Y>17</Y>
+        </Parts>
+       <Parts>
+            <ConnectNumber>1</ConnectNumber>
+            <Name>ImpulseUp_2</Name>
+            <X>95</X>
+            <Y>17</Y>
+        </Parts>
+       <Parts>
+            <ConnectNumber>1</ConnectNumber>
+            <Name>ImpulseUp_2</Name>
+            <X>110</X>
+            <Y>17</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>1</ConnectNumber>
+            <Name>ImpulseUp_2</Name>
+            <X>120</X>
+            <Y>22</Y>
+        </Parts>
+            <Parts>
+            <ConnectNumber>1</ConnectNumber>
+            <Name>ImpulseUp_2</Name>
+            <X>130</X>
+            <Y>28</Y>
         </Parts>
       <Parts>
         <ConnectNumber>1</ConnectNumber>
@@ -91,29 +133,17 @@
       </Parts>
       
       <Trigger>
-        <ConnectNumber>2</ConnectNumber>
+        <ConnectNumber>3</ConnectNumber>
         <Type>Forever</Type>
         <X>64</X>
         <Y>33.5</Y>
       </Trigger>
-      <Parts>
-        <ConnectNumber>2</ConnectNumber>
-        <Name>MoveHorizontalObj</Name>
-        <X>78</X>
-        <Y>33</Y>
-      </Parts>
-         <Parts>
-        <ConnectNumber>2</ConnectNumber>
-        <Name>MoveHorizontalObj</Name>
-        <X>74</X>
-        <Y>33</Y>
-      </Parts>
-          <Trigger>
+       <Parts>
         <ConnectNumber>3</ConnectNumber>
-        <Type>Forever</Type>
-        <X>58</X>
-        <Y>33.5</Y>
-      </Trigger>
+        <Name>MoveHorizontalObj</Name>
+        <X>51</X>
+        <Y>53</Y>
+      </Parts>
        <Parts>
         <ConnectNumber>3</ConnectNumber>
         <Name>MoveHorizontalObj</Name>
@@ -123,9 +153,9 @@
       <Parts>
         <ConnectNumber>3</ConnectNumber>
         <Name>MoveHorizontalObj</Name>
-        <X>59</X>
+        <X>63</X>
         <Y>53</Y>
-      </Parts>
+      </Parts> 
           <Trigger>
         <ConnectNumber>4</ConnectNumber>
         <Type>RightGear</Type>
@@ -161,7 +191,7 @@
         <ConnectNumber>7</ConnectNumber>
         <Name>Bridge</Name>
         <X>151.5</X>
-        <Y>67</Y>
+        <Y>71</Y>
       </Parts>
       
       <Trigger>
@@ -186,6 +216,12 @@
         <ConnectNumber>8</ConnectNumber>
         <Name>MoveHorizontalObj</Name>
         <X>74</X>
+        <Y>53</Y>
+      </Parts>
+      <Parts>
+        <ConnectNumber>8</ConnectNumber>
+        <Name>MoveHorizontalObj</Name>
+        <X>78</X>
         <Y>53</Y>
       </Parts>
   
@@ -288,8 +324,8 @@
     </Wall>   
      <Wall>
       <PosX>152</PosX>
-      <PosY>50</PosY>
-      <Long>35</Long>
+      <PosY>45</PosY>
+      <Long>52</Long>
       <Rotate>0</Rotate>
       <!-- 自動で90度。それに対してどれだけ回転するか。無ければ自動で+0-->
     </Wall>
