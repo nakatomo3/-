@@ -65,6 +65,14 @@ public class Trigger : MonoBehaviour {
         CheckTriggerPlus();
 		CheckTriggerMinus();
 
+		if(Player.instance.isGimmickMode == true && isThisGimmick == true) {
+			Player.instance.transform.position = thisTransform.position;
+			Player.instance.rigidbody.useGravity = false;
+			Player.instance.rigidbody.velocity = Vector3.zero;
+		} else {
+			Player.instance.rigidbody.useGravity = true;
+		}
+
 	}
 
 	private void CheckTriggerPlus() {

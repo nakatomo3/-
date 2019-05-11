@@ -56,7 +56,6 @@ public class CameraManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
 		if(isWholeMode == false) {
-            //	thisTransform.position = new Vector3(playerTransform.position.x + SideRange, posY, thisTransform.position.z);
 			if (SceneManager.GetActiveScene().name == "Game") {
 				thisTransform.position = new Vector3(posX + SideRange, posY, thisTransform.position.z);
 				thisTransform.localRotation = Quaternion.Euler(0, SideRange, 0);
@@ -105,7 +104,7 @@ public class CameraManager : MonoBehaviour {
 
 		if (changeKey == false) {
 			isWholeMode = false;
-			moveToPosition = new Vector3(playerTransform.position.x,playerTransform.position.y+4.8f,-20);
+			moveToPosition = new Vector3(playerTransform.position.x, playerTransform.position.y+4.8f, -20);
 			SideRange = 0;
 		} else {
 			isWholeMode = true;
@@ -117,7 +116,7 @@ public class CameraManager : MonoBehaviour {
 			SideRange = 0;
 		}
 
-		thisTransform.position += new Vector3((moveToPosition.x - thisTransform.position.x) /50, (moveToPosition.y - thisTransform.position.y) / 50, (moveToPosition.z - thisTransform.position.z) / 80);
+		thisTransform.position += new Vector3((moveToPosition.x - thisTransform.position.x) /80, (moveToPosition.y - thisTransform.position.y) / 80, (moveToPosition.z - thisTransform.position.z) / 80);
 		thisTransform.localRotation = Quaternion.Euler(new Vector3(0, SideRange, 0));
 	}
 }

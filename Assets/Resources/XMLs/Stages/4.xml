@@ -1,6 +1,6 @@
 ﻿<Stage>
   <Width>150</Width>
-  <Height>300</Height>
+  <Height>80</Height>
   <StartX>65</StartX>
   <StartY>36</StartY>
   <!-- トリガーを増やす場合は<Trigger>から</Trigger>までをコピーしてください -->
@@ -489,8 +489,8 @@
     <Trigger>
       <ConnectNumber>6</ConnectNumber>
       <Type>RightGear</Type>
-      <X>98</X>
-      <Y>46</Y>
+      <X>22</X>
+      <Y>71.5</Y>
     </Trigger>
 
     <Parts>

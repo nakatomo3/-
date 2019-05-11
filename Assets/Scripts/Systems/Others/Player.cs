@@ -26,6 +26,7 @@ public class Player : MonoBehaviour {
 
 	[HideInInspector]
 	public bool isGimmickMode = false;
+	[HideInInspector]
 	public Rigidbody rigidbody;
 	private Collider thisCollider;
 
@@ -61,37 +62,7 @@ public class Player : MonoBehaviour {
 	void Update() {
 		MovePlayer();
 
-		if (Input.GetKeyDown(KeyCode.W) && isJumping != true) {
-			jumpRange += 2f;
-			jumpRotateSpeed = 0;
-		}
-
-		if (Input.GetKey(KeyCode.W) && isJumping != true) {
-			if(jumpRange < 10) {
-				jumpRange += JUMP_RANGE_ADD_VALUE * Time.deltaTime;
-				thisTransform.localScale -= new Vector3(0,0.005f,0f);
-				visualTransform.position -= (visualTransform.position - underTransform.position) * 0.015f;
-				jumpRotateSpeed += ROTATE_ADD_SPEED * Time.deltaTime;
-			}
-
-		}
-		if (Input.GetKeyUp(KeyCode.W)) {
-            if (isJumping != true) {
-                rigidbody.velocity = new Vector3(0, jumpRange, 0);
-            }
-			thisTransform.localScale = new Vector3(1, 1, 1);
-			visualTransform.localPosition = new Vector3(0, 0, 0);
-			isJumping = true;
-			jumpRange = 0;
-			if(isRight == false) {
-				jumpRotateSpeed *= -1;
-			}
-		}
-
-		if(isJumping == true) {
-			visualTransform.Rotate(0, -jumpRotateSpeed,0);
-			jumpRotateSpeed *= 0.98f;
-		}
+		JumpPlayer();
 
         springSpeed *= SPRING_COEFFICIENT;
         if(springSpeed < 0) {
@@ -157,8 +128,38 @@ public class Player : MonoBehaviour {
 	/// コントローラーとキーボード押したらジャンプ
 	/// </summary>
 	private void JumpPlayer() {
+		if (Input.GetKeyDown(KeyCode.W) && isJumping != true) {
+			jumpRange += 2f;
+			jumpRotateSpeed = 0;
+		}
 
-		//jumpSpeedを使用
+		if (Input.GetKey(KeyCode.W) && isJumping != true) {
+			if (jumpRange < 10) {
+				jumpRange += JUMP_RANGE_ADD_VALUE * Time.deltaTime;
+				thisTransform.localScale -= new Vector3(0, 0.005f, 0f);
+				visualTransform.position -= (visualTransform.position - underTransform.position) * 0.015f;
+				jumpRotateSpeed += ROTATE_ADD_SPEED * Time.deltaTime;
+			}
+
+		}
+		if (Input.GetKeyUp(KeyCode.W)) {
+			if (isJumping != true) {
+				rigidbody.velocity = new Vector3(0, jumpRange, 0);
+			}
+			thisTransform.localScale = new Vector3(1, 1, 1);
+			visualTransform.localPosition = new Vector3(0, 0, 0);
+			isJumping = true;
+			jumpRange = 0;
+			if (isRight == false) {
+				jumpRotateSpeed *= -1;
+			}
+		}
+
+		if (isJumping == true) {
+			visualTransform.Rotate(0, -jumpRotateSpeed, 0);
+			jumpRotateSpeed *= 0.98f;
+		}
+
 	}
 
 
