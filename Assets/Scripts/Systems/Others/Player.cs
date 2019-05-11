@@ -185,16 +185,6 @@ public class Player : MonoBehaviour {
 			}
 		}
 
-		if (collision.gameObject.CompareTag("Wall")) {
-			if(collision.gameObject.transform.position.x >= thisTransform.position.x) {
-				//右側に行けない
-				canRightMove = false;
-            } else {
-				canLeftMove = false;
-				//左側
-			}
-		}
-
 		
 	}
 
@@ -216,7 +206,17 @@ public class Player : MonoBehaviour {
                 isJumping = false;
             }
         }
-    }
+
+		if (collision.gameObject.CompareTag("Wall")) {
+			if (collision.gameObject.transform.position.x >= thisTransform.position.x) {
+				//右側に行けない
+				canRightMove = false;
+			} else {
+				canLeftMove = false;
+				//左側
+			}
+		}
+	}
 
 	private void OnTriggerEnter(Collider other) {
 		if (other.gameObject.CompareTag("Trigger")) {
