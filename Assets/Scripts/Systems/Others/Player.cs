@@ -40,7 +40,7 @@ public class Player : MonoBehaviour {
 	private bool canRightMove = true;
 	private bool canLeftMove = true;
 
-    public bool[] isCollectGets { private set; get; } = { false, false };
+    public bool[] isCollectGets = { false, false };
 
    // [HideInInspector]
     public float springSpeed = 0;
@@ -122,6 +122,12 @@ public class Player : MonoBehaviour {
 			MoveLeft();
 		}
 
+		//if(canLeftMove == false) {
+		//	transform.position += Vector3.right * 0.1f * Time.deltaTime;
+		//}
+		//if(canRightMove == false) {
+		//	transform.position += Vector3.left * 0.1f * Time.deltaTime;
+		//}
 	}
 
 	/// <summary>
