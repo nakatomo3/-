@@ -55,19 +55,19 @@ public class StageSelectManager : MonoBehaviour {
 
 	private bool CheckCollectpartsAll() {
 		bool isNotHaveCollectParts = true;
-		for(int i = 0; i < 5; i++) {
+		for(int i = 1; i < 5+1; i++) {
 			if(PlayerPrefs.GetInt(i.ToString() + 1) == 0) {
 				isNotHaveCollectParts = false;
-				collectParts[i, 0].SetActive(false);
+				collectParts[i-1, 0].SetActive(false);
 			} else {
-				collectParts[i, 0].SetActive(true);
+				collectParts[i-1, 0].SetActive(true);
 			}
 			if (PlayerPrefs.GetInt(i.ToString() + 2) == 0) {
 				isNotHaveCollectParts = false;
-				collectParts[i, 1].SetActive(false);
+				collectParts[i-1, 1].SetActive(false);
 
 			} else {
-				collectParts[i, 0].SetActive(true);
+				collectParts[i-1, 0].SetActive(true);
 
 			}
 		}
