@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GoalAnimation : MonoBehaviour
+public class GoalChangeScene : MonoBehaviour
 {
     private float changeSceneCounter = 0;
 
-    const float CHANGE_SCENE = 0.0f;
+    const float CHANGE_SCENE = 1.7f;
     // Start is called before the first frame update
     void Start()
     {
