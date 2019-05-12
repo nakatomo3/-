@@ -16,6 +16,12 @@ public class Parts : MonoBehaviour {
     private GameObject goalAnimation;
     private GameObject goalCanvas;
     private GameObject clearImage;
+    private GameObject changeScene;
+    private GameObject clearChain;
+    private GameObject clearGears;
+    private GameObject goalLeftGear;
+    private GameObject goalRightGear;
+    private GameObject[] gears = new GameObject[20];
     private Vector3 impulseVector;
     private float thisFirstPosY;
     private float thisFirstPosX;
@@ -106,9 +112,13 @@ public class Parts : MonoBehaviour {
     private const float IMPULSE_ACTION_RESET_SPEED = 5;
     private const float IMPULSE_ACTION_RANGE = 0.2f;
 
-    private const float GOAL = 3.8f;
+    private const float GOAL = 3.0f;
     private const float CLEAR_IMAGE_RANGE = 100;
     private const float CLEAR_IMAGE_SPEED = 80;
+    private const float CLEAR_GEAR_ROTATE_SPEED = 150;
+    private float goalAnimationSpeed;
+    private float goalAnimationCounter = 0;
+    private int gearsNum = 0;
     [HideInInspector]
     public int connectNumber = 0;
 
@@ -148,9 +158,19 @@ public class Parts : MonoBehaviour {
                 thisFirstPosX = impulseObj.position.x;
                 break;
             case PartsType.Goal:
-                goalAnimation = (GameObject)Resources.Load("Prefabs/Systems/GameOvers/GoalAnimation");
+                changeScene = (GameObject)Resources.Load("Prefabs/Systems/GameOvers/ChangeScene");
                 goalCanvas = transform.GetChild(0).gameObject;
-                clearImage = goalCanvas.transform.GetChild(0).gameObject;
+                goalRightGear = transform.GetChild(1).gameObject;
+                goalLeftGear = transform.GetChild(2).gameObject;
+                clearGears = goalCanvas.transform.GetChild(0).gameObject;
+                clearChain = goalCanvas.transform.GetChild(1).gameObject;
+                clearImage = goalCanvas.transform.GetChild(2).gameObject;
+                gearsNum = clearGears.transform.childCount;//子オブジェクトの数を取得
+                Debug.Log(gearsNum);
+                for (int i = 0; i < gearsNum; i++) {
+                    gears[i] = clearGears.transform.GetChild(i).gameObject;
+                }
+                goalAnimationSpeed = 5;
                 break;
         }
 
@@ -185,6 +205,16 @@ public class Parts : MonoBehaviour {
         } else if (thisType == PartsType.MoveDepthObj) {
             transform.position = new Vector3(thisTransform.position.x, thisTransform.position.y, thisFirstPosZ + (SystemManager.instance.GetGimmickValue(connectNumber)+1) * MOVE_DEPTH_OBJ_RANGE/2);
 
+        }
+
+        if (thisType == PartsType.Goal) {
+            if (willGoal == true && goalAnimationCounter <= 0.25) {
+                clearImage.transform.position += new Vector3(0, -goalAnimationSpeed * Time.deltaTime, 0);
+                clearGears.transform.position += new Vector3(0, -goalAnimationSpeed * Time.deltaTime, 0);
+                clearChain.transform.position += new Vector3(0, -goalAnimationSpeed * Time.deltaTime, 0);
+                goalAnimationSpeed *= 1.3f;
+                goalAnimationCounter += Time.deltaTime;
+            }
         }
 
     }
@@ -299,13 +329,32 @@ public class Parts : MonoBehaviour {
                 break;
 
             case PartsType.Goal:
-                if (goalCounter<=GOAL-1.0f) {
+                if (goalCounter <= GOAL && willGoal == false) {
                     clearImage.transform.position += new Vector3(0, -CLEAR_IMAGE_SPEED * Time.deltaTime, 0);
+                    clearGears.transform.position += new Vector3(0, -CLEAR_IMAGE_SPEED * Time.deltaTime, 0);
+                    clearChain.transform.position += new Vector3(0, -CLEAR_IMAGE_SPEED * Time.deltaTime, 0);
+
+                }
+
+                if (willGoal == false) {
+                    goalRightGear.transform.Rotate(0, CLEAR_GEAR_ROTATE_SPEED * Time.deltaTime, 0);
+                    goalLeftGear.transform.Rotate(0, -CLEAR_GEAR_ROTATE_SPEED * Time.deltaTime, 0);
+
+                    gears[0].transform.Rotate(0, 0, CLEAR_GEAR_ROTATE_SPEED * Time.deltaTime);
+                    for (int i = 1; i < gearsNum; i++) {
+                        if (i % 2 == 0) {
+                            gears[i].transform.Rotate(0, 0, -CLEAR_GEAR_ROTATE_SPEED * Time.deltaTime);
+
+                        } else if (i % 2 == 1) {
+                            gears[i].transform.Rotate(0, 0, CLEAR_GEAR_ROTATE_SPEED * Time.deltaTime);
+                        }
+                    }
                 }
 
                 goalCounter += Time.deltaTime;
                 Debug.Log(goalCounter);
                 if (goalCounter >= GOAL) {
+                    willGoal = true;
                     if (Player.instance.isCollectGets[0] == true) {
                         PlayerPrefs.SetInt(SystemManager.instance.stageNum + "1", 1);
                     }
@@ -313,10 +362,10 @@ public class Parts : MonoBehaviour {
                         PlayerPrefs.SetInt(SystemManager.instance.stageNum + "2", 1);
                     }
                     if (isGenelate == false) {
-                        Instantiate(goalAnimation, thisTransform.position, Quaternion.identity);
+                        Instantiate(changeScene, thisTransform.position, Quaternion.identity);
                         isGenelate = true;
                     }
-                    this.gameObject.SetActive(false);
+                    //  this.gameObject.SetActive(false);
                 }
                 break;
 
@@ -413,13 +462,32 @@ public class Parts : MonoBehaviour {
                 isTrapActionStop = true;
                 break;
             case PartsType.Goal:
-                if (goalCounter>=0) {
+                if (goalCounter >= 0 && willGoal == false) {
                     clearImage.transform.position += new Vector3(0, CLEAR_IMAGE_SPEED * Time.deltaTime, 0);
+                    clearGears.transform.position += new Vector3(0, CLEAR_IMAGE_SPEED * Time.deltaTime, 0);
+                    clearChain.transform.position += new Vector3(0, CLEAR_IMAGE_SPEED * Time.deltaTime, 0);
                 }
+
+                if (willGoal == false) {
+                    goalRightGear.transform.Rotate(0, -CLEAR_GEAR_ROTATE_SPEED * Time.deltaTime, 0);
+                    goalLeftGear.transform.Rotate(0, CLEAR_GEAR_ROTATE_SPEED * Time.deltaTime, 0);
+
+                    gears[0].transform.Rotate(0, 0, -CLEAR_GEAR_ROTATE_SPEED * Time.deltaTime);
+                    for (int i = 1; i < gearsNum; i++) {
+                        if (i % 2 == 0) {
+                            gears[i].transform.Rotate(0, 0, CLEAR_GEAR_ROTATE_SPEED * Time.deltaTime);
+
+                        } else if (i % 2 == 1) {
+                            gears[i].transform.Rotate(0, 0, -CLEAR_GEAR_ROTATE_SPEED * Time.deltaTime);
+                        }
+                    }
+                }
+
                 goalCounter -= Time.deltaTime;
                 Debug.Log(goalCounter);
                 if (goalCounter <= GOAL) {
                 } else if (goalCounter >= GOAL) {
+                    willGoal = true;
                     if (Player.instance.isCollectGets[0] == true) {
                         PlayerPrefs.SetInt(SystemManager.instance.stageNum + "1", 1);
                     }
@@ -427,10 +495,10 @@ public class Parts : MonoBehaviour {
                         PlayerPrefs.SetInt(SystemManager.instance.stageNum + "2", 1);
                     }
                     if (isGenelate == false) {
-                        Instantiate(goalAnimation, thisTransform.position, Quaternion.identity);
+                        Instantiate(changeScene, thisTransform.position, Quaternion.identity);
                         isGenelate = true;
                     }
-                    this.gameObject.SetActive(false);
+                    //  this.gameObject.SetActive(false);
                 }
                 break;
             default:
