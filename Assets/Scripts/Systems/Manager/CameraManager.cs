@@ -13,6 +13,7 @@ public class CameraManager : MonoBehaviour {
 	[SerializeField]
 	private float SideRange = 0;
 	private const float SIDE_MAX_RAMGE = 3;
+    private const float CAMERA_POS_Z = -30;
 
 	float posX;
 	float posY;
@@ -36,7 +37,7 @@ public class CameraManager : MonoBehaviour {
 		playerTransform = Player.instance.gameObject.transform;
 
 		thisTransform.Rotate(0, -0.8f, 0);
-		thisTransform.position = playerTransform.position + new Vector3(0, 4.8f, -20f);
+		thisTransform.position = playerTransform.position + new Vector3(0, 4.8f, CAMERA_POS_Z);
 		moveToPosition = thisTransform.position;
 
 		if (SceneManager.GetActiveScene().name == "Game") {
@@ -60,7 +61,7 @@ public class CameraManager : MonoBehaviour {
 				thisTransform.position = new Vector3(posX + SideRange, posY, thisTransform.position.z);
 				thisTransform.localRotation = Quaternion.Euler(0, SideRange, 0);
 			} else {
-				thisTransform.position = playerTransform.position + new Vector3(0,4,-20);
+				thisTransform.position = playerTransform.position + new Vector3(0,4,CAMERA_POS_Z);
 			}
 
 		}
@@ -104,7 +105,7 @@ public class CameraManager : MonoBehaviour {
 
 		if (changeKey == false) {
 			isWholeMode = false;
-			moveToPosition = new Vector3(playerTransform.position.x, playerTransform.position.y+4.8f, -20);
+			moveToPosition = new Vector3(playerTransform.position.x, playerTransform.position.y+4.8f, CAMERA_POS_Z);
 			SideRange = 0;
 		} else {
 			isWholeMode = true;

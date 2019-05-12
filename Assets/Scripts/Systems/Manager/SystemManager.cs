@@ -410,8 +410,8 @@ public class SystemManager : MonoBehaviour {
 		wallObject.transform.localScale = new Vector3(1, height+1, 2);
 		wallObject = Instantiate(wall, new Vector3(width, height / 2, 0), Quaternion.identity, transform);
 		wallObject.transform.localScale = new Vector3(1, height+1, 2);
-
-		var missGroundObject = Instantiate(missGround, new Vector3(width/2, 0, 0f), Quaternion.identity, transform);
+        
+		var missGroundObject = Instantiate(missGround, new Vector3(width/2, -1, -1f), Quaternion.identity, transform);
 		missGroundObject.transform.localScale = new Vector3(width+1, 1, 1);
 		missGroundObject.transform.GetChild(0).GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(100, 570);
 		missGroundObject.transform.GetChild(0).transform.localPosition = new Vector3(0, 0, 0.5f);
