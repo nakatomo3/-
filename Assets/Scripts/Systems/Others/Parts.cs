@@ -462,7 +462,7 @@ public class Parts : MonoBehaviour {
                 break;
             case PartsType.Goal:
                 if (goalCounter >= 0 && willGoal == false) {
-                    clearImage.transform.position += new Vector3(0, CLEAR_IMAGE_SPEED * Time.deltaTime, 0);
+                    clearImage.transform.position = new Vector3(0, CLEAR_IMAGE_SPEED * Time.deltaTime, 0) + CameraManager.instance.gameObject.transform.position;
                     clearGears.transform.position += new Vector3(0, CLEAR_IMAGE_SPEED * Time.deltaTime, 0);
                     clearChain.transform.position += new Vector3(0, CLEAR_IMAGE_SPEED * Time.deltaTime, 0);
                 }

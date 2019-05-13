@@ -407,18 +407,23 @@ public class SystemManager : MonoBehaviour {
 		Instantiate(Resources.Load("Prefabs/Systems/Camera") as GameObject,new Vector3(int.Parse(xmlDoc.GetElementsByTagName("StartX").Item(0).InnerText), int.Parse(xmlDoc.GetElementsByTagName("StartY").Item(0).InnerText), -10), Quaternion.identity, transform);
 
 		var wallObject = Instantiate(wall, new Vector3(0, height / 2, 0), Quaternion.identity, transform);
-		wallObject.transform.localScale = new Vector3(1, height+1, 2);
+		wallObject.transform.GetComponent<BoxCollider>().size = new Vector3(1, height+1, 2);
+		wallObject.transform.GetChild(0).GetChild(0).transform.position = new Vector3(-15, height/2, -5);
+		wallObject.transform.GetChild(0).GetChild(0).transform.GetComponent<RectTransform>().sizeDelta = new Vector2(3000,(height+2)*200);
+		wallObject.transform.GetChild(0).GetChild(1).transform.position = new Vector3(0, height/2, -5);
+		wallObject.transform.GetChild(0).GetChild(1).transform.GetComponent<RectTransform>().sizeDelta = new Vector2(100,(height+2)*200);
 		wallObject = Instantiate(wall, new Vector3(width, height / 2, 0), Quaternion.identity, transform);
 		wallObject.transform.localScale = new Vector3(1, height+1, 2);
         
 		var missGroundObject = Instantiate(missGround, new Vector3(width/2, -1, -1f), Quaternion.identity, transform);
-		missGroundObject.transform.localScale = new Vector3(width+1, 1, 1);
+		missGroundObject.transform.localScale = new Vector3(width+10, 1, 1);
 		missGroundObject.transform.GetChild(0).GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(100, 570);
 		missGroundObject.transform.GetChild(0).transform.localPosition = new Vector3(0, 0, 0.5f);
 
-		var backGround = Resources.Load("Prefabs/StageFrames/BackGround") as GameObject;
+		var backGround = Resources.Load("Prefabs/StageFrames/StageBackGround") as GameObject;
 		var backGroundObject = Instantiate(backGround,new Vector3(width/2,height/2-8,1),Quaternion.identity,transform) as GameObject;
-		backGroundObject.transform.GetChild(0).GetChild(0).gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(width * 100+2000, height * 100+5000);
+		backGroundObject.transform.GetChild(0).gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(width * 100+2000, height * 100+5000);
+		backGroundObject.transform.GetChild(1).gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(width * 100+2000, height * 100+5000);
 	}
 
 	/// <summary>
