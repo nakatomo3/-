@@ -32,8 +32,6 @@ public class CheckSideCollisioner : MonoBehaviour {
 			} else {
 				Player.instance.canLeftMove = true;
 			}
-
-			Debug.Log("true");
 		}
 		
 	}

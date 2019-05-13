@@ -23,7 +23,7 @@ public class CollectParts : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider other) {
 		if (other.gameObject.CompareTag("Player")) {
-			Player.instance.isCollectGets[int.Parse(gameObject.name)] = true;
+			Player.instance.isCollectGets[int.Parse(gameObject.name)-1] = true;
 			Destroy(gameObject);
 		}
 	}

@@ -166,7 +166,6 @@ public class Parts : MonoBehaviour {
                 clearChain = goalCanvas.transform.GetChild(1).gameObject;
                 clearImage = goalCanvas.transform.GetChild(2).gameObject;
                 gearsNum = clearGears.transform.childCount;//子オブジェクトの数を取得
-                Debug.Log(gearsNum);
                 for (int i = 0; i < gearsNum; i++) {
                     gears[i] = clearGears.transform.GetChild(i).gameObject;
                 }
