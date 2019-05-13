@@ -37,8 +37,8 @@ public class Player : MonoBehaviour {
 	private const float JUMP_RANGE_ADD_VALUE = 10f;
 	private const float ROTATE_ADD_SPEED = 20f;
 
-	private bool canRightMove = true;
-	private bool canLeftMove = true;
+	public bool canRightMove = true;
+	public bool canLeftMove = true;
 
     public bool[] isCollectGets = { false, false };
 
@@ -195,10 +195,10 @@ public class Player : MonoBehaviour {
 	}
 
 	private void OnCollisionExit(Collision collision) {
-		if (collision.gameObject.CompareTag("Wall")) {
-			canLeftMove = true;
-			canRightMove = true;
-		}
+		//if (collision.gameObject.CompareTag("Wall")) {
+		//	canLeftMove = true;
+		//	canRightMove = true;
+		//}
         if (collision.gameObject.CompareTag("Ground")) {
             isJumping = true;
         }
@@ -213,15 +213,15 @@ public class Player : MonoBehaviour {
             }
         }
 
-		if (collision.gameObject.CompareTag("Wall")) {
-			if (collision.gameObject.transform.position.x >= thisTransform.position.x) {
-				//右側に行けない
-				canRightMove = false;
-			} else {
-				canLeftMove = false;
-				//左側
-			}
-		}
+		//if (collision.gameObject.CompareTag("Wall")) {
+		//	if (collision.gameObject.transform.position.x >= thisTransform.position.x) {
+		//		//右側に行けない
+		//		canRightMove = false;
+		//	} else {
+		//		canLeftMove = false;
+		//		//左側
+		//	}
+		//}
 	}
 
 	private void OnTriggerEnter(Collider other) {
