@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8658970404080411982}
   - component: {fileID: 3271033617235904304}
   - component: {fileID: 3282270379205662831}
-  - component: {fileID: 1340460898319809947}
+  - component: {fileID: 5364355589505525233}
   m_Layer: 0
   m_Name: ChangeScene
   m_TagString: Untagged
@@ -92,7 +92,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1340460898319809947
+--- !u!114 &5364355589505525233
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,6 +101,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5433442550334027226}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 954b573d3c49c234e9aa0f32bba6e8c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 116c119842a507d41857712faecf31e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
