@@ -112,9 +112,10 @@ public class Parts : MonoBehaviour {
     private const float IMPULSE_ACTION_RESET_SPEED = 5;
     private const float IMPULSE_ACTION_RANGE = 0.2f;
 
-    private const float GOAL = 3.0f;
+    private const float GOAL = 3.5f;
     private const float CLEAR_IMAGE_RANGE = 100;
-    private const float CLEAR_IMAGE_SPEED = 80;
+    private const float CLEAR_IMAGE_SPEED = 3;
+    private const float CLEAR_IMAGE_POSY = 6;
     private const float CLEAR_GEAR_ROTATE_SPEED = 150;
     private float goalAnimationSpeed;
     private float goalAnimationCounter = 0;
@@ -207,7 +208,7 @@ public class Parts : MonoBehaviour {
         }
 
         if (thisType == PartsType.Goal) {
-            if (willGoal == true && goalAnimationCounter <= 0.25) {
+            if (willGoal == true && goalAnimationCounter <= 0.05) {
                 clearImage.transform.position += new Vector3(0, -goalAnimationSpeed * Time.deltaTime, 0);
                 clearGears.transform.position += new Vector3(0, -goalAnimationSpeed * Time.deltaTime, 0);
                 clearChain.transform.position += new Vector3(0, -goalAnimationSpeed * Time.deltaTime, 0);
@@ -329,9 +330,11 @@ public class Parts : MonoBehaviour {
 
             case PartsType.Goal:
                 if (goalCounter <= GOAL && willGoal == false) {
-                    clearImage.transform.position += new Vector3(0, -CLEAR_IMAGE_SPEED * Time.deltaTime, 0);
-                    clearGears.transform.position += new Vector3(0, -CLEAR_IMAGE_SPEED * Time.deltaTime, 0);
-                    clearChain.transform.position += new Vector3(0, -CLEAR_IMAGE_SPEED * Time.deltaTime, 0);
+                    //clearImage.transform.position = new Vector3(0, -goalCounter* CLEAR_IMAGE_SPEED + CLEAR_IMAGE_POSY, 15) + CameraManager.instance.gameObject.transform.position;
+                    //clearGears.transform.position = new Vector3(0, -goalCounter * CLEAR_IMAGE_SPEED + CLEAR_IMAGE_POSY, 15) + CameraManager.instance.gameObject.transform.position;
+                    //clearChain.transform.position = new Vector3(0, -goalCounter * CLEAR_IMAGE_SPEED + CLEAR_IMAGE_POSY, 15) + CameraManager.instance.gameObject.transform.position;
+                    goalCanvas.transform.position = new Vector3(0, -goalCounter * CLEAR_IMAGE_SPEED + CLEAR_IMAGE_POSY, 15) + CameraManager.instance.gameObject.transform.position;
+
 
                 }
 
@@ -462,9 +465,10 @@ public class Parts : MonoBehaviour {
                 break;
             case PartsType.Goal:
                 if (goalCounter >= 0 && willGoal == false) {
-                    clearImage.transform.position = new Vector3(0, CLEAR_IMAGE_SPEED * Time.deltaTime, 0) + CameraManager.instance.gameObject.transform.position;
-                    clearGears.transform.position += new Vector3(0, CLEAR_IMAGE_SPEED * Time.deltaTime, 0);
-                    clearChain.transform.position += new Vector3(0, CLEAR_IMAGE_SPEED * Time.deltaTime, 0);
+                    //clearImage.transform.position = new Vector3(0, -goalCounter* CLEAR_IMAGE_SPEED + CLEAR_IMAGE_POSY, 15) + CameraManager.instance.gameObject.transform.position;
+                    //clearGears.transform.position = new Vector3(0, -goalCounter * CLEAR_IMAGE_SPEED + CLEAR_IMAGE_POSY, 15) + CameraManager.instance.gameObject.transform.position;
+                    //clearChain.transform.position = new Vector3(0, -goalCounter * CLEAR_IMAGE_SPEED + CLEAR_IMAGE_POSY, 15) + CameraManager.instance.gameObject.transform.position;
+                    goalCanvas.transform.position = new Vector3(0, -goalCounter * CLEAR_IMAGE_SPEED + CLEAR_IMAGE_POSY, 15) + CameraManager.instance.gameObject.transform.position;
                 }
 
                 if (willGoal == false) {
