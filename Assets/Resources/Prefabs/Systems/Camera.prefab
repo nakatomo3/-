@@ -2140,6 +2140,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6639408816399683842}
     m_Modifications:
+    - target: {fileID: 4068464693624497031, guid: 456387b74e8c46244a8435a22abf36f7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4068464693626438484, guid: 456387b74e8c46244a8435a22abf36f7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4068464693626438484, guid: 456387b74e8c46244a8435a22abf36f7,
+        type: 3}
+      propertyPath: m_Name
+      value: Confirmation
+      objectReference: {fileID: 0}
     - target: {fileID: 8166877646873432502, guid: 456387b74e8c46244a8435a22abf36f7,
         type: 3}
       propertyPath: m_Name
@@ -2208,7 +2223,7 @@ PrefabInstance:
     - target: {fileID: 4068464694415389431, guid: 456387b74e8c46244a8435a22abf36f7,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 565588888868206196, guid: 456387b74e8c46244a8435a22abf36f7,
         type: 3}
@@ -2240,21 +2255,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 9085656765091297141}
-    - target: {fileID: 4068464693624497031, guid: 456387b74e8c46244a8435a22abf36f7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4068464693626438484, guid: 456387b74e8c46244a8435a22abf36f7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4068464693626438484, guid: 456387b74e8c46244a8435a22abf36f7,
-        type: 3}
-      propertyPath: m_Name
-      value: Confirmation
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 456387b74e8c46244a8435a22abf36f7, type: 3}
 --- !u!1 &1915151719123717107 stripped
