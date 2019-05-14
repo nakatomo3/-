@@ -526,6 +526,16 @@ public class Parts : MonoBehaviour {
                         trapRotateCounter -= TRAP_ROTATE_SPEED * Time.deltaTime;
 
                     }
+
+                    if (trapRotateCounter >= TRAP_ROTATE_RANGE && isTrapAction == true) {
+                        leftRotateAxis.rotation = Quaternion.Euler(0.0f, 0.0f, -90.0f);
+                        rightRotateAxis.rotation = Quaternion.Euler(0.0f, 0.0f, 90.0f);
+
+                    } else if (trapRotateCounter <= 5 && isTrapAction == false) {
+                        leftRotateAxis.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+                        rightRotateAxis.rotation = Quaternion.Euler(0.0f, 0.0f, 0.0f);
+
+                    }
                 }
 
                 break;
