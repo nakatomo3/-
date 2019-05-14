@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8898118462294097047}
   - component: {fileID: 1970682312049685478}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Bridge
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -155,7 +155,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d4617b621f3ee74eb18c550c430a902, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 
   thisType: 0
+  MOVE_HORIZONTAL_OBJ_RANGE: 50
+  MOVE_VIRTICAL_OBJ_RANGE: 20
+  MOVE_DEPTH_OBJ_RANGE: 7
+  connectNumber: 0
 --- !u!1001 &5233777904974366545
 PrefabInstance:
   m_ObjectHideFlags: 0
