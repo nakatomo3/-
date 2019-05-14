@@ -409,12 +409,25 @@ public class SystemManager : MonoBehaviour {
 		var wallObject = Instantiate(wall, new Vector3(0, height / 2, 0), Quaternion.identity, transform);
 		wallObject.transform.GetComponent<BoxCollider>().size = new Vector3(1, height+1, 2);
 		wallObject.transform.GetChild(0).GetChild(0).transform.position = new Vector3(-15, height/2, -5);
-		wallObject.transform.GetChild(0).GetChild(0).transform.GetComponent<RectTransform>().sizeDelta = new Vector2(3000,(height+2)*200);
-		wallObject.transform.GetChild(0).GetChild(1).transform.position = new Vector3(0, height/2, -5);
-		wallObject.transform.GetChild(0).GetChild(1).transform.GetComponent<RectTransform>().sizeDelta = new Vector2(100,(height+2)*200);
+		wallObject.transform.GetChild(0).GetChild(0).transform.GetComponent<RectTransform>().sizeDelta = new Vector2(3000,(height+200)*100);
+		wallObject.transform.GetChild(0).GetChild(1).transform.position = new Vector3(0, height/2, -2.5f);
+		wallObject.transform.GetChild(0).GetChild(1).transform.GetComponent<RectTransform>().sizeDelta = new Vector2(100,(height)*100);
+
 		wallObject = Instantiate(wall, new Vector3(width, height / 2, 0), Quaternion.identity, transform);
-		wallObject.transform.localScale = new Vector3(1, height+1, 2);
-        
+		wallObject.transform.GetComponent<BoxCollider>().size = new Vector3(1, height + 1, 2);
+		wallObject.transform.GetChild(0).GetChild(0).transform.position = new Vector3(width+15, height / 2, -5);
+		wallObject.transform.GetChild(0).GetChild(0).transform.GetComponent<RectTransform>().sizeDelta = new Vector2(3000, (height + 200) * 100);
+		wallObject.transform.GetChild(0).GetChild(1).transform.position = new Vector3(width, height / 2, -2.5f);
+		wallObject.transform.GetChild(0).GetChild(1).transform.GetComponent<RectTransform>().sizeDelta = new Vector2(100, (height) * 100);
+
+		wallObject = Instantiate(wall, new Vector3(width / 2, height, 0), Quaternion.identity, transform);
+		wallObject.transform.GetComponent<BoxCollider>().size = new Vector3(width, 1, 2);
+		wallObject.transform.GetChild(0).GetChild(0).transform.position = new Vector3(width / 2, height + 15, -5);
+		wallObject.transform.GetChild(0).GetChild(0).transform.GetComponent<RectTransform>().sizeDelta = new Vector2((width) * 100,3000);
+		wallObject.transform.GetChild(0).GetChild(1).transform.position = new Vector3(width / 2, height, -2.5f);
+		wallObject.transform.GetChild(0).GetChild(1).transform.GetComponent<RectTransform>().sizeDelta = new Vector2(100,(width) * 100);
+		wallObject.transform.GetChild(0).GetChild(1).transform.Rotate(90, 0, 0);
+
 		var missGroundObject = Instantiate(missGround, new Vector3(width/2, -1, -1f), Quaternion.identity, transform);
 		missGroundObject.transform.localScale = new Vector3(width+10, 1, 1);
 		missGroundObject.transform.GetChild(0).GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(100, 570);
