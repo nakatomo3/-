@@ -201,7 +201,13 @@ public class Player : MonoBehaviour {
 		//}
         if (collision.gameObject.CompareTag("Ground")) {
             isJumping = true;
+			canLeftMove = true;
+			canRightMove = true;
         }
+		if (collision.gameObject.CompareTag("Wall")) {
+			canRightMove = true;
+			canLeftMove = true;
+		}
 	}
 
 	private void OnCollisionStay(Collision collision) {
@@ -213,15 +219,28 @@ public class Player : MonoBehaviour {
             }
         }
 
-		//if (collision.gameObject.CompareTag("Wall")) {
-		//	if (collision.gameObject.transform.position.x >= thisTransform.position.x) {
-		//		//右側に行けない
-		//		canRightMove = false;
-		//	} else {
-		//		canLeftMove = false;
-		//		//左側
-		//	}
-		//}
+		if (collision.gameObject.CompareTag("Wall")) {
+			if (collision.gameObject.transform.position.x >= thisTransform.position.x) {
+				//右側に行けない
+				canRightMove = false;
+			} else {
+				canLeftMove = false;
+				//左側
+			}
+		}
+
+		if (collision.gameObject.CompareTag("Ground") && collision.gameObject.name != "Bridge") {
+			if(collision.gameObject.transform.position.y < thisTransform.position.y + 1 && collision.gameObject.transform.position.y > thisTransform.position.y - 1
+				&& collision.gameObject.transform.localRotation == Quaternion.Euler(0,0,0)) {
+				if (collision.gameObject.transform.position.x > thisTransform.position.x) {
+					//右側に行けない
+					canRightMove = false;
+				} else {
+					canLeftMove = false;
+					//左側
+				}
+			}
+		}
 	}
 
 	private void OnTriggerEnter(Collider other) {
@@ -247,12 +266,8 @@ public class Player : MonoBehaviour {
 					trigger.thisType == Trigger.TriggerType.LeftGear ||
 					trigger.thisType == Trigger.TriggerType.RightGear) {
 
-					rigidbody.useGravity = !rigidbody.useGravity;
-					rigidbody.velocity = Vector3.zero;
-					isGimmickMode = !isGimmickMode;
 					trigger.isThisGimmick = true;
-					trigger.mesh.enabled = !isGimmickMode;
-					thisTransform.position = other.gameObject.transform.position;
+					isGimmickMode = !isGimmickMode;
 				}
 			}
 

@@ -331,9 +331,12 @@ public class SystemManager : MonoBehaviour {
 			float groundWidth = float.Parse(concretes.Item(i).ChildNodes.Item(2).InnerText);
 			var groundObject = Instantiate(concrete, new Vector3(posX, posY, 0), Quaternion.identity, transform);
 			groundObject.transform.GetChild(0).localScale = new Vector3(groundWidth, 1, 2); //当たり判定
-			groundObject.transform.GetChild(1).GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector3(groundWidth * 100, 100, 2);
-			groundObject.transform.GetChild(1).GetChild(1).GetComponent<RectTransform>().sizeDelta = new Vector3(groundWidth * 100, 100, 2);
-			groundObject.transform.GetChild(1).GetChild(2).GetComponent<RectTransform>().sizeDelta = new Vector3(groundWidth*100, 100, 2);
+			groundObject.transform.GetChild(1).GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector3(groundWidth * 32, 160, 32);
+			groundObject.transform.GetChild(1).GetChild(0).localPosition = new Vector3(0,0.5f,-2.5f);
+			groundObject.transform.GetChild(1).GetChild(1).GetComponent<RectTransform>().sizeDelta = new Vector3(groundWidth * 32, 160, 32);
+			groundObject.transform.GetChild(1).GetChild(1).localPosition = new Vector3(0,-0.5f,-2.5f);
+			groundObject.transform.GetChild(1).GetChild(2).GetComponent<RectTransform>().sizeDelta = new Vector3(groundWidth * 32, 32, 32);
+			groundObject.transform.GetChild(1).GetChild(2).localPosition = new Vector3(0,0,-5f);
 
 			if(concretes.Item(i).ChildNodes.Count > 4) {
 				float rotate = float.Parse(concretes.Item(i).ChildNodes.Item(3).InnerText);
@@ -403,22 +406,43 @@ public class SystemManager : MonoBehaviour {
 		}
 		
 		var missGround = Resources.Load("Prefabs/StageFrames/missGround") as GameObject;
-		var player = Instantiate(Resources.Load("Prefabs/Systems/Player") as GameObject, new Vector3(int.Parse(xmlDoc.GetElementsByTagName("StartX").Item(0).InnerText), int.Parse(xmlDoc.GetElementsByTagName("StartY").Item(0).InnerText), 0), Quaternion.identity, transform);
+		var player = Instantiate(Resources.Load("Prefabs/Systems/Player") as GameObject, new Vector3(int.Parse(xmlDoc.GetElementsByTagName("StartX").Item(0).InnerText), int.Parse(xmlDoc.GetElementsByTagName("StartY").Item(0).InnerText), -0.5f), Quaternion.identity, transform);
 		Instantiate(Resources.Load("Prefabs/Systems/Camera") as GameObject,new Vector3(int.Parse(xmlDoc.GetElementsByTagName("StartX").Item(0).InnerText), int.Parse(xmlDoc.GetElementsByTagName("StartY").Item(0).InnerText), -10), Quaternion.identity, transform);
 
+		//左側の壁
 		var wallObject = Instantiate(wall, new Vector3(0, height / 2, 0), Quaternion.identity, transform);
-		wallObject.transform.localScale = new Vector3(1, height+1, 2);
+		wallObject.transform.GetComponent<BoxCollider>().size = new Vector3(1, height+1, 2);
+		wallObject.transform.GetChild(0).GetChild(0).transform.position = new Vector3(-15, height/2, -5);
+		wallObject.transform.GetChild(0).GetChild(0).transform.GetComponent<RectTransform>().sizeDelta = new Vector2(3000,(height + 200)*100);
+		wallObject.transform.GetChild(0).GetChild(1).transform.position = new Vector3(0, height/2-50, -2.5f);
+		wallObject.transform.GetChild(0).GetChild(1).transform.GetComponent<RectTransform>().sizeDelta = new Vector2(100,(height+200)*100);
+
+		//右側の壁
 		wallObject = Instantiate(wall, new Vector3(width, height / 2, 0), Quaternion.identity, transform);
-		wallObject.transform.localScale = new Vector3(1, height+1, 2);
-        
+		wallObject.transform.GetComponent<BoxCollider>().size = new Vector3(1, height + 1, 2);
+		wallObject.transform.GetChild(0).GetChild(0).transform.position = new Vector3(width+15, height / 2, -5);
+		wallObject.transform.GetChild(0).GetChild(0).transform.GetComponent<RectTransform>().sizeDelta = new Vector2(3000, (height + 200) * 100);
+		wallObject.transform.GetChild(0).GetChild(1).transform.position = new Vector3(width, height / 2, -2.5f);
+		wallObject.transform.GetChild(0).GetChild(1).transform.GetComponent<RectTransform>().sizeDelta = new Vector2(100, (height) * 100);
+
+		//上側の壁
+		wallObject = Instantiate(wall, new Vector3(width / 2, height, 0), Quaternion.identity, transform);
+		wallObject.transform.GetComponent<BoxCollider>().size = new Vector3(width, 1, 2);
+		wallObject.transform.GetChild(0).GetChild(0).transform.position = new Vector3(width / 2, height + 15, -5);
+		wallObject.transform.GetChild(0).GetChild(0).transform.GetComponent<RectTransform>().sizeDelta = new Vector2((width) * 100,3000);
+		wallObject.transform.GetChild(0).GetChild(1).transform.position = new Vector3(width / 2, height, -2.5f);
+		wallObject.transform.GetChild(0).GetChild(1).transform.GetComponent<RectTransform>().sizeDelta = new Vector2(100,(width) * 100);
+		wallObject.transform.GetChild(0).GetChild(1).transform.Rotate(90, 0, 0);
+
 		var missGroundObject = Instantiate(missGround, new Vector3(width/2, -1, -1f), Quaternion.identity, transform);
-		missGroundObject.transform.localScale = new Vector3(width+1, 1, 1);
+		missGroundObject.transform.localScale = new Vector3(width+10, 1, 1);
 		missGroundObject.transform.GetChild(0).GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(100, 570);
 		missGroundObject.transform.GetChild(0).transform.localPosition = new Vector3(0, 0, 0.5f);
 
-		var backGround = Resources.Load("Prefabs/StageFrames/BackGround") as GameObject;
+		var backGround = Resources.Load("Prefabs/StageFrames/StageBackGround") as GameObject;
 		var backGroundObject = Instantiate(backGround,new Vector3(width/2,height/2-8,1),Quaternion.identity,transform) as GameObject;
-		backGroundObject.transform.GetChild(0).GetChild(0).gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(width * 100+2000, height * 100+5000);
+		backGroundObject.transform.GetChild(0).gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(width * 100+2000, height * 100+5000);
+		backGroundObject.transform.GetChild(1).gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(width * 100+2000, height * 100+5000);
 	}
 
 	/// <summary>
