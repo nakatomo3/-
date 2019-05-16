@@ -123,6 +123,8 @@ public class Parts : MonoBehaviour {
     [HideInInspector]
     public int connectNumber = 0;
 
+	private bool willOnceProcess = true;
+
     // Start is called before the first frame update
     void Start() {
         thisTransform = gameObject.GetComponent<Transform>();
@@ -172,6 +174,18 @@ public class Parts : MonoBehaviour {
                 }
                 goalAnimationSpeed = 5;
                 break;
+			case PartsType.MoveHorizontalObj:
+				var rail = Resources.Load("Prefabs/Others/Rail") as GameObject;
+				var railSide = Resources.Load("Prefabs/Others/RailSide") as GameObject;
+				var railObject = Instantiate(rail, transform.position, Quaternion.identity, thisTransform);
+				railObject.transform.localScale = new Vector3(MOVE_HORIZONTAL_OBJ_RANGE,2,2);
+				railObject.transform.localPosition = new Vector3(MOVE_HORIZONTAL_OBJ_RANGE/2, 0, 1);
+				var railSideObject = Instantiate(railSide, Vector3.zero, Quaternion.identity, thisTransform);
+				railSideObject.transform.localPosition = new Vector3(0, 0, 1f);
+				railSideObject = Instantiate(railSide, new Vector3(thisTransform.position.x + MOVE_HORIZONTAL_OBJ_RANGE , thisTransform.position.y, 1), Quaternion.identity, thisTransform);
+				railSideObject.transform.localPosition = new Vector3(MOVE_HORIZONTAL_OBJ_RANGE, 0, 0.83f);
+				railSideObject.transform.Rotate(0, 180, 0);
+				break;
         }
 
         if (thisType == PartsType.Default) {
@@ -197,7 +211,7 @@ public class Parts : MonoBehaviour {
         TrapAction();
 
         if (thisType == PartsType.MoveHorizontalObj) {
-            transform.position = new Vector3(thisFirstPosX + (SystemManager.instance.GetGimmickValue(connectNumber)+1) * MOVE_HORIZONTAL_OBJ_RANGE/2, thisTransform.position.y, thisTransform.position.z);
+            thisTransform.GetChild(0).position = new Vector3(thisFirstPosX + (SystemManager.instance.GetGimmickValue(connectNumber)+1) * MOVE_HORIZONTAL_OBJ_RANGE/2, thisTransform.position.y, thisTransform.position.z);
 
         }else if (thisType == PartsType.MoveVerticalObj) {
             transform.position = new Vector3(thisTransform.position.x, thisFirstPosY + (SystemManager.instance.GetGimmickValue(connectNumber)+1) * MOVE_VIRTICAL_OBJ_RANGE/2, thisTransform.position.z);
@@ -618,7 +632,6 @@ public class Parts : MonoBehaviour {
                     if (isImpulse == true && willPositionReset == false)
                     {
                         Player.instance.rigidbody.velocity = new Vector3(0, IMPULSE_UP_POWER_2, 0);
-                        //Player.instance.rigidbody.AddForce(impulseVector, ForceMode.VelocityChange);
                         isImpulse = false;
                     }
                     if (impulseObj.position.y <= thisFirstPosY + IMPULSE_ACTION_RANGE && willPositionReset == false)
@@ -713,6 +726,10 @@ public class Parts : MonoBehaviour {
                 break;
         }
     }
+
+	public void ChangeRange(float range) {
+
+	}
 
     private void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "Player") {
@@ -841,5 +858,4 @@ public class Parts : MonoBehaviour {
             }
         }
     }
-
 }

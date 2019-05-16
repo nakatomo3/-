@@ -95,12 +95,12 @@ public class SystemManager : MonoBehaviour {
 		try {
 			var collect1 = xmlDoc.GetElementsByTagName("Collect1");
 
-			var pos = new Vector3(float.Parse(collect1.Item(0).ChildNodes.Item(0).InnerText), float.Parse(collect1.Item(0).ChildNodes.Item(1).InnerText), 0);
+			var pos = new Vector3(float.Parse(collect1.Item(0).ChildNodes.Item(0).InnerText), float.Parse(collect1.Item(0).ChildNodes.Item(1).InnerText), -3);
 			var newCollectParts = Instantiate(collectParts, pos, Quaternion.identity, collectPartsParent.transform);
 			newCollectParts.name = "1";
 
 			var collect2 = xmlDoc.GetElementsByTagName("Collect2");
-			pos = new Vector3(float.Parse(collect2.Item(0).ChildNodes.Item(0).InnerText), float.Parse(collect2.Item(0).ChildNodes.Item(1).InnerText), 0);
+			pos = new Vector3(float.Parse(collect2.Item(0).ChildNodes.Item(0).InnerText), float.Parse(collect2.Item(0).ChildNodes.Item(1).InnerText), -3);
 			newCollectParts = Instantiate(collectParts, pos, Quaternion.identity, collectPartsParent.transform);
 			newCollectParts.name = "2";
 		} catch {
@@ -148,7 +148,7 @@ public class SystemManager : MonoBehaviour {
 					triggerType = Trigger.TriggerType.Forever;
 					break;
 			}
-			var newTriggerObject = Instantiate(triggerObject, new Vector3(x, y, 0), Quaternion.identity, transform) as GameObject;
+			var newTriggerObject = Instantiate(triggerObject, new Vector3(x, y, -3), Quaternion.identity, transform) as GameObject;
 			Trigger trigger = newTriggerObject.GetComponent<Trigger>();
 			if (triggers.Item(i).ChildNodes.Count > 4) {
 				var rotate = float.Parse(triggers.Item(i).ChildNodes.Item(4).InnerText);
@@ -275,7 +275,7 @@ public class SystemManager : MonoBehaviour {
                         partsType = Parts.PartsType.Goal;
                         break;
                 }
-				var newPartsObject = Instantiate(partsObject, new Vector3(x, y, 0), Quaternion.identity, transform) as GameObject;
+				var newPartsObject = Instantiate(partsObject, new Vector3(x, y, -3), Quaternion.identity, transform) as GameObject;
 				var newParts = newPartsObject.GetComponent<Parts>();
                 newParts.connectNumber = connectNum;
 				if(parts.Item(i).ChildNodes.Count > 4) {
@@ -300,20 +300,20 @@ public class SystemManager : MonoBehaviour {
 			float posX = float.Parse(grounds.Item(i).ChildNodes.Item(0).InnerText);
 			float posY = float.Parse(grounds.Item(i).ChildNodes.Item(1).InnerText);
 			float groundWidth = float.Parse(grounds.Item(i).ChildNodes.Item(2).InnerText);
-			var groundObject = Instantiate(ground, new Vector3(posX, posY, 0), Quaternion.identity, transform);
+			var groundObject = Instantiate(ground, new Vector3(posX, posY, -3), Quaternion.identity, transform);
 			groundObject.transform.localScale = new Vector3(groundWidth, 1, 2);
 
 			var groundPipe = Resources.Load("Prefabs/StageFrames/Pipe") as GameObject;
-			var groundPipeObject = Instantiate(groundPipe, new Vector3(posX, posY), Quaternion.identity, transform);
+			var groundPipeObject = Instantiate(groundPipe, new Vector3(posX, posY,-3), Quaternion.identity, transform);
 			groundPipeObject.transform.localScale = new Vector3(groundWidth, 0.6f, 0.6f);
 			var pipeConnection = Resources.Load("Prefabs/StageFrames/PipeConnection") as GameObject;
 			var empty = new GameObject("PipeCollectParent");
 			empty.transform.position = new Vector3(posX, posY);
 			empty.transform.parent = transform;
 			for(int j = 0; j < groundWidth; j += 8) {
-				var connectionObject = Instantiate(pipeConnection, new Vector3(posX-groundWidth/2+j, posY), Quaternion.identity, empty.transform);
+				var connectionObject = Instantiate(pipeConnection, new Vector3(posX-groundWidth/2+j, posY,-3), Quaternion.identity, empty.transform);
 			}
-			Instantiate(pipeConnection, new Vector3(posX + groundWidth / 2, posY), Quaternion.identity, empty.transform);
+			Instantiate(pipeConnection, new Vector3(posX + groundWidth / 2, posY,-3), Quaternion.identity, empty.transform);
 			
 			if (grounds.Item(i).ChildNodes.Count > 4) {
 				float rotate = float.Parse(grounds.Item(i).ChildNodes.Item(3).InnerText);
@@ -391,12 +391,15 @@ public class SystemManager : MonoBehaviour {
 						switch (part.thisType) {
 							case Parts.PartsType.MoveHorizontalObj:
 								part.MOVE_HORIZONTAL_OBJ_RANGE = range;
+								part.ChangeRange(range);
 								break;
 							case Parts.PartsType.MoveVerticalObj:
 								part.MOVE_VIRTICAL_OBJ_RANGE = range;
+								part.ChangeRange(range);
 								break;
 							case Parts.PartsType.MoveDepthObj:
 								part.MOVE_DEPTH_OBJ_RANGE = range;
+								part.ChangeRange(range);
 								break;
 						}
 						
@@ -406,7 +409,7 @@ public class SystemManager : MonoBehaviour {
 		}
 		
 		var missGround = Resources.Load("Prefabs/StageFrames/missGround") as GameObject;
-		var player = Instantiate(Resources.Load("Prefabs/Systems/Player") as GameObject, new Vector3(int.Parse(xmlDoc.GetElementsByTagName("StartX").Item(0).InnerText), int.Parse(xmlDoc.GetElementsByTagName("StartY").Item(0).InnerText), -0.5f), Quaternion.identity, transform);
+		var player = Instantiate(Resources.Load("Prefabs/Systems/Player") as GameObject, new Vector3(int.Parse(xmlDoc.GetElementsByTagName("StartX").Item(0).InnerText), int.Parse(xmlDoc.GetElementsByTagName("StartY").Item(0).InnerText), -3.5f), Quaternion.identity, transform);
 		Instantiate(Resources.Load("Prefabs/Systems/Camera") as GameObject,new Vector3(int.Parse(xmlDoc.GetElementsByTagName("StartX").Item(0).InnerText), int.Parse(xmlDoc.GetElementsByTagName("StartY").Item(0).InnerText), -10), Quaternion.identity, transform);
 
 		//左側の壁
