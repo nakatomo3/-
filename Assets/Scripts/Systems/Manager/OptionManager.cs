@@ -10,7 +10,6 @@ public class OptionManager : MonoBehaviour {
 	private bool isFullScreen = false;
 	private int width, height;
 
-	[SerializeField]
     private bool isPause = false;
 
     private int mainCursorPos = 0;
@@ -55,6 +54,8 @@ public class OptionManager : MonoBehaviour {
 		{ 2560, 1440 }
 	};
 	private int windowSizeNum = 0;
+	public Text[] screenWidthText = new Text[2];
+	public Text[] screenHeightText = new Text[2];
 
 	public GameObject canvas;
 
@@ -93,6 +94,11 @@ public class OptionManager : MonoBehaviour {
 	public Image fullScreenImage;
 	public GameObject[] FullScreenArrow = new GameObject[2];
 
+	public Transform[] LightParent = new Transform[8];
+	private Image[,] Light;
+
+	public GameObject[] ArrowParent = new GameObject[4];
+
 	private void Awake() {
 		instance = this;
 	}
@@ -105,6 +111,12 @@ public class OptionManager : MonoBehaviour {
 			for (int j = 0; j < GEAR_NUM_MAX; j++) {
 				gears[i, j] = GearParents[i].transform.GetChild(j).gameObject;
 			}
+		}
+
+		Light = new Image[LightParent.Length,2];
+		for(int i= 0; i < LightParent.Length; i++) {
+			Light[i, 0] = LightParent[i].GetChild(0).GetComponent<Image>();
+			Light[i, 1] = LightParent[i].GetChild(1).GetComponent<Image>();
 		}
 	}
 
@@ -144,9 +156,7 @@ public class OptionManager : MonoBehaviour {
 				Time.timeScale = 0f;
 				canvas.SetActive(true);
 			}
-		}
-
-		
+		}		
 
         //----------ポーズ中の処理------------------
         if (isPause == true) {
@@ -210,6 +220,17 @@ public class OptionManager : MonoBehaviour {
 				gears[(int)MainCursorManu.Continue, i].transform.Rotate(0, 0, -1);
 			}
 		}
+
+		for(int i = 0; i < (int)MainCursorManu.Exit+1; i++) {
+			if(i == (int)MainCursorManu.Continue) {
+				Light[i, 0].color = Color.yellow;
+				Light[i, 1].color = Color.yellow;
+			} else {
+				Light[i, 0].color = Color.white;
+				Light[i, 1].color = Color.white;
+			}
+		}
+		
 	}
 
 	private void Option() {
@@ -224,6 +245,16 @@ public class OptionManager : MonoBehaviour {
 			}
 		}
 
+		for (int i = 0; i < (int)MainCursorManu.Exit + 1; i++) {
+			if (i == (int)MainCursorManu.Option) {
+				Light[i, 0].color = Color.yellow;
+				Light[i, 1].color = Color.yellow;
+			} else {
+				Light[i, 0].color = Color.white;
+				Light[i, 1].color = Color.white;
+			}
+		}
+
 		if (isEnter == true) {
 			if (isOpeningOptionWindow == true) {
 
@@ -235,8 +266,12 @@ public class OptionManager : MonoBehaviour {
 					case (int)OptionCursor.SE:
 						break;
 					case (int)OptionCursor.Window:
-						isScreenSelect = true;
-						optionScreenSelect.SetActive(true);
+						if (isScreenSelect == false) {
+							isScreenSelect = true;
+							optionScreenCursorPos = (int)WindowOptionCursor.IsFullScreen;
+							optionScreenSelect.SetActive(true);
+							windowSizeNum = 0;
+						}
 						break;
 					case (int)OptionCursor.Back:
 						isOpeningOptionWindow = false;
@@ -278,52 +313,113 @@ public class OptionManager : MonoBehaviour {
 				optionCursorPos = (optionCursorPos + (int)OptionCursor.Back + 1) % ((int)OptionCursor.Back+1);
 			}
 
-			if (optionCursorPos == (int)OptionCursor.BGM) {
-				if (isPushingRight && BGMVolume < VOLUME_MAX) {
-					BGMVolume += (Time.realtimeSinceStartup - inputStartTime) / 15;
-				} else if (isPushingLeft && BGMVolume > VOLUME_MIN) {
-					BGMVolume -= (Time.realtimeSinceStartup - inputStartTime) / 15;
-				}
+			switch (optionCursorPos) {
+				case (int)OptionCursor.BGM:
+					if (isPushingRight && BGMVolume < VOLUME_MAX) {
+						BGMVolume += (Time.realtimeSinceStartup - inputStartTime) / 15;
+					} else if (isPushingLeft && BGMVolume > VOLUME_MIN) {
+						BGMVolume -= (Time.realtimeSinceStartup - inputStartTime) / 15;
+					}
 
-				if(isStartRight == true) {
-					BGMVolume++;
-					inputStartTime = Time.realtimeSinceStartup;
-				}
-				if(isStartLeft == true) {
-					BGMVolume--;
-					inputStartTime = Time.realtimeSinceStartup;
+					if (isStartRight == true) {
+						BGMVolume++;
+						inputStartTime = Time.realtimeSinceStartup;
+					}
+					if (isStartLeft == true) {
+						BGMVolume--;
+						inputStartTime = Time.realtimeSinceStartup;
+					}
 
-				}
+					for (int i = 0; i < ArrowParent.Length; i++) {
+						if (i == 0) {
+							ArrowParent[i].SetActive(true);
+						} else {
+							ArrowParent[i].SetActive(false);
+						}
+					}
+					for (int i = 4; i < 5 + 1; i++) {
+						Light[i, 0].color = Color.white;
+						Light[i, 1].color = Color.white;
+					}
+					break;
+				case (int)OptionCursor.SE:
+					if (isPushingRight && SEVolume < VOLUME_MAX) {
+						SEVolume += (Time.realtimeSinceStartup - inputStartTime) / 15;
+					} else if (isPushingLeft && SEVolume > VOLUME_MIN) {
+						SEVolume -= (Time.realtimeSinceStartup - inputStartTime) / 15;
+					}
 
-			}
+					if (isStartRight == true) {
+						SEVolume++;
+						inputStartTime = Time.realtimeSinceStartup;
 
-			if (optionCursorPos == (int)OptionCursor.SE) {
-				if (isPushingRight && SEVolume < VOLUME_MAX) {
-					SEVolume += (Time.realtimeSinceStartup - inputStartTime) / 15;
-				} else if (isPushingLeft && SEVolume > VOLUME_MIN) {
-					SEVolume -= (Time.realtimeSinceStartup - inputStartTime) / 15;
-				}
+					}
+					if (isStartLeft) {
+						SEVolume--;
+						inputStartTime = Time.realtimeSinceStartup;
+					}
 
-				if(isStartRight == true) {
-					SEVolume++;
-					inputStartTime = Time.realtimeSinceStartup;
-
-				}
-				if (isStartLeft) {
-					SEVolume--;
-					inputStartTime = Time.realtimeSinceStartup;
-				}
+					for (int i = 0; i < ArrowParent.Length; i++) {
+						if (i == 1) {
+							ArrowParent[i].SetActive(true);
+						} else {
+							ArrowParent[i].SetActive(false);
+						}
+					}
+					for (int i = 4; i < 5 + 1; i++) {
+						Light[i, 0].color = Color.white;
+						Light[i, 1].color = Color.white;
+					}
+					break;
+				case (int)OptionCursor.Window:
+					for (int i = 4; i < 5+1; i++) {
+						if (i == 4) {
+							Light[i, 0].color = Color.yellow;
+							Light[i, 1].color = Color.yellow;
+						} else {
+							Light[i, 0].color = Color.white;
+							Light[i, 1].color = Color.white;
+						}
+					}
+					for (int i = 0; i < ArrowParent.Length; i++) {						
+						ArrowParent[i].SetActive(false);
+					}
+					break;
+				case (int)OptionCursor.Back:
+					for(int i = 4; i < 5+1; i++) {
+						if(i == 5) {
+							Light[i, 0].color = Color.yellow;
+							Light[i, 1].color = Color.yellow;
+						} else {
+							Light[i, 0].color = Color.white;
+							Light[i, 1].color = Color.white;
+						}
+					}
+					for (int i = 0; i < ArrowParent.Length; i++) {
+						ArrowParent[i].SetActive(false);
+					}
+					break;
 			}
 
 			if(optionCursorPos == (int)OptionCursor.Window && isScreenSelect == true) {
 				switch (optionScreenCursorPos) {
 					case (int)WindowOptionCursor.IsFullScreen:
-
 						if(isFullScreen == true && isStartLeft == true) {
 							isFullScreen = false;
 						}
 						if(isFullScreen == false && isStartRight == true) {
 							isFullScreen = true;
+						}
+						for (int i = 0; i < ArrowParent.Length; i++) {
+							if (i == 2) {
+								ArrowParent[i].SetActive(true);
+							} else {
+								ArrowParent[i].SetActive(false);
+							}
+						}
+						for (int i = 6; i < 7 + 1; i++) {
+							Light[i, 0].color = Color.white;
+							Light[i, 1].color = Color.white;
 						}
 						break;
 					case (int)WindowOptionCursor.Size:
@@ -333,21 +429,60 @@ public class OptionManager : MonoBehaviour {
 						if(isStartRight == true) {
 							windowSizeNum++;
 						}
-						windowSizeNum = windowSizeNum % WINDOW_RESOLUTION_SET.Length;
-						if(windowSizeNum < 0) {
-							windowSizeNum = WINDOW_RESOLUTION_SET.Length - 1;
+						windowSizeNum = (windowSizeNum + WINDOW_RESOLUTION_SET.Length/2) % (WINDOW_RESOLUTION_SET.Length/2);
+						screenWidthText[0].text = WINDOW_RESOLUTION_SET[windowSizeNum, 0].ToString();
+						screenWidthText[1].text = WINDOW_RESOLUTION_SET[windowSizeNum, 0].ToString();
+						screenHeightText[0].text = WINDOW_RESOLUTION_SET[windowSizeNum, 1].ToString();
+						screenHeightText[1].text = WINDOW_RESOLUTION_SET[windowSizeNum, 1].ToString();
+
+						for (int i = 0; i < ArrowParent.Length; i++) {
+							if (i == 3) {
+								ArrowParent[i].SetActive(true);
+							} else {
+								ArrowParent[i].SetActive(false);
+							}
+						}
+						for (int i = 6; i < 7 + 1; i++) {
+							Light[i, 0].color = Color.white;
+							Light[i, 1].color = Color.white;
 						}
 						break;
 					case (int)WindowOptionCursor.Back:
-						if(isStartLeft || isEnter) {
+						if(isStartRight || isEnter) {
 							isScreenSelect = false;
+							optionCursorPos = (int)OptionCursor.Window;
+						}
+						for (int i = 6; i < 7 + 1; i++) {
+							if (i == 6) {
+								Light[i, 0].color = Color.yellow;
+								Light[i, 1].color = Color.yellow;
+							} else {
+								Light[i, 0].color = Color.white;
+								Light[i, 1].color = Color.white;
+							}
+						}
+						for (int i = 0; i < ArrowParent.Length; i++) {
+							ArrowParent[i].SetActive(false);
 						}
 						break;
 					case (int)WindowOptionCursor.Aplly:
-						isScreenSelect = false;
-						ChangeScreenSize(windowSizeNum);
+						if (isStartRight || isEnter) {
+							isScreenSelect = false;
+							ChangeScreenSize(windowSizeNum);
+						}
+						for (int i = 6; i < 7 + 1; i++) {
+							if (i == 7) {
+								Light[i, 0].color = Color.yellow;
+								Light[i, 1].color = Color.yellow;
+							} else {
+								Light[i, 0].color = Color.white;
+								Light[i, 1].color = Color.white;
+							}
+						}
+						for (int i = 0; i < ArrowParent.Length; i++) {
+							ArrowParent[i].SetActive(false);
+						}
 						break;
-
 				}
 
 				if (isStartUp) {
@@ -357,7 +492,7 @@ public class OptionManager : MonoBehaviour {
 					optionScreenCursorPos++;
 				}
 
-				optionScreenCursorPos = (optionScreenCursorPos + (int)WindowOptionCursor.Back + 1) % ((int)WindowOptionCursor.Back + 1);
+				optionScreenCursorPos = (optionScreenCursorPos + (int)WindowOptionCursor.Aplly + 1) % ((int)WindowOptionCursor.Aplly + 1);
 
 				if(isFullScreen == false) {
 					fullScreenImage.sprite = fullScreenSprite[0];
@@ -376,6 +511,8 @@ public class OptionManager : MonoBehaviour {
 		} else {
 			optionWindow.SetActive(false);
 			optionScreenSelect.SetActive(false);
+
+
 		}
 
 
@@ -394,6 +531,16 @@ public class OptionManager : MonoBehaviour {
 			confirmation.SetActive(true);
 		} else {
 			confirmation.SetActive(false);
+		}
+
+		for (int i = 0; i < (int)MainCursorManu.Exit + 1; i++) {
+			if (i == (int)MainCursorManu.Restart) {
+				Light[i, 0].color = Color.yellow;
+				Light[i, 1].color = Color.yellow;
+			} else {
+				Light[i, 0].color = Color.white;
+				Light[i, 1].color = Color.white;
+			}
 		}
 
 		bool isEnter = Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.Return);
@@ -420,8 +567,26 @@ public class OptionManager : MonoBehaviour {
 			}
 			if(exitCorsorPos == 0) {
 				if(isStartDown)	exitCorsorPos = 1;
+				for(int i = 8; i < 9+1; i++) {
+					if(i == 8) {
+						Light[i, 0].color = Color.yellow;
+						Light[i, 1].color = Color.yellow;
+					} else {
+						Light[i, 0].color = Color.white;
+						Light[i, 1].color = Color.white;
+					}
+				}
 			} else {
 				if (isStartUp) exitCorsorPos = 0;
+				for (int i = 8; i < 9 + 1; i++) {
+					if (i == 9) {
+						Light[i, 0].color = Color.yellow;
+						Light[i, 1].color = Color.yellow;
+					} else {
+						Light[i, 0].color = Color.white;
+						Light[i, 1].color = Color.white;
+					}
+				}
 			}
 		}
 	}
@@ -432,6 +597,16 @@ public class OptionManager : MonoBehaviour {
 				gears[(int)MainCursorManu.Exit, i].transform.Rotate(0, 0, 1);
 			} else {
 				gears[(int)MainCursorManu.Exit, i].transform.Rotate(0, 0, -1);
+			}
+		}
+
+		for (int i = 0; i < (int)MainCursorManu.Exit + 1; i++) {
+			if (i == (int)MainCursorManu.Exit) {
+				Light[i, 0].color = Color.yellow;
+				Light[i, 1].color = Color.yellow;
+			} else {
+				Light[i, 0].color = Color.white;
+				Light[i, 1].color = Color.white;
 			}
 		}
 
@@ -466,8 +641,26 @@ public class OptionManager : MonoBehaviour {
 
 			if (exitCorsorPos == 0) {
 				if (isStartDown) exitCorsorPos = 1;
+				for (int i = 8; i < 9 + 1; i++) {
+					if (i == 8) {
+						Light[i, 0].color = Color.yellow;
+						Light[i, 1].color = Color.yellow;
+					} else {
+						Light[i, 0].color = Color.white;
+						Light[i, 1].color = Color.white;
+					}
+				}
 			} else {
 				if (isStartUp) exitCorsorPos = 0;
+				for (int i = 8; i < 9 + 1; i++) {
+					if (i == 9) {
+						Light[i, 0].color = Color.yellow;
+						Light[i, 1].color = Color.yellow;
+					} else {
+						Light[i, 0].color = Color.white;
+						Light[i, 1].color = Color.white;
+					}
+				}
 			}
 		}
 	}
