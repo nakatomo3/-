@@ -30,8 +30,10 @@ public class StageMover : MonoBehaviour {
 				StageSelectManager.instance.doors[stageNum - 1].transform.Rotate(0, Time.deltaTime * 55, 0);
 			}
 			if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
-				timer -= Time.deltaTime;
-				StageSelectManager.instance.doors[stageNum - 1].transform.Rotate(0, Time.deltaTime * -55, 0);
+				if(timer > 0) {
+					timer -= Time.deltaTime;
+					StageSelectManager.instance.doors[stageNum - 1].transform.Rotate(0, Time.deltaTime * -55, 0);
+				}
 			}
 
 			Player.instance.gameObject.transform.position = transform.position;
