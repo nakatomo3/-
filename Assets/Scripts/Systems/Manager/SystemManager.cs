@@ -436,7 +436,7 @@ public class SystemManager : MonoBehaviour {
 
 		//左側の壁
 		var wallObject = Instantiate(wall, new Vector3(0, height / 2, 0), Quaternion.identity, transform);
-		wallObject.transform.GetComponent<BoxCollider>().size = new Vector3(1, height+1, 2);
+		wallObject.transform.GetComponent<BoxCollider>().size = new Vector3(1, height+1, 5);
 		wallObject.transform.GetChild(0).GetChild(0).transform.position = new Vector3(-15, height/2, -5);
 		wallObject.transform.GetChild(0).GetChild(0).transform.GetComponent<RectTransform>().sizeDelta = new Vector2(3000,(height + 200)*100);
 		wallObject.transform.GetChild(0).GetChild(1).transform.position = new Vector3(0, height/2-50, -2.5f);
@@ -444,7 +444,7 @@ public class SystemManager : MonoBehaviour {
 
 		//右側の壁
 		wallObject = Instantiate(wall, new Vector3(width, height / 2, 0), Quaternion.identity, transform);
-		wallObject.transform.GetComponent<BoxCollider>().size = new Vector3(1, height + 1, 2);
+		wallObject.transform.GetComponent<BoxCollider>().size = new Vector3(1, height + 1, 5);
 		wallObject.transform.GetChild(0).GetChild(0).transform.position = new Vector3(width+15, height / 2, -5);
 		wallObject.transform.GetChild(0).GetChild(0).transform.GetComponent<RectTransform>().sizeDelta = new Vector2(3000, (height + 200) * 100);
 		wallObject.transform.GetChild(0).GetChild(1).transform.position = new Vector3(width, height / 2, -2.5f);
@@ -452,7 +452,7 @@ public class SystemManager : MonoBehaviour {
 
 		//上側の壁
 		wallObject = Instantiate(wall, new Vector3(width / 2, height, 0), Quaternion.identity, transform);
-		wallObject.transform.GetComponent<BoxCollider>().size = new Vector3(width, 1, 2);
+		wallObject.transform.GetComponent<BoxCollider>().size = new Vector3(width, 1, 5);
 		wallObject.transform.GetChild(0).GetChild(0).transform.position = new Vector3(width / 2, height + 15, -5);
 		wallObject.transform.GetChild(0).GetChild(0).transform.GetComponent<RectTransform>().sizeDelta = new Vector2((width) * 100,3000);
 		wallObject.transform.GetChild(0).GetChild(1).transform.position = new Vector3(width / 2, height, -2.5f);
