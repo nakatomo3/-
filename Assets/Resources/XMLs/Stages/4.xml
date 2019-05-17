@@ -31,7 +31,7 @@
     </Parts>
     <Parts>
       <ConnectNumber>1</ConnectNumber>
-      <Name>ImpulseUp</Name>
+      <Name>ImpulseUp_2</Name>
       <X>28</X>
       <Y>1.5</Y>
       <Rotate>0</Rotate>
@@ -45,7 +45,7 @@
     </Parts>
     <Parts>
       <ConnectNumber>1</ConnectNumber>
-      <Name>ImpulseUp</Name>
+      <Name>ImpulseUp_2</Name>
       <X>34</X>
       <Y>1.5</Y>
       <Rotate>0</Rotate>
@@ -179,51 +179,23 @@
     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseUp</Name>
-      <X>75.5</X>
-      <Y>13</Y>
-      <Rotate>0</Rotate>
+      <X>69.1</X>
+      <Y>18</Y>
+      <Rotate>-45</Rotate>
     </Parts>
     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseUp</Name>
-      <X>75.5</X>
-      <Y>8.5</Y>
-      <Rotate>0</Rotate>
+      <X>69.3</X>
+      <Y>12</Y>
+      <Rotate>-35</Rotate>
     </Parts>
     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseUp</Name>
-      <X>69.5</X>
-      <Y>16</Y>
-      <Rotate>0</Rotate>
-    </Parts>
-    <Parts>
-      <ConnectNumber>1</ConnectNumber>
-      <Name>ImpulseUp</Name>
-      <X>69.5</X>
-      <Y>13</Y>
-      <Rotate>0</Rotate>
-    </Parts>
-    <Parts>
-      <ConnectNumber>1</ConnectNumber>
-      <Name>ImpulseUp</Name>
-      <X>69.5</X>
-      <Y>10</Y>
-      <Rotate>0</Rotate>
-    </Parts>
-    <Parts>
-      <ConnectNumber>1</ConnectNumber>
-      <Name>ImpulseUp</Name>
-      <X>69.5</X>
-      <Y>7</Y>
-      <Rotate>0</Rotate>
-    </Parts>
-    <Parts>
-      <ConnectNumber>1</ConnectNumber>
-      <Name>ImpulseUp</Name>
-      <X>69.5</X>
-      <Y>4</Y>
-      <Rotate>0</Rotate>
+      <X>69.7</X>
+      <Y>3.5</Y>
+      <Rotate>-45</Rotate>
     </Parts>
     <Parts>
       <ConnectNumber>1</ConnectNumber>
@@ -283,27 +255,6 @@
     </Parts>
     <Parts>
       <ConnectNumber>1</ConnectNumber>
-      <Name>ImpulseLeft</Name>
-      <X>106.5</X>
-      <Y>1.5</Y>
-      <Rotate>0</Rotate>
-    </Parts>
-    <Parts>
-      <ConnectNumber>1</ConnectNumber>
-      <Name>ImpulseLeft</Name>
-      <X>110</X>
-      <Y>1.5</Y>
-      <Rotate>0</Rotate>
-    </Parts>
-    <Parts>
-      <ConnectNumber>1</ConnectNumber>
-      <Name>ImpulseLeft</Name>
-      <X>113.5</X>
-      <Y>1.5</Y>
-      <Rotate>0</Rotate>
-    </Parts>
-    <Parts>
-      <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseUp</Name>
       <X>144</X>
       <Y>38.5</Y>
@@ -334,6 +285,13 @@
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseLeft</Name>
       <X>133</X>
+      <Y>12</Y>
+      <Rotate>0</Rotate>
+    </Parts>
+     <Parts>
+      <ConnectNumber>1</ConnectNumber>
+      <Name>ImpulseLeft</Name>
+      <X>129</X>
       <Y>12</Y>
       <Rotate>0</Rotate>
     </Parts>
@@ -496,8 +454,8 @@
     <Parts>
       <ConnectNumber>6</ConnectNumber>
       <Name>Goal</Name>
-      <X>3</X>
-      <Y>34</Y>
+      <X>22</X>
+      <Y>71.5</Y>
       <Rotate>0</Rotate>
     </Parts>
   </Gimmick>
