@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameOverManager : MonoBehaviour {
 	public static GameOverManager instance;
@@ -11,10 +12,13 @@ public class GameOverManager : MonoBehaviour {
     public Transform restartparent;
     public Transform returnParent;
 
-    public Transform[] restartGears;
-    public Transform[] returnGears;
+    private Transform[] restartGears;
+    private Transform[] returnGears;
 
-    private float rotateSpeed = 0;
+    private float rotateSpeed = 100;
+
+	public Transform[] LightParent = new Transform[2];
+	private Image[,] light = new Image[2,2];
 
     private void Awake() {
 		instance = this;
@@ -34,6 +38,10 @@ public class GameOverManager : MonoBehaviour {
             returnGears[i] = returnParent.GetChild(i);
         }
 
+		for(int i = 0; i < 2; i++) {
+			light[i, 0] = LightParent[i].GetChild(0).GetComponent<Image>();
+			light[i, 1] = LightParent[i].GetChild(1).GetComponent<Image>();
+		}
     }
 
 	// Update is called once per frame
@@ -47,9 +55,7 @@ public class GameOverManager : MonoBehaviour {
 
 				//ゲーム開始
 				if (hit.collider.gameObject.tag == "StageRetry") {
-#if UNITY_EDITOR
 					StageRetry();
-#endif
 				}
 
 				//タイトルへ戻る
@@ -60,42 +66,49 @@ public class GameOverManager : MonoBehaviour {
 			}
 		}
 
-        if (isSelectingRetry)
-        {
-            for(int i = 0; i < restartGears.Length; i++)
-            {
-                restartGears[i].Rotate(new Vector3(0,0,100*Time.deltaTime*(-1 * i % 2) + 0.5f) * 2);
-            }
-        }
-        else
-        {
-            for (int i = 0; i < returnGears.Length; i++)
-            {
-                returnGears[i].Rotate(new Vector3(0, 0, 100 * Time.deltaTime * (-1 * i % 2) + 0.5f) * 2);
-            }
+		if (isSelectingRetry) {
+			for (int i = 0; i < restartGears.Length; i++) {
+				restartGears[i].Rotate(new Vector3(0, 0, rotateSpeed * Time.deltaTime * (-1 * i % 2) + 0.5f) * 2);
+			}
+			for(int i = 0; i < 2; i++) {
+				if(i == 0) {
+					light[i, 0].color = Color.yellow;
+					light[i, 1].color = Color.yellow;
+				} else {
+					light[i, 0].color = Color.white;
+					light[i, 1].color = Color.white;
+				}
+			}
+		} else {
+			for (int i = 0; i < returnGears.Length; i++) {
+				returnGears[i].Rotate(new Vector3(0, 0, rotateSpeed * Time.deltaTime * (-1 * i % 2) + 0.5f) * 2);
+			}
+			for (int i = 0; i < 2; i++) {
+				if (i == 1) {
+					light[i, 0].color = Color.yellow;
+					light[i, 1].color = Color.yellow;
+				} else {
+					light[i, 0].color = Color.white;
+					light[i, 1].color = Color.white;
+				}
+			}
 
-        }
+		}
 
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            isSelectingRetry = false;
-        }
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            isSelectingRetry = true;
-        }
+		if (Input.GetKeyDown(KeyCode.DownArrow)) {
+			isSelectingRetry = false;
+		}
+		if (Input.GetKeyDown(KeyCode.UpArrow)) {
+			isSelectingRetry = true;
+		}
 
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            if(isSelectingRetry == true)
-            {
-                StageRetry();
-            }
-            else
-            {
-                StageSelect();
-            }
-        }
+		if (Input.GetKeyDown(KeyCode.Return)) {
+			if (isSelectingRetry == true) {
+				StageRetry();
+			} else {
+				StageSelect();
+			}
+		}
 	}
 
 	public void StageRetry() {
