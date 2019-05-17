@@ -728,7 +728,18 @@ public class Parts : MonoBehaviour {
     }
 
 	public void ChangeRange(float range) {
-
+		switch (thisType) {
+			default:
+				Debug.LogError("呼ばれるはずのないChangeRangeが呼び出されました。中村に報告してください");
+				break;
+			case PartsType.MoveHorizontalObj:
+				MOVE_HORIZONTAL_OBJ_RANGE = range;
+				break;
+			case PartsType.MoveVerticalObj:
+				break;
+			case PartsType.MoveDepthObj:
+				break;
+		}
 	}
 
     private void OnCollisionEnter(Collision collision) {
