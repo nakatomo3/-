@@ -99,6 +99,8 @@ public class OptionManager : MonoBehaviour {
 
 	public GameObject[] ArrowParent = new GameObject[4];
 
+	private bool isSelectScene = true;
+
 	private void Awake() {
 		instance = this;
 	}
@@ -117,6 +119,10 @@ public class OptionManager : MonoBehaviour {
 		for(int i= 0; i < LightParent.Length; i++) {
 			Light[i, 0] = LightParent[i].GetChild(0).GetComponent<Image>();
 			Light[i, 1] = LightParent[i].GetChild(1).GetComponent<Image>();
+		}
+
+		if(SceneManager.GetActiveScene().name == "Game") {
+			isScreenSelect = false;
 		}
 	}
 
@@ -141,7 +147,7 @@ public class OptionManager : MonoBehaviour {
 		bool isInputDown = Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S);
 
 
-		if (Input.GetKeyDown(KeyCode.Escape) && SceneManager.GetActiveScene().name == "Game") {
+		if (Input.GetKeyDown(KeyCode.Escape)) {
 			if(isPause == true) {
 				isPause = false;
 				Time.timeScale = 1f;
@@ -183,11 +189,20 @@ public class OptionManager : MonoBehaviour {
 				if (isInputDownStart) {
 					mainCursorPos++;
 				}
-				if(mainCursorPos > (int)MainCursorManu.Exit) {
-					mainCursorPos = 0;
-				}
-				if(mainCursorPos < 0) {
-					mainCursorPos = (int)MainCursorManu.Exit;
+				if (isSelectScene == false) {
+					if (mainCursorPos > (int)MainCursorManu.Exit) {
+						mainCursorPos = 0;
+					}
+					if (mainCursorPos < 0) {
+						mainCursorPos = (int)MainCursorManu.Exit;
+					}
+				} else {
+					if (mainCursorPos > (int)MainCursorManu.Option) {
+						mainCursorPos = 0;
+					}
+					if (mainCursorPos < 0) {
+						mainCursorPos = (int)MainCursorManu.Option;
+					}
 				}
 			}
 
@@ -229,6 +244,9 @@ public class OptionManager : MonoBehaviour {
 				Light[i, 0].color = Color.white;
 				Light[i, 1].color = Color.white;
 			}
+			if(i >= (int)MainCursorManu.Option && isSelectScene) {
+				break;
+			}
 		}
 		
 	}
@@ -253,6 +271,10 @@ public class OptionManager : MonoBehaviour {
 				Light[i, 0].color = Color.white;
 				Light[i, 1].color = Color.white;
 			}
+			if (i >= (int)MainCursorManu.Option && isSelectScene) {
+				break;
+			}
+
 		}
 
 		if (isEnter == true) {
@@ -541,6 +563,7 @@ public class OptionManager : MonoBehaviour {
 				Light[i, 0].color = Color.white;
 				Light[i, 1].color = Color.white;
 			}
+
 		}
 
 		bool isEnter = Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.Return);
@@ -608,6 +631,7 @@ public class OptionManager : MonoBehaviour {
 				Light[i, 0].color = Color.white;
 				Light[i, 1].color = Color.white;
 			}
+
 		}
 
 		if (isConfirmation == true) {
