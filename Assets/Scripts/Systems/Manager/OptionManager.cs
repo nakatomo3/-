@@ -99,6 +99,7 @@ public class OptionManager : MonoBehaviour {
 
 	public GameObject[] ArrowParent = new GameObject[4];
 
+	[SerializeField]
 	private bool isSelectScene = true;
 
 	private void Awake() {
@@ -122,7 +123,7 @@ public class OptionManager : MonoBehaviour {
 		}
 
 		if(SceneManager.GetActiveScene().name == "Game") {
-			isScreenSelect = false;
+			isSelectScene = false;
 		}
 	}
 
@@ -189,6 +190,7 @@ public class OptionManager : MonoBehaviour {
 				if (isInputDownStart) {
 					mainCursorPos++;
 				}
+
 				if (isSelectScene == false) {
 					if (mainCursorPos > (int)MainCursorManu.Exit) {
 						mainCursorPos = 0;
