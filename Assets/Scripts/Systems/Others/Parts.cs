@@ -105,7 +105,7 @@ public class Parts : MonoBehaviour {
     private const float POSITION_RESET_INTERVAL = 1.5f;
     private const float POSITION_RESET_MOVE_SPEED = 2;
 
-    private const float IMPULSE_UP_POWER = 22;
+    private const float IMPULSE_UP_POWER = 450;
     private const float IMPULSE_UP_POWER_2 = 10;
     private const float IMPULSE_VIRTICAL_POWER = 85.0f;
     private const float IMPULSE_ACTION_SPEED = 17;
@@ -152,6 +152,12 @@ public class Parts : MonoBehaviour {
                 impulseObj = transform.GetChild(0).transform;
                 thisFirstPosY = impulseObj.position.y;
                 break;
+
+            case PartsType.ImpulseUp_2:
+                impulseVector = new Vector3(0, IMPULSE_UP_POWER_2 * Time.deltaTime, 0);
+                impulseObj = transform.GetChild(0).transform;
+                thisFirstPosY = impulseObj.position.y;
+                break;
             case PartsType.ImpulseLeft:
                 impulseObj = transform.GetChild(0).transform;
                 thisFirstPosX = impulseObj.position.x;
@@ -172,6 +178,7 @@ public class Parts : MonoBehaviour {
                 for (int i = 0; i < gearsNum; i++) {
                     gears[i] = clearGears.transform.GetChild(i).gameObject;
                 }
+                goalCanvas.SetActive(false);
                 goalAnimationSpeed = 5;
                 break;
 			case PartsType.MoveHorizontalObj:
@@ -229,6 +236,10 @@ public class Parts : MonoBehaviour {
                 goalAnimationSpeed *= 1.3f;
                 goalAnimationCounter += Time.deltaTime;
             }
+            if (goalCounter <= 0) {
+                goalCanvas.SetActive(false);
+            }
+            goalCanvas.transform.position = new Vector3(0, -goalCounter * CLEAR_IMAGE_SPEED + CLEAR_IMAGE_POSY, 15) + CameraManager.instance.gameObject.transform.position;
         }
 
     }
@@ -344,6 +355,7 @@ public class Parts : MonoBehaviour {
 
             case PartsType.Goal:
                 if (goalCounter <= GOAL && willGoal == false) {
+                    goalCanvas.SetActive(true);
                     //clearImage.transform.position = new Vector3(0, -goalCounter* CLEAR_IMAGE_SPEED + CLEAR_IMAGE_POSY, 15) + CameraManager.instance.gameObject.transform.position;
                     //clearGears.transform.position = new Vector3(0, -goalCounter * CLEAR_IMAGE_SPEED + CLEAR_IMAGE_POSY, 15) + CameraManager.instance.gameObject.transform.position;
                     //clearChain.transform.position = new Vector3(0, -goalCounter * CLEAR_IMAGE_SPEED + CLEAR_IMAGE_POSY, 15) + CameraManager.instance.gameObject.transform.position;
