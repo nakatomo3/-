@@ -365,6 +365,28 @@ public class SystemManager : MonoBehaviour {
 			}
 		}
 
+		var decoration = xmlDoc.GetElementsByTagName("Decoration");
+		var decorationParent = new GameObject("DecorationParent");
+		for(int i = 0; i < decoration.Count; i++) {
+			string name = decoration.Item(i).ChildNodes.Item(0).InnerText;
+			float posX = float.Parse(decoration.Item(i).ChildNodes.Item(1).InnerText);
+			float posY = float.Parse(decoration.Item(i).ChildNodes.Item(2).InnerText);
+			float posZ = float.Parse(decoration.Item(i).ChildNodes.Item(3).InnerText);
+			float scaleX = float.Parse(decoration.Item(i).ChildNodes.Item(4).InnerText);
+			float scaleY = float.Parse(decoration.Item(i).ChildNodes.Item(5).InnerText);
+			float scaleZ = float.Parse(decoration.Item(i).ChildNodes.Item(6).InnerText);
+			float rotate = float.Parse(decoration.Item(i).ChildNodes.Item(7).InnerText);
+
+			var decorationObject = Resources.Load("Prefabs/Decorations/" + name) as GameObject;
+			if(decorationObject == null) {
+				Debug.LogError(name+"というオブジェクトが見つかりませんでした");
+				continue;
+			}
+			var obj = Instantiate(decorationObject, new Vector3(posX, posY, posZ), Quaternion.identity, decorationParent.transform);
+			obj.transform.localScale = new Vector3(scaleX, scaleY, scaleZ);
+			obj.transform.Rotate(0, rotate, 0);
+		}
+
 		var changeZ = xmlDoc.GetElementsByTagName("ChangeZ");
 		for(int i= 0; i < changeZ.Count; i++) {
 			var id = changeZ.Item(i).ChildNodes.Item(0).InnerText;

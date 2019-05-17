@@ -176,6 +176,18 @@
         </Wall>
     </Walls>
 
+    <!--全部必要なのですべてコピペすること。プレハブはResources/Prefabs/Decorationの中にあるnameを自動で読み取る-->
+    <Decorations>  
+        <name>hoge</name>
+        <PosX>0</PosX>
+        <PosX>0</PosX>
+        <PosX>0</PosX>
+        <ScaleX>0</ScaleX>
+        <ScaleX>0</ScaleX>
+        <ScaleX>0</ScaleX>
+        <Rotate>0</Rotate>
+    </Decorations>
+
 
     <!-- ゲームに影響のない見た目だけの部分。　未実装-->
     <BackGround>
