@@ -351,12 +351,20 @@ public class SystemManager : MonoBehaviour {
 			float posX = float.Parse(walls.Item(i).ChildNodes.Item(0).InnerText);
 			float posY = float.Parse(walls.Item(i).ChildNodes.Item(1).InnerText);
 			float wallWidth = float.Parse(walls.Item(i).ChildNodes.Item(2).InnerText);
-			var wallObj = Instantiate(wall, new Vector3(posX, posY, 0), Quaternion.identity, transform);
-			var wallImageObject = Instantiate(wallImage, new Vector3(posX, posY, 0), Quaternion.identity, transform);
+			var wallObj = Instantiate(wall, new Vector3(posX, posY, -4), Quaternion.identity, transform);
+			wallObj.transform.GetChild(0).gameObject.SetActive(false);
 
-			wallImageObject.transform.GetChild(0).gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(wallWidth * 32, 32);
-			wallImageObject.transform.GetChild(1).gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(wallWidth * 32, 32 * 2);
-			wallImageObject.transform.GetChild(2).gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(wallWidth * 32, 32 * 2);
+			var wallImageObject = Instantiate(wallImage, new Vector3(posX, posY, -2), Quaternion.identity, transform);
+			wallImageObject.transform.GetChild(0).gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(wallWidth * 32, 32 * 5);
+			wallImageObject.transform.GetChild(0).localPosition = new Vector3(-0.5f, 0, -0.5f);
+			wallImageObject.transform.GetChild(1).gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(wallWidth * 32, 32 * 5);
+			wallImageObject.transform.GetChild(1).localPosition = new Vector3(0.5f, 0, -0.5f);
+			wallImageObject.transform.GetChild(2).gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(wallWidth * 32, 32);
+			wallImageObject.transform.GetChild(2).localPosition = new Vector3(0, 0, -3f);
+			wallImageObject.transform.GetChild(3).gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(32 * 5, 32);
+			wallImageObject.transform.GetChild(3).localPosition = new Vector3(0, wallWidth / 2, -0.5f);
+			wallImageObject.transform.GetChild(4).gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(32 * 5, 32);
+			wallImageObject.transform.GetChild(4).localPosition = new Vector3(0, -wallWidth / 2, -0.5f);
 			wallObj.transform.localScale = new Vector3(wallWidth, 1, 2);
 			wallObj.transform.Rotate(0, 0, 90);
 			if (walls.Item(i).ChildNodes.Count > 4) {
@@ -412,7 +420,6 @@ public class SystemManager : MonoBehaviour {
 					if(part.id == id) {
 						switch (part.thisType) {
 							case Parts.PartsType.MoveHorizontalObj:
-								part.MOVE_HORIZONTAL_OBJ_RANGE = range;
 								part.ChangeRange(range);
 								break;
 							case Parts.PartsType.MoveVerticalObj:
