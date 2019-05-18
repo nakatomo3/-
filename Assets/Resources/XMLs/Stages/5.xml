@@ -1,244 +1,566 @@
 ﻿<Stage>
-  <Width>130</Width>
-  <Height>50</Height>
-  <StartX>2</StartX>
-  <StartY>2</StartY>
+  <Width>300</Width>
+  <Height>100</Height>
+  <StartX>150</StartX>
+  <StartY>42</StartY>
     <!-- トリガーを増やす場合は<Trigger>から</Trigger>までをコピーしてください -->
     <!-- 連動するパーツを増やす場合は<Parts>を増やしてください-->
     <!-- ConnectNumberが同じならば、一つのTriggerで複数のパーツが動かせます-->
     <Gimmick>    
         <Trigger>
             <ConnectNumber>0</ConnectNumber>
-            <Type>Forever</Type>
-            <X>28</X>
-            <Y>4.5</Y>
+            <Type>RightGear</Type>
+            <X>140</X>
+            <Y>38</Y>
         </Trigger>
-        <Parts>
+      <Parts>
             <ConnectNumber>0</ConnectNumber>
-            <Name>MoveVerticalObj</Name>
-            <X>36</X>
-            <Y>5</Y>
+            <Name>MoveHorizontalObj</Name>
+            <X>13.2</X>
+            <Y>36</Y>
           <Rotate>0</Rotate>
           <id>0</id>
         </Parts>
+      <Parts>
+            <ConnectNumber>0</ConnectNumber>
+            <Name>MoveHorizontalObj</Name>
+            <X>26.5</X>
+            <Y>43</Y>
+          <Rotate>0</Rotate>
+          <id>1</id>
+        </Parts>
+        <Parts>
+            <ConnectNumber>0</ConnectNumber>
+            <Name>MoveVerticalObj</Name>
+            <X>104</X>
+            <Y>23.8</Y>
+          <Rotate>0</Rotate>
+          <id>2</id>
+        </Parts>
+        <Parts>
+            <ConnectNumber>0</ConnectNumber>
+            <Name>MoveHorizontalObj</Name>
+            <X>115</X>
+            <Y>49</Y>
+          <Rotate>0</Rotate>
+          <id>3</id>
+        </Parts>
+      <Parts>
+            <ConnectNumber>0</ConnectNumber>
+            <Name>MoveHorizontalObj</Name>
+            <X>182</X>
+            <Y>60</Y>
+          <Rotate>0</Rotate>
+          <id>4</id>
+        </Parts>
+      <Parts>
+            <ConnectNumber>0</ConnectNumber>
+            <Name>MoveVerticalObj</Name>
+            <X>185</X>
+            <Y>20</Y>
+          <Rotate>0</Rotate>
+          <id>5</id>
+        </Parts>
+      <Parts>
+            <ConnectNumber>0</ConnectNumber>
+            <Name>MoveVerticalObj</Name>
+            <X>211</X>
+            <Y>31</Y>
+          <Rotate>0</Rotate>
+          <id>6</id>
+        </Parts>
+      <Parts>
+            <ConnectNumber>0</ConnectNumber>
+            <Name>MoveHorizontalObj</Name>
+            <X>242</X>
+            <Y>45</Y>
+          <Rotate>0</Rotate>
+          <id>7</id>
+        </Parts>
+      <Parts>
+            <ConnectNumber>0</ConnectNumber>
+            <Name>MoveVerticalObj</Name>
+            <X>245</X>
+            <Y>64</Y>
+          <Rotate>0</Rotate>
+          <id>8</id>
+        </Parts>
+      <Parts>
+            <ConnectNumber>0</ConnectNumber>
+            <Name>MoveVerticalObj</Name>
+            <X>251</X>
+            <Y>36</Y>
+          <Rotate>0</Rotate>
+          <id>9</id>
+        </Parts>
       
-      <Trigger>
-        <ConnectNumber>1</ConnectNumber>
-        <Type>RightGear</Type>
-        <X>22</X>
-        <Y>25</Y>
-      </Trigger>
-      <Trigger>
-        <ConnectNumber>1</ConnectNumber>
-        <Type>RightGear</Type>
-        <X>100</X>
-        <Y>30</Y>
-      </Trigger>
+      <!--////////////////////////////////////////////////////////////////////-->
+    
+        <Trigger>
+            <ConnectNumber>1</ConnectNumber>
+            <Type>RightGear</Type>
+            <X>140</X>
+            <Y>46</Y>
+        </Trigger>
       <Parts>
-        <ConnectNumber>1</ConnectNumber>
-        <Name>Bridge</Name>
-        <X>40.5</X>
-        <Y>23</Y>
-        <Rotate>180</Rotate>
-      </Parts>
+            <ConnectNumber>1</ConnectNumber>
+            <Name>MoveHorizontalObj</Name>
+            <X>38</X>
+            <Y>39</Y>
+          <Rotate>0</Rotate>
+          <id>10</id>
+        </Parts>
       <Parts>
-        <ConnectNumber>1</ConnectNumber>
-        <Name>MoveHorizontalObj</Name>
-        <X>57</X>
-        <Y>1</Y>
-        <Rotate>0</Rotate>
-        <id>1</id>
-      </Parts>
+            <ConnectNumber>1</ConnectNumber>
+            <Name>MoveVerticalObj</Name>
+            <X>66</X>
+            <Y>52</Y>
+          <Rotate>0</Rotate>
+          <id>11</id>
+        </Parts>
+      <Parts>
+            <ConnectNumber>1</ConnectNumber>
+            <Name>MoveHorizontalObj</Name>
+            <X>93</X>
+            <Y>69</Y>
+          <Rotate>0</Rotate>
+          <id>12</id>
+        </Parts>
+      <Parts>
+            <ConnectNumber>1</ConnectNumber>
+            <Name>MoveVerticalObj</Name>
+            <X>129</X>
+            <Y>38</Y>
+          <Rotate>0</Rotate>
+          <id>13</id>
+        </Parts>
+      <Parts>
+            <ConnectNumber>1</ConnectNumber>
+            <Name>MoveVerticalObj</Name>
+            <X>165</X>
+            <Y>49</Y>
+          <Rotate>0</Rotate>
+          <id>14</id>
+        </Parts>
+      <Parts>
+            <ConnectNumber>1</ConnectNumber>
+            <Name>MoveVerticalObj</Name>
+            <X>194</X>
+            <Y>60</Y>
+          <Rotate>0</Rotate>
+          <id>15</id>
+        </Parts>
+      <Parts>
+            <ConnectNumber>1</ConnectNumber>
+            <Name>MoveVerticalObj</Name>
+            <X>200</X>
+            <Y>21</Y>
+          <Rotate>0</Rotate>
+          <id>16</id>
+        </Parts>
+      <Parts>
+            <ConnectNumber>1</ConnectNumber>
+            <Name>MoveHorizontalObj</Name>
+            <X>205</X>
+            <Y>44</Y>
+          <Rotate>0</Rotate>
+          <id>17</id>
+        </Parts>
+      <Parts>
+            <ConnectNumber>1</ConnectNumber>
+            <Name>MoveHorizontalObj</Name>
+            <X>210</X>
+            <Y>63</Y>
+          <Rotate>0</Rotate>
+          <id>18</id>
+        </Parts>
+    
+      <!--////////////////////////////////////////////////////////////////////-->
+  
+        <Trigger>
+            <ConnectNumber>2</ConnectNumber>
+            <Type>RightGear</Type>
+            <X>160</X>
+            <Y>46</Y>
+        </Trigger>
+      <Parts>
+            <ConnectNumber>2</ConnectNumber>
+            <Name>MoveVerticalObj</Name>
+            <X>9</X>
+            <Y>18</Y>
+          <Rotate>0</Rotate>
+          <id>19</id>
+        </Parts>
+      <Parts>
+            <ConnectNumber>2</ConnectNumber>
+            <Name>MoveHorizontalObj</Name>
+            <X>30</X>
+            <Y>50</Y>
+          <Rotate>0</Rotate>
+          <id>20</id>
+        </Parts>
+     <Parts>
+            <ConnectNumber>2</ConnectNumber>
+            <Name>MoveVerticalObj</Name>
+            <X>115</X>
+            <Y>21</Y>
+          <Rotate>0</Rotate>
+          <id>21</id>
+        </Parts>
+      <Parts>
+            <ConnectNumber>2</ConnectNumber>
+            <Name>MoveHorizontalObj</Name>
+            <X>125</X>
+            <Y>54</Y>
+          <Rotate>0</Rotate>
+          <id>22</id>
+        </Parts>
+      <Parts>
+            <ConnectNumber>2</ConnectNumber>
+            <Name>MoveVerticalObj</Name>
+            <X>176</X>
+            <Y>64</Y>
+          <Rotate>0</Rotate>
+          <id>23</id>
+        </Parts>
+      <Parts>
+            <ConnectNumber>2</ConnectNumber>
+            <Name>MoveHorizontalObj</Name>
+            <X>200</X>
+            <Y>52</Y>
+          <Rotate>0</Rotate>
+          <id>24</id>
+        </Parts>
+      <Parts>
+            <ConnectNumber>2</ConnectNumber>
+            <Name>MoveVerticalObj</Name>
+            <X>220</X>
+            <Y>41</Y>
+          <Rotate>0</Rotate>
+          <id>25</id>
+        </Parts>
+      <Parts>
+            <ConnectNumber>2</ConnectNumber>
+            <Name>MoveVerticalObj</Name>
+            <X>270</X>
+            <Y>47</Y>
+          <Rotate>0</Rotate>
+          <id>26</id>
+        </Parts>
       
-      <Trigger>
-        <ConnectNumber>2</ConnectNumber>
-        <Type>RightGear</Type>
-        <X>73</X>
-        <Y>23</Y>
-      </Trigger>
-      <Trigger>
-        <ConnectNumber>2</ConnectNumber>
-        <Type>RightGear</Type>
-        <X>73</X>
-        <Y>13</Y>
-      </Trigger>
-      <Parts>
-        <ConnectNumber>2</ConnectNumber>
-        <Name>MoveVerticalObj</Name>
-        <X>85</X>
-        <Y>12</Y>
-        <Rotate>0</Rotate>
-        <id>2</id>
-      </Parts>
-
-      <Trigger>
-        <ConnectNumber>3</ConnectNumber>
-        <Type>Forever</Type>
-        <X>116</X>
-        <Y>0.5</Y>
-      </Trigger>
-      <Parts>
-        <ConnectNumber>3</ConnectNumber>
-        <Name>MoveVerticalObj</Name>
-        <X>124</X>
-        <Y>1</Y>
-        <Rotate>0</Rotate>
-        <id>3</id>
-      </Parts>
-
-      <Trigger>
-        <ConnectNumber>4</ConnectNumber>
-        <Type>RightGear</Type>
-        <X>121</X>
-        <Y>30</Y>
-      </Trigger>
-      <Parts>
-        <ConnectNumber>4</ConnectNumber>
-        <Name>Goal</Name>
-        <X>121</X>
-        <Y>30</Y>
-        <Rotate>0</Rotate>
-        <id>0</id>
-      </Parts>
+      <!--////////////////////////////////////////////////////////////////////-->
       
+        <Trigger>
+            <ConnectNumber>3</ConnectNumber>
+            <Type>RightGear</Type>
+            <X>160</X>
+            <Y>38</Y>
+        </Trigger>
+      <Parts>
+            <ConnectNumber>3</ConnectNumber>
+            <Name>MoveVerticalObj</Name>
+            <X>57</X>
+            <Y>27</Y>
+          <Rotate>0</Rotate>
+          <id>27</id>
+        </Parts>
+      <Parts>
+            <ConnectNumber>3</ConnectNumber>
+            <Name>MoveHorizontalObj</Name>
+            <X>75</X>
+            <Y>64</Y>
+          <Rotate>0</Rotate>
+          <id>28</id>
+        </Parts>
+      <Parts>
+            <ConnectNumber>3</ConnectNumber>
+            <Name>MoveVerticalObj</Name>
+            <X>95</X>
+            <Y>34</Y>
+          <Rotate>0</Rotate>
+          <id>29</id>
+        </Parts>
+        <Parts>
+            <ConnectNumber>3</ConnectNumber>
+            <Name>MoveVerticalObj</Name>
+            <X>133</X>
+            <Y>63</Y>
+          <Rotate>0</Rotate>
+          <id>30</id>
+        </Parts>
+      <Parts>
+            <ConnectNumber>3</ConnectNumber>
+            <Name>MoveHorizontalObj</Name>
+            <X>173</X>
+            <Y>33</Y>
+          <Rotate>0</Rotate>
+          <id>31</id>
+        </Parts>
+      <Parts>
+            <ConnectNumber>3</ConnectNumber>
+            <Name>MoveVerticalObj</Name>
+            <X>173</X>
+            <Y>36</Y>
+          <Rotate>0</Rotate>
+          <id>32</id>
+        </Parts>
+      <Parts>
+            <ConnectNumber>3</ConnectNumber>
+            <Name>MoveHorizontalObj</Name>
+            <X>200</X>
+            <Y>64</Y>
+          <Rotate>0</Rotate>
+          <id>33</id>
+        </Parts>
+      <Parts>
+            <ConnectNumber>3</ConnectNumber>
+            <Name>MoveVerticalObj</Name>
+            <X>233</X>
+            <Y>28</Y>
+          <Rotate>0</Rotate>
+          <id>34</id>
+        </Parts>
+      <Parts>
+            <ConnectNumber>3</ConnectNumber>
+            <Name>MoveVerticalObj</Name>
+            <X>258</X>
+            <Y>55</Y>
+          <Rotate>0</Rotate>
+          <id>35</id>
+        </Parts>
+      <Parts>
+            <ConnectNumber>3</ConnectNumber>
+            <Name>MoveVerticalObj</Name>
+            <X>260</X>
+            <Y>13</Y>
+          <Rotate>0</Rotate>
+          <id>36</id>
+        </Parts>
+    <!--////////////////////////////////////////////////////////////////////-->
+      <Trigger>
+            <ConnectNumber>4</ConnectNumber>
+            <Type>RightGear</Type>
+            <X>292</X>
+            <Y>47</Y>
+        </Trigger>
+      <Parts>
+            <ConnectNumber>4</ConnectNumber>
+            <Name>Goal</Name>
+            <X>292</X>
+            <Y>47</Y>
+        </Parts>
+    
     </Gimmick>
 
   <CollectParts>
     <Collect1>
-      <X>60.5</X>
-      <Y>39</Y>
+      <X>102</X>
+      <Y>75</Y>
     </Collect1>
     <Collect2>
-      <X>90</X>
-      <Y>4</Y>
+      <X>9</X>
+      <Y>40</Y>
     </Collect2>
   </CollectParts>
-
+  
   <Grounds>
     <Ground>
-      <PosX>15</PosX>
-      <PosY>23</PosY>
-      <Long>30</Long>
-      <Rotate>0</Rotate>
-      <!-- 0～360. 無ければ自動で0-->
-    </Ground>
-    <Ground>
-      <PosX>60.5</PosX>
-      <PosY>37</PosY>
+      <PosX>150</PosX>
+      <PosY>40</PosY>
       <Long>10</Long>
       <Rotate>0</Rotate>
       <!-- 0～360. 無ければ自動で0-->
     </Ground>
     <Ground>
-      <PosX>110</PosX>
-      <PosY>28</PosY>
-      <Long>40</Long>
+      <PosX>140</PosX>
+      <PosY>36</PosY>
+      <Long>8</Long>
       <Rotate>0</Rotate>
       <!-- 0～360. 無ければ自動で0-->
     </Ground>
     <Ground>
-      <PosX>72</PosX>
-      <PosY>21</PosY>
+      <PosX>140</PosX>
+      <PosY>44</PosY>
+      <Long>8</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    <Ground>
+      <PosX>160</PosX>
+      <PosY>44</PosY>
+      <Long>8</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    <Ground>
+      <PosX>160</PosX>
+      <PosY>36</PosY>
+      <Long>8</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    <Ground>
+      <PosX>292</PosX>
+      <PosY>45</PosY>
       <Long>15</Long>
       <Rotate>0</Rotate>
       <!-- 0～360. 無ければ自動で0-->
     </Ground>
-    <Ground>
-      <PosX>46</PosX>
-      <PosY>3</PosY>
-      <Long>10</Long>
-      <Rotate>0</Rotate>
-      <!-- 0～360. 無ければ自動で0-->
-    </Ground>
-    <Ground>
-      <PosX>58</PosX>
-      <PosY>7</PosY>
-      <Long>15</Long>
-      <Rotate>30</Rotate>
-      <!-- 0～360. 無ければ自動で0-->
-    </Ground>
-    <Ground>
-      <PosX>77.5</PosX>
-      <PosY>11</PosY>
-      <Long>25</Long>
-      <Rotate>0</Rotate>
-      <!-- 0～360. 無ければ自動で0-->
-    </Ground>
-    <Ground>
-      <PosX>97</PosX>
-      <PosY>15</PosY>
-      <Long>15</Long>
-      <Rotate>30</Rotate>
-      <!-- 0～360. 無ければ自動で0-->
-    </Ground>
-    <Ground>
-      <PosX>111.5</PosX>
-      <PosY>19</PosY>
-      <Long>15</Long>
-      <Rotate>0</Rotate>
-      <!-- 0～360. 無ければ自動で0-->
-    </Ground>
-    <Ground>
-      <PosX>90</PosX>
-      <PosY>2</PosY>
-      <Long>5</Long>
-      <Rotate>0</Rotate>
-      <!-- 0～360. 無ければ自動で0-->
-    </Ground>
-
-    <Ground>
-      <PosX>10</PosX>
-      <PosY>0</PosY>
-      <Long>20</Long>
-      <Rotate>0</Rotate>
-      <!-- 0～360. 無ければ自動で0-->
-    </Ground>
-    <Ground>
-      <PosX>30</PosX>
-      <PosY>4</PosY>
-      <Long>20</Long>
-      <Rotate>0</Rotate>
-      <!-- 0～360. 無ければ自動で0-->
-    </Ground>
-    <Ground>
-      <PosX>120</PosX>
-      <PosY>0</PosY>
-      <Long>20</Long>
-      <Rotate>0</Rotate>
-      <!-- 0～360. 無ければ自動で0-->
-    </Ground>
-
+    
+    
   </Grounds>
   
-
-  <Walls>
-    <Wall>
-      <PosX>40.5</PosX>
-      <PosY>5</PosY>
-      <Long>35</Long>
-      <Rotate>0</Rotate>
-      <!-- 自動で90度。それに対してどれだけ回転するか。無ければ自動で+0-->
-    </Wall>
-  </Walls>
-
+  
   <ChangeRange>
     <id>0</id>
-    <value>17</value>
+    <value>30.8</value>
   </ChangeRange>
   <ChangeRange>
     <id>1</id>
-    <value>44</value>
+    <value>58.5</value>
   </ChangeRange>
   <ChangeRange>
     <id>2</id>
-    <value>16</value>
+    <value>49.2</value>
   </ChangeRange>
   <ChangeRange>
     <id>3</id>
+    <value>17</value>
+  </ChangeRange>
+  <ChangeRange>
+    <id>4</id>
+    <value>46</value>
+  </ChangeRange>
+  <ChangeRange>
+    <id>5</id>
+    <value>19</value>
+  </ChangeRange>
+  <ChangeRange>
+    <id>6</id>
+    <value>10</value>
+  </ChangeRange>
+  <ChangeRange>
+    <id>7</id>
+    <value>38</value>
+  </ChangeRange>
+  <ChangeRange>
+    <id>8</id>
+    <value>16</value>
+  </ChangeRange>
+  <ChangeRange>
+    <id>9</id>
     <value>18</value>
   </ChangeRange>
-
-  <!-- ゲームに影響のない見た目だけの部分。　未実装-->
+  <ChangeRange>
+    <id>10</id>
+    <value>40</value>
+  </ChangeRange>
+  <ChangeRange>
+    <id>11</id>
+    <value>17</value>
+  </ChangeRange>
+  <ChangeRange>
+    <id>12</id>
+    <value>24</value>
+  </ChangeRange>
+  <ChangeRange>
+    <id>13</id>
+    <value>21</value>
+  </ChangeRange>
+  <ChangeRange>
+    <id>14</id>
+    <value>19</value>
+  </ChangeRange>
+  <ChangeRange>
+    <id>15</id>
+    <value>15</value>
+  </ChangeRange>
+  <ChangeRange>
+    <id>16</id>
+    <value>20</value>
+  </ChangeRange>
+  <ChangeRange>
+    <id>17</id>
+    <value>33</value>
+  </ChangeRange>
+  <ChangeRange>
+    <id>18</id>
+    <value>55</value>
+  </ChangeRange>
+  <ChangeRange>
+    <id>19</id>
+    <value>26.7</value>
+  </ChangeRange>
+  <ChangeRange>
+    <id>20</id>
+    <value>72</value>
+  </ChangeRange>
+  <ChangeRange>
+    <id>21</id>
+    <value>24</value>
+  </ChangeRange>
+  <ChangeRange>
+    <id>22</id>
+    <value>36</value>
+  </ChangeRange>
+  <ChangeRange>
+    <id>23</id>
+    <value>22</value>
+  </ChangeRange>
+  <ChangeRange>
+    <id>24</id>
+    <value>37</value>
+  </ChangeRange>
+  <ChangeRange>
+    <id>25</id>
+    <value>20</value>
+  </ChangeRange>
+  <ChangeRange>
+    <id>26</id>
+    <value>20</value>
+  </ChangeRange>
+  <ChangeRange>
+    <id>27</id>
+    <value>40</value>
+  </ChangeRange>
+  <ChangeRange>
+    <id>28</id>
+    <value>47</value>
+  </ChangeRange>
+  <ChangeRange>
+    <id>29</id>
+    <value>26</value>
+  </ChangeRange>
+  <ChangeRange>
+    <id>30</id>
+    <value>16</value>
+  </ChangeRange>
+  <ChangeRange>
+    <id>31</id>
+    <value>61</value>
+  </ChangeRange>
+  <ChangeRange>
+    <id>32</id>
+    <value>22</value>
+  </ChangeRange>
+  <ChangeRange>
+    <id>33</id>
+    <value>33</value>
+  </ChangeRange>
+  <ChangeRange>
+    <id>34</id>
+    <value>15</value>
+  </ChangeRange>
+  <ChangeRange>
+    <id>35</id>
+    <value>12</value>
+  </ChangeRange>
+  <ChangeRange>
+    <id>36</id>
+    <value>26</value>
+  </ChangeRange>
+  
+    <!-- ゲームに影響のない見た目だけの部分。　未実装-->
     <BackGround>
         <Name></Name>
         <X>0</X>

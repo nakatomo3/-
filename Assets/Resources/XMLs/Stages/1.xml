@@ -1,190 +1,244 @@
 ﻿<Stage>
-  <Width>100</Width>
-  <Height>40</Height>
-  <StartX>5</StartX>
-  <StartY>19</StartY>
+  <Width>130</Width>
+  <Height>50</Height>
+  <StartX>2</StartX>
+  <StartY>2</StartY>
     <!-- トリガーを増やす場合は<Trigger>から</Trigger>までをコピーしてください -->
     <!-- 連動するパーツを増やす場合は<Parts>を増やしてください-->
     <!-- ConnectNumberが同じならば、一つのTriggerで複数のパーツが動かせます-->
     <Gimmick>    
         <Trigger>
-            <ConnectNumber>1</ConnectNumber>
-            <Type>RightGear</Type>
-            <X>10</X>
-            <Y>19</Y>
+            <ConnectNumber>0</ConnectNumber>
+            <Type>Forever</Type>
+            <X>28</X>
+            <Y>4.5</Y>
         </Trigger>
+        <Parts>
+            <ConnectNumber>0</ConnectNumber>
+            <Name>MoveVerticalObj</Name>
+            <X>36</X>
+            <Y>5</Y>
+          <Rotate>0</Rotate>
+          <id>0</id>
+        </Parts>
+      
       <Trigger>
         <ConnectNumber>1</ConnectNumber>
         <Type>RightGear</Type>
-        <X>50</X>
-        <Y>4.5</Y>
+        <X>22</X>
+        <Y>25</Y>
       </Trigger>
-        <Parts>
-            <ConnectNumber>1</ConnectNumber>
-            <Name>Bridge</Name>
-            <X>24.8</X>
-            <Y>17.4</Y>
-            <Rotate>225</Rotate>
-        </Parts>
-
-        <Trigger>
-            <ConnectNumber>2</ConnectNumber>
-            <Type>RightGear</Type>
-            <X>45</X>
-            <Y>32</Y>
-        </Trigger>
-        <Trigger>
-            <ConnectNumber>2</ConnectNumber>
-            <Type>RightGear</Type>
-            <X>80</X>
-            <Y>19</Y>
-        </Trigger>
-        <Parts>
-            <ConnectNumber>2</ConnectNumber>
-            <Name>Bridge</Name>
-            <X>75.5</X>
-            <Y>17.4</Y>
-            <Rotate>315</Rotate>
-        </Parts>
-      
       <Trigger>
-        <ConnectNumber>3</ConnectNumber>
-        <Type>LeftGear</Type>
-        <X>85</X>
-        <Y>19</Y>
+        <ConnectNumber>1</ConnectNumber>
+        <Type>RightGear</Type>
+        <X>100</X>
+        <Y>30</Y>
       </Trigger>
       <Parts>
-        <ConnectNumber>3</ConnectNumber>
+        <ConnectNumber>1</ConnectNumber>
+        <Name>Bridge</Name>
+        <X>40.5</X>
+        <Y>23</Y>
+        <Rotate>180</Rotate>
+      </Parts>
+      <Parts>
+        <ConnectNumber>1</ConnectNumber>
         <Name>MoveHorizontalObj</Name>
-        <X>23</X>
-        <Y>16</Y>
+        <X>57</X>
+        <Y>1</Y>
+        <Rotate>0</Rotate>
+        <id>1</id>
       </Parts>
       
       <Trigger>
+        <ConnectNumber>2</ConnectNumber>
+        <Type>RightGear</Type>
+        <X>73</X>
+        <Y>23</Y>
+      </Trigger>
+      <Trigger>
+        <ConnectNumber>2</ConnectNumber>
+        <Type>RightGear</Type>
+        <X>73</X>
+        <Y>13</Y>
+      </Trigger>
+      <Parts>
+        <ConnectNumber>2</ConnectNumber>
+        <Name>MoveVerticalObj</Name>
+        <X>85</X>
+        <Y>12</Y>
+        <Rotate>0</Rotate>
+        <id>2</id>
+      </Parts>
+
+      <Trigger>
+        <ConnectNumber>3</ConnectNumber>
+        <Type>Forever</Type>
+        <X>116</X>
+        <Y>0.5</Y>
+      </Trigger>
+      <Parts>
+        <ConnectNumber>3</ConnectNumber>
+        <Name>MoveVerticalObj</Name>
+        <X>124</X>
+        <Y>1</Y>
+        <Rotate>0</Rotate>
+        <id>3</id>
+      </Parts>
+
+      <Trigger>
         <ConnectNumber>4</ConnectNumber>
-        <Type>LeftGear</Type>
-        <X>95</X>
-        <Y>5</Y>
+        <Type>RightGear</Type>
+        <X>121</X>
+        <Y>30</Y>
       </Trigger>
       <Parts>
         <ConnectNumber>4</ConnectNumber>
-        <Name>Pitfall</Name>
-        <X>72</X>
-        <Y>3</Y>
+        <Name>Goal</Name>
+        <X>121</X>
+        <Y>30</Y>
+        <Rotate>0</Rotate>
+        <id>0</id>
       </Parts>
-
+      
     </Gimmick>
 
-  <Trigger>
-    <ConnectNumber>5</ConnectNumber>
-    <Type>LeftGear</Type>
-    <X>95</X>
-    <Y>33</Y>
-  </Trigger>
-  <Parts>
-    <ConnectNumber>5</ConnectNumber>
-    <Name>Goal</Name>
-    <X>95</X>
-    <Y>33</Y>
-  </Parts>
-  
+  <CollectParts>
+    <Collect1>
+      <X>60.5</X>
+      <Y>39</Y>
+    </Collect1>
+    <Collect2>
+      <X>90</X>
+      <Y>4</Y>
+    </Collect2>
+  </CollectParts>
 
-    <CollectParts>
-       <Collect1>
-         <X>5</X>
-         <Y>33</Y>
-       </Collect1>
-       <Collect2>
-         <X>87</X>
-         <Y>5</Y>
-       </Collect2>
-    </CollectParts>
-  
   <Grounds>
-      <Ground>
-          <PosX>5</PosX>
-          <PosY>31</PosY>
-          <Long>10</Long>
-          <Rotate>0</Rotate>
-          <!-- 0～360. 無ければ自動で0-->
-      </Ground>
-
-      <Ground>
-          <PosX>45</PosX>
-          <PosY>30</PosY>
-          <Long>10</Long>
-          <Rotate>0</Rotate>
-          <!-- 0～360. 無ければ自動で0-->
-      </Ground>
-
-      <Ground>
-          <PosX>94.5</PosX>
-          <PosY>31</PosY>
-          <Long>10</Long>
-          <Rotate>0</Rotate>
-          <!-- 0～360. 無ければ自動で0-->
-      </Ground>
-
-      <Ground>
-          <PosX>12</PosX>
-          <PosY>17</PosY>
-          <Long>25</Long>
-          <Rotate>0</Rotate>
-          <!-- 0～360. 無ければ自動で0-->
-      </Ground>
-
-      <Ground>
-          <PosX>88</PosX>
-          <PosY>17</PosY>
-          <Long>24</Long>
-          <Rotate>0</Rotate>
-          <!-- 0～360. 無ければ自動で0-->
-      </Ground>
-    
     <Ground>
-          <PosX>50</PosX>
-          <PosY>17</PosY>
-          <Long>11</Long>
-          <Rotate>0</Rotate>
-          <!-- 0～360. 無ければ自動で0-->
-      </Ground>
-
-      <Ground>
-          <PosX>31</PosX>
-          <PosY>2.5</PosY>
-          <Long>61</Long>
-          <Rotate>0</Rotate>
-          <!-- 0～360. 無ければ自動で0-->
-      </Ground>
-
-      <Ground>
-          <PosX>91</PosX>
-          <PosY>2.5</PosY>
-          <Long>18</Long>
-          <Rotate>0</Rotate>
-          <!-- 0～360. 無ければ自動で0-->
-      </Ground>
-
-    <Ground>
-      <PosX>50</PosX>
-      <PosY>40</PosY>
-      <Long>100</Long>
+      <PosX>15</PosX>
+      <PosY>23</PosY>
+      <Long>30</Long>
       <Rotate>0</Rotate>
       <!-- 0～360. 無ければ自動で0-->
     </Ground>
+    <Ground>
+      <PosX>60.5</PosX>
+      <PosY>37</PosY>
+      <Long>10</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    <Ground>
+      <PosX>110</PosX>
+      <PosY>28</PosY>
+      <Long>40</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    <Ground>
+      <PosX>72</PosX>
+      <PosY>21</PosY>
+      <Long>15</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    <Ground>
+      <PosX>46</PosX>
+      <PosY>3</PosY>
+      <Long>10</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    <Ground>
+      <PosX>58</PosX>
+      <PosY>7</PosY>
+      <Long>15</Long>
+      <Rotate>30</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    <Ground>
+      <PosX>77.5</PosX>
+      <PosY>11</PosY>
+      <Long>25</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    <Ground>
+      <PosX>97</PosX>
+      <PosY>15</PosY>
+      <Long>15</Long>
+      <Rotate>30</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    <Ground>
+      <PosX>111.5</PosX>
+      <PosY>19</PosY>
+      <Long>15</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    <Ground>
+      <PosX>90</PosX>
+      <PosY>2</PosY>
+      <Long>5</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+
+    <Ground>
+      <PosX>10</PosX>
+      <PosY>0</PosY>
+      <Long>20</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    <Ground>
+      <PosX>30</PosX>
+      <PosY>4</PosY>
+      <Long>20</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    <Ground>
+      <PosX>120</PosX>
+      <PosY>0</PosY>
+      <Long>20</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+
   </Grounds>
+  
 
   <Walls>
     <Wall>
-      <PosX>49.5</PosX>
-      <PosY>35</PosY>
-      <Long>10</Long>
+      <PosX>40.5</PosX>
+      <PosY>5</PosY>
+      <Long>35</Long>
       <Rotate>0</Rotate>
       <!-- 自動で90度。それに対してどれだけ回転するか。無ければ自動で+0-->
     </Wall>
   </Walls>
 
-    <!-- ゲームに影響のない見た目だけの部分。　未実装-->
+  <ChangeRange>
+    <id>0</id>
+    <value>17</value>
+  </ChangeRange>
+  <ChangeRange>
+    <id>1</id>
+    <value>44</value>
+  </ChangeRange>
+  <ChangeRange>
+    <id>2</id>
+    <value>16</value>
+  </ChangeRange>
+  <ChangeRange>
+    <id>3</id>
+    <value>18</value>
+  </ChangeRange>
+
+  <!-- ゲームに影響のない見た目だけの部分。　未実装-->
     <BackGround>
         <Name></Name>
         <X>0</X>
