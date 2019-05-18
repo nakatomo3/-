@@ -9,13 +9,13 @@
     <Gimmick>    
         <Trigger>
             <ConnectNumber>1</ConnectNumber>
-            <Type>RightGear</Type>
+            <Type>LeftGear</Type>
             <X>10</X>
             <Y>19</Y>
         </Trigger>
       <Trigger>
         <ConnectNumber>1</ConnectNumber>
-        <Type>RightGear</Type>
+        <Type>LeftGear</Type>
         <X>50</X>
         <Y>4.5</Y>
       </Trigger>
@@ -29,13 +29,13 @@
 
         <Trigger>
             <ConnectNumber>2</ConnectNumber>
-            <Type>RightGear</Type>
+            <Type>LeftGear</Type>
             <X>45</X>
             <Y>32</Y>
         </Trigger>
         <Trigger>
             <ConnectNumber>2</ConnectNumber>
-            <Type>RightGear</Type>
+            <Type>LeftGear</Type>
             <X>80</X>
             <Y>19</Y>
         </Trigger>
@@ -49,8 +49,8 @@
       
       <Trigger>
         <ConnectNumber>3</ConnectNumber>
-        <Type>LeftGear</Type>
-        <X>85</X>
+        <Type>RightGear</Type>
+        <X>15</X>
         <Y>19</Y>
       </Trigger>
  

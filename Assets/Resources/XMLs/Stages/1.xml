@@ -24,7 +24,7 @@
       
       <Trigger>
         <ConnectNumber>1</ConnectNumber>
-        <Type>RightGear</Type>
+        <Type>LeftGear</Type>
         <X>22</X>
         <Y>25</Y>
         <Rotate>0</Rotate>
