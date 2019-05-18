@@ -22,7 +22,7 @@
       <Parts>
         <ConnectNumber>1</ConnectNumber>
         <Name>ImpulseUp_2</Name>
-        <X>30</X>
+        <X>29.5</X>
         <Y>30</Y>
       </Parts>
       <Parts>
@@ -123,13 +123,13 @@
             <ConnectNumber>1</ConnectNumber>
             <Name>ImpulseUp_2</Name>
             <X>130</X>
-            <Y>28</Y>
+            <Y>27.5</Y>
         </Parts>
       <Parts>
         <ConnectNumber>1</ConnectNumber>
         <Name>Pitfall</Name>
         <X>142</X>
-        <Y>32.5</Y>
+        <Y>31.5</Y>
       </Parts>
       
       <Trigger>
@@ -170,7 +170,7 @@
       </Parts>
           <Trigger>
         <ConnectNumber>5</ConnectNumber>
-        <Type>LeftGear</Type>
+        <Type>RightGear</Type>
         <X>55</X>
         <Y>40</Y>
       </Trigger>
@@ -317,7 +317,7 @@
     </Wall>   
     <Wall>
       <PosX>132</PosX>
-      <PosY>15</PosY>
+      <PosY>14</PosY>
       <Long>35</Long>
       <Rotate>0</Rotate>
       <!-- 自動で90度。それに対してどれだけ回転するか。無ければ自動で+0-->
