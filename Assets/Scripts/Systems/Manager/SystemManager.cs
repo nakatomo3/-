@@ -154,8 +154,14 @@ public class SystemManager : MonoBehaviour {
 				var rotate = float.Parse(triggers.Item(i).ChildNodes.Item(4).InnerText);
 				newTriggerObject.transform.Rotate(0, 0, rotate);
 			}
+            float initial = -1;
+            if (triggers.Item(i).ChildNodes.Count > 5)
+            {
+                initial = float.Parse(triggers.Item(i).ChildNodes.Item(5).InnerText);
+            }
+           
 
-			trigger.thisType = triggerType;
+            trigger.thisType = triggerType;
 			trigger.connectNum = connectNum;
 			if (gimmicks.ContainsKey(connectNum)) {
 				gimmicks[connectNum].triggers.Add(trigger);
@@ -164,7 +170,7 @@ public class SystemManager : MonoBehaviour {
 				newGimmick.triggers = new List<Trigger>();
 				newGimmick.parts = new List<Parts>();
 				newGimmick.triggers.Add(trigger);
-				newGimmick.value = -1;
+                newGimmick.value = initial;
 				gimmicks.Add(connectNum, newGimmick);
 			}
 		}
@@ -436,8 +442,8 @@ public class SystemManager : MonoBehaviour {
 				}
 			}
 		}
-		
-		var missGround = Resources.Load("Prefabs/StageFrames/missGround") as GameObject;
+
+        var missGround = Resources.Load("Prefabs/StageFrames/missGround") as GameObject;
 		var player = Instantiate(Resources.Load("Prefabs/Systems/Player") as GameObject, new Vector3(int.Parse(xmlDoc.GetElementsByTagName("StartX").Item(0).InnerText), int.Parse(xmlDoc.GetElementsByTagName("StartY").Item(0).InnerText), -3.5f), Quaternion.identity, transform);
 		Instantiate(Resources.Load("Prefabs/Systems/Camera") as GameObject,new Vector3(int.Parse(xmlDoc.GetElementsByTagName("StartX").Item(0).InnerText), int.Parse(xmlDoc.GetElementsByTagName("StartY").Item(0).InnerText), -10), Quaternion.identity, transform);
 

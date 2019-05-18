@@ -27,6 +27,8 @@
         <Type>RightGear</Type>
         <X>22</X>
         <Y>25</Y>
+        <Rotate>0</Rotate>
+        <Initial>1</Initial>
       </Trigger>
       <Trigger>
         <ConnectNumber>1</ConnectNumber>
@@ -39,7 +41,7 @@
         <Name>Bridge</Name>
         <X>40.5</X>
         <Y>23</Y>
-        <Rotate>180</Rotate>
+        <Rotate>0</Rotate>
       </Parts>
       <Parts>
         <ConnectNumber>1</ConnectNumber>
