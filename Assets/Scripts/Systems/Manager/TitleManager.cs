@@ -27,7 +27,8 @@ public class TitleManager : MonoBehaviour {
 		}
 
 		if(Input.anyKey == true) {
-			SceneManager.LoadScene("StageSelect");
+			PlayerPrefs.SetInt("stage", 1);
+			SceneManager.LoadScene("Game");
 		}
 	}
 
