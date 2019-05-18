@@ -32,7 +32,7 @@
         <ConnectNumber>1</ConnectNumber>
         <Type>RightGear</Type>
         <X>100</X>
-        <Y>35</Y>
+        <Y>30</Y>
       </Trigger>
       <Parts>
         <ConnectNumber>1</ConnectNumber>
@@ -54,7 +54,7 @@
         <ConnectNumber>2</ConnectNumber>
         <Type>RightGear</Type>
         <X>73</X>
-        <Y>25</Y>
+        <Y>23</Y>
       </Trigger>
       <Trigger>
         <ConnectNumber>2</ConnectNumber>
@@ -90,13 +90,13 @@
         <ConnectNumber>4</ConnectNumber>
         <Type>RightGear</Type>
         <X>121</X>
-        <Y>35</Y>
+        <Y>30</Y>
       </Trigger>
       <Parts>
         <ConnectNumber>4</ConnectNumber>
         <Name>Goal</Name>
         <X>121</X>
-        <Y>35</Y>
+        <Y>30</Y>
         <Rotate>0</Rotate>
         <id>0</id>
       </Parts>
@@ -131,14 +131,14 @@
     </Ground>
     <Ground>
       <PosX>110</PosX>
-      <PosY>33</PosY>
+      <PosY>28</PosY>
       <Long>40</Long>
       <Rotate>0</Rotate>
       <!-- 0～360. 無ければ自動で0-->
     </Ground>
     <Ground>
       <PosX>72</PosX>
-      <PosY>23</PosY>
+      <PosY>21</PosY>
       <Long>15</Long>
       <Rotate>0</Rotate>
       <!-- 0～360. 無ければ自動で0-->
