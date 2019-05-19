@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 4687115042188184397}
   - component: {fileID: 6742779066598028158}
   - component: {fileID: 4616617968955676289}
-  - component: {fileID: 6482945855317509774}
   - component: {fileID: 6595478704704213705}
   m_Layer: 0
   m_Name: MoveHorizontalObj
@@ -210,14 +209,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!81 &6482945855317509774
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8509258836429675029}
-  m_Enabled: 1
 --- !u!54 &6595478704704213705
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -506,16 +497,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.26212135
       objectReference: {fileID: 0}
-    - target: {fileID: 2300004, guid: f60d994893e36fa44a1f695aaf684b81, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f941db4242f56d047bc427c44083fbd8, type: 2}
     - target: {fileID: 2300000, guid: f60d994893e36fa44a1f695aaf684b81, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f941db4242f56d047bc427c44083fbd8, type: 2}
     - target: {fileID: 2300000, guid: f60d994893e36fa44a1f695aaf684b81, type: 3}
       propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: f941db4242f56d047bc427c44083fbd8, type: 2}
+    - target: {fileID: 2300004, guid: f60d994893e36fa44a1f695aaf684b81, type: 3}
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f941db4242f56d047bc427c44083fbd8, type: 2}
     m_RemovedComponents: []
