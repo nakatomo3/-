@@ -50,14 +50,14 @@
       <Trigger>
         <ConnectNumber>3</ConnectNumber>
         <Type>RightGear</Type>
-        <X>15</X>
+        <X>85</X>
         <Y>19</Y>
       </Trigger>
  
       <Parts>
         <ConnectNumber>3</ConnectNumber>
         <Name>MoveHorizontalObj</Name>
-        <X>23</X>
+        <X>22</X>
         <Y>16</Y>
       </Parts>
       
@@ -78,7 +78,7 @@
 
   <Trigger>
     <ConnectNumber>5</ConnectNumber>
-    <Type>LeftGear</Type>
+    <Type>RightGear</Type>
     <X>95</X>
     <Y>33</Y>
   </Trigger>

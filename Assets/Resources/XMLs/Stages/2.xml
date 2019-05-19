@@ -41,35 +41,78 @@
       
         <Parts>
             <ConnectNumber>1</ConnectNumber>
-            <Name>ImpulseUp</Name>
+            <Name>ImpulseUp_2</Name>
             <X>177</X>
             <Y>3.5</Y>
         </Parts>
       
         <Parts>
             <ConnectNumber>1</ConnectNumber>
-            <Name>ImpulseUp</Name>
-            <X>155</X>
-            <Y>28</Y>
+            <Name>ImpulseUp_2</Name>
+            <X>164</X>
+            <Y>22</Y>
         </Parts>
        <Parts>
             <ConnectNumber>1</ConnectNumber>
+            <Name>ImpulseUp</Name>
+            <X>154</X>
+            <Y>56</Y>
+        </Parts>
+      
+      
+        <Parts>
+            <ConnectNumber>1</ConnectNumber>
             <Name>ImpulseUp_2</Name>
-            <X>155</X>
-            <Y>71</Y>
+            <X>172</X>
+            <Y>45</Y>
         </Parts>
       <Parts>
             <ConnectNumber>1</ConnectNumber>
             <Name>ImpulseUp_2</Name>
             <X>165</X>
-            <Y>77</Y>
+            <Y>48</Y>
         </Parts>
-      
         <Parts>
             <ConnectNumber>1</ConnectNumber>
-            <Name>ImpulseUp</Name>
+            <Name>ImpulseUp_2</Name>
+            <X>158</X>
+            <Y>51</Y>
+        </Parts>
+         <Parts>
+            <ConnectNumber>1</ConnectNumber>
+            <Name>ImpulseUp_2</Name>
+            <X>170</X>
+            <Y>8</Y>
+        </Parts>
+       <Parts>
+            <ConnectNumber>1</ConnectNumber>
+            <Name>ImpulseUp_2</Name>
+            <X>166</X>
+            <Y>11</Y>
+        </Parts>
+       <Parts>
+            <ConnectNumber>1</ConnectNumber>
+            <Name>ImpulseUp_2</Name>
+            <X>159</X>
+            <Y>13</Y>
+        </Parts>
+       <Parts>
+            <ConnectNumber>1</ConnectNumber>
+            <Name>ImpulseUp_2</Name>
+            <X>155</X>
+            <Y>17</Y>
+        </Parts>
+       <Parts>
+            <ConnectNumber>1</ConnectNumber>
+            <Name>ImpulseUp_2</Name>
             <X>172</X>
-            <Y>48</Y>
+            <Y>23</Y>
+        </Parts>
+       <Parts>
+            <ConnectNumber>1</ConnectNumber>
+            <Name>ImpulseUp</Name>
+            <X>177</X>
+            <Y>26</Y>
         </Parts>
         <Parts>
             <ConnectNumber>1</ConnectNumber>
@@ -228,7 +271,7 @@
         
     <Trigger>
         <ConnectNumber>9</ConnectNumber>
-        <Type>LeftGear</Type>
+        <Type>RightGear</Type>
         <X>173</X>
         <Y>82.5</Y>
       </Trigger>

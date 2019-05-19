@@ -31,7 +31,7 @@
         <Initial>1</Initial>
       </Trigger>
       <Trigger>
-        <ConnectNumber>1</ConnectNumber>
+        <ConnectNumber>5</ConnectNumber>
         <Type>RightGear</Type>
         <X>100</X>
         <Y>30</Y>
@@ -44,7 +44,7 @@
         <Rotate>0</Rotate>
       </Parts>
       <Parts>
-        <ConnectNumber>1</ConnectNumber>
+        <ConnectNumber>5</ConnectNumber>
         <Name>MoveHorizontalObj</Name>
         <X>57</X>
         <Y>1</Y>
