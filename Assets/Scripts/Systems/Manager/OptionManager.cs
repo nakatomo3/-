@@ -208,6 +208,11 @@ public class OptionManager : MonoBehaviour {
 				}
 			}
 
+			
+				for (int i = 1; i < CameraManager.instance.gameObject.transform.childCount; i++) {
+				CameraManager.instance.gameObject.transform.GetChild(i).gameObject.SetActive(false);
+			}
+
         
         } else {
             isConfirmation = false;
@@ -215,8 +220,13 @@ public class OptionManager : MonoBehaviour {
             optionWindow.SetActive(false);
             optionScreenSelect.SetActive(false);
             confirmation.SetActive(false);
-            
-        }
+
+			if (SceneManager.GetActiveScene().name == "Game") {
+				for (int i = 1; i < CameraManager.instance.gameObject.transform.childCount; i++) {
+					CameraManager.instance.gameObject.transform.GetChild(i).gameObject.SetActive(true);
+				}
+			}
+		}
 	}
 
 	/// <summary>
