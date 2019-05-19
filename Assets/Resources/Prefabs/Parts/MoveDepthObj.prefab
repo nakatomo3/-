@@ -13,8 +13,7 @@ GameObject:
   - component: {fileID: 2796218093930822624}
   - component: {fileID: 5836637896367068462}
   - component: {fileID: 8673698878580491516}
-  - component: {fileID: 6962944279019499248}
-  - component: {fileID: 5568864656841603680}
+  - component: {fileID: 2327534526968143526}
   m_Layer: 0
   m_Name: MoveDepthObj
   m_TagString: Ground
@@ -115,15 +114,7 @@ MonoBehaviour:
   MOVE_VIRTICAL_OBJ_RANGE: 20
   MOVE_DEPTH_OBJ_RANGE: 7
   connectNumber: 0
---- !u!81 &6962944279019499248
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4932881236938685103}
-  m_Enabled: 1
---- !u!82 &5568864656841603680
+--- !u!82 &2327534526968143526
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,7 +124,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 5a35f8ed77e530447a97615cf5b3e9ad, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -361,16 +352,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.29908168
       objectReference: {fileID: 0}
-    - target: {fileID: 2300004, guid: f60d994893e36fa44a1f695aaf684b81, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f941db4242f56d047bc427c44083fbd8, type: 2}
     - target: {fileID: 2300000, guid: f60d994893e36fa44a1f695aaf684b81, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f941db4242f56d047bc427c44083fbd8, type: 2}
     - target: {fileID: 2300000, guid: f60d994893e36fa44a1f695aaf684b81, type: 3}
       propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: f941db4242f56d047bc427c44083fbd8, type: 2}
+    - target: {fileID: 2300004, guid: f60d994893e36fa44a1f695aaf684b81, type: 3}
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f941db4242f56d047bc427c44083fbd8, type: 2}
     m_RemovedComponents: []
