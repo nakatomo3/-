@@ -437,7 +437,6 @@ public class Parts : MonoBehaviour {
                 }
 
                 goalCounter += Time.deltaTime;
-                Debug.Log(goalCounter);
                 if (goalCounter >= GOAL) {
                     willGoal = true;
                     if (Player.instance.isCollectGets[0] == true) {

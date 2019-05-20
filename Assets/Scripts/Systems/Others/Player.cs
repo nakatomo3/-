@@ -46,6 +46,9 @@ public class Player : MonoBehaviour {
     public float springSpeed = 0;
     private const float SPRING_COEFFICIENT = 0.9f;
 
+	[SerializeField]
+	public bool canMove = true;
+
     private void Awake() {
         instance = this;
 		//Destroy(Camera.main.gameObject);
@@ -60,25 +63,26 @@ public class Player : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
-		MovePlayer();
+		if (canMove == true) {
+			MovePlayer();
+			JumpPlayer();
 
-		JumpPlayer();
-
-        springSpeed *= SPRING_COEFFICIENT;
-        if(springSpeed < 0) {
-            if(canLeftMove == true) {
-                thisTransform.position += new Vector3(springSpeed, 0, 0);
-            } else {
-                springSpeed = 0;
-            }
-        }
-        if (springSpeed > 0) {
-            if(canLeftMove == true) {
-                thisTransform.position += new Vector3(springSpeed, 0, 0);
-            } else {
-                springSpeed = 0;
-            }
-        }
+			springSpeed *= SPRING_COEFFICIENT;
+			if (springSpeed < 0) {
+				if (canLeftMove == true) {
+					thisTransform.position += new Vector3(springSpeed, 0, 0);
+				} else {
+					springSpeed = 0;
+				}
+			}
+			if (springSpeed > 0) {
+				if (canLeftMove == true) {
+					thisTransform.position += new Vector3(springSpeed, 0, 0);
+				} else {
+					springSpeed = 0;
+				}
+			}
+		}
     }
 
 	/// <summary>

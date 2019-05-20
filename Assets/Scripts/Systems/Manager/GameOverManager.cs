@@ -113,7 +113,6 @@ public class GameOverManager : MonoBehaviour {
 
 	public void StageRetry() {
 		PlayerPrefs.SetInt("stage", SystemManager.instance.stageNum);
-//		PlayerPrefs.SetInt("stage", StageSelectManager.instance.selectingStageNum);
 		SceneManager.LoadScene("Game");
 	}
 

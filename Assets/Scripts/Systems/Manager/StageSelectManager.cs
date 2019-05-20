@@ -20,6 +20,11 @@ public class StageSelectManager : MonoBehaviour {
 	[HideInInspector]
 	public GameObject[] doors = new GameObject[6];
 
+	private bool isAnimation = false;
+	private float animationTimer = 0;
+	private const float ANIMATION_DOWN_MAX = 3;
+	public GameObject Gradation;
+
 	private void Awake() {
 		instance = this;
 	}
@@ -38,11 +43,19 @@ public class StageSelectManager : MonoBehaviour {
 		}
 
 		if(CheckCollectpartsAll() == true) {
-			doors[5] = Instantiate(Door, new Vector3(27, -7, 1.8f), Quaternion.identity, doorParent);
-			hiddenStagePipe.SetActive(false);
-			appearObjectParent.SetActive(true);
+			if (PlayerPrefs.GetInt("freeAnimation") == 0) {
+				isAnimation = true;
+				CameraManager.instance.isFreeAnimation = true;
+				PlayerPrefs.SetInt("freeAnimation", 1);
+			} else {
+				doors[5] = Instantiate(Door, new Vector3(27, -7, 1.8f), Quaternion.identity, doorParent);
+				hiddenStagePipe.SetActive(false);
+				appearObjectParent.SetActive(true);
+			}
 		}
 		PlayerPrefs.SetInt("isTutorial", 0);
+
+
 	}
 
 	// Update is called once per frame
@@ -50,6 +63,21 @@ public class StageSelectManager : MonoBehaviour {
 		for(int i = 0;i <5; i++) {
 			if(doors[i].transform.localRotation.y < 0) {
 				doors[i].transform.localRotation = Quaternion.Euler(new Vector3(0, 0, 0));
+			}
+		}
+
+		if (isAnimation) {
+			animationTimer += Time.deltaTime;
+			if (animationTimer < ANIMATION_DOWN_MAX) {
+				Gradation.transform.position += Vector3.down * Time.deltaTime * 5;
+			} else if (animationTimer > ANIMATION_DOWN_MAX + 0.5f) {
+				doors[5] = Instantiate(Door, new Vector3(27, -7, 1.8f), Quaternion.identity, doorParent);
+				hiddenStagePipe.SetActive(false);
+				appearObjectParent.SetActive(true);
+			}
+			if (animationTimer > ANIMATION_DOWN_MAX + 1f){
+				isAnimation = false;
+				CameraManager.instance.isFreeAnimation = false;
 			}
 		}
 

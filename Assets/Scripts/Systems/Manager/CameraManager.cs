@@ -26,6 +26,9 @@ public class CameraManager : MonoBehaviour {
 	private float wholeRange = -70;
 	private float smallerLong = 0;
 
+	//[HideInInspector]
+	public bool isFreeAnimation = false;
+
 	private void Awake() {
 		instance = this;
 		thisTransform = transform;
@@ -56,23 +59,29 @@ public class CameraManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
-		if(isWholeMode == false) {
+		if (isFreeAnimation == false) {
+			if (isWholeMode == false) {
+				if (SceneManager.GetActiveScene().name == "Game") {
+					thisTransform.position = new Vector3(posX + SideRange, posY, thisTransform.position.z);
+					thisTransform.localRotation = Quaternion.Euler(0, SideRange, 0);
+				} else {
+
+					thisTransform.position += new Vector3((playerTransform.position.x-thisTransform.position.x)/3, (playerTransform.position.y + 4 - thisTransform.position.y) / 30, (playerTransform.position.z + CAMERA_POS_Z - thisTransform.position.z)/80);
+
+				}
+
+			}
+
 			if (SceneManager.GetActiveScene().name == "Game") {
-				thisTransform.position = new Vector3(posX + SideRange, posY, thisTransform.position.z);
-				thisTransform.localRotation = Quaternion.Euler(0, SideRange, 0);
-			} else {
-				thisTransform.position = playerTransform.position + new Vector3(0,4,CAMERA_POS_Z);
+				if (SystemManager.instance.isDeath == false) {
+					ChangeWholeMode();
+				}
 			}
 
+			posX = Mathf.Lerp(thisTransform.position.x, playerTransform.position.x, 0.1f);
+		} else {
+			thisTransform.position = Vector3.Lerp(thisTransform.position, new Vector3(5, -6, -30), 0.1f);
 		}
-
-		if (SceneManager.GetActiveScene().name == "Game") {
-			if (SystemManager.instance.isDeath == false) {
-				ChangeWholeMode();
-			}
-		}
-
-		posX = Mathf.Lerp(thisTransform.position.x, playerTransform.position.x, 0.1f);
 	}
 
 	public void MoveRight() {
