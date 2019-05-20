@@ -74,7 +74,7 @@
     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseRight</Name>
-      <X>17.5</X>
+      <X>17</X>
       <Y>49</Y>
       <Rotate>0</Rotate>
     </Parts>
@@ -89,42 +89,42 @@
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseRight</Name>
       <X>28.5</X>
-      <Y>49</Y>
+      <Y>49.5</Y>
       <Rotate>0</Rotate>
     </Parts>
     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseRight</Name>
       <X>34</X>
-      <Y>49</Y>
+      <Y>49.5</Y>
       <Rotate>0</Rotate>
     </Parts>
     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseRight</Name>
       <X>39.5</X>
-      <Y>49</Y>
+      <Y>49.5</Y>
       <Rotate>0</Rotate>
     </Parts>
     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseRight</Name>
       <X>45</X>
-      <Y>49</Y>
+      <Y>49.5</Y>
       <Rotate>0</Rotate>
     </Parts>
     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseRight</Name>
       <X>50.5</X>
-      <Y>49</Y>
+      <Y>49.5</Y>
       <Rotate>0</Rotate>
     </Parts>
     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseRight</Name>
       <X>56</X>
-      <Y>49</Y>
+      <Y>49.5</Y>
       <Rotate>0</Rotate>
     </Parts>
     <Parts>
@@ -249,58 +249,74 @@
     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseLeft</Name>
-      <X>103</X>
+      <X>102.5</X>
       <Y>1.5</Y>
       <Rotate>0</Rotate>
     </Parts>
     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseUp</Name>
-      <X>144</X>
-      <Y>38.5</Y>
+      <X>142</X>
+      <Y>34.5</Y>
       <Rotate>0</Rotate>
     </Parts>
     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseUp</Name>
       <X>148</X>
-      <Y>2</Y>
-      <Rotate>0</Rotate>
-    </Parts>
-    <Parts>
-      <ConnectNumber>1</ConnectNumber>
-      <Name>ImpulseLeft</Name>
-      <X>140</X>
-      <Y>12</Y>
+      <Y>0</Y>
       <Rotate>0</Rotate>
     </Parts>
     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseLeft</Name>
       <X>136.5</X>
-      <Y>12</Y>
+      <Y>10</Y>
       <Rotate>0</Rotate>
     </Parts>
     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseLeft</Name>
       <X>133</X>
-      <Y>12</Y>
+      <Y>10</Y>
       <Rotate>0</Rotate>
     </Parts>
      <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseLeft</Name>
       <X>129</X>
-      <Y>12</Y>
+      <Y>10</Y>
+      <Rotate>0</Rotate>
+    </Parts>
+      <Parts>
+      <ConnectNumber>1</ConnectNumber>
+      <Name>ImpulseLeft</Name>
+      <X>125</X>
+      <Y>10</Y>
+      <Rotate>0</Rotate>
+    </Parts>
+     <Parts>
+      <ConnectNumber>1</ConnectNumber>
+      <Name>ImpulseLeft</Name>
+      <X>121</X>
+      <Y>10</Y>
+      <Rotate>0</Rotate>
+    </Parts>
+      <Parts>
+      <ConnectNumber>1</ConnectNumber>
+      <Name>ImpulseLeft</Name>
+      <X>117</X>
+      <Y>10</Y>
       <Rotate>0</Rotate>
     </Parts>
     
     <Trigger>
       <ConnectNumber>2</ConnectNumber>
-      <Type>RightGear</Type>
+      <Type>Forever</Type>
       <X>28</X>
       <Y>21</Y>
+      <Rotate>0</Rotate>
+      <initial>1</initial>
     </Trigger>
     <Parts>
       <ConnectNumber>2</ConnectNumber>
@@ -344,6 +360,12 @@
       <X>78</X>
       <Y>34.5</Y>
     </Trigger>
+    <Trigger>
+      <ConnectNumber>3</ConnectNumber>
+      <Type>Forever</Type>
+      <X>107.8</X>
+      <Y>43</Y>
+    </Trigger>
     <Parts>
       <ConnectNumber>3</ConnectNumber>
       <Name>Bridge</Name>
@@ -355,91 +377,93 @@
       <ConnectNumber>3</ConnectNumber>
       <Name>Bridge</Name>
       <X>130.5</X>
-      <Y>40</Y>
+      <Y>32</Y>
       <Rotate>45</Rotate>
     </Parts>
     <Parts>
       <ConnectNumber>3</ConnectNumber>
       <Name>Bridge</Name>
-      <X>102.5</X>
-      <Y>70</Y>
+      <X>101.8</X>
+      <Y>59.9</Y>
       <Rotate>-130</Rotate>
     </Parts>
     
     <Trigger>
       <ConnectNumber>4</ConnectNumber>
-      <Type>RightGear</Type>
+      <Type>LeftGear</Type>
       <X>79.5</X>
       <Y>28</Y>
+      <Rotate>0</Rotate>
+    <initial>1</initial>
     </Trigger>
     <Parts>
       <ConnectNumber>4</ConnectNumber>
       <Name>MoveDepthObj</Name>
-      <X>124</X>
+      <X>125</X>
       <Y>60</Y>
       <Rotate>0</Rotate>
     </Parts>
     <Parts>
       <ConnectNumber>4</ConnectNumber>
       <Name>MoveDepthObj</Name>
-      <X>125.5</X>
+      <X>126.5</X>
       <Y>60</Y>
       <Rotate>0</Rotate>
     </Parts>
     <Parts>
       <ConnectNumber>4</ConnectNumber>
       <Name>MoveDepthObj</Name>
-      <X>127</X>
+      <X>128</X>
       <Y>60</Y>
       <Rotate>0</Rotate>
     </Parts>
     <Parts>
       <ConnectNumber>4</ConnectNumber>
       <Name>MoveDepthObj</Name>
-      <X>128.5</X>
+      <X>129.5</X>
       <Y>60</Y>
       <Rotate>0</Rotate>
     </Parts>
     <Parts>
       <ConnectNumber>4</ConnectNumber>
       <Name>MoveDepthObj</Name>
-      <X>130</X>
+      <X>131</X>
       <Y>60</Y>
       <Rotate>0</Rotate>
     </Parts>
 
     <Trigger>
       <ConnectNumber>5</ConnectNumber>
-      <Type>LeftGear</Type>
+      <Type>RightGear</Type>
       <X>55.5</X>
-      <Y>71.5</Y>
+      <Y>65</Y>
     </Trigger>
     <Parts>
       <ConnectNumber>5</ConnectNumber>
       <Name>MoveHorizontalObj</Name>
       <X>4.5</X>
-      <Y>68.5</Y>
+      <Y>59.9</Y>
       <Rotate>0</Rotate>
     </Parts>
     <Parts>
       <ConnectNumber>5</ConnectNumber>
       <Name>MoveHorizontalObj</Name>
       <X>-3.5</X>
-      <Y>68.5</Y>
+      <Y>59.9</Y>
       <Rotate>0</Rotate>
     </Parts>
     <Parts>
       <ConnectNumber>5</ConnectNumber>
       <Name>MoveHorizontalObj</Name>
       <X>-10.5</X>
-      <Y>68.5</Y>
+      <Y>59.9</Y>
       <Rotate>0</Rotate>
     </Parts>
     <Parts>
       <ConnectNumber>5</ConnectNumber>
       <Name>MoveHorizontalObj</Name>
       <X>-17.5</X>
-      <Y>68.5</Y>
+      <Y>59.9</Y>
       <Rotate>0</Rotate>
     </Parts>
 
@@ -448,14 +472,14 @@
       <ConnectNumber>6</ConnectNumber>
       <Type>RightGear</Type>
       <X>22</X>
-      <Y>71.5</Y>
+      <Y>63.5</Y>
     </Trigger>
 
     <Parts>
       <ConnectNumber>6</ConnectNumber>
       <Name>Goal</Name>
       <X>22</X>
-      <Y>71.5</Y>
+      <Y>63.5</Y>
       <Rotate>0</Rotate>
     </Parts>
   </Gimmick>
@@ -469,7 +493,7 @@
     </Collect1>
     <Collect2>
       <X>140</X>
-      <Y>20</Y>
+      <Y>25</Y>
     </Collect2>
   </CollectParts>
 
@@ -489,37 +513,27 @@
       <!-- 0～360. 無ければ自動で0-->
     </Ground>
     <Ground>
-      <PosX>140.5</PosX>
-      <PosY>36</PosY>
+      <PosX>137.8</PosX>
+      <PosY>32</PosY>
       <Long>12</Long>
       <Rotate>0</Rotate>
       <!-- 0～360. 無ければ自動で0-->
     </Ground>
     <Ground>
       <PosX>107.7</PosX>
-      <PosY>48</PosY>
+      <PosY>42.5</PosY>
       <Long>1.5</Long>
       <Rotate>0</Rotate>
       <!-- 0～360. 無ければ自動で0-->
     </Ground>
     <Ground>
       <PosX>79</PosX>
-      <PosY>70</PosY>
+      <PosY>59.9</PosY>
       <Long>43</Long>
       <Rotate>0</Rotate>
       <!-- 0～360. 無ければ自動で0-->
     </Ground>
   </Grounds>
-
-  <Walls>
-    <Wall>
-      <PosX>-70.5</PosX>
-      <PosY>2</PosY>
-      <Long>30.5</Long>
-      <Rotate>0</Rotate>
-      <!-- 自動で90度。それに対してどれだけ回転するか。無ければ自動で+0-->
-    </Wall>
-  </Walls>
 
   <!-- ゲームに影響のない見た目だけの部分。　未実装-->
   <BackGround>

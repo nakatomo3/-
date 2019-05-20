@@ -170,6 +170,42 @@
         </Parts>
       <Parts>
         <ConnectNumber>1</ConnectNumber>
+        <Name>ImpulseUp_2</Name>
+        <X>130</X>
+        <Y>55</Y>
+      </Parts>
+      <Parts>
+        <ConnectNumber>1</ConnectNumber>
+        <Name>ImpulseUp_2</Name>
+        <X>120</X>
+        <Y>55</Y>
+      </Parts>
+      <Parts>
+        <ConnectNumber>1</ConnectNumber>
+        <Name>ImpulseUp_2</Name>
+        <X>105</X>
+        <Y>55</Y>
+      </Parts>
+      <Parts>
+        <ConnectNumber>1</ConnectNumber>
+        <Name>ImpulseUp_2</Name>
+        <X>98</X>
+        <Y>55</Y>
+      </Parts>
+      <Parts>
+        <ConnectNumber>1</ConnectNumber>
+        <Name>ImpulseUp_2</Name>
+        <X>70</X>
+        <Y>53</Y>
+      </Parts>
+      <Parts>
+        <ConnectNumber>1</ConnectNumber>
+        <Name>ImpulseUp_2</Name>
+        <X>60</X>
+        <Y>53</Y>
+      </Parts>
+      <Parts>
+        <ConnectNumber>1</ConnectNumber>
         <Name>Pitfall</Name>
         <X>142</X>
         <Y>31.5</Y>
@@ -181,41 +217,12 @@
         <X>64</X>
         <Y>33.5</Y>
       </Trigger>
-       <Parts>
-        <ConnectNumber>3</ConnectNumber>
-        <Name>MoveHorizontalObj</Name>
-        <X>51</X>
-        <Y>53</Y>
-      </Parts>
-       <Parts>
-        <ConnectNumber>3</ConnectNumber>
-        <Name>MoveHorizontalObj</Name>
-        <X>55</X>
-        <Y>53</Y>
-      </Parts>
-      <Parts>
-        <ConnectNumber>3</ConnectNumber>
-        <Name>MoveHorizontalObj</Name>
-        <X>63</X>
-        <Y>53</Y>
-      </Parts> 
-          <Trigger>
-        <ConnectNumber>4</ConnectNumber>
-        <Type>RightGear</Type>
-        <X>61</X>
-        <Y>40</Y>
-      </Trigger>
-       <Parts>
-        <ConnectNumber>4</ConnectNumber>
-        <Name>MoveHorizontalObj</Name>
-        <X>6</X>
-        <Y>55</Y>
-      </Parts>
+      
           <Trigger>
         <ConnectNumber>5</ConnectNumber>
         <Type>RightGear</Type>
-        <X>55</X>
-        <Y>40</Y>
+        <X>80</X>
+        <Y>57</Y>
       </Trigger>
          <Parts>
         <ConnectNumber>5</ConnectNumber>
@@ -237,37 +244,7 @@
         <Y>71</Y>
       </Parts>
       
-      <Trigger>
-        <ConnectNumber>8</ConnectNumber>
-        <Type>RightGear</Type>
-        <X>61</X>
-        <Y>35</Y>
-      </Trigger>
-            <Parts>
-        <ConnectNumber>8</ConnectNumber>
-        <Name>MoveHorizontalObj</Name>
-        <X>66</X>
-        <Y>53</Y>
-      </Parts>
-      <Parts>
-        <ConnectNumber>8</ConnectNumber>
-        <Name>MoveHorizontalObj</Name>
-        <X>70</X>
-        <Y>53</Y>
-      </Parts>
-      <Parts>
-        <ConnectNumber>8</ConnectNumber>
-        <Name>MoveHorizontalObj</Name>
-        <X>74</X>
-        <Y>53</Y>
-      </Parts>
-      <Parts>
-        <ConnectNumber>8</ConnectNumber>
-        <Name>MoveHorizontalObj</Name>
-        <X>78</X>
-        <Y>53</Y>
-      </Parts>
-  
+    
         
     <Trigger>
         <ConnectNumber>9</ConnectNumber>
@@ -338,6 +315,28 @@
       <PosX>173</PosX>
       <PosY>80</PosY>
       <Long>11</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+
+    <Ground>
+      <PosX>80</PosX>
+      <PosY>55</PosY>
+      <Long>5</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    <Ground>
+      <PosX>30</PosX>
+      <PosY>60</PosY>
+      <Long>5</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    <Ground>
+      <PosX>15</PosX>
+      <PosY>60</PosY>
+      <Long>2</Long>
       <Rotate>0</Rotate>
       <!-- 0～360. 無ければ自動で0-->
     </Ground>
