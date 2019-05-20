@@ -240,6 +240,18 @@
     <value>18</value>
   </ChangeRange>
 
+
+  <Decoration>
+    <name>sample10</name>
+    <PosX>50</PosX>
+    <PosY>20</PosY>
+    <PosZ>0</PosZ>
+    <ScaleX>0.1</ScaleX>
+    <ScaleY>0.1</ScaleY>
+    <ScaleZ>0.01</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
   <!-- ゲームに影響のない見た目だけの部分。　未実装-->
     <BackGround>
         <Name></Name>
