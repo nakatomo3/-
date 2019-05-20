@@ -111,7 +111,7 @@
       <Y>39</Y>
     </Collect1>
     <Collect2>
-      <X>90</X>
+      <X>84</X>
       <Y>4</Y>
     </Collect2>
   </CollectParts>
@@ -181,7 +181,7 @@
       <!-- 0～360. 無ければ自動で0-->
     </Ground>
     <Ground>
-      <PosX>90</PosX>
+      <PosX>84</PosX>
       <PosY>2</PosY>
       <Long>5</Long>
       <Rotate>0</Rotate>
