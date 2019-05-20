@@ -59,8 +59,10 @@ public class OptionManager : MonoBehaviour {
 
 	public GameObject canvas;
 
-	private float SEVolume = 50;
-	private float BGMVolume = 50;
+	[HideInInspector]
+	public float SEVolume = 50;
+	[HideInInspector]
+	public float BGMVolume = 50;
 	private const int VOLUME_MIN = 0;
 	private const int VOLUME_MAX = 100;
 
@@ -109,6 +111,9 @@ public class OptionManager : MonoBehaviour {
 	// Start is called before the first frame update
 	void Start() {
         Time.timeScale = 1f;
+
+		BGMVolume = PlayerPrefs.GetInt("BGMVolume", 50);
+		SEVolume = PlayerPrefs.GetInt("SEVolume", 50);
 
 		for(int i = 0; i < GearParents.Length; i++) {
 			for (int j = 0; j < GEAR_NUM_MAX; j++) {
@@ -363,6 +368,8 @@ public class OptionManager : MonoBehaviour {
 						BGMVolume--;
 						inputStartTime = Time.realtimeSinceStartup;
 					}
+					PlayerPrefs.SetInt("BGMVolume", Mathf.FloorToInt(BGMVolume));
+
 
 					for (int i = 0; i < ArrowParent.Length; i++) {
 						if (i == 0) {
@@ -392,6 +399,7 @@ public class OptionManager : MonoBehaviour {
 						SEVolume--;
 						inputStartTime = Time.realtimeSinceStartup;
 					}
+					PlayerPrefs.SetInt("SEVolume", Mathf.FloorToInt(SEVolume));
 
 					for (int i = 0; i < ArrowParent.Length; i++) {
 						if (i == 1) {
