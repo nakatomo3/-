@@ -42,6 +42,7 @@ public class StageSelectManager : MonoBehaviour {
 			hiddenStagePipe.SetActive(false);
 			appearObjectParent.SetActive(true);
 		}
+		PlayerPrefs.SetInt("isTutorial", 0);
 	}
 
 	// Update is called once per frame

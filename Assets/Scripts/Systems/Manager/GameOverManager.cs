@@ -112,11 +112,16 @@ public class GameOverManager : MonoBehaviour {
 	}
 
 	public void StageRetry() {
-		PlayerPrefs.SetInt("stage", StageSelectManager.instance.selectingStageNum);
+		PlayerPrefs.SetInt("stage", SystemManager.instance.stageNum);
+//		PlayerPrefs.SetInt("stage", StageSelectManager.instance.selectingStageNum);
 		SceneManager.LoadScene("Game");
 	}
 
 	public void StageSelect() {
+		if(PlayerPrefs.GetInt("isTutorial") == 1) {
+			SceneManager.LoadScene("Title");
+			return;
+		}
 		SceneManager.LoadScene("StageSelect");
 	}
 
