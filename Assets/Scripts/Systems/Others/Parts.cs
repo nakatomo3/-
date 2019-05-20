@@ -19,8 +19,6 @@ public class Parts : MonoBehaviour {
     private GameObject changeScene;
     private GameObject clearChain;
     private GameObject clearGears;
-    private GameObject goalLeftGear;
-    private GameObject goalRightGear;
     private GameObject[] gears = new GameObject[20];
     private Vector3 impulseVector;
     private float thisFirstPosY;
@@ -176,8 +174,6 @@ public class Parts : MonoBehaviour {
             case PartsType.Goal:
                 changeScene = (GameObject)Resources.Load("Prefabs/Systems/GameOvers/ChangeScene");
                 goalCanvas = transform.GetChild(0).gameObject;
-                goalRightGear = transform.GetChild(1).gameObject;
-                goalLeftGear = transform.GetChild(2).gameObject;
                 clearGears = goalCanvas.transform.GetChild(0).gameObject;
                 clearChain = goalCanvas.transform.GetChild(1).gameObject;
                 clearImage = goalCanvas.transform.GetChild(2).gameObject;
@@ -422,8 +418,6 @@ public class Parts : MonoBehaviour {
                 }
 
                 if (willGoal == false) {
-                    goalRightGear.transform.Rotate(0, CLEAR_GEAR_ROTATE_SPEED * Time.deltaTime, 0);
-                    goalLeftGear.transform.Rotate(0, -CLEAR_GEAR_ROTATE_SPEED * Time.deltaTime, 0);
 
                     gears[0].transform.Rotate(0, 0, CLEAR_GEAR_ROTATE_SPEED * Time.deltaTime);
                     for (int i = 1; i < gearsNum; i++) {
@@ -588,8 +582,6 @@ public class Parts : MonoBehaviour {
                 }
 
                 if (willGoal == false) {
-                    goalRightGear.transform.Rotate(0, -CLEAR_GEAR_ROTATE_SPEED * Time.deltaTime, 0);
-                    goalLeftGear.transform.Rotate(0, CLEAR_GEAR_ROTATE_SPEED * Time.deltaTime, 0);
 
                     gears[0].transform.Rotate(0, 0, -CLEAR_GEAR_ROTATE_SPEED * Time.deltaTime);
                     for (int i = 1; i < gearsNum; i++) {
