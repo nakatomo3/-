@@ -211,13 +211,6 @@
         <Y>31.5</Y>
       </Parts>
       
-      <Trigger>
-        <ConnectNumber>3</ConnectNumber>
-        <Type>Forever</Type>
-        <X>64</X>
-        <Y>33.5</Y>
-      </Trigger>
-      
           <Trigger>
         <ConnectNumber>5</ConnectNumber>
         <Type>RightGear</Type>
