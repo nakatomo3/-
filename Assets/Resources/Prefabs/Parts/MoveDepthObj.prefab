@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5836637896367068462}
   - component: {fileID: 8673698878580491516}
   - component: {fileID: 2327534526968143526}
+  - component: {fileID: 3530799228438928792}
   m_Layer: 0
   m_Name: MoveDepthObj
   m_TagString: Ground
@@ -124,11 +125,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 8300000, guid: 5a35f8ed77e530447a97615cf5b3e9ad, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -210,6 +211,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &3530799228438928792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4932881236938685103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a37953dde898a114182081a310ce1d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isBGM: 0
 --- !u!1001 &2373488997660398249
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -352,16 +366,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.29908168
       objectReference: {fileID: 0}
+    - target: {fileID: 2300004, guid: f60d994893e36fa44a1f695aaf684b81, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f941db4242f56d047bc427c44083fbd8, type: 2}
     - target: {fileID: 2300000, guid: f60d994893e36fa44a1f695aaf684b81, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f941db4242f56d047bc427c44083fbd8, type: 2}
     - target: {fileID: 2300000, guid: f60d994893e36fa44a1f695aaf684b81, type: 3}
       propertyPath: m_Materials.Array.data[1]
-      value: 
-      objectReference: {fileID: 2100000, guid: f941db4242f56d047bc427c44083fbd8, type: 2}
-    - target: {fileID: 2300004, guid: f60d994893e36fa44a1f695aaf684b81, type: 3}
-      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f941db4242f56d047bc427c44083fbd8, type: 2}
     m_RemovedComponents: []
