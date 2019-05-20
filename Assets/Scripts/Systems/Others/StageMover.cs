@@ -17,9 +17,12 @@ public class StageMover : MonoBehaviour {
 
 	private const float OPENING_TIME = 3;
 
-	// Start is called before the first frame update
-	void Start() {
+    private GameObject handle;
+    private const float HANDLE_ROTATE_SPEED = 170;
 
+    // Start is called before the first frame update
+    void Start() {
+        handle = transform.GetChild(1).gameObject;
 	}
 
 	// Update is called once per frame
@@ -35,6 +38,13 @@ public class StageMover : MonoBehaviour {
 					StageSelectManager.instance.doors[stageNum - 1].transform.Rotate(0, Time.deltaTime * -55, 0);
 				}
 			}
+            //ハンドルが回転するアニメーション
+            if (Input.GetKey(KeyCode.D)) {
+                handle.transform.Rotate(0, 0, HANDLE_ROTATE_SPEED * Time.deltaTime);
+
+            }else if (Input.GetKey(KeyCode.A)) {
+                handle.transform.Rotate(0, 0, -HANDLE_ROTATE_SPEED * Time.deltaTime);
+            }
 
 			Player.instance.gameObject.transform.position = transform.position;
 			mesh.enabled = false;

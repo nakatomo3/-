@@ -10,7 +10,8 @@ public class OptionManager : MonoBehaviour {
 	private bool isFullScreen = false;
 	private int width, height;
 
-    private bool isPause = false;
+    [HideInInspector]
+    public bool isPause = false;
 
     private int mainCursorPos = 0;
     private int restartCorsorPos = 1;

@@ -34,6 +34,8 @@ public class Trigger : MonoBehaviour {
 	[SerializeField]
 	private bool isPlus = true;
 
+    private GameObject handle;
+    private const float HANDLE_ROTATE_SPEED = 170;
 	// Start is called before the first frame update
 	void Start() {
 		thisTransform = gameObject.GetComponent<Transform>();
@@ -55,9 +57,10 @@ public class Trigger : MonoBehaviour {
 
 					break;
 			}
-		}
-
-		defaultY = thisTransform.position.y;
+            handle = transform.GetChild(1).gameObject;
+        }
+       
+        defaultY = thisTransform.position.y;
 	}
 
 	// Update is called once per frame
@@ -75,6 +78,7 @@ public class Trigger : MonoBehaviour {
 			Player.instance.rigidbody.useGravity = true;
 		}
 
+
 	}
 
 	private void CheckTriggerPlus() {
@@ -87,6 +91,7 @@ public class Trigger : MonoBehaviour {
 					if (Player.instance.isGimmickMode == true && isThisGimmick == true) {
 						if (Input.GetKey(KeyCode.D)) {
 							isTriggerOn = true;
+                            handle.transform.Rotate(0, 0, HANDLE_ROTATE_SPEED * Time.deltaTime);
 						}
 						Player.instance.transform.position = transform.position;
 					} else {
@@ -98,7 +103,8 @@ public class Trigger : MonoBehaviour {
 					if (Player.instance.isGimmickMode == true && isThisGimmick == true) {
 						if (Input.GetKey(KeyCode.A)) {
 							isTriggerOn = true;
-						}
+                            handle.transform.Rotate(0, 0, -HANDLE_ROTATE_SPEED * Time.deltaTime);
+                        }
 						Player.instance.transform.position = transform.position;
 					} else {
 						isTriggerOn = false;
@@ -162,7 +168,8 @@ public class Trigger : MonoBehaviour {
 					if (Player.instance.isGimmickMode == true && isThisGimmick == true) {
 						if (Input.GetKey(KeyCode.A)) {
 							isTriggerOn = true;
-						}
+                            handle.transform.Rotate(0, 0, -HANDLE_ROTATE_SPEED * Time.deltaTime);
+                        }
 						Player.instance.transform.position = transform.position;
 					} else {
 						isTriggerOn = false;
@@ -173,7 +180,8 @@ public class Trigger : MonoBehaviour {
 					if (Player.instance.isGimmickMode == true && isThisGimmick == true) {
 						if (Input.GetKey(KeyCode.D)) {
 							isTriggerOn = true;
-						}
+                            handle.transform.Rotate(0, 0, HANDLE_ROTATE_SPEED*Time.deltaTime);
+                        }
 						Player.instance.transform.position = transform.position;
 					} else {
 						isTriggerOn = false;
