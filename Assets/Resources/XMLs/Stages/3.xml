@@ -36,7 +36,7 @@
         <Trigger>
             <ConnectNumber>2</ConnectNumber>
             <Type>LeftGear</Type>
-            <X>80</X>
+            <X>84</X>
             <Y>19</Y>
         </Trigger>
         <Parts>
@@ -50,7 +50,7 @@
       <Trigger>
         <ConnectNumber>3</ConnectNumber>
         <Type>RightGear</Type>
-        <X>85</X>
+        <X>89</X>
         <Y>19</Y>
       </Trigger>
  

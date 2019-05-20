@@ -76,16 +76,16 @@
       <Trigger>
         <ConnectNumber>3</ConnectNumber>
         <Type>Forever</Type>
-        <X>116</X>
-        <Y>0.5</Y>
+        <X>112</X>
+        <Y>5</Y>
       </Trigger>
       <Parts>
         <ConnectNumber>3</ConnectNumber>
         <Name>MoveVerticalObj</Name>
         <X>124</X>
-        <Y>1</Y>
+        <Y>4.5</Y>
         <Rotate>0</Rotate>
-        <id>3</id>
+        <id>2</id>
       </Parts>
 
       <Trigger>
@@ -196,16 +196,44 @@
       <!-- 0～360. 無ければ自動で0-->
     </Ground>
     <Ground>
-      <PosX>30</PosX>
+      <PosX>25</PosX>
       <PosY>4</PosY>
-      <Long>20</Long>
+      <Long>10</Long>
       <Rotate>0</Rotate>
       <!-- 0～360. 無ければ自動で0-->
     </Ground>
     <Ground>
-      <PosX>120</PosX>
+      <PosX>29.8</PosX>
+      <PosY>1.3</PosY>
+      <Long>5</Long>
+      <Rotate>90</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    <Ground>
+      <PosX>34.5</PosX>
       <PosY>0</PosY>
-      <Long>20</Long>
+      <Long>11.5</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    <Ground>
+      <PosX>111</PosX>
+      <PosY>4.5</PosY>
+      <Long>9</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    <Ground>
+      <PosX>115</PosX>
+      <PosY>2</PosY>
+      <Long>5</Long>
+      <Rotate>90</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    <Ground>
+      <PosX>122</PosX>
+      <PosY>0.5</PosY>
+      <Long>16</Long>
       <Rotate>0</Rotate>
       <!-- 0～360. 無ければ自動で0-->
     </Ground>
