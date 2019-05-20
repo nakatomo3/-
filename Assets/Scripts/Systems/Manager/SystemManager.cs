@@ -87,7 +87,6 @@ public class SystemManager : MonoBehaviour {
 			return;
 		}
 
-
 		var collectParts = Resources.Load("Prefabs/Systems/CollectParts") as GameObject;
 		GameObject collectPartsParent = new GameObject("CollectPartsParent");
 		collectPartsParent.transform.parent = transform;
@@ -380,7 +379,7 @@ public class SystemManager : MonoBehaviour {
 		}
 
 		var decoration = xmlDoc.GetElementsByTagName("Decoration");
-		var decorationParent = new GameObject("DecorationParent");
+		var decorationParent = GameObject.Find("DecorationParent");
 		for(int i = 0; i < decoration.Count; i++) {
 			string name = decoration.Item(i).ChildNodes.Item(0).InnerText;
 			float posX = float.Parse(decoration.Item(i).ChildNodes.Item(1).InnerText);
@@ -472,10 +471,12 @@ public class SystemManager : MonoBehaviour {
 		wallObject.transform.GetChild(0).GetChild(1).transform.GetComponent<RectTransform>().sizeDelta = new Vector2(100,(width) * 100);
 		wallObject.transform.GetChild(0).GetChild(1).transform.Rotate(90, 0, 0);
 
-		var missGroundObject = Instantiate(missGround, new Vector3(width/2, -1, -1f), Quaternion.identity, transform);
-		missGroundObject.transform.localScale = new Vector3(width+10, 1, 1);
-		missGroundObject.transform.GetChild(0).GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(100, 570);
-		missGroundObject.transform.GetChild(0).transform.localPosition = new Vector3(0, 0, 0.5f);
+		if (stageNum != 6) {
+			var missGroundObject = Instantiate(missGround, new Vector3(width / 2, -1, -1f), Quaternion.identity, transform);
+			missGroundObject.transform.localScale = new Vector3(width + 10, 1, 1);
+			missGroundObject.transform.GetChild(0).GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(100, 570);
+			missGroundObject.transform.GetChild(0).transform.localPosition = new Vector3(0, 0, 0.5f);
+		}
 
 		var backGround = Resources.Load("Prefabs/StageFrames/StageBackGround") as GameObject;
 		var backGroundObject = Instantiate(backGround,new Vector3(width/2,height/2-8,1),Quaternion.identity,transform) as GameObject;
