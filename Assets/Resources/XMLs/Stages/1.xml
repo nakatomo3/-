@@ -241,13 +241,46 @@
   </ChangeRange>
 
 
+  <!--<Decoration>
+    <name>ガス灯</name>
+    <PosX>10</PosX>
+    <PosY>6.62</PosY>
+    <PosZ>-3</PosZ>
+    <ScaleX>1</ScaleX>
+    <ScaleY>1</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>-->
+  
   <Decoration>
-    <name>sample10</name>
-    <PosX>50</PosX>
-    <PosY>20</PosY>
-    <PosZ>0</PosZ>
-    <ScaleX>0.1</ScaleX>
-    <ScaleY>0.1</ScaleY>
+    <name>Sign3</name>
+    <PosX>10</PosX>
+    <PosY>8</PosY>
+    <PosZ>-1</PosZ>
+    <ScaleX>-16</ScaleX>
+    <ScaleY>-9</ScaleY>
+    <ScaleZ>0.01</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Sign6</name>
+    <PosX>30</PosX>
+    <PosY>12</PosY>
+    <PosZ>-1</PosZ>
+    <ScaleX>-16</ScaleX>
+    <ScaleY>-9</ScaleY>
+    <ScaleZ>0.01</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Sign7</name>
+    <PosX>10.5</PosX>
+    <PosY>33</PosY>
+    <PosZ>-1</PosZ>
+    <ScaleX>-16</ScaleX>
+    <ScaleY>-9</ScaleY>
     <ScaleZ>0.01</ScaleZ>
     <Rotate>0</Rotate>
   </Decoration>
