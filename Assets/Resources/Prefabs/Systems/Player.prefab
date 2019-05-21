@@ -385,7 +385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a0722b715069ea4ea3f2580f00953be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gearobject: {fileID: 3823696369305698545, guid: 027ec5d4170448e4ba7548f349658555,
+  gearobject: {fileID: 3671653816914792056, guid: 22a5404fe3e1fdf499e67bd8d6df6c8e,
     type: 3}
   visualTransform: {fileID: 8050999089791901510}
   underTransform: {fileID: 4910923404560032670}
@@ -395,6 +395,7 @@ MonoBehaviour:
   canLeftMove: 1
   isCollectGets: 0000
   springSpeed: 0
+  canMove: 1
 --- !u!54 &3346028013632739254
 Rigidbody:
   m_ObjectHideFlags: 0

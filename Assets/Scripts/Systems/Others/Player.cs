@@ -195,6 +195,13 @@ public class Player : MonoBehaviour {
 			}
 		}
 
+         if (collision.gameObject.name == "ObjFallTrap(Clone)") {
+            if (collision.gameObject.transform.position.y-1 > thisTransform.position.y) {
+                Instantiate(gearobject, Player.instance.visualTransform.position, Quaternion.Euler(90, 0, 0)); //rigidbodyの空気抵抗を変えてアニメーションさせてる
+                Instantiate(Resources.Load("Prefabs/Systems/GameOver") as GameObject, transform.position, Quaternion.identity);
+                this.gameObject.SetActive(false);
+            }
+        }
 		
 	}
 

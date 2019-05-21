@@ -92,6 +92,9 @@ public class Parts : MonoBehaviour {
     public float MOVE_DEPTH_OBJ_RANGE = 7;
     //private const float MOVE_DEPTH_OBJ_SPEED = 2;
 
+    [HideInInspector]
+    public const float FALL_TRAP_RANGE = 20;
+
     private const float SLOPE_UP_SPEED = 1;
     private const float SLOPE_SIDE_SPEED = 1;
     private const float SLOPE_SIDE_RANGE = 10;
@@ -99,7 +102,7 @@ public class Parts : MonoBehaviour {
     private const float TRAP_ROTATE_SPEED = 300;
     private const float TRAP_ROTATE_RANGE = 90;
 
-    private const float FALL_SPEED = 15;
+    private const float FALL_SPEED = 30;
     private const float POSITION_RESET_INTERVAL = 1.5f;
     private const float POSITION_RESET_MOVE_SPEED = 2;
 
@@ -156,6 +159,10 @@ public class Parts : MonoBehaviour {
                 impulseVector = new Vector3(0, IMPULSE_UP_POWER * Time.deltaTime, 0);
                 impulseObj = transform.GetChild(0).transform;
                 thisFirstPosY = impulseObj.position.y;
+                break;
+
+            case PartsType.ObjFallTrap:
+                thisFirstPosY = this.transform.position.y;
                 break;
 
             case PartsType.ImpulseUp_2:
@@ -650,9 +657,14 @@ public class Parts : MonoBehaviour {
 
             case PartsType.ObjFallTrap:
                 if (isTrapActionStop == false) {
-                    if (isTrapAction == true) {
+                    if (isTrapAction == true && thisTransform.position.y>= thisFirstPosY-FALL_TRAP_RANGE) {
                         thisTransform.Translate(0, -FALL_SPEED * Time.deltaTime, 0);
                         positionResetInterval = 0;
+
+                        if(thisTransform.position.y <= thisFirstPosY - FALL_TRAP_RANGE) {
+                            willPositionReset = true;
+                            isTrapAction = false;
+                        }
 
                     } else if (willPositionReset == true) {
                         if (positionResetInterval >= POSITION_RESET_INTERVAL) {
