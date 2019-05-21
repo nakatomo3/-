@@ -69,7 +69,7 @@ public class StageSelectManager : MonoBehaviour {
 
 		for(int i = 1; i < 6; i++) {
 			if(PlayerPrefs.GetInt("Clear"+i.ToString(),0) == 0) {
-				//return;
+				return;
 			}
 		}
 		for(int i = 0; i < endSign.transform.GetChild(3).childCount; i++) {
