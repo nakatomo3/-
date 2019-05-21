@@ -28,21 +28,21 @@ public class StageMover : MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
 		if(isConnect == true) {
-			if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) {
+			if(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || Input.GetAxis("GamePadStickHolizontal") > 0.3) {
 				timer += Time.deltaTime;
 				StageSelectManager.instance.doors[stageNum - 1].transform.Rotate(0, Time.deltaTime * 55, 0);
 			}
-			if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) {
+			if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || Input.GetAxis("GamePadStickHolizontal") < -0.3) {
 				if(timer > 0) {
 					timer -= Time.deltaTime;
 					StageSelectManager.instance.doors[stageNum - 1].transform.Rotate(0, Time.deltaTime * -55, 0);
 				}
 			}
             //ハンドルが回転するアニメーション
-            if (Input.GetKey(KeyCode.D)) {
+            if (Input.GetKey(KeyCode.D) || Input.GetAxis("GamePadStickHolizontal") > 0.3) {
                 handle.transform.Rotate(0, 0, HANDLE_ROTATE_SPEED * Time.deltaTime);
 
-            }else if (Input.GetKey(KeyCode.A)) {
+            }else if (Input.GetKey(KeyCode.A) || Input.GetAxis("GamePadStickHolizontal") < -0.3) {
                 handle.transform.Rotate(0, 0, -HANDLE_ROTATE_SPEED * Time.deltaTime);
             }
 
