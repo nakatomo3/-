@@ -19,7 +19,7 @@ public class StageSelectManager : MonoBehaviour {
 	public GameObject Door;
 	public Transform doorParent;
 	[HideInInspector]
-	public GameObject[] doors = new GameObject[6];
+	public GameObject[] doors = new GameObject[7];
 
 	private bool isAnimation = false;
 	private float animationTimer = 0;
@@ -52,6 +52,7 @@ public class StageSelectManager : MonoBehaviour {
 		for(int i = 0; i < 5; i++) {
 			doors[i] = Instantiate(Door, new Vector3(27,1.6f+9*i,1.8f), Quaternion.identity, doorParent);
 		}
+		doors[6] = Instantiate(Door, new Vector3(-18, 1.6f, 1.8f), Quaternion.identity, doorParent);
 
 		if(CheckCollectpartsAll() == true) {
 			if (PlayerPrefs.GetInt("freeAnimation",0) == 0) {
