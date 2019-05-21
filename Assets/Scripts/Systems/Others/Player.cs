@@ -83,6 +83,15 @@ public class Player : MonoBehaviour {
 				}
 			}
 		}
+        Ray ray = new Ray(transform.position, new Vector3(0, -1, 0));
+        float distance = 1.5f;
+        RaycastHit hit;
+        if(Physics.Raycast(ray, out hit, distance)) {
+            if (hit.collider.CompareTag("Ground")) {
+                isJumping = false;
+            }
+        }
+        Debug.DrawLine(ray.origin, ray.direction * distance, Color.red);
     }
 
 	/// <summary>
