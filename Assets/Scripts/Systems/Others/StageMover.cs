@@ -56,10 +56,15 @@ public class StageMover : MonoBehaviour {
 		}
 
 		if(timer >= OPENING_TIME) {
-			StageSelectManager.instance.ChangeStage(stageNum);
-			Player.instance.isGimmickMode = false;
-			Player.instance.rigidbody.useGravity = true;
-			SceneManager.LoadScene("Game");
+			if (stageNum == 7) {
+				SceneManager.LoadScene("StaffCredit");
+			} else {
+				StageSelectManager.instance.ChangeStage(stageNum);
+				Player.instance.isGimmickMode = false;
+				Player.instance.rigidbody.useGravity = true;
+				SceneManager.LoadScene("Game");
+
+			}
 		}
 
 	}
