@@ -446,11 +446,11 @@ public class Parts : MonoBehaviour {
                     if (Player.instance.isCollectGets[1] == true) {
                         PlayerPrefs.SetInt(SystemManager.instance.stageNum + "2", 1);
                     }
+					PlayerPrefs.SetInt("Clear"+SystemManager.instance.stageNum.ToString(),1);
                     if (isGenelate == false) {
                         Instantiate(changeScene, thisTransform.position, Quaternion.identity);
                         isGenelate = true;
                     }
-                    //  this.gameObject.SetActive(false);
                 }
                 break;
 

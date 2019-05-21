@@ -95,7 +95,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d4617b621f3ee74eb18c550c430a902, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 
   thisType: 0
+  MOVE_HORIZONTAL_OBJ_RANGE: 50
+  MOVE_VIRTICAL_OBJ_RANGE: 20
+  MOVE_DEPTH_OBJ_RANGE: 7
+  connectNumber: 0
 --- !u!65 &4044773853173542354
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -134,7 +139,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d4617b621f3ee74eb18c550c430a902, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 
   thisType: 14
+  MOVE_HORIZONTAL_OBJ_RANGE: 50
+  MOVE_VIRTICAL_OBJ_RANGE: 20
+  MOVE_DEPTH_OBJ_RANGE: 7
+  connectNumber: 0
 --- !u!54 &7638990644295473953
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -187,6 +197,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: 3d1bf398920b95a49a5d0c1c68b26a0c, type: 3}
       propertyPath: m_Name
       value: "\u7BB1"
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 3d1bf398920b95a49a5d0c1c68b26a0c, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3d1bf398920b95a49a5d0c1c68b26a0c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -272,6 +286,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: ac1cffbb9bb58c74284432aa09f17d06, type: 3}
       propertyPath: m_Name
       value: "\u62BC\u3057\u51FA\u3059\u90E8\u5206"
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ac1cffbb9bb58c74284432aa09f17d06, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ac1cffbb9bb58c74284432aa09f17d06, type: 3}
       propertyPath: m_LocalPosition.x
