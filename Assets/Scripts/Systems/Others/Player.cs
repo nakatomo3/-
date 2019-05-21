@@ -91,7 +91,6 @@ public class Player : MonoBehaviour {
                 isJumping = false;
             }
         }
-        Debug.DrawLine(ray.origin, ray.direction * distance, Color.red);
     }
 
 	/// <summary>
@@ -114,7 +113,7 @@ public class Player : MonoBehaviour {
 	/// コントローラーとキーボード押したら移動
 	/// </summary>
 	private void MovePlayer() {
-		if (Input.GetKey(KeyCode.W) && isJumping == false) {
+		if (Input.GetKey(KeyCode.W) && isJumping == false|| Input.GetButton("GamePadA")&& isJumping == false) {
 			moveSpeed = MOVE_SPEED / 5;
 
 		} else if (isJumping) {
@@ -124,8 +123,8 @@ public class Player : MonoBehaviour {
 			moveSpeed = MOVE_SPEED;
 		}
 
-		bool isRight = Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow);
-		bool isLeft = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow);
+		bool isRight = Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || Input.GetAxis("GamePadStickHolizontal") >0.3;
+		bool isLeft = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || Input.GetAxis("GamePadStickHolizontal") < -0.3;
 
 		if (isRight) {
 			MoveRight();
@@ -147,12 +146,12 @@ public class Player : MonoBehaviour {
 	/// コントローラーとキーボード押したらジャンプ
 	/// </summary>
 	private void JumpPlayer() {
-		if (Input.GetKeyDown(KeyCode.W) && isJumping != true) {
+		if (Input.GetKeyDown(KeyCode.W) && isJumping != true|| Input.GetButtonDown("GamePadA") && isJumping != true) {
 			jumpRange += 2f;
 			jumpRotateSpeed = 0;
 		}
 
-		if (Input.GetKey(KeyCode.W) && isJumping != true) {
+		if (Input.GetKey(KeyCode.W) && isJumping != true|| Input.GetButton("GamePadA") && isJumping != true) {
 			if (jumpRange < 10) {
 				jumpRange += JUMP_RANGE_ADD_VALUE * Time.deltaTime;
 				thisTransform.localScale -= new Vector3(0, 0.005f, 0f);
@@ -161,7 +160,7 @@ public class Player : MonoBehaviour {
 			}
 
 		}
-		if (Input.GetKeyUp(KeyCode.W)) {
+		if (Input.GetKeyUp(KeyCode.W) || Input.GetButtonUp("GamePadA")) {
 			if (isJumping != true) {
 				rigidbody.velocity = new Vector3(0, jumpRange, 0);
 			}
@@ -280,7 +279,7 @@ public class Player : MonoBehaviour {
 
             }
 
-			if (Input.GetKeyDown(KeyCode.Space)) {
+			if (Input.GetKeyDown(KeyCode.Space)|| Input.GetButtonDown("GamePadB")) {
 
 				if (trigger.thisType == Trigger.TriggerType.Electrical ||
 					trigger.thisType == Trigger.TriggerType.LeftGear ||
@@ -293,7 +292,7 @@ public class Player : MonoBehaviour {
 
 		}
 
-		if (other.gameObject.CompareTag("StageMover")) {
+		if (other.gameObject.CompareTag("StageMover") || Input.GetButtonDown("GamePadB")) {
 			if (Input.GetKeyDown(KeyCode.Space)) {
 				StageMover stageMover = other.transform.parent.gameObject.GetComponent<StageMover>();
 				stageMover.isConnect = !stageMover.isConnect;
