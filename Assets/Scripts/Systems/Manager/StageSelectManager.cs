@@ -17,6 +17,7 @@ public class StageSelectManager : MonoBehaviour {
 	private GameObject[,] collectParts = new GameObject[5,2];
 
 	public GameObject Door;
+	public GameObject Emission;
 	public Transform doorParent;
 	[HideInInspector]
 	public GameObject[] doors = new GameObject[7];
@@ -51,6 +52,7 @@ public class StageSelectManager : MonoBehaviour {
 		}
 		for(int i = 0; i < 5; i++) {
 			doors[i] = Instantiate(Door, new Vector3(27,1.6f+9*i,1.8f), Quaternion.identity, doorParent);
+			var emission = Instantiate(Emission, new Vector3(28.3f, 2f + 9 * i, 1.8f), Quaternion.identity,doorParent);
 		}
 		doors[6] = Instantiate(Door, new Vector3(-18, 1.6f, 1.8f), Quaternion.identity, doorParent);
 
