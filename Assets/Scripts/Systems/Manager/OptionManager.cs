@@ -105,7 +105,16 @@ public class OptionManager : MonoBehaviour {
 	[SerializeField]
 	private bool isSelectScene = true;
 
-	private void Awake() {
+    private bool joyStickVirticalUp = false;
+    private bool joyStickVirticalDown = false;
+    private bool joyStickHorizonLeft = false;
+    private bool joyStickHorizonRight = false;
+
+    private bool inputOnceUp = false;
+    private bool inputOnceDown = false;
+    private bool inputOnceLeft = false;
+    private bool inputOnceRight = false;
+    private void Awake() {
 		instance = this;
 	}
 
@@ -143,18 +152,72 @@ public class OptionManager : MonoBehaviour {
 		BGMValue.text = Mathf.RoundToInt(BGMVolume).ToString();
 		SEValue.text = Mathf.RoundToInt(SEVolume).ToString();
 
-		bool isInputRightStart = Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D);
-		bool isInputLeftStart = Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A);
-		bool isInputUpStart = Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W);
-		bool isInputDownStart = Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S);
+        //-----------------------ジョイスティックの横軸入力
+        if (Input.GetAxis("GamePadStickHolizontal") > 0.5 && Input.GetAxis("GamePadStickHolizontal") <= 1) {
+            if (inputOnceRight == false) {
+                joyStickHorizonRight = true;
+            } else {
+                joyStickHorizonRight = false;
+            }
+            inputOnceRight = true;
+        } else {
+            joyStickHorizonRight = false;
+            inputOnceRight = false;
+        }
+        if (Input.GetAxis("GamePadStickHolizontal") < -0.5 && Input.GetAxis("GamePadStickHolizontal") >= -1) {
+            if (inputOnceLeft == false) {
+                joyStickHorizonLeft = true;
+            } else {
+                joyStickHorizonLeft = false;
+            }
+            inputOnceLeft = true;
 
-		bool isInputRight = Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D);
-		bool isInputLeft = Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A);
-		bool isInputUp = Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W);
-		bool isInputDown = Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S);
+        } else {
+            joyStickHorizonLeft = false;
+            inputOnceLeft = false;
+        }
+
+        //--------------------ジョイスティックの縦軸の入力
+        if (Input.GetAxis("GamePadStickVirtical") < -0.5 && Input.GetAxis("GamePadStickVirtical") >= -1) {
+            if(inputOnceUp == false) {
+                joyStickVirticalUp = true;
+            } else {
+                joyStickVirticalUp = false;
+            }
+            inputOnceUp = true;
+
+        } else {
+            joyStickVirticalUp = false;
+            inputOnceUp = false;
+
+        }
+        if (Input.GetAxis("GamePadStickVirtical") > 0.5 && Input.GetAxis("GamePadStickVirtical") <= 1 ) {
+            if (inputOnceDown == false) {
+                joyStickVirticalDown = true;
+            } else {
+                joyStickVirticalDown = false;
+            }
+            inputOnceDown = true;
+
+        } else {
+            joyStickVirticalDown = false;
+            inputOnceDown = false;
+        }
+
+        bool isInputRightStart = Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || joyStickHorizonRight;
+		bool isInputLeftStart = Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || joyStickHorizonLeft;
+		bool isInputUpStart = Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || joyStickVirticalUp;
+		bool isInputDownStart = Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) || joyStickVirticalDown;
+
+		bool isInputRight = Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D) || Input.GetAxis("GamePadStickHolizontal") > 0.3;
+		bool isInputLeft = Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A) || Input.GetAxis("GamePadStickHolizontal") < -0.3;
+		bool isInputUp = Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W) || Input.GetAxis("GamePadStickVirtical") < -0.3;
+		bool isInputDown = Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S) || Input.GetAxis("GamePadStickVirtical") > 0.3;
 
 
-		if (Input.GetKeyDown(KeyCode.Escape)) {
+
+
+		if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("GamePadStart")) {
 			if(isPause == true) {
 				isPause = false;
 				Time.timeScale = 1f;
@@ -196,6 +259,7 @@ public class OptionManager : MonoBehaviour {
 				if (isInputDownStart) {
 					mainCursorPos++;
 				}
+
 
 				if (isSelectScene == false) {
 					if (mainCursorPos > (int)MainCursorManu.Exit) {
@@ -239,7 +303,7 @@ public class OptionManager : MonoBehaviour {
 	/// Restartを選択している状態の関数
 	/// </summary>
 	private void Continue() {
-		if (Input.GetKeyDown(KeyCode.Return)) {
+		if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("GamePadB")) {
 			isPause = false;
 			Time.timeScale = 1f;
 			canvas.SetActive(false);
@@ -270,8 +334,8 @@ public class OptionManager : MonoBehaviour {
 	}
 
 	private void Option() {
-		bool isEnter = Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow);
-		bool isBack = Input.GetKeyDown(KeyCode.Backspace) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow);
+		bool isEnter = Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow) || joyStickHorizonRight || Input.GetButtonDown("GamePadB");
+		bool isBack = Input.GetKeyDown(KeyCode.Backspace) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow) || joyStickHorizonLeft || Input.GetButtonDown("GamePadA");
 
 		for (int i = 0; i < GEAR_NUM_MAX; i++) {
 			if (i % 2 == 0) {
@@ -331,13 +395,13 @@ public class OptionManager : MonoBehaviour {
 			}
 		}
 
-		bool isPushingRight = Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D);
-		bool isPushingLeft = Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A);
-		bool isStartRight = Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D);
-		bool isStartLeft = Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A);
+		bool isPushingRight = Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D) || Input.GetAxis("GamePadStickHolizontal") > 0.3;
+        bool isPushingLeft = Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A) || Input.GetAxis("GamePadStickHolizontal") < -0.3;
+		bool isStartRight = Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || joyStickHorizonRight;
+		bool isStartLeft = Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || joyStickHorizonLeft;
 
-		bool isStartUp = Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W);
-		bool isStartDown = Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S);
+		bool isStartUp = Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || joyStickVirticalUp;
+		bool isStartDown = Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) || joyStickVirticalDown;
 
 		if (isOpeningOptionWindow == true) {
 			optionWindow.SetActive(true);
@@ -587,11 +651,11 @@ public class OptionManager : MonoBehaviour {
 
 		}
 
-		bool isEnter = Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.Return);
-		bool isBack = Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.Backspace);
+		bool isEnter = Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("GamePadB");
+		bool isBack = Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.Backspace) || Input.GetButtonDown("GamePadA");
 
-		bool isStartUp = Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W);
-		bool isStartDown = Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S);
+		bool isStartUp = Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)||joyStickVirticalUp;
+		bool isStartDown = Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)||joyStickVirticalDown;
 
 		if(isEnter == true) {
 			if(isConfirmation == true) {
@@ -661,11 +725,11 @@ public class OptionManager : MonoBehaviour {
 			confirmation.SetActive(false);
 		}
 
-		bool isEnter = Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.Return);
-		bool isBack = Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.Backspace);
+		bool isEnter = Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.Return)|| joyStickHorizonRight || Input.GetButtonDown("GamePadB");
+		bool isBack = Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.Backspace)|| joyStickHorizonLeft || Input.GetButtonDown("GamePadA");
 
-		bool isStartUp = Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W);
-		bool isStartDown = Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S);
+		bool isStartUp = Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W)|| joyStickVirticalUp;
+		bool isStartDown = Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)|| joyStickVirticalDown;
 
 		if (isEnter == true) {
 			if (isConfirmation == true) {

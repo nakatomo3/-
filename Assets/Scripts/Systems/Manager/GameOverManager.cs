@@ -95,14 +95,14 @@ public class GameOverManager : MonoBehaviour {
 
 		}
 
-		if (Input.GetKeyDown(KeyCode.DownArrow)) {
+		if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetAxis("GamePadStickVirtical") > 0.3) {
 			isSelectingRetry = false;
 		}
-		if (Input.GetKeyDown(KeyCode.UpArrow)) {
+		if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetAxis("GamePadStickVirtical") < -0.3) {
 			isSelectingRetry = true;
 		}
 
-		if (Input.GetKeyDown(KeyCode.Return)) {
+		if (Input.GetKeyDown(KeyCode.Return) || Input.GetButton("GamePadB")) {
 			if (isSelectingRetry == true) {
 				StageRetry();
 			} else {

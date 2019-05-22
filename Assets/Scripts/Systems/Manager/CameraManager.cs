@@ -110,7 +110,7 @@ public class CameraManager : MonoBehaviour {
     }
 
 	private void ChangeWholeMode() {
-		bool changeKey = Input.GetKey(KeyCode.Q);
+		bool changeKey = Input.GetKey(KeyCode.Q) || Input.GetButton("GamePadRB") || Input.GetButton("GamePadLB");
 
 		if (changeKey == false) {
 			isWholeMode = false;

@@ -89,7 +89,7 @@ public class Trigger : MonoBehaviour {
 			switch (thisType) {
 				case TriggerType.RightGear:
 					if (Player.instance.isGimmickMode == true && isThisGimmick == true) {
-						if (Input.GetKey(KeyCode.D)) {
+						if (Input.GetKey(KeyCode.D) || Input.GetAxis("GamePadStickHolizontal") > 0.3) {
 							isTriggerOn = true;
                             handle.transform.Rotate(0, 0, HANDLE_ROTATE_SPEED * Time.deltaTime);
 						}
@@ -101,7 +101,7 @@ public class Trigger : MonoBehaviour {
 
 				case TriggerType.LeftGear:
 					if (Player.instance.isGimmickMode == true && isThisGimmick == true) {
-						if (Input.GetKey(KeyCode.A)) {
+						if (Input.GetKey(KeyCode.A) || Input.GetAxis("GamePadStickHolizontal") < 0.3) {
 							isTriggerOn = true;
                             handle.transform.Rotate(0, 0, -HANDLE_ROTATE_SPEED * Time.deltaTime);
                         }
@@ -166,7 +166,7 @@ public class Trigger : MonoBehaviour {
 			switch (thisType) {
 				case TriggerType.RightGear:
 					if (Player.instance.isGimmickMode == true && isThisGimmick == true) {
-						if (Input.GetKey(KeyCode.A)) {
+						if (Input.GetKey(KeyCode.A) || Input.GetAxis("GamePadStickHolizontal") < 0.3) {
 							isTriggerOn = true;
                             handle.transform.Rotate(0, 0, -HANDLE_ROTATE_SPEED * Time.deltaTime);
                         }
@@ -178,7 +178,7 @@ public class Trigger : MonoBehaviour {
 
 				case TriggerType.LeftGear:
 					if (Player.instance.isGimmickMode == true && isThisGimmick == true) {
-						if (Input.GetKey(KeyCode.D)) {
+						if (Input.GetKey(KeyCode.D) || Input.GetAxis("GamePadStickHolizontal") < 0.3) {
 							isTriggerOn = true;
                             handle.transform.Rotate(0, 0, HANDLE_ROTATE_SPEED*Time.deltaTime);
                         }
