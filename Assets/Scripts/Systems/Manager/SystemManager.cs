@@ -68,6 +68,8 @@ public class SystemManager : MonoBehaviour {
 		TextAsset xmlTextAsset;
 		XmlDocument xmlDoc = new XmlDocument();
 
+		Debug.Log("A");
+
 		//XMLの読み込み
 		try {
 			xmlTextAsset = Instantiate(Resources.Load("XMLs/Stages/"+stageNum.ToString())) as TextAsset;
@@ -106,10 +108,15 @@ public class SystemManager : MonoBehaviour {
 			Debug.LogError("CollectPartsが指定されていません");
 		}
 
-		var bgmName = xmlDoc.GetElementsByTagName("BGM").Item(0).InnerText;
-		var bgm = Resources.Load("BGM/" + bgmName) as AudioClip;
-		if(bgm != null) {
-			CameraManager.instance.ChangeBGM(bgm);
+		try {
+			var bgmName = xmlDoc.GetElementsByTagName("BGM").Item(0).InnerText;
+			if (bgmName != null) {
+				var bgm = Resources.Load("BGM/" + bgmName) as AudioClip;
+				CameraManager.instance.ChangeBGM(bgm);
+			}
+		} catch {
+
+			Debug.LogError("BGMを設定してください");
 		}
 
 		//トリガーの追加
