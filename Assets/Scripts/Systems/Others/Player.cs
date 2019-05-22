@@ -9,7 +9,7 @@ public class Player : MonoBehaviour {
 	private bool isRight = true;
 
     //壊れた歯車
-    public GameObject gearobject;
+    private GameObject gearobject;
 
 
 	[HideInInspector]
@@ -48,6 +48,9 @@ public class Player : MonoBehaviour {
 
 	[SerializeField]
 	public bool canMove = true;
+
+    [HideInInspector]
+    public bool wasGameOver = false;
 
     private void Awake() {
         instance = this;
@@ -205,8 +208,10 @@ public class Player : MonoBehaviour {
 
          if (collision.gameObject.name == "ObjFallTrap(Clone)") {
             if (collision.gameObject.transform.position.y-1 > thisTransform.position.y) {
-                Instantiate(gearobject, Player.instance.visualTransform.position, Quaternion.Euler(90, 0, 0)); //rigidbodyの空気抵抗を変えてアニメーションさせてる
+                wasGameOver = true;
+               // Instantiate(gearobject, Player.instance.visualTransform.position, Quaternion.Euler(90, 0, 0)); //rigidbodyの空気抵抗を変えてアニメーションさせてる
                 Instantiate(Resources.Load("Prefabs/Systems/GameOver") as GameObject, transform.position, Quaternion.identity);
+                Instantiate(Resources.Load("Prefabs/Systems/BreakPlayer") as GameObject, transform.position, Quaternion.Euler(90, 0, 0));
                 this.gameObject.SetActive(false);
             }
         }
@@ -305,14 +310,15 @@ public class Player : MonoBehaviour {
 
         //落下死
 		if (other.gameObject.CompareTag("MissGround")) {
-			Instantiate(Resources.Load("Prefabs/Systems/GameOver") as GameObject, transform.position, Quaternion.identity);
+            wasGameOver = true;
+            Instantiate(Resources.Load("Prefabs/Systems/GameOver") as GameObject, transform.position, Quaternion.identity);
 			Destroy(this);
 		}
         //圧死
         if (other.gameObject.CompareTag("SquashGround"))
         {
             Vector3 Gearb = GameObject.FindGameObjectWithTag("Player").transform.position;
-
+            wasGameOver = true;
             Destroy(this.gameObject);
 
             Instantiate(gearobject, new Vector3(Gearb.x, Gearb.y, Gearb.z), Quaternion.identity);
@@ -324,7 +330,7 @@ public class Player : MonoBehaviour {
         if (other.gameObject.CompareTag("SandwichedGround"))
         {
             Vector3 Gearb = GameObject.FindGameObjectWithTag("Player").transform.position;
-
+            wasGameOver = true;
             Destroy(this.gameObject);
 
             Instantiate(gearobject, new Vector3(Gearb.x, Gearb.y, Gearb.z), Quaternion.identity);
@@ -337,7 +343,7 @@ public class Player : MonoBehaviour {
         if (other.gameObject.CompareTag("ExplosivedeathGround"))
         {
             Vector3 Gearb = GameObject.FindGameObjectWithTag("Player").transform.position;
-
+            wasGameOver = true;
             Destroy(this.gameObject);
 
             Instantiate(gearobject, new Vector3(Gearb.x, Gearb.y, Gearb.z), Quaternion.identity);
