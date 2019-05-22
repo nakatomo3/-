@@ -86,14 +86,37 @@ public class Player : MonoBehaviour {
 				}
 			}
 		}
-        Ray ray = new Ray(transform.position, new Vector3(0, -1, 0));
-        float distance = 1.3f;
-        RaycastHit hit;
-        if(Physics.Raycast(ray, out hit, distance)) {
-            if (hit.collider.CompareTag("Ground")) {
+        //Ray ray = new Ray(transform.position, new Vector3(0, -1, 0));
+        //float distance = 1.32f;
+        //RaycastHit hit;
+        // if(Physics.Raycast(ray, out hit, distance)) {
+        //    if (hit.collider.CompareTag("Ground")) {
+        //        isJumping = false;
+        //    }
+            
+        //}
+        //右下と左下にRayを飛ばして当たっていたらjumpをtrue
+        Ray ray2 = new Ray(transform.position, new Vector3(2.5f, -1, 0));
+        float distance2 = 1.6f;
+        RaycastHit hit2;
+        if (Physics.Raycast(ray2, out hit2, distance2)) {
+            if (hit2.collider.CompareTag("Ground")) {
                 isJumping = false;
             }
+          
         }
+        Ray ray3 = new Ray(transform.position, new Vector3(-2.5f, -1, 0));
+        float distance3 = 1.6f;
+        RaycastHit hit3;
+        if (Physics.Raycast(ray3, out hit3, distance3)) {
+            if (hit3.collider.CompareTag("Ground")) {
+                isJumping = false;
+            }
+            
+        }
+      //  Debug.DrawLine(ray.origin, ray.direction * distance, Color.red);
+        //Debug.DrawLine(ray2.origin, ray2.direction * distance2, Color.red);
+        //Debug.DrawLine(ray3.origin, ray3.direction * distance3, Color.red);
     }
 
 	/// <summary>
@@ -178,7 +201,7 @@ public class Player : MonoBehaviour {
 		}
 
 		if (isJumping == true) {
-			visualTransform.Rotate(0, -jumpRotateSpeed, 0);
+			visualTransform.Rotate(0, -jumpRotateSpeed*60*Time.deltaTime, 0);
 			jumpRotateSpeed *= 0.98f;
 		}
 
