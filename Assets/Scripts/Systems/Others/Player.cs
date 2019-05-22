@@ -87,7 +87,7 @@ public class Player : MonoBehaviour {
 			}
 		}
         Ray ray = new Ray(transform.position, new Vector3(0, -1, 0));
-        float distance = 1.5f;
+        float distance = 1.3f;
         RaycastHit hit;
         if(Physics.Raycast(ray, out hit, distance)) {
             if (hit.collider.CompareTag("Ground")) {
