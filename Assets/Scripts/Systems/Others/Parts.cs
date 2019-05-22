@@ -233,7 +233,7 @@ public class Parts : MonoBehaviour {
 
             speed = ((thisTransform.position - latestPos) / Time.deltaTime).magnitude;
             latestPos = thisTransform.position;
-            if (speed <= 0.1) {
+            if (speed <= 0.1 || Player.instance.wasGameOver == true || OptionManager.instance.isPause == true) {
                 audioSource.Stop();
                 soundCounter = 0;
             }
@@ -242,16 +242,17 @@ public class Parts : MonoBehaviour {
 
             speed   = ((thisTransform.position - latestPos) / Time.deltaTime).magnitude;
             latestPos = thisTransform.position;
-            if (speed <= 0.1) {
+            if (speed <= 0.1 || Player.instance.wasGameOver == true || OptionManager.instance.isPause == true) {
                 audioSource.Stop();
                 soundCounter = 0;
             }
+
         } else if (thisType == PartsType.MoveDepthObj) {
             transform.position = new Vector3(thisTransform.position.x, thisTransform.position.y, thisFirstPosZ + (SystemManager.instance.GetGimmickValue(connectNumber)+1) * MOVE_DEPTH_OBJ_RANGE/2);
 
             speed = ((thisTransform.position - latestPos) / Time.deltaTime).magnitude;
             latestPos = thisTransform.position;
-            if (speed <= 0.1) {
+            if (speed <= 0.1 || Player.instance.wasGameOver == true || OptionManager.instance.isPause == true) {
                 audioSource.Stop();
                 soundCounter = 0;
             }
