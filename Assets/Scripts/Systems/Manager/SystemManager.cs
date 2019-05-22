@@ -474,7 +474,7 @@ public class SystemManager : MonoBehaviour {
 		if (stageNum != 6) {
 			var missGroundObject = Instantiate(missGround, new Vector3(width / 2, -1, -1f), Quaternion.identity, transform);
 			missGroundObject.transform.localScale = new Vector3(width + 10, 1, 1);
-			missGroundObject.transform.GetChild(0).GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(100, 570);
+			//missGroundObject.transform.GetChild(0).GetChild(0).GetComponent<RectTransform>().sizeDelta = new Vector2(100, 1000);
 			missGroundObject.transform.GetChild(0).transform.localPosition = new Vector3(0, 0, 0.5f);
 		}
 
