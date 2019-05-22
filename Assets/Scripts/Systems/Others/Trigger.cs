@@ -73,8 +73,10 @@ public class Trigger : MonoBehaviour {
 				Player.instance.transform.position = thisTransform.position;
 				Player.instance.rigidbody.useGravity = false;
 				Player.instance.rigidbody.velocity = Vector3.zero;
+				visualObject.gameObject.SetActive(false);
 			}
 		} else {
+				visualObject.gameObject.SetActive(true);
 			Player.instance.rigidbody.useGravity = true;
 		}
 
