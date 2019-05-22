@@ -185,6 +185,74 @@
     </Wall>
   </Walls>
 
+
+
+  <Decoration>
+    <name>ガス灯</name>
+    <PosX>6</PosX>
+    <PosY>23</PosY>
+    <PosZ>-1</PosZ>
+    <ScaleX>1</ScaleX>
+    <ScaleY>1</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+  
+   <Decoration>
+    <name>ガス灯</name>
+    <PosX>12</PosX>
+    <PosY>23</PosY>
+    <PosZ>-1</PosZ>
+    <ScaleX>1</ScaleX>
+    <ScaleY>1</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+  
+  <Decoration>
+    <name>ガス灯</name>
+    <PosX>91</PosX>
+    <PosY>36.5</PosY>
+    <PosZ>-1</PosZ>
+    <ScaleX>1</ScaleX>
+    <ScaleY>1</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+  
+   <Decoration>
+    <name>ガス灯</name>
+    <PosX>97</PosX>
+    <PosY>36.5</PosY>
+    <PosZ>-1</PosZ>
+    <ScaleX>1</ScaleX>
+    <ScaleY>1</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+  
+   <Decoration>
+    <name>sample9</name>
+    <PosX>310</PosX>
+    <PosY>87</PosY>
+    <PosZ>-180</PosZ>
+    <ScaleX>3</ScaleX>
+    <ScaleY>3</ScaleY>
+    <ScaleZ>3</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+  
+   <Decoration>
+    <name>sample8</name>
+    <PosX>124</PosX>
+    <PosY>58</PosY>
+    <PosZ>120</PosZ>
+    <ScaleX>2</ScaleX>
+    <ScaleY>2</ScaleY>
+    <ScaleZ>2</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+  
     <!-- ゲームに影響のない見た目だけの部分。　未実装-->
     <BackGround>
         <Name></Name>
