@@ -201,7 +201,7 @@ public class Player : MonoBehaviour {
 		}
 
 		if (isJumping == true) {
-			visualTransform.Rotate(0, -jumpRotateSpeed, 0);
+			visualTransform.Rotate(0, -jumpRotateSpeed*60*Time.deltaTime, 0);
 			jumpRotateSpeed *= 0.98f;
 		}
 
