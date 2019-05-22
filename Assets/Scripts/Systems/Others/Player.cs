@@ -160,6 +160,7 @@ public class Player : MonoBehaviour {
 			}
 
 		}
+
 		if (Input.GetKeyUp(KeyCode.W) || Input.GetButtonUp("GamePadA")) {
 			if (isJumping != true) {
 				rigidbody.velocity = new Vector3(0, jumpRange, 0);
@@ -292,8 +293,8 @@ public class Player : MonoBehaviour {
 
 		}
 
-		if (other.gameObject.CompareTag("StageMover") || Input.GetButtonDown("GamePadB")) {
-			if (Input.GetKeyDown(KeyCode.Space)) {
+		if (other.gameObject.CompareTag("StageMover")) {
+			if (Input.GetKeyDown(KeyCode.Space) || Input.GetButtonDown("GamePadB")) {
 				StageMover stageMover = other.transform.parent.gameObject.GetComponent<StageMover>();
 				stageMover.isConnect = !stageMover.isConnect;
 				rigidbody.useGravity = !rigidbody.useGravity;
