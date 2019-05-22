@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(AudioSource))]
 public class CameraManager : MonoBehaviour {
 
 	public static CameraManager instance;
@@ -29,6 +30,8 @@ public class CameraManager : MonoBehaviour {
 	//[HideInInspector]
 	public bool isFreeAnimation = false;
 
+	private AudioSource audioSource;
+
 	private void Awake() {
 		instance = this;
 		thisTransform = transform;
@@ -54,6 +57,8 @@ public class CameraManager : MonoBehaviour {
 			smallerLong = 50;
 		}
 		wholeRange = -70 * smallerLong/100;
+
+		audioSource = GetComponent<AudioSource>();
 		
 	}
 
@@ -128,5 +133,10 @@ public class CameraManager : MonoBehaviour {
 
 		thisTransform.position += new Vector3((moveToPosition.x - thisTransform.position.x) /80, (moveToPosition.y - thisTransform.position.y) / 80, (moveToPosition.z - thisTransform.position.z) / 80);
 		thisTransform.localRotation = Quaternion.Euler(new Vector3(0, SideRange, 0));
+	}
+
+	public void ChangeBGM(AudioClip audioClip) {
+		audioSource.clip = audioClip;
+		audioSource.Play();
 	}
 }

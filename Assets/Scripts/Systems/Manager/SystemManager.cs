@@ -106,6 +106,12 @@ public class SystemManager : MonoBehaviour {
 			Debug.LogError("CollectPartsが指定されていません");
 		}
 
+		var bgmName = xmlDoc.GetElementsByTagName("BGM").Item(0).InnerText;
+		var bgm = Resources.Load("BGM/" + bgmName) as AudioClip;
+		if(bgm != null) {
+			CameraManager.instance.ChangeBGM(bgm);
+		}
+
 		//トリガーの追加
 		var triggers = xmlDoc.GetElementsByTagName("Trigger");
 		for (int i = 0; i < triggers.Count; i++) {
