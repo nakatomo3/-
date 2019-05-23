@@ -268,17 +268,272 @@
     <value>18</value>
   </ChangeRange>
 
+ 
 
-  <!--<Decoration>
+<Decoration>
+  <name>Big_pipe</name>
+  <PosX>105.5</PosX>
+  <PosY>51.7</PosY>
+  <PosZ>0.5</PosZ>
+  <ScaleX>14</ScaleX>
+  <ScaleY>3</ScaleY>
+  <ScaleZ>2</ScaleZ>
+  <Rotate>0</Rotate>
+</Decoration>
+
+  <Decoration>
+    <name>Big_pipe2</name>
+    <PosX>109.9</PosX>
+    <PosY>41.6</PosY>
+    <PosZ>1.7</PosZ>
+    <ScaleX>2.5</ScaleX>
+    <ScaleY>1.5</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Big_pipe4</name>
+    <PosX>10.9</PosX>
+    <PosY>-11</PosY>
+    <PosZ>-1</PosZ>
+    <ScaleX>1.5</ScaleX>
+    <ScaleY>1.2</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+  
+  <Decoration>
+    <name>背景歯車</name>
+    <PosX>60</PosX>
+    <PosY>16</PosY>
+    <PosZ>0</PosZ>
+    <ScaleX>0.15</ScaleX>
+    <ScaleY>0.15</ScaleY>
+    <ScaleZ>0.15</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>壊れた歯車</name>
+    <PosX>23.1</PosX>
+    <PosY>-9.4</PosY>
+    <PosZ>-1</PosZ>
+    <ScaleX>1</ScaleX>
+    <ScaleY>1</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>壊れた歯車2</name>
+    <PosX>27.6</PosX>
+    <PosY>-9.4</PosY>
+    <PosZ>-1</PosZ>
+    <ScaleX>1</ScaleX>
+    <ScaleY>1</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>壊れた歯車3</name>
+    <PosX>34.22</PosX>
+    <PosY>0.26</PosY>
+    <PosZ>-2.6</PosZ>
+    <ScaleX>1</ScaleX>
+    <ScaleY>1</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>壊れた歯車3</name>
+    <PosX>119.81</PosX>
+    <PosY>0.96</PosY>
+    <PosZ>-2.6</PosZ>
+    <ScaleX>1</ScaleX>
+    <ScaleY>1</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>壊れた歯車2</name>
+    <PosX>64.4</PosX>
+    <PosY>-9.4</PosY>
+    <PosZ>-1</PosZ>
+    <ScaleX>1</ScaleX>
+    <ScaleY>1</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>壊れた歯車2</name>
+    <PosX>69</PosX>
+    <PosY>-9.4</PosY>
+    <PosZ>-1</PosZ>
+    <ScaleX>1</ScaleX>
+    <ScaleY>1</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <!--Decoration>
+    <name>時計</name>
+    <PosX>60</PosX>
+    <PosY>20</PosY>
+    <PosZ>-2.6</PosZ>
+    <ScaleX>1</ScaleX>
+    <ScaleY>1</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration-->
+
+  <!--Decoration>
+    <name>エンジン</name>
+    <PosX>34.22</PosX>
+    <PosY>0.26</PosY>
+    <PosZ>-2.6</PosZ>
+    <ScaleX>1</ScaleX>
+    <ScaleY>1</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration-->
+
+  <!--Decoration>
+    <name>蒸気が出る筒</name>
+    <PosX>10.9</PosX>
+    <PosY>5.4</PosY>
+    <PosZ>-2.6</PosZ>
+    <ScaleX>1</ScaleX>
+    <ScaleY>1</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration-->
+
+  <!--Decoration>
     <name>ガス灯</name>
-    <PosX>10</PosX>
-    <PosY>6.62</PosY>
+    <PosX>46.6</PosX>
+    <PosY>9.8</PosY>
     <PosZ>-3</PosZ>
     <ScaleX>1</ScaleX>
     <ScaleY>1</ScaleY>
     <ScaleZ>1</ScaleZ>
     <Rotate>0</Rotate>
-  </Decoration>-->
+  </Decoration-->
+  
+  <Decoration>
+    <name>Steam</name>
+    <PosX>6</PosX>
+    <PosY>0.6</PosY>
+    <PosZ>-3.5</PosZ>
+    <ScaleX>0.7</ScaleX>
+    <ScaleY>0.7</ScaleY>
+    <ScaleZ>0.7</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam</name>
+    <PosX>15</PosX>
+    <PosY>0.6</PosY>
+    <PosZ>-3.5</PosZ>
+    <ScaleX>0.5</ScaleX>
+    <ScaleY>0.5</ScaleY>
+    <ScaleZ>0.5</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam</name>
+    <PosX>35</PosX>
+    <PosY>0.6</PosY>
+    <PosZ>-3.5</PosZ>
+    <ScaleX>1</ScaleX>
+    <ScaleY>1</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam</name>
+    <PosX>18</PosX>
+    <PosY>23.45</PosY>
+    <PosZ>-3.5</PosZ>
+    <ScaleX>0.5</ScaleX>
+    <ScaleY>0.5</ScaleY>
+    <ScaleZ>0.5</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam</name>
+    <PosX>4</PosX>
+    <PosY>23.45</PosY>
+    <PosZ>-3.5</PosZ>
+    <ScaleX>0.8</ScaleX>
+    <ScaleY>0.8</ScaleY>
+    <ScaleZ>0.8</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam</name>
+    <PosX>51.2</PosX>
+    <PosY>3.3</PosY>
+    <PosZ>-3.5</PosZ>
+    <ScaleX>0.8</ScaleX>
+    <ScaleY>0.8</ScaleY>
+    <ScaleZ>0.8</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam</name>
+    <PosX>64.65</PosX>
+    <PosY>11.3</PosY>
+    <PosZ>-3.5</PosZ>
+    <ScaleX>1</ScaleX>
+    <ScaleY>1</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam</name>
+    <PosX>103.7</PosX>
+    <PosY>19.24</PosY>
+    <PosZ>-3.5</PosZ>
+    <ScaleX>1.2</ScaleX>
+    <ScaleY>1.2</ScaleY>
+    <ScaleZ>1.2</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam</name>
+    <PosX>118.39</PosX>
+    <PosY>0.82</PosY>
+    <PosZ>-3.5</PosZ>
+    <ScaleX>0.5</ScaleX>
+    <ScaleY>0.5</ScaleY>
+    <ScaleZ>0.5</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam</name>
+    <PosX>106.39</PosX>
+    <PosY>28.58</PosY>
+    <PosZ>-3.5</PosZ>
+    <ScaleX>2</ScaleX>
+    <ScaleY>2</ScaleY>
+    <ScaleZ>2</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
   
   <Decoration>
     <name>Sign3</name>
@@ -304,8 +559,30 @@
 
   <Decoration>
     <name>Sign7</name>
-    <PosX>10.5</PosX>
+    <PosX>30</PosX>
     <PosY>33</PosY>
+    <PosZ>-1</PosZ>
+    <ScaleX>-16</ScaleX>
+    <ScaleY>-9</ScaleY>
+    <ScaleZ>0.01</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Sign1</name>
+    <PosX>10</PosX>
+    <PosY>29</PosY>
+    <PosZ>-1</PosZ>
+    <ScaleX>-16</ScaleX>
+    <ScaleY>-9</ScaleY>
+    <ScaleZ>0.01</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Sign2</name>
+    <PosX>10</PosX>
+    <PosY>39</PosY>
     <PosZ>-1</PosZ>
     <ScaleX>-16</ScaleX>
     <ScaleY>-9</ScaleY>
