@@ -233,7 +233,7 @@ public class Parts : MonoBehaviour {
 
             speed = ((thisTransform.position - latestPos) / Time.deltaTime).magnitude;
             latestPos = thisTransform.position;
-            if (speed <= 0.1 || Player.instance.wasGameOver == true || OptionManager.instance.isPause == true) {
+            if (speed <= 0 || Player.instance.wasGameOver == true || OptionManager.instance.isPause == true) {
                 audioSource.Stop();
                 soundCounter = 0;
             }
@@ -242,7 +242,7 @@ public class Parts : MonoBehaviour {
 
             speed   = ((thisTransform.position - latestPos) / Time.deltaTime).magnitude;
             latestPos = thisTransform.position;
-            if (speed <= 0.1 || Player.instance.wasGameOver == true || OptionManager.instance.isPause == true) {
+            if (speed <= 0 || Player.instance.wasGameOver == true || OptionManager.instance.isPause == true) {
                 audioSource.Stop();
                 soundCounter = 0;
             }
@@ -252,7 +252,7 @@ public class Parts : MonoBehaviour {
 
             speed = ((thisTransform.position - latestPos) / Time.deltaTime).magnitude;
             latestPos = thisTransform.position;
-            if (speed <= 0.1 || Player.instance.wasGameOver == true || OptionManager.instance.isPause == true) {
+            if (speed <= 0 || Player.instance.wasGameOver == true || OptionManager.instance.isPause == true) {
                 audioSource.Stop();
                 soundCounter = 0;
             }
@@ -705,6 +705,7 @@ public class Parts : MonoBehaviour {
 
                     if (isImpulse == true && willPositionReset == false) {
                         Player.instance.rigidbody.velocity = new Vector3(0, IMPULSE_UP_POWER, 0);
+                        audioSource.Play();
                         //Player.instance.rigidbody.AddForce(impulseVector, ForceMode.VelocityChange);
                         isImpulse = false;
                     }
@@ -739,6 +740,7 @@ public class Parts : MonoBehaviour {
                     if (isImpulse == true && willPositionReset == false)
                     {
                         Player.instance.rigidbody.velocity = new Vector3(0, IMPULSE_UP_POWER_2, 0);
+                        audioSource.Play();
                         isImpulse = false;
                     }
                     if (impulseObj.position.y <= thisFirstPosY + IMPULSE_ACTION_RANGE && willPositionReset == false)
@@ -776,6 +778,7 @@ public class Parts : MonoBehaviour {
                     Debug.Log(isImpulse + ":" + willPositionReset);
                     if (isImpulse == true && willPositionReset == false) {
                         Player.instance.springSpeed = -IMPULSE_VIRTICAL_POWER * Time.deltaTime;
+                        audioSource.Play();
                         isImpulse = false;
                     }
                     if (impulseObj.position.x >= thisFirstPosX - IMPULSE_ACTION_RANGE && willPositionReset == false) {
@@ -807,6 +810,7 @@ public class Parts : MonoBehaviour {
                     Debug.Log(isImpulse + ":" + willPositionReset);
                     if (isImpulse == true && willPositionReset == false) {
                         Player.instance.springSpeed = IMPULSE_VIRTICAL_POWER*Time.deltaTime;
+                        audioSource.Play();
                         isImpulse = false;
                     }
                     if (impulseObj.position.x <= thisFirstPosX + IMPULSE_ACTION_RANGE && willPositionReset == false) {
