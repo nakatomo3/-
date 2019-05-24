@@ -78,7 +78,10 @@ public class StageSelectManager : MonoBehaviour {
 		for(int i = 0; i < endSign.transform.GetChild(3).childCount; i++) {
 			endSignGears.Add(endSign.transform.GetChild(3).GetChild(i));
 		}
-		isEndAnimation = true;
+		if(PlayerPrefs.GetInt("ClearAnimation",0) == 0) {
+			isEndAnimation = true;
+		}
+		PlayerPrefs.SetInt("ClearAnimation", 1);
 	}
 
 	// Update is called once per frame
