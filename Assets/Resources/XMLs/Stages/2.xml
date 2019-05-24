@@ -412,6 +412,17 @@
     <Rotate>0</Rotate>
   </Decoration>
 
+  <Decoration>
+    <name>Big_pipe6</name>
+    <PosX>101.1</PosX>
+    <PosY>19.1</PosY>
+    <PosZ>1.1</PosZ>
+    <ScaleX>2</ScaleX>
+    <ScaleY>2</ScaleY>
+    <ScaleZ>2</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
   <!--Decoration>
     <name>背景歯車</name>
     <PosX>85.7</PosX>
@@ -438,7 +449,7 @@
     <name>背景歯車</name>
     <PosX>68.7</PosX>
     <PosY>40</PosY>
-    <PosZ>-0.7</PosZ>
+    <PosZ>-2</PosZ>
     <ScaleX>0.3</ScaleX>
     <ScaleY>0.3</ScaleY>
     <ScaleZ>1</ScaleZ>
