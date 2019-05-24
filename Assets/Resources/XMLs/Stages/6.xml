@@ -1,210 +1,960 @@
 ﻿<Stage>
-  <Width>130</Width>
-  <Height>50</Height>
-  <StartX>2</StartX>
-  <StartY>2</StartY>
+  <Width>200</Width>
+  <Height>100</Height>
+  <StartX>100</StartX>
+  <StartY>28</StartY>
     <!-- トリガーを増やす場合は<Trigger>から</Trigger>までをコピーしてください -->
     <!-- 連動するパーツを増やす場合は<Parts>を増やしてください-->
     <!-- ConnectNumberが同じならば、一つのTriggerで複数のパーツが動かせます-->
-    <Gimmick>    
-        <Trigger>
-            <ConnectNumber>0</ConnectNumber>
-            <Type>Forever</Type>
-            <X>28</X>
-            <Y>4.5</Y>
+    <Gimmick>
+      <!--Triggerを持たない独立パーツ用-->
+      <Trigger>
+            <ConnectNumber>99</ConnectNumber>
+            <Type>Button</Type>
+            <X>-1000</X>
+            <Y>-5</Y>
         </Trigger>
-        <Parts>
-            <ConnectNumber>0</ConnectNumber>
-            <Name>MoveVerticalObj</Name>
-            <X>36</X>
-            <Y>5</Y>
-          <Rotate>0</Rotate>
-          <id>0</id>
+      
+      <!--Gate-->
+      
+      <Trigger>
+            <ConnectNumber>21</ConnectNumber>
+            <Type>RightGear</Type>
+            <X>193.7</X>
+            <Y>87</Y>
+        </Trigger>
+      <Parts>
+            <ConnectNumber>21</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>91</X>
+            <Y>89</Y>
+          <Rotate>-45</Rotate>
+        </Parts>
+      <Parts>
+            <ConnectNumber>21</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>90.5</X>
+            <Y>96</Y>
+          <Rotate>50</Rotate>
+        </Parts>
+      <Parts>
+            <ConnectNumber>21</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>109.5</X>
+            <Y>96</Y>
+          <Rotate>-50</Rotate>
+        </Parts>
+      <Parts>
+            <ConnectNumber>21</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>109.5</X>
+            <Y>89</Y>
+          <Rotate>45</Rotate>
         </Parts>
       
       <Trigger>
-        <ConnectNumber>1</ConnectNumber>
-        <Type>RightGear</Type>
-        <X>22</X>
-        <Y>25</Y>
-      </Trigger>
-      <Trigger>
-        <ConnectNumber>1</ConnectNumber>
-        <Type>RightGear</Type>
-        <X>100</X>
-        <Y>35</Y>
-      </Trigger>
+            <ConnectNumber>22</ConnectNumber>
+            <Type>RightGear</Type>
+            <X>197</X>
+            <Y>10</Y>
+        </Trigger>
       <Parts>
-        <ConnectNumber>1</ConnectNumber>
-        <Name>Bridge</Name>
-        <X>40.5</X>
-        <Y>23</Y>
-        <Rotate>180</Rotate>
-      </Parts>
+            <ConnectNumber>22</ConnectNumber>
+            <Name>MoveVerticalObj</Name>
+            <X>179</X>
+            <Y>-5</Y>
+          <Rotate>0</Rotate>
+          <id>6</id>
+        </Parts>
       <Parts>
-        <ConnectNumber>1</ConnectNumber>
-        <Name>MoveHorizontalObj</Name>
-        <X>57</X>
-        <Y>1</Y>
-        <Rotate>0</Rotate>
-        <id>1</id>
-      </Parts>
+            <ConnectNumber>22</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>92</X>
+            <Y>89</Y>
+          <Rotate>-45</Rotate>
+        </Parts>
+      <Parts>
+            <ConnectNumber>22</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>91.5</X>
+            <Y>96</Y>
+          <Rotate>50</Rotate>
+        </Parts>
+      <Parts>
+            <ConnectNumber>22</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>108.5</X>
+            <Y>96</Y>
+          <Rotate>-50</Rotate>
+        </Parts>
+      <Parts>
+            <ConnectNumber>22</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>108.5</X>
+            <Y>89</Y>
+          <Rotate>45</Rotate>
+        </Parts>
       
       <Trigger>
-        <ConnectNumber>2</ConnectNumber>
-        <Type>RightGear</Type>
-        <X>73</X>
-        <Y>25</Y>
-      </Trigger>
-      <Trigger>
-        <ConnectNumber>2</ConnectNumber>
-        <Type>RightGear</Type>
-        <X>73</X>
-        <Y>13</Y>
-      </Trigger>
+            <ConnectNumber>23</ConnectNumber>
+            <Type>RightGear</Type>
+            <X>13.7</X>
+            <Y>10</Y>
+        </Trigger>
       <Parts>
-        <ConnectNumber>2</ConnectNumber>
-        <Name>MoveVerticalObj</Name>
-        <X>85</X>
-        <Y>12</Y>
-        <Rotate>0</Rotate>
-        <id>2</id>
-      </Parts>
-
-      <Trigger>
-        <ConnectNumber>3</ConnectNumber>
-        <Type>Forever</Type>
-        <X>116</X>
-        <Y>0.5</Y>
-      </Trigger>
+            <ConnectNumber>23</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>93</X>
+            <Y>89</Y>
+          <Rotate>-45</Rotate>
+        </Parts>
       <Parts>
-        <ConnectNumber>3</ConnectNumber>
-        <Name>MoveVerticalObj</Name>
-        <X>124</X>
-        <Y>1</Y>
-        <Rotate>0</Rotate>
-        <id>3</id>
-      </Parts>
-
-      <Trigger>
-        <ConnectNumber>4</ConnectNumber>
-        <Type>RightGear</Type>
-        <X>121</X>
-        <Y>35</Y>
-      </Trigger>
+            <ConnectNumber>23</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>92.5</X>
+            <Y>96</Y>
+          <Rotate>50</Rotate>
+        </Parts>
       <Parts>
-        <ConnectNumber>4</ConnectNumber>
-        <Name>Goal</Name>
-        <X>121</X>
-        <Y>35</Y>
-        <Rotate>0</Rotate>
-        <id>0</id>
-      </Parts>
+            <ConnectNumber>23</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>107.5</X>
+            <Y>96</Y>
+          <Rotate>-50</Rotate>
+        </Parts>
+      <Parts>
+            <ConnectNumber>23</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>107.5</X>
+            <Y>89</Y>
+          <Rotate>45</Rotate>
+        </Parts>
       
+            <Trigger>
+            <ConnectNumber>24</ConnectNumber>
+            <Type>RightGear</Type>
+            <X>8</X>
+            <Y>88</Y>
+        </Trigger>
+      <Parts>
+            <ConnectNumber>23</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>94</X>
+            <Y>89</Y>
+          <Rotate>-45</Rotate>
+        </Parts>
+      <Parts>
+            <ConnectNumber>23</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>93.5</X>
+            <Y>96</Y>
+          <Rotate>50</Rotate>
+        </Parts>
+      <Parts>
+            <ConnectNumber>23</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>106.5</X>
+            <Y>96</Y>
+          <Rotate>-50</Rotate>
+        </Parts>
+      <Parts>
+            <ConnectNumber>23</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>106.5</X>
+            <Y>89</Y>
+          <Rotate>45</Rotate>
+        </Parts>
+      
+      <!--Blue-->
+        <Trigger>
+            <ConnectNumber>0</ConnectNumber>
+            <Type>RightGear</Type>
+            <X>107</X>
+            <Y>29</Y>
+        </Trigger>
+        <Parts>
+            <ConnectNumber>0</ConnectNumber>
+            <Name>Bridge</Name>
+            <X>101</X>
+            <Y>50</Y>
+          <Rotate>50</Rotate>
+        </Parts>
+      <!--NE-->
+      <Parts>
+            <ConnectNumber>0</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>195</X>
+            <Y>51</Y>
+        </Parts>
+      <!--NW-->
+      <Parts>
+            <ConnectNumber>0</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>21</X>
+            <Y>95</Y>
+        <Rotate>90</Rotate>
+        </Parts>
+      <Parts>
+            <ConnectNumber>0</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>21</X>
+            <Y>86</Y>
+        <Rotate>90</Rotate>
+        </Parts>
+      <!--SE-->
+      <Parts>
+            <ConnectNumber>0</ConnectNumber>
+            <Name>ImpulseUp</Name>
+            <X>198</X>
+            <Y>15</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>0</ConnectNumber>
+            <Name>ImpulseUp</Name>
+            <X>195</X>
+            <Y>15</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>0</ConnectNumber>
+            <Name>ImpulseUp</Name>
+            <X>192</X>
+            <Y>15</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>0</ConnectNumber>
+            <Name>ImpulseUp</Name>
+            <X>186</X>
+            <Y>15</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>0</ConnectNumber>
+            <Name>ImpulseUp</Name>
+            <X>183</X>
+            <Y>15</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>0</ConnectNumber>
+            <Name>ImpulseUp</Name>
+            <X>180</X>
+            <Y>15</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>0</ConnectNumber>
+            <Name>ImpulseUp</Name>
+            <X>177</X>
+            <Y>15</Y>
+        </Parts>
+      <!--SW-->
+      <!--Blue All-->
+      
+      <!--Red-->
+      <Trigger>
+            <ConnectNumber>1</ConnectNumber>
+            <Type>LeftGear</Type>
+            <X>95</X>
+            <Y>29</Y>
+        <Rotate>0</Rotate>
+        <Initial>1</Initial>
+        </Trigger>
+        <Parts>
+            <ConnectNumber>1</ConnectNumber>
+            <Name>Bridge</Name>
+            <X>99</X>
+            <Y>50</Y>
+          <Rotate>-50</Rotate>
+        </Parts>
+      <!--NE-->
+      <Parts>
+            <ConnectNumber>1</ConnectNumber>
+            <Name>ImpulseLeft</Name>
+            <X>187</X>
+            <Y>90</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>1</ConnectNumber>
+            <Name>ImpulseLeft</Name>
+            <X>185</X>
+            <Y>88</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>1</ConnectNumber>
+            <Name>ImpulseLeft</Name>
+            <X>183</X>
+            <Y>86</Y>
+        </Parts>
+      <!--NW-->
+      <!--SE-->
+      <!--SW-->
+      <Parts>
+            <ConnectNumber>1</ConnectNumber>
+            <Name>Pitfall</Name>
+            <X>12</X>
+            <Y>18</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>1</ConnectNumber>
+            <Name>Pitfall</Name>
+            <X>12</X>
+            <Y>37</Y>
+        </Parts>
+      <!--Red All-->
+        
+      <Trigger>
+            <ConnectNumber>2</ConnectNumber>
+            <Type>Forever</Type>
+            <X>120</X>
+            <Y>32.5</Y>
+        </Trigger>
+        <Parts>
+            <ConnectNumber>2</ConnectNumber>
+            <Name>MoveVerticalObj</Name>
+            <X>128</X>
+            <Y>49</Y>
+          <Rotate>0</Rotate>
+          <id>0</id>
+        </Parts>
+      <Trigger>
+            <ConnectNumber>3</ConnectNumber>
+            <Type>Forever</Type>
+            <X>80</X>
+            <Y>32.5</Y>
+            <Rotate>-30</Rotate>
+        </Trigger>
+        <Parts>
+            <ConnectNumber>3</ConnectNumber>
+            <Name>MoveVerticalObj</Name>
+            <X>72</X>
+            <Y>49</Y>
+          <Rotate>0</Rotate>
+          <id>1</id>
+        </Parts>
+      <Parts>
+            <ConnectNumber>3</ConnectNumber>
+            <Name>MoveVerticalObj</Name>
+            <X>68</X>
+            <Y>14</Y>
+          <Rotate>0</Rotate>
+          <id>5</id>
+        </Parts>
+      
+      
+      <!--Center / NorthEast-->
+      
+      <Trigger>
+            <ConnectNumber>4</ConnectNumber>
+            <Type>LeftGear</Type>
+            <X>196</X>
+            <Y>70</Y>
+        </Trigger>
+      <Parts>
+            <ConnectNumber>4</ConnectNumber>
+            <Name>Bridge</Name>
+            <X>162</X>
+            <Y>70</Y>
+          <Rotate>135</Rotate>
+        </Parts>
+      <Trigger>
+            <ConnectNumber>5</ConnectNumber>
+            <Type>Button</Type>
+            <X>188</X>
+            <Y>55.5</Y>
+        </Trigger>
+      <Parts>
+            <ConnectNumber>5</ConnectNumber>
+            <Name>Pitfall</Name>
+            <X>190</X>
+            <Y>68</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>99</ConnectNumber>
+            <Name>ImpulseUp</Name>
+            <X>189</X>
+            <Y>43</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>99</ConnectNumber>
+            <Name>ImpulseRight</Name>
+            <X>138</X>
+            <Y>75</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>99</ConnectNumber>
+            <Name>ImpulseUp_2</Name>
+            <X>143</X>
+            <Y>67</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>99</ConnectNumber>
+            <Name>ImpulseUp_2</Name>
+            <X>138</X>
+            <Y>59</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>99</ConnectNumber>
+            <Name>ImpulseUp_2</Name>
+            <X>135</X>
+            <Y>62</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>99</ConnectNumber>
+            <Name>ObjFallTrap</Name>
+            <X>165</X>
+            <Y>58</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>99</ConnectNumber>
+            <Name>ObjFallTrap</Name>
+            <X>169</X>
+            <Y>61</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>99</ConnectNumber>
+            <Name>ObjFallTrap</Name>
+            <X>174</X>
+            <Y>63</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>99</ConnectNumber>
+            <Name>ObjFallTrap</Name>
+            <X>178</X>
+            <Y>66</Y>
+        </Parts>
+      
+      <!--NorthEast / NorthWest-->
+      
+      <Trigger>
+            <ConnectNumber>6</ConnectNumber>
+            <Type>RightGear</Type>
+            <X>41</X>
+            <Y>47.5</Y>
+        </Trigger>
+      <Parts>
+            <ConnectNumber>6</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>26</X>
+            <Y>85</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>6</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>51</X>
+            <Y>77</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>6</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>46</X>
+            <Y>74</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>6</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>28</X>
+            <Y>61</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>6</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>29</X>
+            <Y>54</Y>
+        </Parts>
+    <Trigger>
+            <ConnectNumber>7</ConnectNumber>
+            <Type>RightGear</Type>
+            <X>47</X>
+            <Y>47.5</Y>
+        </Trigger>
+      <Parts>
+            <ConnectNumber>7</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>21</X>
+            <Y>49.5</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>7</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>43</X>
+            <Y>54</Y>
+        </Parts>
+            <Parts>
+            <ConnectNumber>7</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>20</X>
+            <Y>62</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>7</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>27</X>
+            <Y>65</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>7</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>25</X>
+            <Y>79</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>7</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>19</X>
+            <Y>75</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>7</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>38</X>
+            <Y>79</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>7</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>38</X>
+            <Y>85</Y>
+        </Parts>
+      <Trigger>
+            <ConnectNumber>8</ConnectNumber>
+            <Type>RightGear</Type>
+            <X>53</X>
+            <Y>47.5</Y>
+        </Trigger>
+      <Parts>
+            <ConnectNumber>8</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>31</X>
+            <Y>81</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>8</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>36</X>
+            <Y>68</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>8</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>38</X>
+            <Y>49.5</Y>
+        </Parts>
+          <Trigger>
+            <ConnectNumber>9</ConnectNumber>
+            <Type>RightGear</Type>
+            <X>59</X>
+            <Y>47.5</Y>
+        </Trigger>
+      <Parts>
+            <ConnectNumber>9</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>41</X>
+            <Y>81</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>9</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>32</X>
+            <Y>72</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>9</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>40</X>
+            <Y>64</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>9</ConnectNumber>
+            <Name>MoveDepthObj</Name>
+            <X>20</X>
+            <Y>57</Y>
+        </Parts>
+      
+    <!--NorthWest / SouthEast-->
+      
+      <Parts>
+            <ConnectNumber>99</ConnectNumber>
+            <Name>ImpulseUp</Name>
+            <X>138</X>
+            <Y>16</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>99</ConnectNumber>
+            <Name>ImpulseUp</Name>
+            <X>183.6</X>
+            <Y>34.3</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>99</ConnectNumber>
+            <Name>ImpulseUp</Name>
+            <X>111.8</X>
+            <Y>11.3</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>99</ConnectNumber>
+            <Name>ImpulseUp</Name>
+            <X>156.6</X>
+            <Y>10.6</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>99</ConnectNumber>
+            <Name>ImpulseUp</Name>
+            <X>172.9</X>
+            <Y>17.6</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>99</ConnectNumber>
+            <Name>ImpulseUp_2</Name>
+            <X>141.9</X>
+            <Y>23.4</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>99</ConnectNumber>
+            <Name>ImpulseUp_2</Name>
+            <X>152.8</X>
+            <Y>27.8</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>99</ConnectNumber>
+            <Name>ImpulseUp_2</Name>
+            <X>179.5</X>
+            <Y>29.6</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>99</ConnectNumber>
+            <Name>ImpulseUp_2</Name>
+            <X>133.8</X>
+            <Y>11.4</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>99</ConnectNumber>
+            <Name>ImpulseUp_2</Name>
+            <X>164.6</X>
+            <Y>8.3</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>99</ConnectNumber>
+            <Name>ImpulseUp_2</Name>
+            <X>147.4</X>
+            <Y>21.6</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>99</ConnectNumber>
+            <Name>ImpulseUp_2</Name>
+            <X>165.5</X>
+            <Y>33.3</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>99</ConnectNumber>
+            <Name>ImpulseUp_2</Name>
+            <X>153.5</X>
+            <Y>20.1</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>99</ConnectNumber>
+            <Name>ImpulseUp_2</Name>
+            <X>169.7</X>
+            <Y>6</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>99</ConnectNumber>
+            <Name>ImpulseUp_2</Name>
+            <X>163</X>
+            <Y>18.6</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>99</ConnectNumber>
+            <Name>ImpulseUp_2</Name>
+            <X>129</X>
+            <Y>10.7</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>99</ConnectNumber>
+            <Name>ImpulseUp_2</Name>
+            <X>122</X>
+            <Y>8.5</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>99</ConnectNumber>
+            <Name>ImpulseLeft</Name>
+            <X>122.3</X>
+            <Y>22.7</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>99</ConnectNumber>
+            <Name>ImpulseLeft</Name>
+            <X>197.1</X>
+            <Y>27.5</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>99</ConnectNumber>
+            <Name>ImpulseRight</Name>
+            <X>146</X>
+            <Y>12.4</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>99</ConnectNumber>
+            <Name>ImpulseRight</Name>
+            <X>127.1</X>
+            <Y>18.7</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>99</ConnectNumber>
+            <Name>ObjFallTrap</Name>
+            <X>159</X>
+            <Y>29.55</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>99</ConnectNumber>
+            <Name>ObjFallTrap</Name>
+            <X>174</X>
+            <Y>32.9</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>99</ConnectNumber>
+            <Name>ObjFallTrap</Name>
+            <X>188.6</X>
+            <Y>35.1</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>99</ConnectNumber>
+            <Name>ObjFallTrap</Name>
+            <X>136.6</X>
+            <Y>32.6</Y>
+        </Parts>
+      
+      <!--SouthEast / SouthWest-->
+      
+      <Trigger>
+            <ConnectNumber>10</ConnectNumber>
+            <Type>Forever</Type>
+            <X>34</X>
+            <Y>6.5</Y>
+        </Trigger>
+      <Parts>
+            <ConnectNumber>10</ConnectNumber>
+            <Name>MoveVerticalObj</Name>
+            <X>27.7</X>
+            <Y>6</Y>
+            <Rotate>0</Rotate>
+            <id>3</id>
+        </Parts>
+      <Trigger>
+            <ConnectNumber>11</ConnectNumber>
+            <Type>Forever</Type>
+            <X>7</X>
+            <Y>7.5</Y>
+        </Trigger>
+      <Parts>
+            <ConnectNumber>11</ConnectNumber>
+            <Name>MoveHorizontalObj</Name>
+            <X>5</X>
+            <Y>2</Y>
+            <Rotate>0</Rotate>
+            <id>4</id>
+        </Parts>
+      <Parts>
+            <ConnectNumber>99</ConnectNumber>
+            <Name>ObjFallTrap</Name>
+            <X>58</X>
+            <Y>26</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>99</ConnectNumber>
+            <Name>ObjFallTrap</Name>
+            <X>34</X>
+            <Y>18.5</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>99</ConnectNumber>
+            <Name>ObjFallTrap</Name>
+            <X>46.5</X>
+            <Y>40.5</Y>
+        </Parts>
+      
+    <Trigger>
+            <ConnectNumber>90</ConnectNumber>
+            <Type>RightGear</Type>
+            <X>102</X>
+            <Y>88</Y>
+        </Trigger>
+      <Parts>
+            <ConnectNumber>90</ConnectNumber>
+            <Name>Goal</Name>
+            <X>102</X>
+            <Y>88</Y>
+        </Parts>
+    
     </Gimmick>
 
   <CollectParts>
     <Collect1>
-      <X>60.5</X>
-      <Y>39</Y>
+      <X>-99</X>
+      <Y>-99</Y>
     </Collect1>
     <Collect2>
-      <X>90</X>
-      <Y>4</Y>
+      <X>-99</X>
+      <Y>-99</Y>
     </Collect2>
   </CollectParts>
 
   <Grounds>
     <Ground>
-      <PosX>15</PosX>
-      <PosY>23</PosY>
-      <Long>30</Long>
+      <PosX>114</PosX>
+      <PosY>82</PosY>
+      <Long>14</Long>
+      <Rotate>-20</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    <Ground>
+      <PosX>86</PosX>
+      <PosY>82</PosY>
+      <Long>14</Long>
+      <Rotate>20</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    <Ground>
+      <PosX>35.5</PosX>
+      <PosY>6</PosY>
+      <Long>7</Long>
       <Rotate>0</Rotate>
       <!-- 0～360. 無ければ自動で0-->
     </Ground>
     <Ground>
-      <PosX>60.5</PosX>
-      <PosY>37</PosY>
+      <PosX>37</PosX>
+      <PosY>22.5</PosY>
       <Long>10</Long>
-      <Rotate>0</Rotate>
-      <!-- 0～360. 無ければ自動で0-->
-    </Ground>
-    <Ground>
-      <PosX>110</PosX>
-      <PosY>33</PosY>
-      <Long>40</Long>
-      <Rotate>0</Rotate>
-      <!-- 0～360. 無ければ自動で0-->
-    </Ground>
-    <Ground>
-      <PosX>72</PosX>
-      <PosY>23</PosY>
-      <Long>15</Long>
       <Rotate>0</Rotate>
       <!-- 0～360. 無ければ自動で0-->
     </Ground>
     <Ground>
       <PosX>46</PosX>
-      <PosY>3</PosY>
-      <Long>10</Long>
+      <PosY>18</PosY>
+      <Long>24</Long>
+      <Rotate>45</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    <Ground>
+      <PosX>33</PosX>
+      <PosY>36.5</PosY>
+      <Long>22</Long>
       <Rotate>0</Rotate>
       <!-- 0～360. 無ければ自動で0-->
     </Ground>
     <Ground>
-      <PosX>58</PosX>
-      <PosY>7</PosY>
-      <Long>15</Long>
-      <Rotate>30</Rotate>
-      <!-- 0～360. 無ければ自動で0-->
-    </Ground>
-    <Ground>
-      <PosX>77.5</PosX>
+      <PosX>67</PosX>
       <PosY>11</PosY>
-      <Long>25</Long>
+      <Long>26</Long>
       <Rotate>0</Rotate>
       <!-- 0～360. 無ければ自動で0-->
     </Ground>
     <Ground>
-      <PosX>97</PosX>
-      <PosY>15</PosY>
-      <Long>15</Long>
+      <PosX>49</PosX>
+      <PosY>29.5</PosY>
+      <Long>20</Long>
+      <Rotate>45</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    <Ground>
+      <PosX>32</PosX>
+      <PosY>45</PosY>
+      <Long>62</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    <Ground>
+      <PosX>192</PosX>
+      <PosY>7</PosY>
+      <Long>13</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    <Ground>
+      <PosX>100</PosX>
+      <PosY>26</PosY>
+      <Long>14</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    <Ground>
+      <PosX>100</PosX>
+      <PosY>85</PosY>
+      <Long>14</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    <Ground>
+      <PosX>10.5</PosX>
+      <PosY>85</PosY>
+      <Long>20</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    <Ground>
+      <PosX>190</PosX>
+      <PosY>84</PosY>
+      <Long>18</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    <Ground>
+      <PosX>171</PosX>
+      <PosY>41</PosY>
+      <Long>20</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    <Ground>
+      <PosX>151</PosX>
+      <PosY>50</PosY>
+      <Long>20</Long>
+      <Rotate>-30</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    <Ground>
+      <PosX>189</PosX>
+      <PosY>55</PosY>
+      <Long>13</Long>
+      <Rotate>0</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    <Ground>
+      <PosX>174</PosX>
+      <PosY>50</PosY>
+      <Long>20</Long>
       <Rotate>30</Rotate>
       <!-- 0～360. 無ければ自動で0-->
     </Ground>
     <Ground>
-      <PosX>111.5</PosX>
-      <PosY>19</PosY>
-      <Long>15</Long>
-      <Rotate>0</Rotate>
-      <!-- 0～360. 無ければ自動で0-->
-    </Ground>
-    <Ground>
-      <PosX>90</PosX>
-      <PosY>2</PosY>
-      <Long>5</Long>
-      <Rotate>0</Rotate>
-      <!-- 0～360. 無ければ自動で0-->
-    </Ground>
-
-    <Ground>
-      <PosX>10</PosX>
-      <PosY>0</PosY>
+      <PosX>122</PosX>
+      <PosY>33</PosY>
       <Long>20</Long>
+      <Rotate>30</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    <Ground>
+      <PosX>78</PosX>
+      <PosY>33</PosY>
+      <Long>20</Long>
+      <Rotate>-30</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    <Ground>
+      <PosX>12</PosX>
+      <PosY>7</PosY>
+      <Long>12</Long>
       <Rotate>0</Rotate>
       <!-- 0～360. 無ければ自動で0-->
     </Ground>
     <Ground>
-      <PosX>30</PosX>
-      <PosY>4</PosY>
-      <Long>20</Long>
-      <Rotate>0</Rotate>
+      <PosX>1</PosX>
+      <PosY>22</PosY>
+      <Long>32</Long>
+      <Rotate>90</Rotate>
       <!-- 0～360. 無ければ自動で0-->
     </Ground>
     <Ground>
-      <PosX>120</PosX>
-      <PosY>0</PosY>
-      <Long>20</Long>
-      <Rotate>0</Rotate>
+      <PosX>22.5</PosX>
+      <PosY>21</PosY>
+      <Long>30</Long>
+      <Rotate>90</Rotate>
       <!-- 0～360. 無ければ自動で0-->
     </Ground>
 
@@ -213,36 +963,54 @@
 
   <Walls>
     <Wall>
-      <PosX>40.5</PosX>
-      <PosY>5</PosY>
-      <Long>35</Long>
+      <PosX>65</PosX>
+      <PosY>35.5</PosY>
+      <Long>20</Long>
       <Rotate>0</Rotate>
       <!-- 自動で90度。それに対してどれだけ回転するか。無ければ自動で+0-->
     </Wall>
   </Walls>
 
+  <!--0-->
+  <ChangeRange> 
+    <connectNum>2</connectNum>
+    <num>0</num>
+    <value>31</value>
+  </ChangeRange> 
+    
+  <!--1-->
   <ChangeRange>
-    <id>0</id>
+    <connectNum>3</connectNum>
+    <num>0</num>
+    <value>31</value>
+  </ChangeRange>
+    
+  <!--3-->
+  <ChangeRange> 
+    <connectNum>10</connectNum>
+    <num>0</num>
     <value>17</value>
   </ChangeRange>
-  <ChangeRange>
-    <id>1</id>
-    <value>44</value>
+    
+  <!--4-->
+  <ChangeRange> 
+    <connectNum>11</connectNum>
+    <num>0</num>
+    <value>25</value>
   </ChangeRange>
-  <ChangeRange>
-    <id>2</id>
-    <value>16</value>
+    
+  <!--5-->
+  <ChangeRange> 
+    <connectNum>3</connectNum>
+    <num>1</num>
+    <value>20</value>
   </ChangeRange>
-  <ChangeRange>
-    <id>3</id>
-    <value>18</value>
+    
+  <!--6-->
+  <ChangeRange> 
+    <connectNum>22</connectNum>
+    <num>0</num>
+    <value>12</value>
   </ChangeRange>
-
-  <!-- ゲームに影響のない見た目だけの部分。　未実装-->
-    <BackGround>
-        <Name></Name>
-        <X>0</X>
-        <Y>0</Y>
-    </BackGround>
 
 </Stage>

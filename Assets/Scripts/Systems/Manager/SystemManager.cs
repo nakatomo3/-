@@ -68,8 +68,6 @@ public class SystemManager : MonoBehaviour {
 		TextAsset xmlTextAsset;
 		XmlDocument xmlDoc = new XmlDocument();
 
-		Debug.Log("A");
-
 		//XMLの読み込み
 		try {
 			xmlTextAsset = Instantiate(Resources.Load("XMLs/Stages/"+stageNum.ToString())) as TextAsset;
@@ -415,47 +413,59 @@ public class SystemManager : MonoBehaviour {
 
 		var changeZ = xmlDoc.GetElementsByTagName("ChangeZ");
 		for(int i= 0; i < changeZ.Count; i++) {
-			var id = changeZ.Item(i).ChildNodes.Item(0).InnerText;
-			var z = float.Parse(changeZ.Item(i).ChildNodes.Item(1).InnerText);
+			if (changeZ.Item(i).ChildNodes.Count < 3) {
+				Debug.LogError("ChangeZが旧形式です。\n一つ目にconnectNum,二つ目にそのコネクトナンバー内で上から何番目(配列的数え方)か、三つ目に変更するzの量を書いてください");
+			} else {
+				var connectNum = int.Parse(changeZ.Item(i).ChildNodes.Item(0).InnerText);
+				var num = int.Parse(changeZ.Item(i).ChildNodes.Item(1).InnerText);
+				var z = float.Parse(changeZ.Item(i).ChildNodes.Item(2).InnerText);
 
-			for(int j = 0; j < gimmicks.Count; j++) {
-				for(int k = 0; k < gimmicks[j].parts.Count; k++) {
-					if(gimmicks[j].parts[k].id == id) {
-						gimmicks[j].parts[k].transform.position += new Vector3(0, 0, z);
-					}
-				}
+				gimmicks[connectNum].parts[num].transform.position += new Vector3(0, 0, z);
 			}
 		}
 
-		//TODO 範囲の変更
 		var changeRange = xmlDoc.GetElementsByTagName("ChangeRange");
-		for(int i = 0; i < changeRange.Count; i++) {
-			var id = changeRange.Item(i).ChildNodes.Item(0).InnerText;
-			var range = float.Parse(changeRange.Item(i).ChildNodes.Item(1).InnerText);
-			for(int j = 0; j < gimmicks.Count; j++) {
-				for(int k = 0; k < gimmicks[j].parts.Count; k++) {
-					var part = gimmicks[j].parts[k];
-					if(part.id == id) {
-						switch (part.thisType) {
-							case Parts.PartsType.MoveHorizontalObj:
-								part.ChangeRange(range);
-								break;
-							case Parts.PartsType.MoveVerticalObj:
-								part.MOVE_VIRTICAL_OBJ_RANGE = range;
-								part.ChangeRange(range);
-								break;
-							case Parts.PartsType.MoveDepthObj:
-								part.MOVE_DEPTH_OBJ_RANGE = range;
-								part.ChangeRange(range);
-								break;
-						}
-						
-					}
+		for (int i = 0; i < changeRange.Count; i++) {
+			if (changeRange.Item(i).ChildNodes.Count < 3) {
+				Debug.LogError("ChangeRangeが旧形式です。一つ目にconnectNum、二つ目にコネクトナンバー内のパーツで上から何番目(配列的数え方)か、三つ目に変更する値を入力してください");
+			} else {
+				var connectNum = int.Parse(changeRange.Item(i).ChildNodes.Item(0).InnerText);
+				var num = int.Parse(changeRange.Item(i).ChildNodes.Item(1).InnerText);
+
+				Debug.Log(connectNum+":"+num);
+				var range = float.Parse(changeRange.Item(i).ChildNodes.Item(2).InnerText);
+				if (gimmicks.ContainsKey(connectNum)) {
+					Debug.Log(connectNum);
+				} else {
+
+					Debug.Log("!"+connectNum);
+				}
+				if(gimmicks[connectNum].parts.Count < num) {
+					Debug.LogError("範囲外のnumを指定しています。<b>パーツの中で</b>何番目かなどを確認してください");
+				}
+					var part = gimmicks[connectNum].parts[num];
+
+				Debug.Log(part);
+				switch (part.thisType) {
+					case Parts.PartsType.MoveHorizontalObj:
+						part.ChangeRange(range);
+						break;
+					case Parts.PartsType.MoveVerticalObj:
+						part.MOVE_VIRTICAL_OBJ_RANGE = range;
+						part.ChangeRange(range);
+						break;
+					case Parts.PartsType.MoveDepthObj:
+						part.MOVE_DEPTH_OBJ_RANGE = range;
+						part.ChangeRange(range);
+						break;
+					default:
+						Debug.LogError(connectNum + "のコネクトナンバー内の" + num + "番目(配列的数え方)のパーツはChangeRnageの対象ではありません");
+						break;
 				}
 			}
 		}
 
-        var missGround = Resources.Load("Prefabs/StageFrames/missGround") as GameObject;
+		var missGround = Resources.Load("Prefabs/StageFrames/missGround") as GameObject;
 		var player = Instantiate(Resources.Load("Prefabs/Systems/Player") as GameObject, new Vector3(int.Parse(xmlDoc.GetElementsByTagName("StartX").Item(0).InnerText), int.Parse(xmlDoc.GetElementsByTagName("StartY").Item(0).InnerText), -3.5f), Quaternion.identity, transform);
 		Instantiate(Resources.Load("Prefabs/Systems/Camera") as GameObject,new Vector3(int.Parse(xmlDoc.GetElementsByTagName("StartX").Item(0).InnerText), int.Parse(xmlDoc.GetElementsByTagName("StartY").Item(0).InnerText), -10), Quaternion.identity, transform);
 
