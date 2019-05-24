@@ -28,8 +28,9 @@ public class GameOverManager : MonoBehaviour {
 	void Start() {
         restartGears = new Transform[restartparent.childCount];
         returnGears = new Transform[returnParent.childCount];
+        CameraManager.instance.GetComponent<AudioSource>().enabled = false;
 
-        for(int i = 0; i < restartparent.childCount; i++)
+        for (int i = 0; i < restartparent.childCount; i++)
         {
             restartGears[i] = restartparent.GetChild(i);
         }

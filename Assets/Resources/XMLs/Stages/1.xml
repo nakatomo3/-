@@ -379,50 +379,6 @@
     <ScaleZ>1</ScaleZ>
     <Rotate>0</Rotate>
   </Decoration>
-
-  <!--Decoration>
-    <name>時計</name>
-    <PosX>60</PosX>
-    <PosY>20</PosY>
-    <PosZ>-2.6</PosZ>
-    <ScaleX>1</ScaleX>
-    <ScaleY>1</ScaleY>
-    <ScaleZ>1</ScaleZ>
-    <Rotate>0</Rotate>
-  </Decoration-->
-
-  <!--Decoration>
-    <name>エンジン</name>
-    <PosX>34.22</PosX>
-    <PosY>0.26</PosY>
-    <PosZ>-2.6</PosZ>
-    <ScaleX>1</ScaleX>
-    <ScaleY>1</ScaleY>
-    <ScaleZ>1</ScaleZ>
-    <Rotate>0</Rotate>
-  </Decoration-->
-
-  <!--Decoration>
-    <name>蒸気が出る筒</name>
-    <PosX>10.9</PosX>
-    <PosY>5.4</PosY>
-    <PosZ>-2.6</PosZ>
-    <ScaleX>1</ScaleX>
-    <ScaleY>1</ScaleY>
-    <ScaleZ>1</ScaleZ>
-    <Rotate>0</Rotate>
-  </Decoration-->
-
-  <!--Decoration>
-    <name>ガス灯</name>
-    <PosX>46.6</PosX>
-    <PosY>9.8</PosY>
-    <PosZ>-3</PosZ>
-    <ScaleX>1</ScaleX>
-    <ScaleY>1</ScaleY>
-    <ScaleZ>1</ScaleZ>
-    <Rotate>0</Rotate>
-  </Decoration-->
   
   <Decoration>
     <name>Steam</name>
@@ -570,8 +526,8 @@
 
   <Decoration>
     <name>Sign1</name>
-    <PosX>10</PosX>
-    <PosY>29</PosY>
+    <PosX>108.5</PosX>
+    <PosY>38.2</PosY>
     <PosZ>-1</PosZ>
     <ScaleX>-16</ScaleX>
     <ScaleY>-9</ScaleY>
@@ -589,6 +545,8 @@
     <ScaleZ>0.01</ScaleZ>
     <Rotate>0</Rotate>
   </Decoration>
+
+  <BGM>Game1</BGM>
 
   <!-- ゲームに影響のない見た目だけの部分。　未実装-->
     <BackGround>
