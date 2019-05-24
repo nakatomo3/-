@@ -11,7 +11,7 @@ public class GoalChangeScene : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        CameraManager.instance.GetComponent<AudioSource>().enabled = false;
     }
 
     // Update is called once per frame
@@ -26,6 +26,7 @@ public class GoalChangeScene : MonoBehaviour
         }
         
         Instantiate(crackerPaperA, CameraManager.instance.transform);
-        
+
+
     }
 }

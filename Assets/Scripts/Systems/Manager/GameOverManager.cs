@@ -28,7 +28,6 @@ public class GameOverManager : MonoBehaviour {
 	void Start() {
         restartGears = new Transform[restartparent.childCount];
         returnGears = new Transform[returnParent.childCount];
-        CameraManager.instance.GetComponent<AudioSource>().enabled = false;
 
         for (int i = 0; i < restartparent.childCount; i++)
         {
@@ -43,6 +42,8 @@ public class GameOverManager : MonoBehaviour {
 			light[i, 0] = LightParent[i].GetChild(0).GetComponent<Image>();
 			light[i, 1] = LightParent[i].GetChild(1).GetComponent<Image>();
 		}
+
+        CameraManager.instance.GetComponent<AudioSource>().enabled = false;
     }
 
 	// Update is called once per frame
