@@ -307,7 +307,7 @@
     <name>背景歯車</name>
     <PosX>60</PosX>
     <PosY>16</PosY>
-    <PosZ>0</PosZ>
+    <PosZ>-1</PosZ>
     <ScaleX>0.15</ScaleX>
     <ScaleY>0.15</ScaleY>
     <ScaleZ>0.15</ScaleZ>
@@ -318,7 +318,7 @@
     <name>壊れた歯車</name>
     <PosX>23.1</PosX>
     <PosY>-9.4</PosY>
-    <PosZ>-1</PosZ>
+    <PosZ>-1.5</PosZ>
     <ScaleX>1</ScaleX>
     <ScaleY>1</ScaleY>
     <ScaleZ>1</ScaleZ>
@@ -329,7 +329,7 @@
     <name>壊れた歯車2</name>
     <PosX>27.6</PosX>
     <PosY>-9.4</PosY>
-    <PosZ>-1</PosZ>
+    <PosZ>-1.5</PosZ>
     <ScaleX>1</ScaleX>
     <ScaleY>1</ScaleY>
     <ScaleZ>1</ScaleZ>
@@ -362,7 +362,7 @@
     <name>壊れた歯車2</name>
     <PosX>64.4</PosX>
     <PosY>-9.4</PosY>
-    <PosZ>-1</PosZ>
+    <PosZ>-1.5</PosZ>
     <ScaleX>1</ScaleX>
     <ScaleY>1</ScaleY>
     <ScaleZ>1</ScaleZ>
@@ -373,7 +373,7 @@
     <name>壊れた歯車2</name>
     <PosX>69</PosX>
     <PosY>-9.4</PosY>
-    <PosZ>-1</PosZ>
+    <PosZ>-1.5</PosZ>
     <ScaleX>1</ScaleX>
     <ScaleY>1</ScaleY>
     <ScaleZ>1</ScaleZ>
@@ -545,8 +545,6 @@
     <ScaleZ>0.01</ScaleZ>
     <Rotate>0</Rotate>
   </Decoration>
-
-  <BGM>Game1</BGM>
 
   <!-- ゲームに影響のない見た目だけの部分。　未実装-->
     <BackGround>
