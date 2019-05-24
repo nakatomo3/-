@@ -36,6 +36,9 @@ public class StageSelectManager : MonoBehaviour {
 	public GameObject crackerPaperA;
 	public GameObject crackerPaperB;
 
+	private float timerOfDouble = 0;
+	private bool isDouble = false;
+
 	private void Awake() {
 		instance = this;
 	}
@@ -59,7 +62,6 @@ public class StageSelectManager : MonoBehaviour {
 		if(CheckCollectpartsAll() == true) {
 			if (PlayerPrefs.GetInt("freeAnimation",0) == 0) {
 				isAnimation = true;
-				CameraManager.instance.isFreeAnimation = true;
 				PlayerPrefs.SetInt("freeAnimation", 1);
 			} else {
 				doors[5] = Instantiate(Door, new Vector3(27, -7, 1.8f), Quaternion.identity, doorParent);
@@ -78,10 +80,15 @@ public class StageSelectManager : MonoBehaviour {
 		for(int i = 0; i < endSign.transform.GetChild(3).childCount; i++) {
 			endSignGears.Add(endSign.transform.GetChild(3).GetChild(i));
 		}
-		if(PlayerPrefs.GetInt("ClearAnimation",0) == 0) {
 			isEndAnimation = true;
+		if(PlayerPrefs.GetInt("ClearAnimation",0) == 0) {
 		}
 		PlayerPrefs.SetInt("ClearAnimation", 1);
+
+		if (isEndAnimation == true && isAnimation == true) {
+			isDouble = true;
+			isAnimation = false;
+		}
 	}
 
 	// Update is called once per frame
@@ -92,8 +99,17 @@ public class StageSelectManager : MonoBehaviour {
 			}
 		}
 
+		if(isDouble) {
+			timerOfDouble += Time.deltaTime;
+			if(timerOfDouble >= END_ANIMATION_MAX * 2 + 6) {
+				isAnimation = true;
+				isEndAnimation = false;
+			}
+		}
+
 		if (isAnimation == true && isEndAnimation == false) {
 			animationTimer += Time.deltaTime;
+			CameraManager.instance.isFreeAnimation = true;
 			if (animationTimer < ANIMATION_DOWN_MAX) {
 				Gradation.transform.position += Vector3.down * Time.deltaTime * 5;
 			} else if (animationTimer > ANIMATION_DOWN_MAX + 0.5f) {
@@ -123,7 +139,7 @@ public class StageSelectManager : MonoBehaviour {
 					}
 					isCrackerPoped = true;
 				}
-			}else if(endAnimationTimer < END_ANIMATION_MAX * 2 + 5) {
+			}else if(endAnimationTimer < END_ANIMATION_MAX * 2 + 6) {
 				endSign.transform.position -= Vector3.down * 5 * Time.deltaTime;
 			} else {
 				isEndAnimation = false;
