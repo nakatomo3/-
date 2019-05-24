@@ -104,3 +104,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 116c119842a507d41857712faecf31e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crackerPaperA: {fileID: 1563745443524973544, guid: 3ff04bd09c477434f8d44035e0f06361,
+    type: 3}
