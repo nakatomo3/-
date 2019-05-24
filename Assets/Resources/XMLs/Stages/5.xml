@@ -559,6 +559,184 @@
     <id>36</id>
     <value>26</value>
   </ChangeRange>
+
+
+
+  <Decoration>
+    <name>Big_pipe6</name>
+    <PosX>71.5</PosX>
+    <PosY>21.6</PosY>
+    <PosZ>1</PosZ>
+    <ScaleX>2</ScaleX>
+    <ScaleY>2</ScaleY>
+    <ScaleZ>2</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Big_pipe</name>
+    <PosX>226</PosX>
+    <PosY>102.6</PosY>
+    <PosZ>1</PosZ>
+    <ScaleX>20</ScaleX>
+    <ScaleY>4</ScaleY>
+    <ScaleZ>10</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Big_pipe7</name>
+    <PosX>142.7</PosX>
+    <PosY>2.8</PosY>
+    <PosZ>0.85</PosZ>
+    <ScaleX>3</ScaleX>
+    <ScaleY>3</ScaleY>
+    <ScaleZ>2</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Big_pipe2</name>
+    <PosX>31</PosX>
+    <PosY>78.7</PosY>
+    <PosZ>1</PosZ>
+    <ScaleX>2</ScaleX>
+    <ScaleY>2</ScaleY>
+    <ScaleZ>2</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Big_pipe3</name>
+    <PosX>190.3</PosX>
+    <PosY>28.4</PosY>
+    <PosZ>1</PosZ>
+    <ScaleX>3</ScaleX>
+    <ScaleY>3</ScaleY>
+    <ScaleZ>2</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Big_pipe6</name>
+    <PosX>250.2</PosX>
+    <PosY>96.1</PosY>
+    <PosZ>1</PosZ>
+    <ScaleX>2</ScaleX>
+    <ScaleY>2</ScaleY>
+    <ScaleZ>2</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Big_pipe3</name>
+    <PosX>215.7</PosX>
+    <PosY>-46.8</PosY>
+    <PosZ>1</PosZ>
+    <ScaleX>2</ScaleX>
+    <ScaleY>2</ScaleY>
+    <ScaleZ>2</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>壊れた歯車</name>
+    <PosX>192.59</PosX>
+    <PosY>44.99</PosY>
+    <PosZ>0.3</PosZ>
+    <ScaleX>2</ScaleX>
+    <ScaleY>2</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>壊れた歯車3</name>
+    <PosX>68.63</PosX>
+    <PosY>5.93</PosY>
+    <PosZ>0.3</PosZ>
+    <ScaleX>2</ScaleX>
+    <ScaleY>2</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>壊れた歯車2</name>
+    <PosX>195.5</PosX>
+    <PosY>5.67</PosY>
+    <PosZ>0.3</PosZ>
+    <ScaleX>2</ScaleX>
+    <ScaleY>2</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>壊れた歯車2</name>
+    <PosX>49.22</PosX>
+    <PosY>80.68</PosY>
+    <PosZ>0.3</PosZ>
+    <ScaleX>2</ScaleX>
+    <ScaleY>2</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam</name>
+    <PosX>153.387</PosX>
+    <PosY>40.198</PosY>
+    <PosZ>-3.6</PosZ>
+    <ScaleX>1</ScaleX>
+    <ScaleY>1</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam</name>
+    <PosX>284.67</PosX>
+    <PosY>46.16</PosY>
+    <PosZ>-3.6</PosZ>
+    <ScaleX>3</ScaleX>
+    <ScaleY>4</ScaleY>
+    <ScaleZ>2</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam</name>
+    <PosX>136.37</PosX>
+    <PosY>36.39</PosY>
+    <PosZ>-3.6</PosZ>
+    <ScaleX>0.3</ScaleX>
+    <ScaleY>0.3</ScaleY>
+    <ScaleZ>0.5</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam_2</name>
+    <PosX>182.8</PosX>
+    <PosY>37.24</PosY>
+    <PosZ>0</PosZ>
+    <ScaleX>3</ScaleX>
+    <ScaleY>4</ScaleY>
+    <ScaleZ>2</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Wall</name>
+    <PosX>150</PosX>
+    <PosY>150</PosY>
+    <PosZ>0</PosZ>
+    <ScaleX>320</ScaleX>
+    <ScaleY>50</ScaleY>
+    <ScaleZ>5</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
   
     <!-- ゲームに影響のない見た目だけの部分。　未実装-->
     <BackGround>
