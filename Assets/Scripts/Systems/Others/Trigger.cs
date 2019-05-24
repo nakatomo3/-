@@ -36,8 +36,11 @@ public class Trigger : MonoBehaviour {
 
     private GameObject handle;
     private const float HANDLE_ROTATE_SPEED = 170;
+    private AudioSource audioSource;
+    private bool canSound = false;
 	// Start is called before the first frame update
 	void Start() {
+        audioSource = GetComponent<AudioSource>();
 		thisTransform = gameObject.GetComponent<Transform>();
 
 		if(thisType == TriggerType.Default || connectNum == -1) {
@@ -80,7 +83,10 @@ public class Trigger : MonoBehaviour {
 			Player.instance.rigidbody.useGravity = true;
 		}
 
-
+        if (canSound == true) {
+            audioSource.Play();
+            canSound = false;
+        }
 	}
 
 	private void CheckTriggerPlus() {
@@ -144,11 +150,12 @@ public class Trigger : MonoBehaviour {
 		if (thisType == TriggerType.Button || thisType == TriggerType.Forever) {
 			if (isThisGimmick) {
 				buttonPushRange = 0.5f;
-			} else {
+
+            } else {
 				buttonPushRange = 0f;
-			}
+            }
 			visualObject.position = new Vector3(thisTransform.position.x, defaultY - buttonPushRange, thisTransform.position.z);
-		}
+        }
 
 		if(thisType == TriggerType.Forever && SystemManager.instance.GetGimmickValue(connectNum) >= 1) {
 			isPlus = false;
@@ -224,11 +231,11 @@ public class Trigger : MonoBehaviour {
 		if (thisType == TriggerType.MinusButton || thisType == TriggerType.Forever) {
 			if (isThisGimmick) {
 				buttonPushRange = 0.5f;
-			} else {
+            } else {
 				buttonPushRange = 0f;
-			}
+            }
 			visualObject.position = new Vector3(thisTransform.position.x, defaultY - buttonPushRange, thisTransform.position.z);
-		}
+        }
 
 		if (thisType == TriggerType.Forever && SystemManager.instance.GetGimmickValue(connectNum) <= -1) {
 			isPlus = true;
@@ -241,5 +248,13 @@ public class Trigger : MonoBehaviour {
 		}
 	}
 
+    private void OnTriggerEnter(Collider other) {
+        Debug.Log(other.gameObject.tag);
+        if (other.gameObject.CompareTag("Player")) {
+            if (thisType == TriggerType.Forever || thisType == TriggerType.Button || thisType == TriggerType.MinusButton) {
+                canSound = true;
+            }
+        }
+    }
 
 }
