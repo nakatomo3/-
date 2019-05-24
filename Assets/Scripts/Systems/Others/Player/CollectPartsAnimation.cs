@@ -19,8 +19,12 @@ public class CollectPartsAnimation : MonoBehaviour {
 
 	private Vector3 movetoPos;
 
+    private AudioSource audioSource;
+
 	// Start is called before the first frame update
 	void Start() {
+        audioSource = GetComponent<AudioSource>();
+        audioSource.Play();
 		thisTransform = transform;
 		float posX = 0;
 		if(gameObject.name =="1") {
