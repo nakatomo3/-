@@ -6,8 +6,8 @@ using UnityEngine.SceneManagement;
 public class GoalChangeScene : MonoBehaviour
 {
     private float changeSceneCounter = 0;
-
-    const float CHANGE_SCENE = 1.7f;
+    public GameObject crackerPaperA;
+    const float CHANGE_SCENE = 3.5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,5 +21,11 @@ public class GoalChangeScene : MonoBehaviour
         if(changeSceneCounter >= CHANGE_SCENE) {
             SceneManager.LoadScene("StageSelect");
         }
+        if(changeSceneCounter>= CHANGE_SCENE - 1.5f) {
+            Instantiate(Resources.Load("Prefabs/Systems/ClearFadeOut") as GameObject, transform.position, Quaternion.identity);
+        }
+        
+        Instantiate(crackerPaperA, CameraManager.instance.transform);
+        
     }
 }
