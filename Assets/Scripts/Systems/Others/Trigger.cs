@@ -249,10 +249,9 @@ public class Trigger : MonoBehaviour {
 	}
 
     private void OnTriggerEnter(Collider other) {
-        Debug.Log(other.gameObject.tag);
         if (other.gameObject.CompareTag("Player")) {
             if (thisType == TriggerType.Forever || thisType == TriggerType.Button || thisType == TriggerType.MinusButton) {
-                canSound = true;
+                canSound = true;  //ボタンの音
             }
         }
     }

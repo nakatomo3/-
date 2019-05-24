@@ -130,6 +130,7 @@ public class Parts : MonoBehaviour {
     private float speed;
     private float soundCounter = 0;
     private AudioSource audioSource;
+    private bool canSound = false;
 
 
     // Start is called before the first frame update
@@ -230,21 +231,25 @@ public class Parts : MonoBehaviour {
 
         if (thisType == PartsType.MoveHorizontalObj) {
             thisTransform.GetChild(0).position = new Vector3(thisFirstPosX + (SystemManager.instance.GetGimmickValue(connectNumber)+1) * MOVE_HORIZONTAL_OBJ_RANGE/2, thisTransform.position.y, thisTransform.position.z);
-
-            speed = ((thisTransform.position - latestPos) / Time.deltaTime).magnitude;
-            latestPos = thisTransform.position;
-            if (speed <= 0 || Player.instance.wasGameOver == true || OptionManager.instance.isPause == true) {
+            Debug.Log("latesetPos" + latestPos);
+            Debug.Log("position" + this.transform.position);
+            Debug.Log("speed" + speed);
+            speed = ((thisTransform.GetChild(0).position - latestPos) / Time.deltaTime).magnitude;
+            latestPos = thisTransform.GetChild(0).position;
+            if (speed <= 0 && canSound==false|| Player.instance.wasGameOver == true && canSound == false || OptionManager.instance.isPause == true && canSound == false) {
+                Debug.Log("horizon音停止");
                 audioSource.Stop();
-                soundCounter = 0;
+                canSound = true;
             }
         } else if (thisType == PartsType.MoveVerticalObj) {
             transform.position = new Vector3(thisTransform.position.x, thisFirstPosY + (SystemManager.instance.GetGimmickValue(connectNumber)+1) * MOVE_VIRTICAL_OBJ_RANGE/2, thisTransform.position.z);
-
+            Debug.Log(speed);
             speed   = ((thisTransform.position - latestPos) / Time.deltaTime).magnitude;
             latestPos = thisTransform.position;
             if (speed <= 0 || Player.instance.wasGameOver == true || OptionManager.instance.isPause == true) {
                 audioSource.Stop();
-                soundCounter = 0;
+                canSound = true;
+
             }
 
         } else if (thisType == PartsType.MoveDepthObj) {
@@ -254,7 +259,7 @@ public class Parts : MonoBehaviour {
             latestPos = thisTransform.position;
             if (speed <= 0 || Player.instance.wasGameOver == true || OptionManager.instance.isPause == true) {
                 audioSource.Stop();
-                soundCounter = 0;
+                canSound = true;
             }
         }
 
@@ -324,55 +329,31 @@ public class Parts : MonoBehaviour {
                     isMoveRight = true;
                     isPlayerMoveRight = true;
                     isMoveLeft = false;
-                    if (thisTransform.position.y <= thisFirstPosY + MOVE_VIRTICAL_OBJ_RANGE) {
-                        if (soundCounter <= 0.1) {
-                            audioSource.Play();
-                            soundCounter += Time.deltaTime;
-
-                        } else if (soundCounter >= 0.9) {
-                            soundCounter = 0;
-                        }
-                    }
 
                 } else {
                     isMoveRight = false;
                     isPlayerMoveRight = false;
-                    audioSource.Stop();
-                    soundCounter = 0;
+
+                }
+                if (canSound == true&& speed > 0) {
+                    Debug.Log("horaizonn.");
+                    audioSource.Play();
+                    canSound = false;
                 }
                 break;
 
             case PartsType.MoveVerticalObj:
-                if (thisTransform.position.y <= thisFirstPosY + MOVE_VIRTICAL_OBJ_RANGE-0.1f) {
-                    if (thisTransform.position.y <= thisFirstPosY + MOVE_VIRTICAL_OBJ_RANGE) {
-                        if (soundCounter <= 0.1) {
-                            audioSource.Play();
-                            soundCounter += Time.deltaTime;
-                        } else if (soundCounter >= 0.9) {
-                            soundCounter = 0;
-                        }
-                    }
-
-                } else {
-                    audioSource.Stop();
-                    soundCounter = 0;
+                if (canSound == true) {
+                    Debug.Log("va-tikaru");
+                    audioSource.Play();
+                    canSound = false;
                 }
                 break;
 
             case PartsType.MoveDepthObj:
-                if (thisTransform.position.z <= thisFirstPosZ + MOVE_DEPTH_OBJ_RANGE) {
-                    if (thisTransform.position.y <= thisFirstPosY + MOVE_VIRTICAL_OBJ_RANGE) {
-                        if (soundCounter <= 0.1) {
-                            audioSource.Play();
-                            soundCounter += Time.deltaTime;
-                        } else if (soundCounter >= 0.9) {
-                            soundCounter = 0;
-                        }
-                    }
-
-                } else {
-                    audioSource.Stop();
-                    soundCounter = 0;
+                if (canSound == true) {
+                    audioSource.Play();
+                    canSound = false;
                 }
                 break;
 
@@ -491,56 +472,31 @@ public class Parts : MonoBehaviour {
                     isMoveLeft = true;
                     isPlayerMoveLeft = true;
                     isMoveRight = false;
-                    if (thisTransform.position.y <= thisFirstPosY + MOVE_VIRTICAL_OBJ_RANGE) {
-                        if (soundCounter <= 0.1) {
-                            audioSource.Play();
-                            soundCounter += Time.deltaTime;
-                        } else if (soundCounter >= 0.9) {
-                            soundCounter = 0;
-                        }
-                    }
-
 
                 } else {
                     isMoveLeft = false;
                     isPlayerMoveLeft = false;
-                    audioSource.Stop();
-                    soundCounter = 0;
+
+                }
+                if (canSound == true && speed > 0) {
+                    Debug.Log("horaizonn.");
+                    audioSource.Play();
+                    canSound = false;
                 }
                 break;
 
             case PartsType.MoveVerticalObj:
-                if (thisTransform.position.y >= thisFirstPosY- MOVE_VIRTICAL_OBJ_RANGE + 0.1f) {
-                    if (thisTransform.position.y <= thisFirstPosY + MOVE_VIRTICAL_OBJ_RANGE) {
-                        if (soundCounter <= 0.1) {
-                            audioSource.Play();
-                            soundCounter += Time.deltaTime;
-                        } else if (soundCounter >= 0.9) {
-                            soundCounter = 0;
-                        }
-
-                    }
-                   
-                }else {
-                    audioSource.Stop();
-                    soundCounter = 0;
+                if (canSound == true) {
+                    Debug.Log("va-tikaru");
+                    audioSource.Play();
+                    canSound = false;
                 }
                 break;
 
             case PartsType.MoveDepthObj:
-                if (thisTransform.position.z >= thisFirstPosZ - MOVE_DEPTH_OBJ_RANGE+0.1f) {
-                    if (thisTransform.position.y <= thisFirstPosY + MOVE_VIRTICAL_OBJ_RANGE) {
-                        if (soundCounter <= 0.1) {
-                            audioSource.Play();
-                            soundCounter += Time.deltaTime;
-                        } else if (soundCounter >= 0.9) {
-                            soundCounter = 0;
-                        }
-
-                    }
-                } else {
-                    audioSource.Stop();
-                    soundCounter = 0;
+                if (canSound == true) {
+                    audioSource.Play();
+                    canSound = false;
                 }
                 break;
 
