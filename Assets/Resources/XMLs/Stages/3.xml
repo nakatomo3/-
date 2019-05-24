@@ -10,7 +10,7 @@
         <Trigger>
             <ConnectNumber>1</ConnectNumber>
             <Type>LeftGear</Type>
-            <X>10</X>
+            <X>14</X>
             <Y>19</Y>
         </Trigger>
       <Trigger>
@@ -189,7 +189,7 @@
 
   <Decoration>
     <name>ガス灯</name>
-    <PosX>6</PosX>
+    <PosX>10</PosX>
     <PosY>23</PosY>
     <PosZ>-1.9</PosZ>
     <ScaleX>1</ScaleX>
@@ -200,7 +200,7 @@
   
    <Decoration>
     <name>ガス灯</name>
-    <PosX>12</PosX>
+    <PosX>16</PosX>
     <PosY>23</PosY>
     <PosZ>-1.9</PosZ>
     <ScaleX>1</ScaleX>
@@ -310,8 +310,41 @@
   
    <Decoration>
     <name>煙</name>
-    <PosX>49</PosX>
-    <PosY>51.7</PosY>
+    <PosX>139.5</PosX>
+    <PosY>43.2</PosY>
+    <PosZ>5.8</PosZ>
+    <ScaleX>1</ScaleX>
+    <ScaleY>1</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+<Decoration>
+    <name>煙</name>
+    <PosX>128.6</PosX>
+    <PosY>51.6</PosY>
+    <PosZ>3.7</PosZ>
+    <ScaleX>1</ScaleX>
+    <ScaleY>1</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+  
+  <Decoration>
+    <name>sample3</name>
+    <PosX>-23.21</PosX>
+    <PosY>28.62</PosY>
+    <PosZ>-7.38</PosZ>
+    <ScaleX>0.5</ScaleX>
+    <ScaleY>0.5</ScaleY>
+    <ScaleZ>0.5</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+  
+  <Decoration>
+    <name>煙</name>
+    <PosX>50</PosX>
+    <PosY>23.2</PosY>
     <PosZ>5.9</PosZ>
     <ScaleX>1</ScaleX>
     <ScaleY>1</ScaleY>
@@ -319,10 +352,32 @@
     <Rotate>0</Rotate>
   </Decoration>
 
- <Decoration>
+<Decoration>
     <name>煙</name>
-    <PosX>49</PosX>
-    <PosY>51.7</PosY>
+    <PosX>52.6</PosX>
+    <PosY>16.8</PosY>
+    <PosZ>5.9</PosZ>
+    <ScaleX>1</ScaleX>
+    <ScaleY>1</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+  
+  <Decoration>
+    <name>煙</name>
+    <PosX>36.8</PosX>
+    <PosY>33.2</PosY>
+    <PosZ>5.9</PosZ>
+    <ScaleX>1</ScaleX>
+    <ScaleY>1</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+  
+   <Decoration>
+    <name>煙</name>
+    <PosX>142.3</PosX>
+    <PosY>28.5</PosY>
     <PosZ>5.9</PosZ>
     <ScaleX>1</ScaleX>
     <ScaleY>1</ScaleY>
