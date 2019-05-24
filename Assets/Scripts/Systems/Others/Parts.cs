@@ -130,6 +130,7 @@ public class Parts : MonoBehaviour {
     private float speed;
     private float soundCounter = 0;
     private AudioSource audioSource;
+    private GameObject soundDecision;
     private bool canSound = false;
 
 
@@ -142,6 +143,10 @@ public class Parts : MonoBehaviour {
         thisFirstPosZ = thisTransform.position.z;
 
         switch (thisType) {
+            case PartsType.Bridge:
+                soundDecision = transform.GetChild(4).gameObject;
+                break;
+
             case PartsType.Pitfall:
                 leftRotateAxis = transform.GetChild(0).transform;
                 rightRotateAxis = transform.GetChild(1).transform;
@@ -263,6 +268,15 @@ public class Parts : MonoBehaviour {
             }
         }
 
+        if (thisType == PartsType.Bridge) {
+            speed = ((soundDecision.transform.position - latestPos) / Time.deltaTime).magnitude;
+            latestPos = soundDecision.transform.position;
+            if (speed <= 0 || Player.instance.wasGameOver == true || OptionManager.instance.isPause == true) {
+                audioSource.Stop();
+                canSound = true;
+            }
+        }
+
         if (thisType == PartsType.Goal) {
             if (willGoal == true && goalAnimationCounter <= 0.05) {
                 clearImage.transform.position += new Vector3(0, -goalAnimationSpeed * Time.deltaTime, 0);
@@ -304,6 +318,10 @@ public class Parts : MonoBehaviour {
             case PartsType.Bridge:
                 var rot = new Vector3(0, 0, BRIDGE_SPEED * Time.deltaTime);
                 transform.Rotate(rot);
+                if (canSound == true) {
+                    audioSource.Play();
+                    canSound = false;
+                }
 
                 break;
 
@@ -336,7 +354,6 @@ public class Parts : MonoBehaviour {
 
                 }
                 if (canSound == true&& speed > 0) {
-                    Debug.Log("horaizonn.");
                     audioSource.Play();
                     canSound = false;
                 }
@@ -344,7 +361,6 @@ public class Parts : MonoBehaviour {
 
             case PartsType.MoveVerticalObj:
                 if (canSound == true) {
-                    Debug.Log("va-tikaru");
                     audioSource.Play();
                     canSound = false;
                 }
@@ -457,6 +473,10 @@ public class Parts : MonoBehaviour {
             case PartsType.Bridge:
                 var rot = new Vector3(0, 0, -BRIDGE_SPEED * Time.deltaTime);
                 transform.Rotate(rot);
+                if (canSound == true) {
+                    audioSource.Play();
+                    canSound = false;
+                }
                 break;
 
             case PartsType.Bomb:
@@ -479,7 +499,6 @@ public class Parts : MonoBehaviour {
 
                 }
                 if (canSound == true && speed > 0) {
-                    Debug.Log("horaizonn.");
                     audioSource.Play();
                     canSound = false;
                 }
@@ -487,7 +506,6 @@ public class Parts : MonoBehaviour {
 
             case PartsType.MoveVerticalObj:
                 if (canSound == true) {
-                    Debug.Log("va-tikaru");
                     audioSource.Play();
                     canSound = false;
                 }
