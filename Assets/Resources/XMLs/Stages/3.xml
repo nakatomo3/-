@@ -277,12 +277,56 @@
   
    <Decoration>
     <name>sample6</name>
-    <PosX>-4.62</PosX>
+    <PosX>-4.3</PosX>
     <PosY>33.75</PosY>
     <PosZ>-7.38</PosZ>
     <ScaleX>0.5</ScaleX>
     <ScaleY>0.5</ScaleY>
     <ScaleZ>0.5</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+  
+    <Decoration>
+    <name>sample5</name>
+    <PosX>-17.32</PosX>
+    <PosY>33.75</PosY>
+    <PosZ>-7.38</PosZ>
+    <ScaleX>0.5</ScaleX>
+    <ScaleY>0.5</ScaleY>
+    <ScaleZ>0.5</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+  
+   <Decoration>
+    <name>sample4</name>
+    <PosX>-12</PosX>
+    <PosY>39.29</PosY>
+    <PosZ>-7.31</PosZ>
+    <ScaleX>0.5</ScaleX>
+    <ScaleY>0.5</ScaleY>
+    <ScaleZ>0.5</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+  
+   <Decoration>
+    <name>煙</name>
+    <PosX>49</PosX>
+    <PosY>51.7</PosY>
+    <PosZ>5.9</PosZ>
+    <ScaleX>1</ScaleX>
+    <ScaleY>1</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+ <Decoration>
+    <name>煙</name>
+    <PosX>49</PosX>
+    <PosY>51.7</PosY>
+    <PosZ>5.9</PosZ>
+    <ScaleX>1</ScaleX>
+    <ScaleY>1</ScaleY>
+    <ScaleZ>1</ScaleZ>
     <Rotate>0</Rotate>
   </Decoration>
     <!-- ゲームに影響のない見た目だけの部分。　未実装-->
