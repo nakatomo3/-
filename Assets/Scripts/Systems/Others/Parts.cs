@@ -60,6 +60,7 @@ public class Parts : MonoBehaviour {
         MoveHorizontalObj,
         MoveVerticalObj,
         MoveDepthObj,
+        MoveDepthObj_2,
         Slope,
         Pitfall,        //落とし穴
         ObjFallTrap,   //落下してくるトラップ
@@ -128,7 +129,6 @@ public class Parts : MonoBehaviour {
 
     private Vector3 latestPos;
     private float speed;
-    private float soundCounter = 0;
     private AudioSource audioSource;
     private GameObject soundDecision;
     private bool canSound = false;
@@ -264,6 +264,15 @@ public class Parts : MonoBehaviour {
                 audioSource.Stop();
                 canSound = true;
             }
+        } else if (thisType == PartsType.MoveDepthObj_2) {
+            transform.position = new Vector3(thisTransform.position.x, thisTransform.position.y, thisFirstPosZ + (SystemManager.instance.GetGimmickValue(connectNumber) + 1) * MOVE_DEPTH_OBJ_RANGE / 2);
+
+            speed = ((thisTransform.position - latestPos) / Time.deltaTime).magnitude;
+            latestPos = thisTransform.position;
+            if (speed <= 0 || Player.instance.wasGameOver == true || OptionManager.instance.isPause == true) {
+                audioSource.Stop();
+                canSound = true;
+            }
         }
 
         if (thisType == PartsType.Bridge) {
@@ -377,6 +386,13 @@ public class Parts : MonoBehaviour {
                 break;
 
             case PartsType.MoveDepthObj:
+                if (canSound == true) {
+                    audioSource.Play();
+                    canSound = false;
+                }
+                break;
+
+            case PartsType.MoveDepthObj_2:
                 if (canSound == true) {
                     audioSource.Play();
                     canSound = false;
@@ -522,6 +538,13 @@ public class Parts : MonoBehaviour {
                 break;
 
             case PartsType.MoveDepthObj:
+                if (canSound == true) {
+                    audioSource.Play();
+                    canSound = false;
+                }
+                break;
+
+            case PartsType.MoveDepthObj_2:
                 if (canSound == true) {
                     audioSource.Play();
                     canSound = false;
@@ -836,7 +859,9 @@ public class Parts : MonoBehaviour {
 				break;
 			case PartsType.MoveDepthObj:
 				break;
-		}
+            case PartsType.MoveDepthObj_2:
+                break;
+        }
 	}
 
     private void OnCollisionEnter(Collision collision) {

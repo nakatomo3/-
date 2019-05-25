@@ -241,6 +241,11 @@ public class SystemManager : MonoBehaviour {
                         partsType = Parts.PartsType.MoveDepthObj;
                         break;
 
+                    case "MoveDepthObj_2":
+                        partsObject = Resources.Load("Prefabs/Parts/MoveDepthObj_2") as GameObject;
+                        partsType = Parts.PartsType.MoveDepthObj_2;
+                        break;
+
                     case "Slope":
                         partsObject = Resources.Load("Prefabs/Parts/Slope") as GameObject;
                         partsType = Parts.PartsType.Slope;
@@ -458,7 +463,11 @@ public class SystemManager : MonoBehaviour {
 						part.MOVE_DEPTH_OBJ_RANGE = range;
 						part.ChangeRange(range);
 						break;
-					default:
+                    case Parts.PartsType.MoveDepthObj_2:
+                        part.MOVE_DEPTH_OBJ_RANGE = range;
+                        part.ChangeRange(range);
+                        break;
+                    default:
 						Debug.LogError(connectNum + "のコネクトナンバー内の" + num + "番目(配列的数え方)のパーツはChangeRnageの対象ではありません");
 						break;
 				}
