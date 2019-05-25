@@ -1359,7 +1359,6 @@ GameObject:
   - component: {fileID: 3014704185470332027}
   - component: {fileID: 3014704185470332024}
   - component: {fileID: 296295185125684322}
-  - component: {fileID: 5902551993359591156}
   - component: {fileID: 1121148461452031385}
   m_Layer: 0
   m_Name: GameOverUI
@@ -1496,19 +1495,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &5902551993359591156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3014704185470332025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c15d258344b5f04c8f38cd282351584, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Sound: {fileID: 8300000, guid: 31833e1c10c9ed7448813b2cc64749d7, type: 3}
 --- !u!114 &1121148461452031385
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -593,6 +593,28 @@
   </Decoration>
 
   <Decoration>
+    <name>sample4</name>
+    <PosX>-68.6</PosX>
+    <PosY>77.8</PosY>
+    <PosZ>-10</PosZ>
+    <ScaleX>1</ScaleX>
+    <ScaleY>1</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>sample3</name>
+    <PosX>-37.6</PosX>
+    <PosY>82.9</PosY>
+    <PosZ>-10</PosZ>
+    <ScaleX>1</ScaleX>
+    <ScaleY>1</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
     <name>壊れた歯車3</name>
     <PosX>69.55</PosX>
     <PosY>43.08</PosY>
@@ -636,7 +658,7 @@
     <Rotate>0</Rotate>
   </Decoration>
 
-  <Decoration>
+  <!--Decoration>
     <name>時計</name>
     <PosX>111.6</PosX>
     <PosY>27.1</PosY>
@@ -645,9 +667,9 @@
     <ScaleY>1</ScaleY>
     <ScaleZ>0.5</ScaleZ>
     <Rotate>0</Rotate>
-  </Decoration>
-  
-  <Decoration>
+  </Decoration-->
+
+  <!--Decoration>
     <name>sample8</name>
     <PosX>226.3</PosX>
     <PosY>194.5</PosY>
@@ -656,7 +678,7 @@
     <ScaleY>7</ScaleY>
     <ScaleZ>1</ScaleZ>
     <Rotate>0</Rotate>
-  </Decoration>
+  </Decoration-->
 
   <Decoration>
     <name>Steam</name>
@@ -732,6 +754,61 @@
     <ScaleX>1</ScaleX>
     <ScaleY>1</ScaleY>
     <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam</name>
+    <PosX>19.1</PosX>
+    <PosY>26.61</PosY>
+    <PosZ>-10</PosZ>
+    <ScaleX>2</ScaleX>
+    <ScaleY>2</ScaleY>
+    <ScaleZ>2</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam</name>
+    <PosX>13.94</PosX>
+    <PosY>39.46</PosY>
+    <PosZ>-10</PosZ>
+    <ScaleX>2</ScaleX>
+    <ScaleY>4</ScaleY>
+    <ScaleZ>2</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam</name>
+    <PosX>117.21</PosX>
+    <PosY>69.8</PosY>
+    <PosZ>-13.45</PosZ>
+    <ScaleX>3</ScaleX>
+    <ScaleY>3</ScaleY>
+    <ScaleZ>3</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam</name>
+    <PosX>139.7</PosX>
+    <PosY>53.13</PosY>
+    <PosZ>-10</PosZ>
+    <ScaleX>2</ScaleX>
+    <ScaleY>3</ScaleY>
+    <ScaleZ>2</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam</name>
+    <PosX>145.34</PosX>
+    <PosY>25.57</PosY>
+    <PosZ>-10</PosZ>
+    <ScaleX>2</ScaleX>
+    <ScaleY>10</ScaleY>
+    <ScaleZ>2</ScaleZ>
     <Rotate>0</Rotate>
   </Decoration>
 

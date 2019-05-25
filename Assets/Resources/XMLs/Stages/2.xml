@@ -423,27 +423,38 @@
     <Rotate>0</Rotate>
   </Decoration>
 
-  <!--Decoration>
-    <name>背景歯車</name>
-    <PosX>85.7</PosX>
-    <PosY>87</PosY>
-    <PosZ>-1</PosZ>
-    <ScaleX>0.2</ScaleX>
-    <ScaleY>0.2</ScaleY>
+  <Decoration>
+    <name>sample3</name>
+    <PosX>150.8</PosX>
+    <PosY>212.6</PosY>
+    <PosZ>-10</PosZ>
+    <ScaleX>2</ScaleX>
+    <ScaleY>2</ScaleY>
     <ScaleZ>1</ScaleZ>
     <Rotate>0</Rotate>
   </Decoration>
 
   <Decoration>
-    <name>背景歯車</name>
-    <PosX>68.7</PosX>
-    <PosY>-3</PosY>
-    <PosZ>-1</PosZ>
-    <ScaleX>0.2</ScaleX>
-    <ScaleY>0.2</ScaleY>
+    <name>sample3</name>
+    <PosX>-84.1</PosX>
+    <PosY>91.7</PosY>
+    <PosZ>-10</PosZ>
+    <ScaleX>2</ScaleX>
+    <ScaleY>2</ScaleY>
     <ScaleZ>1</ScaleZ>
     <Rotate>0</Rotate>
-  </Decoration-->
+  </Decoration>
+
+  <Decoration>
+    <name>sample5</name>
+    <PosX>-38.8</PosX>
+    <PosY>103.8</PosY>
+    <PosZ>-10</PosZ>
+    <ScaleX>2</ScaleX>
+    <ScaleY>2</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
 
   <Decoration>
     <name>背景歯車</name>
@@ -486,6 +497,17 @@
     <ScaleX>1</ScaleX>
     <ScaleY>1</ScaleY>
     <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam</name>
+    <PosX>18.8</PosX>
+    <PosY>5.07</PosY>
+    <PosZ>-10</PosZ>
+    <ScaleX>3</ScaleX>
+    <ScaleY>4</ScaleY>
+    <ScaleZ>3</ScaleZ>
     <Rotate>0</Rotate>
   </Decoration>
 
