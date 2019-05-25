@@ -150,6 +150,8 @@ public class Parts : MonoBehaviour {
             case PartsType.Pitfall:
                 leftRotateAxis = transform.GetChild(0).transform;
                 rightRotateAxis = transform.GetChild(1).transform;
+                soundDecision = leftRotateAxis.transform.GetChild(1).gameObject;
+
                 break;
 
             case PartsType.FlameThrower:
@@ -236,13 +238,9 @@ public class Parts : MonoBehaviour {
 
         if (thisType == PartsType.MoveHorizontalObj) {
             thisTransform.GetChild(0).position = new Vector3(thisFirstPosX + (SystemManager.instance.GetGimmickValue(connectNumber)+1) * MOVE_HORIZONTAL_OBJ_RANGE/2, thisTransform.position.y, thisTransform.position.z);
-            Debug.Log("latesetPos" + latestPos);
-            Debug.Log("position" + this.transform.position);
-            Debug.Log("speed" + speed);
             speed = ((thisTransform.GetChild(0).position - latestPos) / Time.deltaTime).magnitude;
             latestPos = thisTransform.GetChild(0).position;
             if (speed <= 0 && canSound==false|| Player.instance.wasGameOver == true && canSound == false || OptionManager.instance.isPause == true && canSound == false) {
-                Debug.Log("horizon音停止");
                 audioSource.Stop();
                 canSound = true;
             }
@@ -274,6 +272,18 @@ public class Parts : MonoBehaviour {
             if (speed <= 0 || Player.instance.wasGameOver == true || OptionManager.instance.isPause == true) {
                 audioSource.Stop();
                 canSound = true;
+            }
+        }
+        if (thisType == PartsType.Pitfall) {
+            speed = ((soundDecision.transform.position - latestPos) / Time.deltaTime).magnitude;
+            latestPos = soundDecision.transform.position;
+            if (speed <= 0 || Player.instance.wasGameOver == true || OptionManager.instance.isPause == true) {
+                canSound = true;
+
+            }
+            if (canSound ==true) {
+                audioSource.Play();
+                canSound = false;
             }
         }
 
@@ -606,11 +616,13 @@ public class Parts : MonoBehaviour {
             case PartsType.Pitfall:
                 if (isTrapActionStop == false) {
                     if (trapRotateCounter <= TRAP_ROTATE_RANGE && isTrapAction == true) {
+                        //開く
                         leftRotateAxis.Rotate(0, 0, -TRAP_ROTATE_SPEED * Time.deltaTime);
                         rightRotateAxis.Rotate(0, 0, TRAP_ROTATE_SPEED * Time.deltaTime);
                         trapRotateCounter += TRAP_ROTATE_SPEED * Time.deltaTime;
 
                     } else if (trapRotateCounter >= 5 && isTrapAction == false) {
+                        //戻る
                         leftRotateAxis.Rotate(0, 0, TRAP_ROTATE_SPEED * Time.deltaTime);
                         rightRotateAxis.Rotate(0, 0, -TRAP_ROTATE_SPEED * Time.deltaTime);
                         trapRotateCounter -= TRAP_ROTATE_SPEED * Time.deltaTime;
