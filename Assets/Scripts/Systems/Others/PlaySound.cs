@@ -49,6 +49,11 @@ public class PlaySound : MonoBehaviour
         {
             CameraManager.instance.GetComponent<AudioSource>().enabled = false;
         }
+
+        if (SceneManager.GetActiveScene().name == "StaffCredit")
+        {
+            CameraManager.instance.GetComponent<AudioSource>().enabled = false;
+        }
     }
 
 }
