@@ -295,6 +295,14 @@ public class Parts : MonoBehaviour {
                 canSound = false;
             }
         }
+        if (thisType == PartsType.ObjFallTrap) {
+            speed = ((thisTransform.position - latestPos) / Time.deltaTime).magnitude;
+            latestPos = thisTransform.position;
+            if (speed <= 0 || Player.instance.wasGameOver == true || OptionManager.instance.isPause == true) {
+                audioSource.Stop();
+                canSound = true;
+            }
+        }
 
         if (thisType == PartsType.Goal) {
             if (willGoal == true && goalAnimationCounter <= 0.05) {
@@ -670,7 +678,10 @@ public class Parts : MonoBehaviour {
                     if (isTrapAction == true && thisTransform.position.y>= thisFirstPosY-FALL_TRAP_RANGE) {
                         thisTransform.Translate(0, -FALL_SPEED * Time.deltaTime, 0);
                         positionResetInterval = 0;
-
+                        if (canSound == true) {
+                            audioSource.Play();
+                            canSound = false;
+                        }
                         if(thisTransform.position.y <= thisFirstPosY - FALL_TRAP_RANGE) {
                             willPositionReset = true;
                             isTrapAction = false;
