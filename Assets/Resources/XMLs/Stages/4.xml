@@ -24,36 +24,39 @@
 
     <Parts>
       <ConnectNumber>1</ConnectNumber>
+      <Name>ImpulseUp</Name>
+      <X>31</X>
+      <Y>1.5</Y>
+      <Rotate>0</Rotate>
+    </Parts>
+    <Parts>
+      <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseUp_2</Name>
       <X>28</X>
       <Y>1.5</Y>
       <Rotate>0</Rotate>
     </Parts>
-    
        <Parts>
       <ConnectNumber>1</ConnectNumber>
-      <Name>ImpulseUp_2</Name>
-      <X>20</X>
+      <Name>ImpulseUp</Name>
+      <X>25</X>
       <Y>1.5</Y>
       <Rotate>0</Rotate>
     </Parts>
-    
-     <Parts>
+    <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseUp_2</Name>
-      <X>50</X>
+      <X>34</X>
       <Y>1.5</Y>
       <Rotate>0</Rotate>
     </Parts>
-    
-     <Parts>
+    <Parts>
       <ConnectNumber>1</ConnectNumber>
-      <Name>ImpulseUp_2</Name>
-      <X>32</X>
+      <Name>ImpulseUp</Name>
+      <X>37</X>
       <Y>1.5</Y>
       <Rotate>0</Rotate>
     </Parts>
-    
     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseUp</Name>
@@ -63,84 +66,92 @@
     </Parts>
     <Parts>
       <ConnectNumber>1</ConnectNumber>
-      <Name>ImpulseUp_2</Name>
-      <X>8</X>
-      <Y>25</Y>
+      <Name>ImpulseUp</Name>
+      <X>17</X>
+      <Y>30</Y>
       <Rotate>0</Rotate>
     </Parts>
-    
-     <Parts>
+    <Parts>
       <ConnectNumber>1</ConnectNumber>
-      <Name>ImpulseUp_2</Name>
-      <X>11</X>
-      <Y>29</Y>
-      <Rotate>0</Rotate>
-    </Parts>
-        
-       <Parts>
-      <ConnectNumber>1</ConnectNumber>
-      <Name>ImpulseUp_2</Name>
-      <X>15</X>
-      <Y>33</Y>
-      <Rotate>0</Rotate>
-    </Parts>
-    
-      <Parts>
-      <ConnectNumber>1</ConnectNumber>
-      <Name>ImpulseUp_2</Name>
-      <X>12</X>
-      <Y>41</Y>
-      <Rotate>0</Rotate>
-    </Parts>
-    
-      <Parts>
-      <ConnectNumber>1</ConnectNumber>
-      <Name>ImpulseUp_2</Name>
-      <X>8</X>
-      <Y>45</Y>
-      <Rotate>0</Rotate>
-    </Parts>
-    
-     <Parts>
-      <ConnectNumber>1</ConnectNumber>
-      <Name>ImpulseUp_2</Name>
-      <X>18</X>
+      <Name>ImpulseRight</Name>
+      <X>17</X>
       <Y>49</Y>
       <Rotate>0</Rotate>
     </Parts>
-   
     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseRight</Name>
-      <X>25</X>
+      <X>23</X>
+      <Y>49</Y>
+      <Rotate>0</Rotate>
+    </Parts>
+    <Parts>
+      <ConnectNumber>1</ConnectNumber>
+      <Name>ImpulseRight</Name>
+      <X>28.5</X>
+      <Y>49.5</Y>
+      <Rotate>0</Rotate>
+    </Parts>
+    <Parts>
+      <ConnectNumber>1</ConnectNumber>
+      <Name>ImpulseRight</Name>
+      <X>34</X>
+      <Y>49.5</Y>
+      <Rotate>0</Rotate>
+    </Parts>
+    <Parts>
+      <ConnectNumber>1</ConnectNumber>
+      <Name>ImpulseRight</Name>
+      <X>39.5</X>
+      <Y>49.5</Y>
+      <Rotate>0</Rotate>
+    </Parts>
+    <Parts>
+      <ConnectNumber>1</ConnectNumber>
+      <Name>ImpulseRight</Name>
+      <X>45</X>
+      <Y>49.5</Y>
+      <Rotate>0</Rotate>
+    </Parts>
+    <Parts>
+      <ConnectNumber>1</ConnectNumber>
+      <Name>ImpulseRight</Name>
+      <X>50.5</X>
+      <Y>49.5</Y>
+      <Rotate>0</Rotate>
+    </Parts>
+    <Parts>
+      <ConnectNumber>1</ConnectNumber>
+      <Name>ImpulseRight</Name>
+      <X>56</X>
+      <Y>49.5</Y>
+      <Rotate>0</Rotate>
+    </Parts>
+    <Parts>
+      <ConnectNumber>1</ConnectNumber>
+      <Name>ImpulseRight</Name>
+      <X>23</X>
       <Y>44</Y>
       <Rotate>0</Rotate>
     </Parts>
     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseRight</Name>
-      <X>29</X>
+      <X>28.5</X>
       <Y>44</Y>
       <Rotate>0</Rotate>
     </Parts>
     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseRight</Name>
-      <X>33</X>
+      <X>34</X>
       <Y>44</Y>
       <Rotate>0</Rotate>
     </Parts>
     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseRight</Name>
-      <X>37</X>
-      <Y>44</Y>
-      <Rotate>0</Rotate>
-    </Parts>
-    <Parts>
-      <ConnectNumber>1</ConnectNumber>
-      <Name>ImpulseRight</Name>
-      <X>41</X>
+      <X>39.5</X>
       <Y>44</Y>
       <Rotate>0</Rotate>
     </Parts>
@@ -154,7 +165,14 @@
     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseRight</Name>
-      <X>49</X>
+      <X>50.5</X>
+      <Y>44</Y>
+      <Rotate>0</Rotate>
+    </Parts>
+    <Parts>
+      <ConnectNumber>1</ConnectNumber>
+      <Name>ImpulseRight</Name>
+      <X>56</X>
       <Y>44</Y>
       <Rotate>0</Rotate>
     </Parts>
@@ -295,8 +313,8 @@
     <Trigger>
       <ConnectNumber>2</ConnectNumber>
       <Type>Forever</Type>
-      <X>24</X>
-      <Y>6</Y>
+      <X>28</X>
+      <Y>21</Y>
       <Rotate>0</Rotate>
       <initial>1</initial>
     </Trigger>
@@ -331,8 +349,8 @@
     <Parts>
       <ConnectNumber>2</ConnectNumber>
       <Name>MoveDepthObj</Name>
-      <X>22</X>
-      <Y>37</Y>
+      <X>11.5</X>
+      <Y>30</Y>
       <Rotate>0</Rotate>
     </Parts>
 
@@ -516,6 +534,206 @@
       <!-- 0～360. 無ければ自動で0-->
     </Ground>
   </Grounds>
+
+
+
+  <Decoration>
+    <name>Big_pipe</name>
+    <PosX>98.6</PosX>
+    <PosY>83.2</PosY>
+    <PosZ>0</PosZ>
+    <ScaleX>20</ScaleX>
+    <ScaleY>4</ScaleY>
+    <ScaleZ>5</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Big_pipe2</name>
+    <PosX>110.3</PosX>
+    <PosY>9.1</PosY>
+    <PosZ>1.72</PosZ>
+    <ScaleX>2</ScaleX>
+    <ScaleY>2</ScaleY>
+    <ScaleZ>2</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Big_pipe7</name>
+    <PosX>40.4</PosX>
+    <PosY>66.5</PosY>
+    <PosZ>0.9</PosZ>
+    <ScaleX>1</ScaleX>
+    <ScaleY>1</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Big_pipe6</name>
+    <PosX>125</PosX>
+    <PosY>17.5</PosY>
+    <PosZ>0.58</PosZ>
+    <ScaleX>1.5</ScaleX>
+    <ScaleY>1.5</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Big_pipe3</name>
+    <PosX>85.8</PosX>
+    <PosY>-28</PosY>
+    <PosZ>0.6</PosZ>
+    <ScaleX>1.5</ScaleX>
+    <ScaleY>1.5</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>壊れた歯車3</name>
+    <PosX>69.55</PosX>
+    <PosY>43.08</PosY>
+    <PosZ>0.43</PosZ>
+    <ScaleX>1</ScaleX>
+    <ScaleY>1</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>壊れた歯車</name>
+    <PosX>24.08</PosX>
+    <PosY>67.45</PosY>
+    <PosZ>0.45</PosZ>
+    <ScaleX>1</ScaleX>
+    <ScaleY>1</ScaleY>
+    <ScaleZ>0.5</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>壊れた歯車2</name>
+    <PosX>27.82</PosX>
+    <PosY>11</PosY>
+    <PosZ>0.48</PosZ>
+    <ScaleX>1</ScaleX>
+    <ScaleY>1</ScaleY>
+    <ScaleZ>0.5</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>壊れた歯車2</name>
+    <PosX>32</PosX>
+    <PosY>11</PosY>
+    <PosZ>0.48</PosZ>
+    <ScaleX>1</ScaleX>
+    <ScaleY>1</ScaleY>
+    <ScaleZ>0.5</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>時計</name>
+    <PosX>111.6</PosX>
+    <PosY>27.1</PosY>
+    <PosZ>-2</PosZ>
+    <ScaleX>1</ScaleX>
+    <ScaleY>1</ScaleY>
+    <ScaleZ>0.5</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+  
+  <Decoration>
+    <name>sample8</name>
+    <PosX>226.3</PosX>
+    <PosY>194.5</PosY>
+    <PosZ>54.11</PosZ>
+    <ScaleX>7</ScaleX>
+    <ScaleY>7</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam</name>
+    <PosX>55.15</PosX>
+    <PosY>12.17</PosY>
+    <PosZ>0.49</PosZ>
+    <ScaleX>4</ScaleX>
+    <ScaleY>6</ScaleY>
+    <ScaleZ>4</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam</name>
+    <PosX>84.13</PosX>
+    <PosY>34.49</PosY>
+    <PosZ>-3.17</PosZ>
+    <ScaleX>1</ScaleX>
+    <ScaleY>1</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam_2</name>
+    <PosX>92.28</PosX>
+    <PosY>37.84</PosY>
+    <PosZ>-0.01</PosZ>
+    <ScaleX>2</ScaleX>
+    <ScaleY>2</ScaleY>
+    <ScaleZ>2</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam_2</name>
+    <PosX>108.01</PosX>
+    <PosY>41.94</PosY>
+    <PosZ>-3.16</PosZ>
+    <ScaleX>1</ScaleX>
+    <ScaleY>1</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam</name>
+    <PosX>132.23</PosX>
+    <PosY>32.33</PosY>
+    <PosZ>-3.09</PosZ>
+    <ScaleX>0.6</ScaleX>
+    <ScaleY>0.6</ScaleY>
+    <ScaleZ>0.6</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam</name>
+    <PosX>73.38</PosX>
+    <PosY>60.48</PosY>
+    <PosZ>-3.06</PosZ>
+    <ScaleX>2</ScaleX>
+    <ScaleY>2</ScaleY>
+    <ScaleZ>2</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam_2</name>
+    <PosX>90.04</PosX>
+    <PosY>59.3</PosY>
+    <PosZ>-3.03</PosZ>
+    <ScaleX>1</ScaleX>
+    <ScaleY>1</ScaleY>
+    <ScaleZ>1</ScaleZ>
+    <Rotate>0</Rotate>
+  </Decoration>
 
   <!-- ゲームに影響のない見た目だけの部分。　未実装-->
   <BackGround>
