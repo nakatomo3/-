@@ -20,9 +20,17 @@ public class StageMover : MonoBehaviour {
     private GameObject handle;
     private const float HANDLE_ROTATE_SPEED = 170;
 
+    private Vector3 latestPos;
+    private float speed;
+    private AudioSource audioSource;
+    private GameObject soundDecision;
+    private bool canSound = false;
+
     // Start is called before the first frame update
     void Start() {
         handle = transform.GetChild(1).gameObject;
+        soundDecision = handle.transform.GetChild(1).gameObject;
+        audioSource = GetComponent<AudioSource>();
 	}
 
 	// Update is called once per frame
@@ -48,7 +56,12 @@ public class StageMover : MonoBehaviour {
 
 			Player.instance.gameObject.transform.position = transform.position;
 			mesh.enabled = false;
-		} else {
+            //SE再生
+            if (canSound == true) {
+                audioSource.Play();
+                canSound = false;
+            }
+        } else {
 			mesh.enabled = true;
 		}
 		if(timer < 0) {
@@ -66,6 +79,14 @@ public class StageMover : MonoBehaviour {
 
 			}
 		}
+        //SEストップ
+        speed = ((soundDecision.transform.position - latestPos) / Time.deltaTime).magnitude;
+        latestPos = soundDecision.transform.position;
+        if (speed <= 0 || Player.instance.wasGameOver == true || OptionManager.instance.isPause == true) {
+            canSound = true;
+            audioSource.Stop();
 
-	}
+        }
+     
+    }
 }

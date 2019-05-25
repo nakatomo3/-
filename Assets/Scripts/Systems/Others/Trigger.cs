@@ -38,8 +38,11 @@ public class Trigger : MonoBehaviour {
     private const float HANDLE_ROTATE_SPEED = 170;
     private AudioSource audioSource;
     private bool canSound = false;
-	// Start is called before the first frame update
-	void Start() {
+    private Vector3 latestPos;
+    private float speed;
+    private GameObject soundDecision;
+    // Start is called before the first frame update
+    void Start() {
         audioSource = GetComponent<AudioSource>();
 		thisTransform = gameObject.GetComponent<Transform>();
 
@@ -61,6 +64,8 @@ public class Trigger : MonoBehaviour {
 					break;
 			}
             handle = transform.GetChild(1).gameObject;
+            soundDecision = handle.transform.GetChild(1).gameObject;
+
         }
        
         defaultY = thisTransform.position.y;
@@ -87,6 +92,15 @@ public class Trigger : MonoBehaviour {
             audioSource.Play();
             canSound = false;
         }
+
+        if(thisType == TriggerType.LeftGear || thisType == TriggerType.RightGear) {
+            speed = ((soundDecision.transform.position - latestPos) / Time.deltaTime).magnitude;
+            latestPos = soundDecision.transform.position;
+            if (speed <= 0 || Player.instance.wasGameOver == true || OptionManager.instance.isPause == true) {
+                audioSource.Stop();
+                canSound = true;
+            }
+        }
 	}
 
 	private void CheckTriggerPlus() {
@@ -102,7 +116,13 @@ public class Trigger : MonoBehaviour {
                             handle.transform.Rotate(0, 0, HANDLE_ROTATE_SPEED * Time.deltaTime);
 						}
 						Player.instance.transform.position = transform.position;
-					} else {
+
+                        //SE再生
+                        if (canSound == true) {
+                            audioSource.Play();
+                            canSound = false;
+                        }
+                    } else {
 						isTriggerOn = false;
 					}
 					break;
@@ -114,7 +134,13 @@ public class Trigger : MonoBehaviour {
                             handle.transform.Rotate(0, 0, -HANDLE_ROTATE_SPEED * Time.deltaTime);
                         }
 						Player.instance.transform.position = transform.position;
-					} else {
+
+                        //SE再生
+                        if (canSound == true) {
+                            audioSource.Play();
+                            canSound = false;
+                        }
+                    } else {
 						isTriggerOn = false;
 					}
 					break;
@@ -180,7 +206,13 @@ public class Trigger : MonoBehaviour {
                             handle.transform.Rotate(0, 0, -HANDLE_ROTATE_SPEED * Time.deltaTime);
                         }
 						Player.instance.transform.position = transform.position;
-					} else {
+
+                        //SE再生
+                        if (canSound == true) {
+                            audioSource.Play();
+                            canSound = false;
+                        }
+                    } else {
 						isTriggerOn = false;
 					}
 					break;
@@ -192,7 +224,13 @@ public class Trigger : MonoBehaviour {
                             handle.transform.Rotate(0, 0, HANDLE_ROTATE_SPEED*Time.deltaTime);
                         }
 						Player.instance.transform.position = transform.position;
-					} else {
+
+                        //SE再生
+                        if (canSound == true) {
+                            audioSource.Play();
+                            canSound = false;
+                        }
+                    } else {
 						isTriggerOn = false;
 					}
 					break;
