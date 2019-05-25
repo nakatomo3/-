@@ -198,6 +198,7 @@ public class Parts : MonoBehaviour {
                 }
                 goalCanvas.SetActive(false);
                 goalAnimationSpeed = 5;
+                soundDecision = goalCanvas.transform.GetChild(3).gameObject;
                 break;
 			case PartsType.MoveHorizontalObj:
 				var rail = Resources.Load("Prefabs/Others/Rail") as GameObject;
@@ -246,7 +247,6 @@ public class Parts : MonoBehaviour {
             }
         } else if (thisType == PartsType.MoveVerticalObj) {
             transform.position = new Vector3(thisTransform.position.x, thisFirstPosY + (SystemManager.instance.GetGimmickValue(connectNumber)+1) * MOVE_VIRTICAL_OBJ_RANGE/2, thisTransform.position.z);
-            Debug.Log(speed);
             speed   = ((thisTransform.position - latestPos) / Time.deltaTime).magnitude;
             latestPos = thisTransform.position;
             if (speed <= 0 || Player.instance.wasGameOver == true || OptionManager.instance.isPause == true) {
@@ -316,6 +316,13 @@ public class Parts : MonoBehaviour {
                 goalCanvas.SetActive(false);
             }
             goalCanvas.transform.position = new Vector3(0, -goalCounter * CLEAR_IMAGE_SPEED + CLEAR_IMAGE_POSY, 15) + CameraManager.instance.gameObject.transform.position;
+
+            speed = ((soundDecision.transform.position - latestPos) / Time.deltaTime).magnitude;
+            latestPos = soundDecision.transform.position;
+            if (speed <= 0 || Player.instance.wasGameOver == true || OptionManager.instance.isPause == true) {
+                audioSource.Stop();
+                canSound = true;
+            }
         }
     }
 
@@ -452,7 +459,10 @@ public class Parts : MonoBehaviour {
                     //clearGears.transform.position = new Vector3(0, -goalCounter * CLEAR_IMAGE_SPEED + CLEAR_IMAGE_POSY, 15) + CameraManager.instance.gameObject.transform.position;
                     //clearChain.transform.position = new Vector3(0, -goalCounter * CLEAR_IMAGE_SPEED + CLEAR_IMAGE_POSY, 15) + CameraManager.instance.gameObject.transform.position;
                     goalCanvas.transform.position = new Vector3(0, -goalCounter * CLEAR_IMAGE_SPEED + CLEAR_IMAGE_POSY, 15) + CameraManager.instance.gameObject.transform.position;
-
+                    if (canSound == true) {
+                        audioSource.Play();
+                        canSound = false;
+                    }
 
                 }
 
@@ -602,6 +612,10 @@ public class Parts : MonoBehaviour {
                     //clearGears.transform.position = new Vector3(0, -goalCounter * CLEAR_IMAGE_SPEED + CLEAR_IMAGE_POSY, 15) + CameraManager.instance.gameObject.transform.position;
                     //clearChain.transform.position = new Vector3(0, -goalCounter * CLEAR_IMAGE_SPEED + CLEAR_IMAGE_POSY, 15) + CameraManager.instance.gameObject.transform.position;
                     goalCanvas.transform.position = new Vector3(0, -goalCounter * CLEAR_IMAGE_SPEED + CLEAR_IMAGE_POSY, 15) + CameraManager.instance.gameObject.transform.position;
+                    if (canSound == true) {
+                        audioSource.Play();
+                        canSound = false;
+                    }
                 }
 
                 if (willGoal == false) {
