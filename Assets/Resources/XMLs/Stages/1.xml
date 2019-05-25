@@ -85,7 +85,7 @@
         <X>124</X>
         <Y>4.5</Y>
         <Rotate>0</Rotate>
-        <id>2</id>
+        <id>3</id>
       </Parts>
 
       <Trigger>
@@ -100,7 +100,6 @@
         <X>121</X>
         <Y>30</Y>
         <Rotate>0</Rotate>
-        <id>0</id>
       </Parts>
       
     </Gimmick>
@@ -250,21 +249,29 @@
       <!-- 自動で90度。それに対してどれだけ回転するか。無ければ自動で+0-->
     </Wall>
   </Walls>
-
+  
+  <!--0-->
   <ChangeRange>
-    <id>0</id>
+    <connectNum>0</connectNum>
+    <num>0</num>
     <value>17</value>
   </ChangeRange>
+  <!--1-->
   <ChangeRange>
-    <id>1</id>
+    <connectNum>5</connectNum>
+    <num>0</num>
     <value>44</value>
   </ChangeRange>
+  <!--2-->
   <ChangeRange>
-    <id>2</id>
+    <connectNum>2</connectNum>
+    <num>0</num>
     <value>16</value>
   </ChangeRange>
+  <!--3-->
   <ChangeRange>
-    <id>3</id>
+    <connectNum>3</connectNum>
+    <num>0</num>
     <value>18</value>
   </ChangeRange>
 
