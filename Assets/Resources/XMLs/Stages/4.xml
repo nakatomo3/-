@@ -24,39 +24,36 @@
 
     <Parts>
       <ConnectNumber>1</ConnectNumber>
-      <Name>ImpulseUp</Name>
-      <X>31</X>
-      <Y>1.5</Y>
-      <Rotate>0</Rotate>
-    </Parts>
-    <Parts>
-      <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseUp_2</Name>
       <X>28</X>
       <Y>1.5</Y>
       <Rotate>0</Rotate>
     </Parts>
+    
        <Parts>
       <ConnectNumber>1</ConnectNumber>
-      <Name>ImpulseUp</Name>
-      <X>25</X>
+      <Name>ImpulseUp_2</Name>
+      <X>20</X>
       <Y>1.5</Y>
       <Rotate>0</Rotate>
     </Parts>
-    <Parts>
+    
+     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseUp_2</Name>
-      <X>34</X>
+      <X>50</X>
       <Y>1.5</Y>
       <Rotate>0</Rotate>
     </Parts>
-    <Parts>
+    
+     <Parts>
       <ConnectNumber>1</ConnectNumber>
-      <Name>ImpulseUp</Name>
-      <X>37</X>
+      <Name>ImpulseUp_2</Name>
+      <X>32</X>
       <Y>1.5</Y>
       <Rotate>0</Rotate>
     </Parts>
+    
     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseUp</Name>
@@ -66,92 +63,84 @@
     </Parts>
     <Parts>
       <ConnectNumber>1</ConnectNumber>
-      <Name>ImpulseUp</Name>
-      <X>17</X>
-      <Y>30</Y>
+      <Name>ImpulseUp_2</Name>
+      <X>8</X>
+      <Y>25</Y>
       <Rotate>0</Rotate>
     </Parts>
-    <Parts>
+    
+     <Parts>
       <ConnectNumber>1</ConnectNumber>
-      <Name>ImpulseRight</Name>
-      <X>17</X>
+      <Name>ImpulseUp_2</Name>
+      <X>11</X>
+      <Y>29</Y>
+      <Rotate>0</Rotate>
+    </Parts>
+        
+       <Parts>
+      <ConnectNumber>1</ConnectNumber>
+      <Name>ImpulseUp_2</Name>
+      <X>15</X>
+      <Y>33</Y>
+      <Rotate>0</Rotate>
+    </Parts>
+    
+      <Parts>
+      <ConnectNumber>1</ConnectNumber>
+      <Name>ImpulseUp_2</Name>
+      <X>12</X>
+      <Y>41</Y>
+      <Rotate>0</Rotate>
+    </Parts>
+    
+      <Parts>
+      <ConnectNumber>1</ConnectNumber>
+      <Name>ImpulseUp_2</Name>
+      <X>8</X>
+      <Y>45</Y>
+      <Rotate>0</Rotate>
+    </Parts>
+    
+     <Parts>
+      <ConnectNumber>1</ConnectNumber>
+      <Name>ImpulseUp_2</Name>
+      <X>18</X>
       <Y>49</Y>
       <Rotate>0</Rotate>
     </Parts>
+   
     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseRight</Name>
-      <X>23</X>
-      <Y>49</Y>
-      <Rotate>0</Rotate>
-    </Parts>
-    <Parts>
-      <ConnectNumber>1</ConnectNumber>
-      <Name>ImpulseRight</Name>
-      <X>28.5</X>
-      <Y>49.5</Y>
-      <Rotate>0</Rotate>
-    </Parts>
-    <Parts>
-      <ConnectNumber>1</ConnectNumber>
-      <Name>ImpulseRight</Name>
-      <X>34</X>
-      <Y>49.5</Y>
-      <Rotate>0</Rotate>
-    </Parts>
-    <Parts>
-      <ConnectNumber>1</ConnectNumber>
-      <Name>ImpulseRight</Name>
-      <X>39.5</X>
-      <Y>49.5</Y>
-      <Rotate>0</Rotate>
-    </Parts>
-    <Parts>
-      <ConnectNumber>1</ConnectNumber>
-      <Name>ImpulseRight</Name>
-      <X>45</X>
-      <Y>49.5</Y>
-      <Rotate>0</Rotate>
-    </Parts>
-    <Parts>
-      <ConnectNumber>1</ConnectNumber>
-      <Name>ImpulseRight</Name>
-      <X>50.5</X>
-      <Y>49.5</Y>
-      <Rotate>0</Rotate>
-    </Parts>
-    <Parts>
-      <ConnectNumber>1</ConnectNumber>
-      <Name>ImpulseRight</Name>
-      <X>56</X>
-      <Y>49.5</Y>
-      <Rotate>0</Rotate>
-    </Parts>
-    <Parts>
-      <ConnectNumber>1</ConnectNumber>
-      <Name>ImpulseRight</Name>
-      <X>23</X>
+      <X>25</X>
       <Y>44</Y>
       <Rotate>0</Rotate>
     </Parts>
     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseRight</Name>
-      <X>28.5</X>
+      <X>29</X>
       <Y>44</Y>
       <Rotate>0</Rotate>
     </Parts>
     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseRight</Name>
-      <X>34</X>
+      <X>33</X>
       <Y>44</Y>
       <Rotate>0</Rotate>
     </Parts>
     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseRight</Name>
-      <X>39.5</X>
+      <X>37</X>
+      <Y>44</Y>
+      <Rotate>0</Rotate>
+    </Parts>
+    <Parts>
+      <ConnectNumber>1</ConnectNumber>
+      <Name>ImpulseRight</Name>
+      <X>41</X>
       <Y>44</Y>
       <Rotate>0</Rotate>
     </Parts>
@@ -165,14 +154,7 @@
     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseRight</Name>
-      <X>50.5</X>
-      <Y>44</Y>
-      <Rotate>0</Rotate>
-    </Parts>
-    <Parts>
-      <ConnectNumber>1</ConnectNumber>
-      <Name>ImpulseRight</Name>
-      <X>56</X>
+      <X>49</X>
       <Y>44</Y>
       <Rotate>0</Rotate>
     </Parts>
@@ -313,8 +295,8 @@
     <Trigger>
       <ConnectNumber>2</ConnectNumber>
       <Type>Forever</Type>
-      <X>28</X>
-      <Y>21</Y>
+      <X>24</X>
+      <Y>6</Y>
       <Rotate>0</Rotate>
       <initial>1</initial>
     </Trigger>
@@ -349,8 +331,8 @@
     <Parts>
       <ConnectNumber>2</ConnectNumber>
       <Name>MoveDepthObj</Name>
-      <X>11.5</X>
-      <Y>30</Y>
+      <X>22</X>
+      <Y>37</Y>
       <Rotate>0</Rotate>
     </Parts>
 
