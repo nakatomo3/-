@@ -409,334 +409,228 @@
     
     
   </Grounds>
-  
-  
+  <!--0-->
   <ChangeRange>
-    <id>0</id>
+    <connectNum>0</connectNum>
+    <num>0</num>
     <value>30.8</value>
   </ChangeRange>
+  <!--1-->
   <ChangeRange>
-    <id>1</id>
+    <connectNum>0</connectNum>
+    <num>1</num>
     <value>58.5</value>
   </ChangeRange>
+  <!--2-->
   <ChangeRange>
-    <id>2</id>
+    <connectNum>0</connectNum>
+    <num>2</num>
     <value>49.2</value>
   </ChangeRange>
+  <!--3-->
   <ChangeRange>
-    <id>3</id>
+    <connectNum>0</connectNum>
+    <num>3</num>
     <value>17</value>
   </ChangeRange>
+  <!--4-->
   <ChangeRange>
-    <id>4</id>
+    <connectNum>0</connectNum>
+    <num>4</num>
     <value>46</value>
   </ChangeRange>
+  <!--5-->
   <ChangeRange>
-    <id>5</id>
+    <connectNum>0</connectNum>
+    <num>5</num>
     <value>19</value>
   </ChangeRange>
+  <!--6-->
   <ChangeRange>
-    <id>6</id>
+    <connectNum>0</connectNum>
+    <num>6</num>
     <value>10</value>
   </ChangeRange>
+  <!--7-->
   <ChangeRange>
-    <id>7</id>
+    <connectNum>0</connectNum>
+    <num>7</num>
     <value>38</value>
   </ChangeRange>
+  <!--8-->
   <ChangeRange>
-    <id>8</id>
+    <connectNum>0</connectNum>
+    <num>8</num>
     <value>16</value>
   </ChangeRange>
+  <!--9-->
   <ChangeRange>
-    <id>9</id>
+    <connectNum>0</connectNum>
+    <num>9</num>
     <value>18</value>
   </ChangeRange>
+  <!--10-->
   <ChangeRange>
-    <id>10</id>
+    <connectNum>1</connectNum>
+    <num>0</num>
     <value>40</value>
   </ChangeRange>
+  <!--11-->
   <ChangeRange>
-    <id>11</id>
+    <connectNum>1</connectNum>
+    <num>1</num>
     <value>17</value>
   </ChangeRange>
+  <!--12-->
   <ChangeRange>
-    <id>12</id>
+    <connectNum>1</connectNum>
+    <num>2</num>
     <value>24</value>
   </ChangeRange>
+  <!--13-->
   <ChangeRange>
-    <id>13</id>
+    <connectNum>1</connectNum>
+    <num>3</num>
     <value>21</value>
   </ChangeRange>
+  <!--14-->
   <ChangeRange>
-    <id>14</id>
+    <connectNum>1</connectNum>
+    <num>4</num>
     <value>19</value>
   </ChangeRange>
+  <!--15-->
   <ChangeRange>
-    <id>15</id>
+    <connectNum>1</connectNum>
+    <num>5</num>
     <value>15</value>
   </ChangeRange>
+  <!--16-->
   <ChangeRange>
-    <id>16</id>
+    <connectNum>1</connectNum>
+    <num>6</num>
     <value>20</value>
   </ChangeRange>
+  <!--17-->
   <ChangeRange>
-    <id>17</id>
+    <connectNum>1</connectNum>
+    <num>7</num>
     <value>33</value>
   </ChangeRange>
+  <!--18-->
   <ChangeRange>
-    <id>18</id>
+    <connectNum>1</connectNum>
+    <num>8</num>
     <value>55</value>
   </ChangeRange>
+  <!--19-->
   <ChangeRange>
-    <id>19</id>
+    <connectNum>2</connectNum>
+    <num>0</num>
     <value>26.7</value>
   </ChangeRange>
+  <!--20-->
   <ChangeRange>
-    <id>20</id>
+    <connectNum>2</connectNum>
+    <num>1</num>
     <value>72</value>
   </ChangeRange>
+  <!--21-->
   <ChangeRange>
-    <id>21</id>
+    <connectNum>2</connectNum>
+    <num>2</num>
     <value>24</value>
   </ChangeRange>
+  <!--22-->
   <ChangeRange>
-    <id>22</id>
+    <connectNum>2</connectNum>
+    <num>3</num>
     <value>36</value>
   </ChangeRange>
+  <!--23-->
   <ChangeRange>
-    <id>23</id>
+    <connectNum>2</connectNum>
+    <num>4</num>
     <value>22</value>
   </ChangeRange>
+  <!--24-->
   <ChangeRange>
-    <id>24</id>
+    <connectNum>2</connectNum>
+    <num>5</num>
     <value>37</value>
   </ChangeRange>
+  <!--25-->
   <ChangeRange>
-    <id>25</id>
+    <connectNum>2</connectNum>
+    <num>6</num>
     <value>20</value>
   </ChangeRange>
+  <!--26-->
   <ChangeRange>
-    <id>26</id>
+    <connectNum>2</connectNum>
+    <num>7</num>
     <value>20</value>
   </ChangeRange>
+  <!--27-->
   <ChangeRange>
-    <id>27</id>
+    <connectNum>3</connectNum>
+    <num>0</num>
     <value>40</value>
   </ChangeRange>
+  <!--28-->
   <ChangeRange>
-    <id>28</id>
+    <connectNum>3</connectNum>
+    <num>1</num>
     <value>47</value>
   </ChangeRange>
+  <!--29-->
   <ChangeRange>
-    <id>29</id>
+    <connectNum>3</connectNum>
+    <num>2</num>
     <value>26</value>
   </ChangeRange>
+  <!--30-->
   <ChangeRange>
-    <id>30</id>
+    <connectNum>3</connectNum>
+    <num>3</num>
     <value>16</value>
   </ChangeRange>
+  <!--31-->
   <ChangeRange>
-    <id>31</id>
+    <connectNum>3</connectNum>
+    <num>4</num>
     <value>61</value>
   </ChangeRange>
+  <!--32-->
   <ChangeRange>
-    <id>32</id>
+    <connectNum>3</connectNum>
+    <num>5</num>
     <value>22</value>
   </ChangeRange>
+  <!--33-->
   <ChangeRange>
-    <id>33</id>
+    <connectNum>3</connectNum>
+    <num>6</num>
     <value>33</value>
   </ChangeRange>
+  <!--34-->
   <ChangeRange>
-    <id>34</id>
+    <connectNum>3</connectNum>
+    <num>7</num>
     <value>15</value>
   </ChangeRange>
+  <!--35-->
   <ChangeRange>
-    <id>35</id>
+    <connectNum>3</connectNum>
+    <num>8</num>
     <value>12</value>
   </ChangeRange>
+  <!--36-->
   <ChangeRange>
-    <id>36</id>
+    <connectNum>3</connectNum>
+    <num>9</num>
     <value>26</value>
   </ChangeRange>
-
-
-
-  <Decoration>
-    <name>Big_pipe6</name>
-    <PosX>71.5</PosX>
-    <PosY>21.6</PosY>
-    <PosZ>1</PosZ>
-    <ScaleX>2</ScaleX>
-    <ScaleY>2</ScaleY>
-    <ScaleZ>2</ScaleZ>
-    <Rotate>0</Rotate>
-  </Decoration>
-
-  <Decoration>
-    <name>Big_pipe</name>
-    <PosX>226</PosX>
-    <PosY>102.6</PosY>
-    <PosZ>1</PosZ>
-    <ScaleX>20</ScaleX>
-    <ScaleY>4</ScaleY>
-    <ScaleZ>10</ScaleZ>
-    <Rotate>0</Rotate>
-  </Decoration>
-
-  <Decoration>
-    <name>Big_pipe7</name>
-    <PosX>142.7</PosX>
-    <PosY>2.8</PosY>
-    <PosZ>0.85</PosZ>
-    <ScaleX>3</ScaleX>
-    <ScaleY>3</ScaleY>
-    <ScaleZ>2</ScaleZ>
-    <Rotate>0</Rotate>
-  </Decoration>
-
-  <Decoration>
-    <name>Big_pipe2</name>
-    <PosX>31</PosX>
-    <PosY>78.7</PosY>
-    <PosZ>1</PosZ>
-    <ScaleX>2</ScaleX>
-    <ScaleY>2</ScaleY>
-    <ScaleZ>2</ScaleZ>
-    <Rotate>0</Rotate>
-  </Decoration>
-
-  <Decoration>
-    <name>Big_pipe3</name>
-    <PosX>190.3</PosX>
-    <PosY>28.4</PosY>
-    <PosZ>1</PosZ>
-    <ScaleX>3</ScaleX>
-    <ScaleY>3</ScaleY>
-    <ScaleZ>2</ScaleZ>
-    <Rotate>0</Rotate>
-  </Decoration>
-
-  <Decoration>
-    <name>Big_pipe6</name>
-    <PosX>250.2</PosX>
-    <PosY>96.1</PosY>
-    <PosZ>1</PosZ>
-    <ScaleX>2</ScaleX>
-    <ScaleY>2</ScaleY>
-    <ScaleZ>2</ScaleZ>
-    <Rotate>0</Rotate>
-  </Decoration>
-
-  <Decoration>
-    <name>Big_pipe3</name>
-    <PosX>215.7</PosX>
-    <PosY>-46.8</PosY>
-    <PosZ>1</PosZ>
-    <ScaleX>2</ScaleX>
-    <ScaleY>2</ScaleY>
-    <ScaleZ>2</ScaleZ>
-    <Rotate>0</Rotate>
-  </Decoration>
-
-  <Decoration>
-    <name>壊れた歯車</name>
-    <PosX>192.59</PosX>
-    <PosY>44.99</PosY>
-    <PosZ>0.3</PosZ>
-    <ScaleX>2</ScaleX>
-    <ScaleY>2</ScaleY>
-    <ScaleZ>1</ScaleZ>
-    <Rotate>0</Rotate>
-  </Decoration>
-
-  <Decoration>
-    <name>壊れた歯車3</name>
-    <PosX>68.63</PosX>
-    <PosY>5.93</PosY>
-    <PosZ>0.3</PosZ>
-    <ScaleX>2</ScaleX>
-    <ScaleY>2</ScaleY>
-    <ScaleZ>1</ScaleZ>
-    <Rotate>0</Rotate>
-  </Decoration>
-
-  <Decoration>
-    <name>壊れた歯車2</name>
-    <PosX>195.5</PosX>
-    <PosY>5.67</PosY>
-    <PosZ>0.3</PosZ>
-    <ScaleX>2</ScaleX>
-    <ScaleY>2</ScaleY>
-    <ScaleZ>1</ScaleZ>
-    <Rotate>0</Rotate>
-  </Decoration>
-
-  <Decoration>
-    <name>壊れた歯車2</name>
-    <PosX>49.22</PosX>
-    <PosY>80.68</PosY>
-    <PosZ>0.3</PosZ>
-    <ScaleX>2</ScaleX>
-    <ScaleY>2</ScaleY>
-    <ScaleZ>1</ScaleZ>
-    <Rotate>0</Rotate>
-  </Decoration>
-
-  <Decoration>
-    <name>Steam</name>
-    <PosX>153.387</PosX>
-    <PosY>40.198</PosY>
-    <PosZ>-3.6</PosZ>
-    <ScaleX>1</ScaleX>
-    <ScaleY>1</ScaleY>
-    <ScaleZ>1</ScaleZ>
-    <Rotate>0</Rotate>
-  </Decoration>
-
-  <Decoration>
-    <name>Steam</name>
-    <PosX>284.67</PosX>
-    <PosY>46.16</PosY>
-    <PosZ>-3.6</PosZ>
-    <ScaleX>3</ScaleX>
-    <ScaleY>4</ScaleY>
-    <ScaleZ>2</ScaleZ>
-    <Rotate>0</Rotate>
-  </Decoration>
-
-  <Decoration>
-    <name>Steam</name>
-    <PosX>136.37</PosX>
-    <PosY>36.39</PosY>
-    <PosZ>-3.6</PosZ>
-    <ScaleX>0.3</ScaleX>
-    <ScaleY>0.3</ScaleY>
-    <ScaleZ>0.5</ScaleZ>
-    <Rotate>0</Rotate>
-  </Decoration>
-
-  <Decoration>
-    <name>Steam_2</name>
-    <PosX>182.8</PosX>
-    <PosY>37.24</PosY>
-    <PosZ>0</PosZ>
-    <ScaleX>3</ScaleX>
-    <ScaleY>4</ScaleY>
-    <ScaleZ>2</ScaleZ>
-    <Rotate>0</Rotate>
-  </Decoration>
-
-  <Decoration>
-    <name>Wall</name>
-    <PosX>150</PosX>
-    <PosY>150</PosY>
-    <PosZ>0</PosZ>
-    <ScaleX>320</ScaleX>
-    <ScaleY>50</ScaleY>
-    <ScaleZ>5</ScaleZ>
-    <Rotate>0</Rotate>
-  </Decoration>
   
     <!-- ゲームに影響のない見た目だけの部分。　未実装-->
     <BackGround>
