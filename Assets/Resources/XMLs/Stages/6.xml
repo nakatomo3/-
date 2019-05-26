@@ -1013,4 +1013,205 @@
     <value>12</value>
   </ChangeRange>
 
+
+
+
+  <Decoration>
+    <name>時計</name>
+    <PosX>100.05</PosX>
+    <PosX>50.3</PosX>
+    <PosX>-1.5</PosX>
+    <ScaleX>7</ScaleX>
+    <ScaleX>7</ScaleX>
+    <ScaleX>1</ScaleX>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam</name>
+    <PosX>101.5</PosX>
+    <PosX>26.55</PosX>
+    <PosX>-3.4</PosX>
+    <ScaleX>1</ScaleX>
+    <ScaleX>1</ScaleX>
+    <ScaleX>1</ScaleX>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam</name>
+    <PosX>62.1</PosX>
+    <PosX>11.34</PosX>
+    <PosX>-3.4</PosX>
+    <ScaleX>1</ScaleX>
+    <ScaleX>1</ScaleX>
+    <ScaleX>1</ScaleX>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam</name>
+    <PosX>39.8</PosX>
+    <PosX>22.77</PosX>
+    <PosX>-3.4</PosX>
+    <ScaleX>1</ScaleX>
+    <ScaleX>1</ScaleX>
+    <ScaleX>1</ScaleX>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam</name>
+    <PosX>182.61</PosX>
+    <PosX>55.21</PosX>
+    <PosX>-3.4</PosX>
+    <ScaleX>1</ScaleX>
+    <ScaleX>1</ScaleX>
+    <ScaleX>1</ScaleX>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam</name>
+    <PosX>197.3</PosX>
+    <PosX>84.6</PosX>
+    <PosX>-3.4</PosX>
+    <ScaleX>2</ScaleX>
+    <ScaleX>2</ScaleX>
+    <ScaleX>2</ScaleX>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam</name>
+    <PosX>141.8</PosX>
+    <PosX>55.09</PosX>
+    <PosX>-3.4</PosX>
+    <ScaleX>2</ScaleX>
+    <ScaleX>2</ScaleX>
+    <ScaleX>2</ScaleX>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam</name>
+    <PosX>32.71</PosX>
+    <PosX>45.57</PosX>
+    <PosX>-3.4</PosX>
+    <ScaleX>2</ScaleX>
+    <ScaleX>2</ScaleX>
+    <ScaleX>2</ScaleX>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam</name>
+    <PosX>22.52</PosX>
+    <PosX>22.5</PosX>
+    <PosX>-3.4</PosX>
+    <ScaleX>2</ScaleX>
+    <ScaleX>2</ScaleX>
+    <ScaleX>2</ScaleX>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam_2</name>
+    <PosX>9.3</PosX>
+    <PosX>44.21</PosX>
+    <PosX>-3.4</PosX>
+    <ScaleX>1</ScaleX>
+    <ScaleX>1</ScaleX>
+    <ScaleX>1</ScaleX>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam_2</name>
+    <PosX>42.19</PosX>
+    <PosX>21.64</PosX>
+    <PosX>-3.4</PosX>
+    <ScaleX>2</ScaleX>
+    <ScaleX>2</ScaleX>
+    <ScaleX>2</ScaleX>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam_2</name>
+    <PosX>107.32</PosX>
+    <PosX>84.17</PosX>
+    <PosX>-3.4</PosX>
+    <ScaleX>3</ScaleX>
+    <ScaleX>3</ScaleX>
+    <ScaleX>3</ScaleX>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam</name>
+    <PosX>16.27</PosX>
+    <PosX>66.34</PosX>
+    <PosX>-7</PosX>
+    <ScaleX>3</ScaleX>
+    <ScaleX>3</ScaleX>
+    <ScaleX>3</ScaleX>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam</name>
+    <PosX>10.98</PosX>
+    <PosX>78.65</PosX>
+    <PosX>-7</PosX>
+    <ScaleX>2</ScaleX>
+    <ScaleX>2</ScaleX>
+    <ScaleX>2</ScaleX>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>Steam</name>
+    <PosX>188.44</PosX>
+    <PosX>-4.81</PosX>
+    <PosX>-7</PosX>
+    <ScaleX>4</ScaleX>
+    <ScaleX>6</ScaleX>
+    <ScaleX>4</ScaleX>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>sample2</name>
+    <PosX>240.9</PosX>
+    <PosX>125.5</PosX>
+    <PosX>-7</PosX>
+    <ScaleX>1</ScaleX>
+    <ScaleX>1</ScaleX>
+    <ScaleX>1</ScaleX>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>sample1</name>
+    <PosX>-36.1</PosX>
+    <PosX>111.7</PosX>
+    <PosX>-7</PosX>
+    <ScaleX>1</ScaleX>
+    <ScaleX>1</ScaleX>
+    <ScaleX>1</ScaleX>
+    <Rotate>0</Rotate>
+  </Decoration>
+
+  <Decoration>
+    <name>sample3</name>
+    <PosX>-40.4</PosX>
+    <PosX>122.4</PosX>
+    <PosX>-7</PosX>
+    <ScaleX>1</ScaleX>
+    <ScaleX>1</ScaleX>
+    <ScaleX>1</ScaleX>
+    <Rotate>0</Rotate>
+  </Decoration>
+
 </Stage>
