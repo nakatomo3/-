@@ -27,8 +27,13 @@ public class PlayerTouchdownSE : MonoBehaviour
                 audioSource.Play();
             }
         }
+        if(Input.GetKeyUp(KeyCode.W) || Input.GetButtonUp("GamePadA")) {
+            audioSource.Stop();
+        }
     }
-    //private void OnTriggerExit(Collider other) {
-    //    canSound = true;
-    //}
+
+    private void OnTriggerExit(Collider other) {
+        audioSource.Stop();
+    }
+
 }
