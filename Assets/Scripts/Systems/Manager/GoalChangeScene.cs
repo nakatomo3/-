@@ -7,7 +7,7 @@ public class GoalChangeScene : MonoBehaviour
 {
     private float changeSceneCounter = 0;
     public GameObject crackerPaperA;
-    const float CHANGE_SCENE = 4.0f;
+    const float CHANGE_SCENE = 5.0f;
     // Start is called before the first frame update
     void Start()
     {
