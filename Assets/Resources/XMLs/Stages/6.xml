@@ -60,14 +60,6 @@
         </Trigger>
       <Parts>
             <ConnectNumber>22</ConnectNumber>
-            <Name>MoveVerticalObj</Name>
-            <X>179</X>
-            <Y>-5</Y>
-          <Rotate>0</Rotate>
-          <id>6</id>
-        </Parts>
-      <Parts>
-            <ConnectNumber>22</ConnectNumber>
             <Name>MoveDepthObj</Name>
             <X>92</X>
             <Y>89</Y>
@@ -137,28 +129,28 @@
             <Y>88</Y>
         </Trigger>
       <Parts>
-            <ConnectNumber>23</ConnectNumber>
+            <ConnectNumber>24</ConnectNumber>
             <Name>MoveDepthObj</Name>
             <X>94</X>
             <Y>89</Y>
           <Rotate>-45</Rotate>
         </Parts>
       <Parts>
-            <ConnectNumber>23</ConnectNumber>
+            <ConnectNumber>24</ConnectNumber>
             <Name>MoveDepthObj</Name>
             <X>93.5</X>
             <Y>96</Y>
           <Rotate>50</Rotate>
         </Parts>
       <Parts>
-            <ConnectNumber>23</ConnectNumber>
+            <ConnectNumber>24</ConnectNumber>
             <Name>MoveDepthObj</Name>
             <X>106.5</X>
             <Y>96</Y>
           <Rotate>-50</Rotate>
         </Parts>
       <Parts>
-            <ConnectNumber>23</ConnectNumber>
+            <ConnectNumber>24</ConnectNumber>
             <Name>MoveDepthObj</Name>
             <X>106.5</X>
             <Y>89</Y>
@@ -171,13 +163,15 @@
             <Type>RightGear</Type>
             <X>107</X>
             <Y>29</Y>
+          <Rotate>0</Rotate>
+          <Initial>0</Initial>
         </Trigger>
         <Parts>
             <ConnectNumber>0</ConnectNumber>
             <Name>Bridge</Name>
             <X>101</X>
             <Y>50</Y>
-          <Rotate>50</Rotate>
+          <Rotate>-40</Rotate>
         </Parts>
       <!--NE-->
       <Parts>
@@ -222,27 +216,15 @@
         </Parts>
       <Parts>
             <ConnectNumber>0</ConnectNumber>
-            <Name>ImpulseUp</Name>
-            <X>186</X>
-            <Y>15</Y>
+            <Name>ObjFallTrap</Name>
+            <X>188</X>
+            <Y>12.5</Y>
         </Parts>
       <Parts>
             <ConnectNumber>0</ConnectNumber>
-            <Name>ImpulseUp</Name>
-            <X>183</X>
-            <Y>15</Y>
-        </Parts>
-      <Parts>
-            <ConnectNumber>0</ConnectNumber>
-            <Name>ImpulseUp</Name>
-            <X>180</X>
-            <Y>15</Y>
-        </Parts>
-      <Parts>
-            <ConnectNumber>0</ConnectNumber>
-            <Name>ImpulseUp</Name>
-            <X>177</X>
-            <Y>15</Y>
+            <Name>ObjFallTrap</Name>
+            <X>188</X>
+            <Y>17</Y>
         </Parts>
       <!--SW-->
       <!--Blue All-->
@@ -254,32 +236,32 @@
             <X>95</X>
             <Y>29</Y>
         <Rotate>0</Rotate>
-        <Initial>1</Initial>
+        <Initial>-1</Initial>
         </Trigger>
         <Parts>
             <ConnectNumber>1</ConnectNumber>
             <Name>Bridge</Name>
             <X>99</X>
             <Y>50</Y>
-          <Rotate>-50</Rotate>
+          <Rotate>130</Rotate>
         </Parts>
       <!--NE-->
       <Parts>
             <ConnectNumber>1</ConnectNumber>
             <Name>ImpulseLeft</Name>
-            <X>187</X>
+            <X>188</X>
             <Y>90</Y>
         </Parts>
       <Parts>
             <ConnectNumber>1</ConnectNumber>
             <Name>ImpulseLeft</Name>
-            <X>185</X>
+            <X>184.5</X>
             <Y>88</Y>
         </Parts>
       <Parts>
             <ConnectNumber>1</ConnectNumber>
             <Name>ImpulseLeft</Name>
-            <X>183</X>
+            <X>181</X>
             <Y>86</Y>
         </Parts>
       <!--NW-->
@@ -304,12 +286,13 @@
             <Type>Forever</Type>
             <X>120</X>
             <Y>32.5</Y>
+           <Rotate>30</Rotate>
         </Trigger>
         <Parts>
             <ConnectNumber>2</ConnectNumber>
             <Name>MoveVerticalObj</Name>
             <X>128</X>
-            <Y>49</Y>
+            <Y>41</Y>
           <Rotate>0</Rotate>
           <id>0</id>
         </Parts>
@@ -324,14 +307,14 @@
             <ConnectNumber>3</ConnectNumber>
             <Name>MoveVerticalObj</Name>
             <X>72</X>
-            <Y>49</Y>
+            <Y>41</Y>
           <Rotate>0</Rotate>
           <id>1</id>
         </Parts>
       <Parts>
             <ConnectNumber>3</ConnectNumber>
             <Name>MoveVerticalObj</Name>
-            <X>68</X>
+            <X>69</X>
             <Y>14</Y>
           <Rotate>0</Rotate>
           <id>5</id>
@@ -349,7 +332,7 @@
       <Parts>
             <ConnectNumber>4</ConnectNumber>
             <Name>Bridge</Name>
-            <X>162</X>
+            <X>160</X>
             <Y>70</Y>
           <Rotate>135</Rotate>
         </Parts>
@@ -398,13 +381,7 @@
       <Parts>
             <ConnectNumber>99</ConnectNumber>
             <Name>ObjFallTrap</Name>
-            <X>165</X>
-            <Y>58</Y>
-        </Parts>
-      <Parts>
-            <ConnectNumber>99</ConnectNumber>
-            <Name>ObjFallTrap</Name>
-            <X>169</X>
+            <X>170</X>
             <Y>61</Y>
         </Parts>
       <Parts>
@@ -427,6 +404,8 @@
             <Type>RightGear</Type>
             <X>41</X>
             <Y>47.5</Y>
+            <Rotate>0</Rotate>
+            <Initial>1</Initial>
         </Trigger>
       <Parts>
             <ConnectNumber>6</ConnectNumber>
@@ -463,6 +442,8 @@
             <Type>RightGear</Type>
             <X>47</X>
             <Y>47.5</Y>
+                <Rotate>0</Rotate>
+            <Initial>1</Initial>
         </Trigger>
       <Parts>
             <ConnectNumber>7</ConnectNumber>
@@ -479,7 +460,7 @@
             <Parts>
             <ConnectNumber>7</ConnectNumber>
             <Name>MoveDepthObj</Name>
-            <X>20</X>
+            <X>17</X>
             <Y>62</Y>
         </Parts>
       <Parts>
@@ -517,6 +498,8 @@
             <Type>RightGear</Type>
             <X>53</X>
             <Y>47.5</Y>
+                  <Rotate>0</Rotate>
+            <Initial>1</Initial>
         </Trigger>
       <Parts>
             <ConnectNumber>8</ConnectNumber>
@@ -541,6 +524,8 @@
             <Type>RightGear</Type>
             <X>59</X>
             <Y>47.5</Y>
+                      <Rotate>0</Rotate>
+            <Initial>1</Initial>
         </Trigger>
       <Parts>
             <ConnectNumber>9</ConnectNumber>
@@ -579,7 +564,7 @@
             <ConnectNumber>99</ConnectNumber>
             <Name>ImpulseUp</Name>
             <X>183.6</X>
-            <Y>34.3</Y>
+            <Y>32</Y>
         </Parts>
       <Parts>
             <ConnectNumber>99</ConnectNumber>
@@ -766,7 +751,13 @@
             <ConnectNumber>99</ConnectNumber>
             <Name>ObjFallTrap</Name>
             <X>46.5</X>
-            <Y>40.5</Y>
+            <Y>20.2</Y>
+        </Parts>
+      <Parts>
+            <ConnectNumber>99</ConnectNumber>
+            <Name>ObjFallTrap</Name>
+            <X>25.5</X>
+            <Y>35.5</Y>
         </Parts>
       
     <Trigger>
@@ -825,16 +816,9 @@
       <!-- 0～360. 無ければ自動で0-->
     </Ground>
     <Ground>
-      <PosX>46</PosX>
-      <PosY>18</PosY>
-      <Long>24</Long>
-      <Rotate>45</Rotate>
-      <!-- 0～360. 無ければ自動で0-->
-    </Ground>
-    <Ground>
-      <PosX>33</PosX>
+      <PosX>39</PosX>
       <PosY>36.5</PosY>
-      <Long>22</Long>
+      <Long>18</Long>
       <Rotate>0</Rotate>
       <!-- 0～360. 無ければ自動で0-->
     </Ground>
@@ -860,9 +844,9 @@
       <!-- 0～360. 無ければ自動で0-->
     </Ground>
     <Ground>
-      <PosX>192</PosX>
+      <PosX>191</PosX>
       <PosY>7</PosY>
-      <Long>13</Long>
+      <Long>16</Long>
       <Rotate>0</Rotate>
       <!-- 0～360. 無ければ自動で0-->
     </Ground>
@@ -888,7 +872,7 @@
       <!-- 0～360. 無ければ自動で0-->
     </Ground>
     <Ground>
-      <PosX>190</PosX>
+      <PosX>187</PosX>
       <PosY>84</PosY>
       <Long>18</Long>
       <Rotate>0</Rotate>
@@ -913,13 +897,6 @@
       <PosY>55</PosY>
       <Long>13</Long>
       <Rotate>0</Rotate>
-      <!-- 0～360. 無ければ自動で0-->
-    </Ground>
-    <Ground>
-      <PosX>174</PosX>
-      <PosY>50</PosY>
-      <Long>20</Long>
-      <Rotate>30</Rotate>
       <!-- 0～360. 無ければ自動で0-->
     </Ground>
     <Ground>
@@ -963,7 +940,7 @@
 
   <Walls>
     <Wall>
-      <PosX>65</PosX>
+      <PosX>64</PosX>
       <PosY>35.5</PosY>
       <Long>20</Long>
       <Rotate>0</Rotate>
@@ -975,14 +952,14 @@
   <ChangeRange> 
     <connectNum>2</connectNum>
     <num>0</num>
-    <value>31</value>
+    <value>39</value>
   </ChangeRange> 
     
   <!--1-->
   <ChangeRange>
     <connectNum>3</connectNum>
     <num>0</num>
-    <value>31</value>
+    <value>39</value>
   </ChangeRange>
     
   <!--3-->
@@ -1005,17 +982,7 @@
     <num>1</num>
     <value>20</value>
   </ChangeRange>
-    
-  <!--6-->
-  <ChangeRange> 
-    <connectNum>22</connectNum>
-    <num>0</num>
-    <value>12</value>
-  </ChangeRange>
-
-
-
-
+   
   <Decoration>
     <name>時計</name>
     <PosX>100.05</PosX>
