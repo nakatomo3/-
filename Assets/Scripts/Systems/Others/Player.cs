@@ -30,8 +30,9 @@ public class Player : MonoBehaviour {
 	public Rigidbody rigidbody;
 	private Collider thisCollider;
 
-	//[SerializeField]
-	private bool isJumping;
+    //[SerializeField]
+    [HideInInspector]
+    public bool isJumping;
 	private float jumpRotateSpeed;
 	private float jumpRange;
 	private const float JUMP_RANGE_ADD_VALUE = 10f;
@@ -52,6 +53,8 @@ public class Player : MonoBehaviour {
     [HideInInspector]
     public bool wasGameOver = false;
 
+    private AudioSource jumpSE;
+
     private void Awake() {
         instance = this;
 		//Destroy(Camera.main.gameObject);
@@ -62,7 +65,8 @@ public class Player : MonoBehaviour {
 		thisTransform = GetComponent<Transform>();
 		rigidbody = gameObject.GetComponent<Rigidbody>();
 		thisCollider = gameObject.GetComponent<Collider>();
-	}
+        jumpSE = GetComponent<AudioSource>();
+    }
 
 	// Update is called once per frame
 	void Update() {
@@ -86,15 +90,7 @@ public class Player : MonoBehaviour {
 				}
 			}
 		}
-        //Ray ray = new Ray(transform.position, new Vector3(0, -1, 0));
-        //float distance = 1.32f;
-        //RaycastHit hit;
-        // if(Physics.Raycast(ray, out hit, distance)) {
-        //    if (hit.collider.CompareTag("Ground")) {
-        //        isJumping = false;
-        //    }
-            
-        //}
+        
         //右下と左下にRayを飛ばして当たっていたらjumpをtrue
         Ray ray2 = new Ray(transform.position, new Vector3(2.5f, -1, 0));
         float distance2 = 1.6f;
@@ -190,6 +186,8 @@ public class Player : MonoBehaviour {
 		if (Input.GetKeyUp(KeyCode.W) || Input.GetButtonUp("GamePadA")) {
 			if (isJumping != true) {
 				rigidbody.velocity = new Vector3(0, jumpRange, 0);
+                jumpSE.Play();
+               
 			}
 			thisTransform.localScale = new Vector3(1, 1, 1);
 			visualTransform.localPosition = new Vector3(0, 0, 0);
@@ -224,8 +222,8 @@ public class Player : MonoBehaviour {
 	private void OnCollisionEnter(Collision collision) {
 		if (collision.gameObject.CompareTag("Ground")) {
 			rigidbody.AddForce(new Vector3(0, 1, 0));
-
-			if (collision.gameObject.transform.position.y <= thisTransform.position.y) {
+           
+            if (collision.gameObject.transform.position.y <= thisTransform.position.y) {
 				isJumping = false;
 			}
 		}
