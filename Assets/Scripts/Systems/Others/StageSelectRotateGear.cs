@@ -21,7 +21,7 @@ public class StageSelectRotateGear : MonoBehaviour {
 			rotateSpeed = 1 * Time.deltaTime;
 		}
 		for (int i = 0; i < gears.Count; i++) {
-			gears[i].Rotate(new Vector3(0, 0, rotateSpeed * ((-1 * i % 2) + 0.5f) * 2));
+			gears[i].Rotate(new Vector3(0, 0, rotateSpeed * ((-1 * i % 2) + 0.5f) * 2)*60*Time.deltaTime);
 		}
 	}
 }
