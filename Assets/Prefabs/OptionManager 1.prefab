@@ -2200,8 +2200,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   isSelectScene: 1
-  CorsorMoveSound: {fileID: 8300000, guid: bafd3056ffc37f5428d87bb670a296e4, type: 3}
-  CorsorEnterSound: {fileID: 8300000, guid: 189f3b11eafd76b468164b250b2f5d04, type: 3}
+  CorsorMoveSound: {fileID: 8300000, guid: fe0aa9854452b2e40a7f5c1c5ed013b0, type: 3}
+  CorsorEnterSound: {fileID: 8300000, guid: 4bbd7e12a300bdd42be2149ac7b73bdd, type: 3}
 --- !u!82 &661343752925892373
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2212,10 +2212,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 96d11c1e37184854e85052a9675cfab5, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0.4
+  m_Pitch: 1.3
   Loop: 1
   Mute: 0
   Spatialize: 0
@@ -2311,7 +2311,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 0
+  m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
