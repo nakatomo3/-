@@ -314,6 +314,12 @@ public class Parts : MonoBehaviour {
             }
             if (goalCounter <= 0) {
                 goalCanvas.SetActive(false);
+
+            } else if (Player.instance.wasGameOver == true || OptionManager.instance.isPause == true) {
+                goalCanvas.SetActive(false);
+
+            } else {
+                goalCanvas.SetActive(true);
             }
             goalCanvas.transform.position = new Vector3(0, -goalCounter * CLEAR_IMAGE_SPEED + CLEAR_IMAGE_POSY, 15) + CameraManager.instance.gameObject.transform.position;
 
