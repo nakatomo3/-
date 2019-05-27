@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 
-  thisType: 0
+  thisType: 14
   MOVE_HORIZONTAL_OBJ_RANGE: 50
   MOVE_VIRTICAL_OBJ_RANGE: 20
   MOVE_DEPTH_OBJ_RANGE: 7
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 
-  thisType: 0
+  thisType: 14
   MOVE_HORIZONTAL_OBJ_RANGE: 50
   MOVE_VIRTICAL_OBJ_RANGE: 20
   MOVE_DEPTH_OBJ_RANGE: 7
