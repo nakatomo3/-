@@ -152,38 +152,39 @@
     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseUp</Name>
-      <X>69.1</X>
+      <X>77</X>
       <Y>18</Y>
-      <Rotate>-45</Rotate>
+      <Rotate>45</Rotate>
     </Parts>
    
     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseUp</Name>
-      <X>69.7</X>
-      <Y>3.5</Y>
+      <X>71</X>
+      <Y>2</Y>
       <Rotate>-45</Rotate>
     </Parts>
+    
    
     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseLeft</Name>
       <X>82</X>
-      <Y>1.5</Y>
+      <Y>1.0</Y>
       <Rotate>0</Rotate>
     </Parts>
     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseLeft</Name>
       <X>85.5</X>
-      <Y>1.5</Y>
+      <Y>1.0</Y>
       <Rotate>0</Rotate>
     </Parts>
     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseLeft</Name>
       <X>89</X>
-      <Y>1.5</Y>
+      <Y>1.0</Y>
       <Rotate>0</Rotate>
     </Parts>
     <Parts>
