@@ -30,6 +30,8 @@ public class StaffCreditManager : MonoBehaviour {
 			fade.color = new Color(0,0,0,FadeTimer/FADE_TIMER_MAX);
 		}
 
+        credit.transform.position += Vector3.up * 50 * Time.deltaTime;
+
 		if(FadeTimer >= FADE_TIMER_MAX) {
 			SceneManager.LoadScene("StageSelect");
 		}
