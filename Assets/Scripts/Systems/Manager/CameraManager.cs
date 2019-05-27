@@ -32,6 +32,8 @@ public class CameraManager : MonoBehaviour {
 
 	private AudioSource audioSource;
 
+    private bool isFilmingMode = false;
+
 	private void Awake() {
 		instance = this;
 		thisTransform = transform;
@@ -64,32 +66,43 @@ public class CameraManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
-		if (isFreeAnimation == false) {
-			if (isWholeMode == false) {
-				if (SceneManager.GetActiveScene().name == "Game") {
-					thisTransform.position = new Vector3(posX + SideRange, posY, thisTransform.position.z);
-					thisTransform.localRotation = Quaternion.Euler(0, SideRange, 0);
-				} else {
+        if(isFilmingMode == false) {
+            if(isFreeAnimation == false) {
+                if(isWholeMode == false) {
+                    if(SceneManager.GetActiveScene().name == "Game") {
+                        thisTransform.position = new Vector3(posX + SideRange, posY, thisTransform.position.z);
+                        thisTransform.localRotation = Quaternion.Euler(0, SideRange, 0);
+                    } else {
 
-					thisTransform.position += new Vector3((playerTransform.position.x-thisTransform.position.x)/3, (playerTransform.position.y + 4 - thisTransform.position.y) / 30, (playerTransform.position.z + CAMERA_POS_Z - thisTransform.position.z)/80);
+                        thisTransform.position += new Vector3((playerTransform.position.x - thisTransform.position.x) / 3, (playerTransform.position.y + 4 - thisTransform.position.y) / 30, (playerTransform.position.z + CAMERA_POS_Z - thisTransform.position.z) / 80);
 
-				}
+                    }
 
-			}
+                }
 
-			if (SceneManager.GetActiveScene().name == "Game") {
-				if (SystemManager.instance.isDeath == false) {
-					ChangeWholeMode();
-				}
-			}
+                if(SceneManager.GetActiveScene().name == "Game") {
+                    if(SystemManager.instance.isDeath == false) {
+                        ChangeWholeMode();
+                    }
+                }
 
-			posX = Mathf.Lerp(thisTransform.position.x, playerTransform.position.x, 0.1f);
-		} else {
-			thisTransform.position = Vector3.Lerp(thisTransform.position, new Vector3(5, -6, -30), 0.1f);
-		}
-	}
+                posX = Mathf.Lerp(thisTransform.position.x, playerTransform.position.x, 0.1f);
+            } else {
+                thisTransform.position = Vector3.Lerp(thisTransform.position, new Vector3(5, -6, -30), 0.1f);
+            }
+        }else{
+            thisTransform.position += Vector3.right * 10 * Time.deltaTime;
+        }
 
-	public void MoveRight() {
+#if UNITY_EDITOR
+
+        if(Input.GetKeyDown(KeyCode.LeftShift)){
+            isFilmingMode = !isFilmingMode;
+        }
+#endif
+    }
+
+    public void MoveRight() {
 		if (Player.instance.isGimmickMode == false) {
 			SideRange += Time.deltaTime * Player.instance.moveSpeed;
 
