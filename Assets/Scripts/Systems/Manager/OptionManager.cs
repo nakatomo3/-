@@ -114,12 +114,22 @@ public class OptionManager : MonoBehaviour {
     private bool inputOnceDown = false;
     private bool inputOnceLeft = false;
     private bool inputOnceRight = false;
+
+    private AudioSource GearAudioSource;
+    private AudioSource CorsorAudioSorce;
+    public AudioClip CorsorMoveSound;
+    public AudioClip CorsorEnterSound;
+    private bool isAudioOnece = true;
     private void Awake() {
 		instance = this;
 	}
 
 	// Start is called before the first frame update
 	void Start() {
+        AudioSource[] audioSources = GetComponents<AudioSource>();
+        GearAudioSource = audioSources[0];
+        CorsorAudioSorce = audioSources[1];
+
         Time.timeScale = 1f;
 
 		BGMVolume = PlayerPrefs.GetInt("BGMVolume", 50);
@@ -144,6 +154,14 @@ public class OptionManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (isAudioOnece == true) {
+            GearAudioSource.Play();
+            isAudioOnece = false;
+
+        } else if (isPause == false) {
+            GearAudioSource.Pause();
+        }
+
 		if(BGMVolume >= VOLUME_MAX) BGMVolume = VOLUME_MAX;
 		if(SEVolume >= VOLUME_MAX)	SEVolume = VOLUME_MAX;
 		if (BGMVolume <= VOLUME_MIN) BGMVolume = VOLUME_MIN;
@@ -214,10 +232,26 @@ public class OptionManager : MonoBehaviour {
 		bool isInputUp = Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W) || Input.GetAxis("GamePadStickVirtical") < -0.3;
 		bool isInputDown = Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S) || Input.GetAxis("GamePadStickVirtical") > 0.3;
 
+        //ＳＥ再生
+        if (isPause == true) {
+            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || joyStickHorizonRight ||
+                Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || joyStickHorizonLeft ||
+                Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || joyStickVirticalUp ||
+                Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) || joyStickVirticalDown) {
+                CorsorAudioSorce.PlayOneShot(CorsorMoveSound);
+
+            }
+            if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("GamePadB") ||
+             Input.GetKeyDown(KeyCode.Backspace) || Input.GetButtonDown("GamePadA")) {
+                CorsorAudioSorce.PlayOneShot(CorsorEnterSound);
+
+            }
+        }
 
 
 
-		if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("GamePadStart")) {
+
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("GamePadStart")) {
 			if(isPause == true) {
 				isPause = false;
 				Time.timeScale = 1f;
@@ -227,11 +261,14 @@ public class OptionManager : MonoBehaviour {
 				isOpeningOptionWindow = false;
 				isSelectingBGM_SE = false;
 				isScreenSelect = false;
+
 			} else {
 				isPause = true;
 				Time.timeScale = 0f;
 				canvas.SetActive(true);
-			}
+                isAudioOnece = true;
+
+            }
 		}		
 
         //----------ポーズ中の処理------------------
