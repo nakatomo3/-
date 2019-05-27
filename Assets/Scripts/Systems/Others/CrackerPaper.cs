@@ -25,6 +25,8 @@ public class CrackerPaper : MonoBehaviour {
 
 		transform.localPosition = new Vector3((Random.value - 0.5f) * 2 * 20, Random.value * 15 + 10, 23);
 
+        Destroy(gameObject, 30);
+
 	}
 
 	// Update is called once per frame
