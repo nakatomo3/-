@@ -341,7 +341,7 @@ public class OptionManager : MonoBehaviour {
 	/// </summary>
 	private void Continue() {
 		if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("GamePadB")) {/////////////////////////////////////////////////////////////////
-            CorsorAudioSorce.pitch = ENTER_PITCH;
+            CorsorAudioSorce.pitch = BACK_PITCH;
             CorsorAudioSorce.PlayOneShot(CorsorMoveSound);
             isPause = false;
 			Time.timeScale = 1f;
