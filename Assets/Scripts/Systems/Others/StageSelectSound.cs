@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StageSelectSound : MonoBehaviour
 {
+    private GameObject SteamSound;
     private AudioSource sound01;
     private AudioSource steam;
     private float steamPlaySoundCounter = 0;
@@ -11,9 +12,9 @@ public class StageSelectSound : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AudioSource[] audioSources = GetComponents<AudioSource>();
-        sound01 = audioSources[0];
-        steam = audioSources[1];
+        SteamSound = transform.GetChild(0).gameObject;
+        sound01 = GetComponent<AudioSource>();
+        steam = SteamSound.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame

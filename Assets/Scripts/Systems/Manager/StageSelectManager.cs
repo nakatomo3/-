@@ -41,8 +41,11 @@ public class StageSelectManager : MonoBehaviour {
 
     private AudioSource paperAudioSource;
     private AudioSource chainAudioSouce;
+    private GameObject chainSoundObj;
     private AudioSource chainFallAudioSouce;
+    private GameObject chainFallSoundObj;
     private AudioSource cracker;
+    private GameObject crackerSoundObj;
     private bool audioOnece = true;
     private bool audioOnece2 = true;
     private bool audioOnece3 = true;
@@ -54,11 +57,16 @@ public class StageSelectManager : MonoBehaviour {
 
 	// Start is called before the first frame update
 	void Start() {
-        AudioSource[] audioSources = GetComponents<AudioSource>();
-        cracker = audioSources[3];
-        chainFallAudioSouce = audioSources[2];
-        chainAudioSouce = audioSources[1];
-        paperAudioSource = audioSources[0];
+        //chainSoundObj = transform.GetChild(0).gameObject;
+        //chainAudioSouce = chainSoundObj.GetComponent<AudioSource>();
+        //chainFallSoundObj = transform.GetChild(1).gameObject;
+        //chainFallAudioSouce= chainFallSoundObj.GetComponent<AudioSource>();
+        //crackerSoundObj = transform.GetChild(2).gameObject;
+        //cracker = crackerSoundObj.GetComponent<AudioSource>();
+        paperAudioSource = GetComponent<AudioSource>();
+        chainAudioSouce = transform.GetChild(0).GetComponent<AudioSource>();
+        chainFallAudioSouce = transform.GetChild(1).GetComponent<AudioSource>();
+        cracker= transform.GetChild(2).GetComponent<AudioSource>();
 
 
         var collectpartsParent = new GameObject("CollectParts");
@@ -98,8 +106,9 @@ public class StageSelectManager : MonoBehaviour {
 		}
         if(PlayerPrefs.GetInt("ClearAnimation",0) == 0) {
             isEndAnimation = true;
-		}
-		PlayerPrefs.SetInt("ClearAnimation", 1);
+        }
+       
+        PlayerPrefs.SetInt("ClearAnimation", 1);
 
 		if (isEndAnimation == true && isAnimation == true) {
 			isDouble = true;
@@ -109,6 +118,7 @@ public class StageSelectManager : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        Debug.Log(endAnimationTimer);
         if (OptionManager.instance.isPause == false) {
             if (isEndAnimation == true && audioOnece == true || isEndAnimation == true && wasPause == true) {
                 chainAudioSouce.Play();
@@ -116,6 +126,9 @@ public class StageSelectManager : MonoBehaviour {
                 wasPause = false;
                 endSign.SetActive(true);
                 crackerPaperA.SetActive(true);
+            }
+            if(endAnimationTimer >= 4 && endAnimationTimer <= 4.5 && audioOnece2 == true || endAnimationTimer >= 4 && endAnimationTimer <= 4.5 && wasPause == true && isEndAnimation == true) {
+                chainAudioSouce.Stop();
             }
             if (endAnimationTimer >= 9 && audioOnece2 == true|| endAnimationTimer >= 9 && wasPause == true && isEndAnimation == true) {
                 chainAudioSouce.Play();
@@ -131,6 +144,10 @@ public class StageSelectManager : MonoBehaviour {
                 endSign.SetActive(true);
                 crackerPaperA.SetActive(true);
             }
+            if(endAnimationTimer >= 13.5f) {
+                chainAudioSouce.Stop();
+            }
+
 
             for (int i = 0; i < 5; i++) {
                 if (doors[i].transform.localRotation.y < 0) {
@@ -189,15 +206,15 @@ public class StageSelectManager : MonoBehaviour {
                     }
                 } else {
                     isEndAnimation = false;
-                    chainAudioSouce.Pause();
-                    paperAudioSource.Pause();
+                    chainAudioSouce.Stop();
+                    paperAudioSource.Stop();
                 }
 
             }
 
         }else if (OptionManager.instance.isPause == true) {
-            chainAudioSouce.Pause();
-            paperAudioSource.Pause();
+            chainAudioSouce.Stop();
+            paperAudioSource.Stop();
             wasPause = true;
         }
     }
