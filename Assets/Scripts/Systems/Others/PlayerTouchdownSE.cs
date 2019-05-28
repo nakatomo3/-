@@ -14,9 +14,8 @@ public class PlayerTouchdownSE : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AudioSource[] audioSources = GetComponents<AudioSource>();
-        touchDownaudioSouce = audioSources[0];
-        moveAudioSource = audioSources[1];
+        touchDownaudioSouce = GetComponent<AudioSource>();
+        moveAudioSource = transform.GetChild(0).GetComponent<AudioSource>();
 
     }
 
@@ -24,7 +23,13 @@ public class PlayerTouchdownSE : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        speed = ((this.transform.position - latestPos) / Time.deltaTime).magnitude;
+        latestPos = this.transform.position;
         if (speed <= 0 || Player.instance.wasGameOver == true || OptionManager.instance.isPause == true) {
+            moveAudioSource.Stop();
+            canSound = true;
+        }
+        if(Player.instance.isJumping == true) {
             moveAudioSource.Stop();
             canSound = true;
         }
@@ -45,10 +50,8 @@ public class PlayerTouchdownSE : MonoBehaviour
     }
 
     private void OnTriggerStay(Collider other) {
-        bool isRight = Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || Input.GetAxis("GamePadStickHolizontal") > 0.3;
-        bool isLeft = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || Input.GetAxis("GamePadStickHolizontal") < -0.3;
         if (other.gameObject.CompareTag("Ground")) {
-            if (isRight == true || isLeft == true) {
+            if (speed > 0) {
                 if (canSound == true) {
                     moveAudioSource.Play();
                     canSound = false;
