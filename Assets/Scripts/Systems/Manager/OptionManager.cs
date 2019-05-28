@@ -61,11 +61,11 @@ public class OptionManager : MonoBehaviour {
 	public GameObject canvas;
 
 	[HideInInspector]
-	public float SEVolume = 50;
+	public float SEVolume = 10;
 	[HideInInspector]
-	public float BGMVolume = 50;
+	public float BGMVolume = 10;
 	private const int VOLUME_MIN = 0;
-	private const int VOLUME_MAX = 100;
+	private const int VOLUME_MAX = 20;
 
 	private float inputStartTime = 0;
 
@@ -150,7 +150,9 @@ public class OptionManager : MonoBehaviour {
 		if(SceneManager.GetActiveScene().name == "Game") {
 			isSelectScene = false;
 		}
-	}
+        SEVolume = 10;
+        BGMVolume = 10;
+}
 
     // Update is called once per frame
     void Update() {
@@ -474,11 +476,11 @@ public class OptionManager : MonoBehaviour {
 
 			switch (optionCursorPos) {
 				case (int)OptionCursor.BGM:
-					if (isPushingRight && BGMVolume < VOLUME_MAX) {///////////////////////////////////////////////////////////////////////////////
-						BGMVolume += (Time.realtimeSinceStartup - inputStartTime) / 15;
-					} else if (isPushingLeft && BGMVolume > VOLUME_MIN) {
-						BGMVolume -= (Time.realtimeSinceStartup - inputStartTime) / 15;
-					}
+					//if (isPushingRight && BGMVolume < VOLUME_MAX) {///////////////////////////////////////////////////////////////////////////////
+					//	BGMVolume += (Time.realtimeSinceStartup - inputStartTime) / 15;
+					//} else if (isPushingLeft && BGMVolume > VOLUME_MIN) {
+					//	BGMVolume -= (Time.realtimeSinceStartup - inputStartTime) / 15;
+					//}
 
 					if (isStartRight == true) {//////////////////////////////////////////////////////////
                         CorsorAudioSorce.pitch = MOVE_PITCH;
@@ -508,11 +510,11 @@ public class OptionManager : MonoBehaviour {
 					}
 					break;
 				case (int)OptionCursor.SE:
-					if (isPushingRight && SEVolume < VOLUME_MAX) {/////////////////////////////////////////////////////////////////
-						SEVolume += (Time.realtimeSinceStartup - inputStartTime) / 15;
-					} else if (isPushingLeft && SEVolume > VOLUME_MIN) {
-						SEVolume -= (Time.realtimeSinceStartup - inputStartTime) / 15;
-					}
+					//if (isPushingRight && SEVolume < VOLUME_MAX) {/////////////////////////////////////////////////////////////////
+					//	SEVolume += (Time.realtimeSinceStartup - inputStartTime) / 15;
+					//} else if (isPushingLeft && SEVolume > VOLUME_MIN) {
+					//	SEVolume -= (Time.realtimeSinceStartup - inputStartTime) / 15;
+					//}
 
 					if (isStartRight == true) {/////////////////////////////////////////////////////
                         CorsorAudioSorce.pitch = MOVE_PITCH;

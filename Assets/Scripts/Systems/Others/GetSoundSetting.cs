@@ -16,9 +16,9 @@ public class GetSoundSetting : MonoBehaviour {
 	// Update is called once per frame
 	void Update() {
 		if(isBGM == true) {
-			audioSource.volume = OptionManager.instance.BGMVolume / 100;
+			audioSource.volume = OptionManager.instance.BGMVolume / 20;
 		} else {
-			audioSource.volume = OptionManager.instance.SEVolume / 100;
+			audioSource.volume = OptionManager.instance.SEVolume / 20;
 		}
 	}
 }
