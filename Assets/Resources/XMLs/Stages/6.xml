@@ -357,9 +357,21 @@
       <Parts>
             <ConnectNumber>99</ConnectNumber>
             <Name>ImpulseRight</Name>
-            <X>138</X>
+            <X>150</X>
             <Y>75</Y>
         </Parts>
+      <Parts>
+        <ConnectNumber>99</ConnectNumber>
+        <Name>ImpulseRight</Name>
+        <X>146</X>
+        <Y>75</Y>
+      </Parts>
+      <Parts>
+        <ConnectNumber>99</ConnectNumber>
+        <Name>ImpulseUp_2</Name>
+        <X>138</X>
+        <Y>73</Y>
+      </Parts>
       <Parts>
             <ConnectNumber>99</ConnectNumber>
             <Name>ImpulseUp_2</Name>
@@ -369,7 +381,7 @@
       <Parts>
             <ConnectNumber>99</ConnectNumber>
             <Name>ImpulseUp_2</Name>
-            <X>138</X>
+            <X>139</X>
             <Y>59</Y>
         </Parts>
       <Parts>
@@ -674,12 +686,7 @@
             <X>146</X>
             <Y>12.4</Y>
         </Parts>
-      <Parts>
-            <ConnectNumber>99</ConnectNumber>
-            <Name>ImpulseRight</Name>
-            <X>127.1</X>
-            <Y>18.7</Y>
-        </Parts>
+     
       <Parts>
             <ConnectNumber>99</ConnectNumber>
             <Name>ObjFallTrap</Name>

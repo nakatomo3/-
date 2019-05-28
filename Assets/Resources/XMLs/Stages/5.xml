@@ -336,7 +336,27 @@
           <Rotate>0</Rotate>
           <id>36</id>
         </Parts>
-    <!--////////////////////////////////////////////////////////////////////-->
+
+      <!--////////////////////////////////////////////////////////////////////-->
+
+      <Trigger>
+        <ConnectNumber>99</ConnectNumber>
+        <Type>RightGear</Type>
+        <X>500</X>
+        <Y>500</Y>
+      </Trigger>
+
+      <Parts>
+        <ConnectNumber>99</ConnectNumber>
+        <Name>MoveVerticalObj</Name>
+        <X>99</X>
+        <Y>44</Y>
+        <Rotate>0</Rotate>
+        <id>36</id>
+      </Parts>
+    
+      <!--////////////////////////////////////////////////////////////////////-->
+   
       <Trigger>
             <ConnectNumber>4</ConnectNumber>
             <Type>RightGear</Type>
@@ -349,7 +369,7 @@
             <X>292</X>
             <Y>47</Y>
         </Parts>
-    
+
     </Gimmick>
 
   <CollectParts>
@@ -366,11 +386,28 @@
   <Grounds>
     <Ground>
       <PosX>150</PosX>
-      <PosY>40</PosY>
-      <Long>10</Long>
+      <PosY>41</PosY>
+      <Long>5</Long>
       <Rotate>0</Rotate>
       <!-- 0～360. 無ければ自動で0-->
     </Ground>
+    
+       <Ground>
+      <PosX>145.5</PosX>
+      <PosY>38.5</PosY>
+      <Long>6</Long>
+      <Rotate>50</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+    
+       <Ground>
+      <PosX>154.5</PosX>
+      <PosY>38.5</PosY>
+      <Long>6</Long>
+      <Rotate>-50</Rotate>
+      <!-- 0～360. 無ければ自動で0-->
+    </Ground>
+      
     <Ground>
       <PosX>140</PosX>
       <PosY>36</PosY>
@@ -631,8 +668,6 @@
     <num>9</num>
     <value>26</value>
   </ChangeRange>
-
-
 
   <Decoration>
     <name>背景歯車2</name>

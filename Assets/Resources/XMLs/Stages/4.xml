@@ -323,12 +323,7 @@
       <X>78</X>
       <Y>34.5</Y>
     </Trigger>
-    <Trigger>
-      <ConnectNumber>3</ConnectNumber>
-      <Type>Forever</Type>
-      <X>107.8</X>
-      <Y>43</Y>
-    </Trigger>
+  
     <Parts>
       <ConnectNumber>3</ConnectNumber>
       <Name>Bridge</Name>
