@@ -152,50 +152,39 @@
     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseUp</Name>
-      <X>69.1</X>
+      <X>77</X>
       <Y>18</Y>
+      <Rotate>45</Rotate>
+    </Parts>
+   
+    <Parts>
+      <ConnectNumber>1</ConnectNumber>
+      <Name>ImpulseUp</Name>
+      <X>71</X>
+      <Y>2</Y>
       <Rotate>-45</Rotate>
     </Parts>
-    <Parts>
-      <ConnectNumber>1</ConnectNumber>
-      <Name>ImpulseUp</Name>
-      <X>69.3</X>
-      <Y>12</Y>
-      <Rotate>-35</Rotate>
-    </Parts>
-    <Parts>
-      <ConnectNumber>1</ConnectNumber>
-      <Name>ImpulseUp</Name>
-      <X>69.7</X>
-      <Y>3.5</Y>
-      <Rotate>-45</Rotate>
-    </Parts>
-    <Parts>
-      <ConnectNumber>1</ConnectNumber>
-      <Name>ImpulseUp</Name>
-      <X>72.5</X>
-      <Y>1</Y>
-      <Rotate>0</Rotate>
-    </Parts>
+    
+   
     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseLeft</Name>
       <X>82</X>
-      <Y>1.5</Y>
+      <Y>1.0</Y>
       <Rotate>0</Rotate>
     </Parts>
     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseLeft</Name>
       <X>85.5</X>
-      <Y>1.5</Y>
+      <Y>1.0</Y>
       <Rotate>0</Rotate>
     </Parts>
     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseLeft</Name>
       <X>89</X>
-      <Y>1.5</Y>
+      <Y>1.0</Y>
       <Rotate>0</Rotate>
     </Parts>
     <Parts>
@@ -229,7 +218,7 @@
     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseUp</Name>
-      <X>142</X>
+      <X>138</X>
       <Y>34.5</Y>
       <Rotate>0</Rotate>
     </Parts>
@@ -240,6 +229,7 @@
       <Y>0</Y>
       <Rotate>0</Rotate>
     </Parts>
+   
     <Parts>
       <ConnectNumber>1</ConnectNumber>
       <Name>ImpulseLeft</Name>
@@ -293,7 +283,7 @@
     </Trigger>
     <Parts>
       <ConnectNumber>2</ConnectNumber>
-      <Name>MoveDepthObj</Name>
+      <Name>MoveDepthObj_2</Name>
       <X>9.5</X>
       <Y>5</Y>
       <Rotate>0</Rotate>
@@ -795,6 +785,8 @@
     <ScaleZ>2</ScaleZ>
     <Rotate>0</Rotate>
   </Decoration>
+  
+  
 
   <!-- ゲームに影響のない見た目だけの部分。　未実装-->
   <BackGround>
