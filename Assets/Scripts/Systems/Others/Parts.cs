@@ -333,15 +333,14 @@ public class Parts : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        //if (isMoveRight == true&& thisTransform.position.x <= thisFirstPosX + MOVE_HORIZONTAL_OBJ_RANGE) {
-        //    thisTransform.Translate(MOVE_HORIZONTAL_OBJ_SPEED * Time.deltaTime, 0, 0);
-        //    isMoveRight = false;
 
-        //}
-        //if (isMoveLeft == true&& thisTransform.position.x >= thisFirstPosX - MOVE_HORIZONTAL_OBJ_RANGE) {
-        //    thisTransform.Translate(-MOVE_HORIZONTAL_OBJ_SPEED * Time.deltaTime, 0, 0);
-        //    isMoveLeft = false;
-        //}
+        if (willGoal == true && goalAnimationCounter <= 0.05) {
+            clearImage.transform.position += new Vector3(0, -goalAnimationSpeed * Time.deltaTime, 0);
+            clearGears.transform.position += new Vector3(0, -goalAnimationSpeed * Time.deltaTime, 0);
+            clearChain.transform.position += new Vector3(0, -goalAnimationSpeed * Time.deltaTime, 0);
+            goalAnimationSpeed *= 1.3f;
+            goalAnimationCounter += Time.deltaTime;
+        }
     }
 
     /// <summary>
