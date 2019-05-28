@@ -6,6 +6,7 @@ public class PlayerTouchdownSE : MonoBehaviour
 {
     private AudioSource touchDownaudioSouce;
     private AudioSource moveAudioSource;
+    private AudioSource slowMoveAudioSource;
     private bool canSound=false;
 
 
@@ -17,6 +18,7 @@ public class PlayerTouchdownSE : MonoBehaviour
     {
         touchDownaudioSouce = GetComponent<AudioSource>();
         moveAudioSource = transform.GetChild(0).GetComponent<AudioSource>();
+        slowMoveAudioSource = transform.GetChild(1).GetComponent<AudioSource>();
 
     }
 
@@ -27,12 +29,19 @@ public class PlayerTouchdownSE : MonoBehaviour
         speed = (this.transform.position.x - latestPos.x) / Time.deltaTime;
         latestPos = this.transform.position;
         if (speed == 0 || Player.instance.wasGameOver == true || OptionManager.instance.isPause == true) {
+            slowMoveAudioSource.Stop();
             moveAudioSource.Stop();
             canSound = true;
         }
         if(Player.instance.isJumping == true) {
+            slowMoveAudioSource.Stop();
             moveAudioSource.Stop();
             canSound = true;
+        }
+        if(Input.GetKeyDown(KeyCode.W) || Input.GetButtonDown("GamePadA")) {
+            slowMoveAudioSource.Play();
+            moveAudioSource.Stop();
+            canSound = false;
         }
 
 
