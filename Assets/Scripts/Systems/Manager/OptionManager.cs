@@ -226,21 +226,21 @@ public class OptionManager : MonoBehaviour {
 		bool isInputUp = Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W) || Input.GetAxis("GamePadStickVirtical") < -0.3;
 		bool isInputDown = Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S) || Input.GetAxis("GamePadStickVirtical") > 0.3;
 
-        ////ＳＥ再生
-        //if (isPause == true) {
-        //    if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || joyStickHorizonRight ||
-        //        Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || joyStickHorizonLeft ||
-        //        Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || joyStickVirticalUp ||
-        //        Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) || joyStickVirticalDown) {
-        //        CorsorAudioSorce.PlayOneShot(CorsorMoveSound);
+        //ＳＥ再生
+        if (isPause == true) {
+            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D) || joyStickHorizonRight ||
+                Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A) || joyStickHorizonLeft ||
+                Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W) || joyStickVirticalUp ||
+                Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S) || joyStickVirticalDown) {
+                CorsorAudioSorce.PlayOneShot(CorsorMoveSound);
 
-        //    }
-        //    if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("GamePadB") ||
-        //     Input.GetKeyDown(KeyCode.Backspace) || Input.GetButtonDown("GamePadA")) {
-        //        CorsorAudioSorce.PlayOneShot(CorsorEnterSound);
+            }
+            if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("GamePadB") ||
+             Input.GetKeyDown(KeyCode.Backspace) || Input.GetButtonDown("GamePadA")) {
+                CorsorAudioSorce.PlayOneShot(CorsorEnterSound);
 
-        //    }
-        //}
+            }
+        }
 
 
 
