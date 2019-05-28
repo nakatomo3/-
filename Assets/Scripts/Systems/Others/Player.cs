@@ -94,21 +94,30 @@ public class Player : MonoBehaviour {
         
         //右下と左下にRayを飛ばして当たっていたらjumpをtrue
         Ray ray2 = new Ray(transform.position, new Vector3(2.5f, -1, 0));
-        float distance2 = 1.6f;
+        float distance2 = 1.62f;
         RaycastHit hit2;
         if (Physics.Raycast(ray2, out hit2, distance2)) {
             if (hit2.collider.CompareTag("Ground")) {
-                isJumping = false;
+                if (hit2.collider.gameObject.transform.rotation.z >= 25&& hit2.collider.gameObject.name=="Bridge(Clone)" && 
+                    hit2.collider.gameObject.transform.rotation.z <= -25 && hit2.collider.gameObject.name == "Bridge(Clone)"||
+                    hit2.collider.gameObject.transform.rotation.z >= 165 && hit2.collider.gameObject.name == "Bridge(Clone)"&&
+                    hit2.collider.gameObject.transform.rotation.z <= -165 && hit2.collider.gameObject.name == "Bridge(Clone)") {
+                    isJumping = false;
+                }
             }
           
         }
         Ray ray3 = new Ray(transform.position, new Vector3(-2.5f, -1, 0));
-        float distance3 = 1.6f;
+        float distance3 = 1.62f;
         RaycastHit hit3;
         if (Physics.Raycast(ray3, out hit3, distance3)) {
             if (hit3.collider.CompareTag("Ground")) {
-                isJumping = false;
-            }
+                if (hit3.collider.gameObject.transform.rotation.z >= 25 && hit3.collider.gameObject.name == "Bridge(Clone)" &&
+                   hit3.collider.gameObject.transform.rotation.z <= -25 && hit3.collider.gameObject.name == "Bridge(Clone)" ||
+                    hit3.collider.gameObject.transform.rotation.z >= 165 && hit3.collider.gameObject.name == "Bridge(Clone)" &&
+                    hit3.collider.gameObject.transform.rotation.z <= -165 && hit3.collider.gameObject.name == "Bridge(Clone)") {
+                    isJumping = false;
+                }            }
             
         }
       //  Debug.DrawLine(ray.origin, ray.direction * distance, Color.red);
