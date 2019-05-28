@@ -120,6 +120,9 @@ public class OptionManager : MonoBehaviour {
     public AudioClip CorsorMoveSound;
     public AudioClip CorsorEnterSound;
     private bool isAudioOnece = true;
+    private const float ENTER_PITCH = 0.85f;
+    private const float BACK_PITCH = 0.5f;
+    private const float MOVE_PITCH = 1;
     private void Awake() {
 		instance = this;
 	}
@@ -252,8 +255,10 @@ public class OptionManager : MonoBehaviour {
 
 
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetButtonDown("GamePadStart")) {
-			if(isPause == true) {
-				isPause = false;
+			if(isPause == true) {////////////////////////////////////////////////////////////////////////
+                CorsorAudioSorce.pitch = BACK_PITCH;
+                CorsorAudioSorce.PlayOneShot(CorsorEnterSound);
+                isPause = false;
 				Time.timeScale = 1f;
 				canvas.SetActive(false);
 				mainCursorPos = 0;
@@ -262,8 +267,10 @@ public class OptionManager : MonoBehaviour {
 				isSelectingBGM_SE = false;
 				isScreenSelect = false;
 
-			} else {
-				isPause = true;
+			} else {/////////////////////////////////////////////////////////////////////////////////
+                CorsorAudioSorce.pitch = ENTER_PITCH;
+                CorsorAudioSorce.PlayOneShot(CorsorEnterSound);
+                isPause = true;
 				Time.timeScale = 0f;
 				canvas.SetActive(true);
                 isAudioOnece = true;
@@ -290,11 +297,15 @@ public class OptionManager : MonoBehaviour {
 
 			if (isConfirmation == false && isScreenSelect == false && isOpeningOptionWindow == false) {
 
-				if (isInputUpStart) {
-					mainCursorPos--;
+				if (isInputUpStart) {///////////////////////////////////////////////////////
+                    CorsorAudioSorce.pitch = MOVE_PITCH;
+                    CorsorAudioSorce.PlayOneShot(CorsorMoveSound);
+                    mainCursorPos--;
 				}
-				if (isInputDownStart) {
-					mainCursorPos++;
+				if (isInputDownStart) {/////////////////////////////////////////////////////////////
+                    CorsorAudioSorce.pitch = MOVE_PITCH;
+                    CorsorAudioSorce.PlayOneShot(CorsorMoveSound);
+                    mainCursorPos++;
 				}
 
 
@@ -340,8 +351,10 @@ public class OptionManager : MonoBehaviour {
 	/// Restartを選択している状態の関数
 	/// </summary>
 	private void Continue() {
-		if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("GamePadB")) {
-			isPause = false;
+		if (Input.GetKeyDown(KeyCode.Return) || Input.GetButtonDown("GamePadB")) {/////////////////////////////////////////////////////////////////
+            CorsorAudioSorce.pitch = ENTER_PITCH;
+            CorsorAudioSorce.PlayOneShot(CorsorMoveSound);
+            isPause = false;
 			Time.timeScale = 1f;
 			canvas.SetActive(false);
 		}
@@ -396,18 +409,26 @@ public class OptionManager : MonoBehaviour {
 
 		}
 
-		if (isEnter == true) {
-			if (isOpeningOptionWindow == true) {
+		if (isEnter == true) {/////////////////////////////////////////
+            CorsorAudioSorce.pitch = ENTER_PITCH;
+            if (isOpeningOptionWindow == true) {
 
 				switch (optionCursorPos) {
 					default:
 						Debug.LogError("存在しないOptionCursorを選択しています");
 						break;
 					case (int)OptionCursor.BGM:
+                        CorsorAudioSorce.pitch = ENTER_PITCH;
+                        CorsorAudioSorce.PlayOneShot(CorsorMoveSound);
+                        break;
 					case (int)OptionCursor.SE:
-						break;
+                        CorsorAudioSorce.pitch = ENTER_PITCH;
+                        CorsorAudioSorce.PlayOneShot(CorsorMoveSound);
+                        break;
 					case (int)OptionCursor.Window:
-						if (isScreenSelect == false) {
+                        CorsorAudioSorce.pitch = ENTER_PITCH;
+                        CorsorAudioSorce.PlayOneShot(CorsorMoveSound);
+                        if (isScreenSelect == false) {
 							isScreenSelect = true;
 							optionScreenCursorPos = (int)WindowOptionCursor.IsFullScreen;
 							optionScreenSelect.SetActive(true);
@@ -415,7 +436,9 @@ public class OptionManager : MonoBehaviour {
 						}
 						break;
 					case (int)OptionCursor.Back:
-						isOpeningOptionWindow = false;
+                        CorsorAudioSorce.pitch = BACK_PITCH;
+                        CorsorAudioSorce.PlayOneShot(CorsorMoveSound);
+                        isOpeningOptionWindow = false;
 						optionScreenSelect.SetActive(false);
 						break;
 				}
@@ -423,8 +446,10 @@ public class OptionManager : MonoBehaviour {
 				isOpeningOptionWindow = true;
 			}
 		}
-		if (isBack == true) {
-			if (isOpeningOptionWindow == true) {
+		if (isBack == true) {//////////////////////////////////////////////////
+            CorsorAudioSorce.pitch = BACK_PITCH;
+            CorsorAudioSorce.PlayOneShot(CorsorMoveSound);
+            if (isOpeningOptionWindow == true) {
 				switch (optionCursorPos) {
 					case (int)OptionCursor.Back:
 						break;
@@ -444,11 +469,15 @@ public class OptionManager : MonoBehaviour {
 			optionWindow.SetActive(true);
 
 			if (isSelectingBGM_SE == false && isScreenSelect == false) {
-				if (isStartUp) {
-					optionCursorPos--;
+				if (isStartUp) {///////////////////////////////////////////////////////////////////////////////////////////
+                    CorsorAudioSorce.pitch = MOVE_PITCH;
+                    CorsorAudioSorce.PlayOneShot(CorsorMoveSound);
+                    optionCursorPos--;
 				}
-				if (isStartDown) {
-					optionCursorPos++;
+				if (isStartDown) {///////////////////////////////////////////////////////////////////////////////////////////
+                    CorsorAudioSorce.pitch = MOVE_PITCH;
+                    CorsorAudioSorce.PlayOneShot(CorsorMoveSound);
+                    optionCursorPos++;
 				}
 
 				optionCursorPos = (optionCursorPos + (int)OptionCursor.Back + 1) % ((int)OptionCursor.Back+1);
@@ -456,18 +485,22 @@ public class OptionManager : MonoBehaviour {
 
 			switch (optionCursorPos) {
 				case (int)OptionCursor.BGM:
-					if (isPushingRight && BGMVolume < VOLUME_MAX) {
+					if (isPushingRight && BGMVolume < VOLUME_MAX) {///////////////////////////////////////////////////////////////////////////////
 						BGMVolume += (Time.realtimeSinceStartup - inputStartTime) / 15;
 					} else if (isPushingLeft && BGMVolume > VOLUME_MIN) {
 						BGMVolume -= (Time.realtimeSinceStartup - inputStartTime) / 15;
 					}
 
-					if (isStartRight == true) {
-						BGMVolume++;
+					if (isStartRight == true) {//////////////////////////////////////////////////////////
+                        CorsorAudioSorce.pitch = MOVE_PITCH;
+                        CorsorAudioSorce.PlayOneShot(CorsorMoveSound);
+                        BGMVolume++;
 						inputStartTime = Time.realtimeSinceStartup;
 					}
-					if (isStartLeft == true) {
-						BGMVolume--;
+					if (isStartLeft == true) {////////////////////////////////////////////////////////////
+                        CorsorAudioSorce.pitch = MOVE_PITCH;
+                        CorsorAudioSorce.PlayOneShot(CorsorMoveSound);
+                        BGMVolume--;
 						inputStartTime = Time.realtimeSinceStartup;
 					}
 					PlayerPrefs.SetInt("BGMVolume", Mathf.FloorToInt(BGMVolume));
@@ -486,19 +519,23 @@ public class OptionManager : MonoBehaviour {
 					}
 					break;
 				case (int)OptionCursor.SE:
-					if (isPushingRight && SEVolume < VOLUME_MAX) {
+					if (isPushingRight && SEVolume < VOLUME_MAX) {/////////////////////////////////////////////////////////////////
 						SEVolume += (Time.realtimeSinceStartup - inputStartTime) / 15;
 					} else if (isPushingLeft && SEVolume > VOLUME_MIN) {
 						SEVolume -= (Time.realtimeSinceStartup - inputStartTime) / 15;
 					}
 
-					if (isStartRight == true) {
-						SEVolume++;
+					if (isStartRight == true) {/////////////////////////////////////////////////////
+                        CorsorAudioSorce.pitch = MOVE_PITCH;
+                        CorsorAudioSorce.PlayOneShot(CorsorMoveSound);
+                        SEVolume++;
 						inputStartTime = Time.realtimeSinceStartup;
 
 					}
-					if (isStartLeft) {
-						SEVolume--;
+					if (isStartLeft) {///////////////////////////////////////////////////////////
+                        CorsorAudioSorce.pitch = MOVE_PITCH;
+                        CorsorAudioSorce.PlayOneShot(CorsorMoveSound);
+                        SEVolume--;
 						inputStartTime = Time.realtimeSinceStartup;
 					}
 					PlayerPrefs.SetInt("SEVolume", Mathf.FloorToInt(SEVolume));
@@ -566,12 +603,16 @@ public class OptionManager : MonoBehaviour {
 							Light[i, 1].color = Color.white;
 						}
 						break;
-					case (int)WindowOptionCursor.Size:
+					case (int)WindowOptionCursor.Size://///////////////////////////////////////////////
 						if(isStartLeft == true) {
-							windowSizeNum--;
+                            CorsorAudioSorce.pitch = MOVE_PITCH;
+                            CorsorAudioSorce.PlayOneShot(CorsorMoveSound);
+                            windowSizeNum--;
 						}
 						if(isStartRight == true) {
-							windowSizeNum++;
+                            CorsorAudioSorce.pitch = MOVE_PITCH;
+                            CorsorAudioSorce.PlayOneShot(CorsorMoveSound);
+                            windowSizeNum++;
 						}
 						windowSizeNum = (windowSizeNum + WINDOW_RESOLUTION_SET.Length/2) % (WINDOW_RESOLUTION_SET.Length/2);
 						screenWidthText[0].text = WINDOW_RESOLUTION_SET[windowSizeNum, 0].ToString();
@@ -591,9 +632,11 @@ public class OptionManager : MonoBehaviour {
 							Light[i, 1].color = Color.white;
 						}
 						break;
-					case (int)WindowOptionCursor.Back:
+					case (int)WindowOptionCursor.Back:///////////////////////////////////////////////////
 						if(isStartRight || isEnter) {
-							isScreenSelect = false;
+                            CorsorAudioSorce.pitch = BACK_PITCH;
+                            CorsorAudioSorce.PlayOneShot(CorsorEnterSound);
+                            isScreenSelect = false;
 							optionCursorPos = (int)OptionCursor.Window;
 						}
 						for (int i = 6; i < 7 + 1; i++) {
@@ -609,9 +652,11 @@ public class OptionManager : MonoBehaviour {
 							ArrowParent[i].SetActive(false);
 						}
 						break;
-					case (int)WindowOptionCursor.Aplly:
+					case (int)WindowOptionCursor.Aplly://///////////////////////////////////////
 						if (isStartRight || isEnter) {
-							isScreenSelect = false;
+                            CorsorAudioSorce.pitch = ENTER_PITCH;
+                            CorsorAudioSorce.PlayOneShot(CorsorEnterSound);
+                            isScreenSelect = false;
 							ChangeScreenSize(windowSizeNum);
 						}
 						for (int i = 6; i < 7 + 1; i++) {
@@ -629,11 +674,16 @@ public class OptionManager : MonoBehaviour {
 						break;
 				}
 
+                //////////////////////////////////////////////////////////////////////////////////////
 				if (isStartUp) {
-					optionScreenCursorPos--;
+                    CorsorAudioSorce.pitch = MOVE_PITCH;
+                    CorsorAudioSorce.PlayOneShot(CorsorMoveSound);
+                    optionScreenCursorPos--;
 				}
 				if (isStartDown) {
-					optionScreenCursorPos++;
+                    CorsorAudioSorce.pitch = MOVE_PITCH;
+                    CorsorAudioSorce.PlayOneShot(CorsorMoveSound);
+                    optionScreenCursorPos++;
 				}
 
 				optionScreenCursorPos = (optionScreenCursorPos + (int)WindowOptionCursor.Aplly + 1) % ((int)WindowOptionCursor.Aplly + 1);
@@ -695,23 +745,34 @@ public class OptionManager : MonoBehaviour {
 		bool isStartDown = Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)||joyStickVirticalDown;
 
 		if(isEnter == true) {
-			if(isConfirmation == true) {
+            CorsorAudioSorce.pitch = ENTER_PITCH;
+            if (isConfirmation == true) {//////////////////////////////////////////////////
 				if(exitCorsorPos == 0) {
-					SceneManager.LoadScene("Game");
+                    CorsorAudioSorce.pitch = ENTER_PITCH;
+                    CorsorAudioSorce.PlayOneShot(CorsorEnterSound);
+                    SceneManager.LoadScene("Game");
 				} else {
-					isConfirmation = false;
+                    CorsorAudioSorce.pitch = BACK_PITCH;
+                    CorsorAudioSorce.PlayOneShot(CorsorEnterSound);
+                    isConfirmation = false;
 				}
 			} else {
-				isConfirmation = true;
+                         isConfirmation = true;
 			}
-		}
+        }
 
 		if (isConfirmation == true) {
-			if (isBack == true) {
-				isConfirmation = false;
+			if (isBack == true) {//////////////////////////////////////////////////////
+                CorsorAudioSorce.pitch = BACK_PITCH;
+                CorsorAudioSorce.PlayOneShot(CorsorEnterSound);
+                isConfirmation = false;
 			}
 			if(exitCorsorPos == 0) {
-				if(isStartDown)	exitCorsorPos = 1;
+                if (isStartDown) {
+                    CorsorAudioSorce.pitch = MOVE_PITCH;
+                    CorsorAudioSorce.PlayOneShot(CorsorMoveSound);
+                    exitCorsorPos = 1;//////////////////////////////////////////////////////////
+                }
 				for(int i = 8; i < 9+1; i++) {
 					if(i == 8) {
 						Light[i, 0].color = Color.yellow;
@@ -722,7 +783,11 @@ public class OptionManager : MonoBehaviour {
 					}
 				}
 			} else {
-				if (isStartUp) exitCorsorPos = 0;
+                if (isStartUp) {
+                    CorsorAudioSorce.pitch = MOVE_PITCH;
+                    CorsorAudioSorce.PlayOneShot(CorsorMoveSound);
+                    exitCorsorPos = 0;////////////////////////////////////////////////////////////////////////////
+                }
 				for (int i = 8; i < 9 + 1; i++) {
 					if (i == 9) {
 						Light[i, 0].color = Color.yellow;
@@ -769,24 +834,31 @@ public class OptionManager : MonoBehaviour {
 		bool isStartDown = Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S)|| joyStickVirticalDown;
 
 		if (isEnter == true) {
-			if (isConfirmation == true) {
-				if (exitCorsorPos == 0) {
-					SceneManager.LoadScene("StageSelect");
+            CorsorAudioSorce.pitch = ENTER_PITCH;
+            if (isConfirmation == true) {
+				if (exitCorsorPos == 0) {/////////////////////////////////////////////////
+                    CorsorAudioSorce.pitch = ENTER_PITCH;
+                    CorsorAudioSorce.PlayOneShot(CorsorEnterSound);
+                    SceneManager.LoadScene("StageSelect");
 				} else {
-					isConfirmation = false;
+                    CorsorAudioSorce.pitch = BACK_PITCH;
+                    CorsorAudioSorce.PlayOneShot(CorsorEnterSound);
+                    isConfirmation = false;
 				}
 			} else {
 				isConfirmation = true;
 			}
-		}
+        }
 
 		if(isConfirmation == true) {
 			if(isBack == true) {
-				isConfirmation = false;
+                CorsorAudioSorce.pitch = BACK_PITCH;
+                CorsorAudioSorce.PlayOneShot(CorsorEnterSound);
+                isConfirmation = false;
 			}
 
 			if (exitCorsorPos == 0) {
-				if (isStartDown) exitCorsorPos = 1;
+				if (isStartDown) exitCorsorPos = 1;///////////////////////////////////////////////////////
 				for (int i = 8; i < 9 + 1; i++) {
 					if (i == 8) {
 						Light[i, 0].color = Color.yellow;
@@ -797,7 +869,7 @@ public class OptionManager : MonoBehaviour {
 					}
 				}
 			} else {
-				if (isStartUp) exitCorsorPos = 0;
+				if (isStartUp) exitCorsorPos = 0;/////////////////////////////////////////////////////////////
 				for (int i = 8; i < 9 + 1; i++) {
 					if (i == 9) {
 						Light[i, 0].color = Color.yellow;
