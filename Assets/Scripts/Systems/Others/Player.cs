@@ -70,6 +70,7 @@ public class Player : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
+        Debug.Log(isJumping);
 		if (canMove == true) {
 			MovePlayer();
 			JumpPlayer();
@@ -257,6 +258,8 @@ public class Player : MonoBehaviour {
 	}
 
 	private void OnCollisionStay(Collision collision) {
+        Debug.Log(collision.gameObject.tag + "タグ");
+        Debug.Log(collision.gameObject.name + "名前");
         if (collision.gameObject.CompareTag("Ground")) {
             rigidbody.AddForce(new Vector3(0, 1, 0));
 

@@ -8,6 +8,7 @@ public class PlayerTouchdownSE : MonoBehaviour
     private AudioSource moveAudioSource;
     private bool canSound=false;
 
+
     private Vector3 latestPos;
     private float speed;
 
@@ -23,9 +24,9 @@ public class PlayerTouchdownSE : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        speed = ((this.transform.position - latestPos) / Time.deltaTime).magnitude;
+        speed = (this.transform.position.x - latestPos.x) / Time.deltaTime;
         latestPos = this.transform.position;
-        if (speed <= 0 || Player.instance.wasGameOver == true || OptionManager.instance.isPause == true) {
+        if (speed == 0 || Player.instance.wasGameOver == true || OptionManager.instance.isPause == true) {
             moveAudioSource.Stop();
             canSound = true;
         }
@@ -33,6 +34,8 @@ public class PlayerTouchdownSE : MonoBehaviour
             moveAudioSource.Stop();
             canSound = true;
         }
+
+
     }
     private void OnTriggerEnter(Collider other) {
         if (Player.instance.isJumping == true) {
@@ -51,7 +54,7 @@ public class PlayerTouchdownSE : MonoBehaviour
 
     private void OnTriggerStay(Collider other) {
         if (other.gameObject.CompareTag("Ground")) {
-            if (speed > 0) {
+            if (speed != 0) {
                 if (canSound == true) {
                     moveAudioSource.Play();
                     canSound = false;
