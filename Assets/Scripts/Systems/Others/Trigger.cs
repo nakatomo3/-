@@ -51,16 +51,21 @@ public class Trigger : MonoBehaviour {
 		}
 
 		if(thisType == TriggerType.RightGear || thisType == TriggerType.LeftGear) {
-			switch (connectNum) {
-				case 1:
+			switch (connectNum % 5) {
+				case 0:
 					visualObject.gameObject.GetComponent<Renderer>().material = Resources.Load("Materials/blueSemiTransparent") as Material;
 					break;
-				case 2:
+				case 1:
 					visualObject.gameObject.GetComponent<Renderer>().material = Resources.Load("Materials/redSemiTransparent") as Material;
 					break;
-				case 3:
+				case 2:
 					visualObject.gameObject.GetComponent<Renderer>().material = Resources.Load("Materials/greenSemiTransparent") as Material;
-
+					break;
+				case 3:
+					visualObject.gameObject.GetComponent<Renderer>().material = Resources.Load("Materials/yellowSemiTransparent") as Material;
+					break;
+				case 4:
+					visualObject.gameObject.GetComponent<Renderer>().material = Resources.Load("Materials/purpleSemiTransparent") as Material;
 					break;
 			}
             handle = transform.GetChild(1).gameObject;
