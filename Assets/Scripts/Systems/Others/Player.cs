@@ -70,7 +70,6 @@ public class Player : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update() {
-        Debug.Log(isJumping);
 		if (canMove == true) {
 			MovePlayer();
 			JumpPlayer();
@@ -94,31 +93,41 @@ public class Player : MonoBehaviour {
         
         //右下と左下にRayを飛ばして当たっていたらjumpをtrue
         Ray ray2 = new Ray(transform.position, new Vector3(2.5f, -1, 0));
-        float distance2 = 1.62f;
+        float distance2 = 1.6f;
         RaycastHit hit2;
         if (Physics.Raycast(ray2, out hit2, distance2)) {
-            if (hit2.collider.CompareTag("Ground")) {
-                if (hit2.collider.gameObject.transform.rotation.z >= 25&& hit2.collider.gameObject.name=="Bridge(Clone)" && 
-                    hit2.collider.gameObject.transform.rotation.z <= -25 && hit2.collider.gameObject.name == "Bridge(Clone)"||
-                    hit2.collider.gameObject.transform.rotation.z >= 165 && hit2.collider.gameObject.name == "Bridge(Clone)"&&
-                    hit2.collider.gameObject.transform.rotation.z <= -165 && hit2.collider.gameObject.name == "Bridge(Clone)") {
-                    isJumping = false;
-                }
+
+            if (hit2.collider.transform.parent.gameObject.transform.rotation.z >= -1.0f && hit2.collider.transform.parent.gameObject.name == "Bridge(Clone)" &&
+                hit2.collider.transform.parent.gameObject.transform.rotation.z <= -0.2f && hit2.collider.transform.parent.gameObject.name == "Bridge(Clone)"||
+                hit2.collider.transform.parent.gameObject.transform.rotation.z >= 0.2f && hit2.collider.transform.parent.gameObject.name == "Bridge(Clone)" &&
+                hit2.collider.transform.parent.gameObject.transform.rotation.z <= 1f && hit2.collider.transform.parent.gameObject.name == "Bridge(Clone)") {
+                
+                isJumping = false;
+
+            } else if (hit2.collider.CompareTag("Ground") && hit2.collider.gameObject.name != "Bridge") {
+                isJumping = false;
+
             }
-          
         }
         Ray ray3 = new Ray(transform.position, new Vector3(-2.5f, -1, 0));
-        float distance3 = 1.62f;
+        float distance3 = 1.6f;
         RaycastHit hit3;
         if (Physics.Raycast(ray3, out hit3, distance3)) {
-            if (hit3.collider.CompareTag("Ground")) {
-                if (hit3.collider.gameObject.transform.rotation.z >= 25 && hit3.collider.gameObject.name == "Bridge(Clone)" &&
-                   hit3.collider.gameObject.transform.rotation.z <= -25 && hit3.collider.gameObject.name == "Bridge(Clone)" ||
-                    hit3.collider.gameObject.transform.rotation.z >= 165 && hit3.collider.gameObject.name == "Bridge(Clone)" &&
-                    hit3.collider.gameObject.transform.rotation.z <= -165 && hit3.collider.gameObject.name == "Bridge(Clone)") {
-                    isJumping = false;
-                }            }
-            
+
+            if (hit3.collider.transform.parent.gameObject.transform.rotation.z >= -1.0f && hit3.collider.transform.parent.gameObject.name == "Bridge(Clone)" &&
+                hit3.collider.transform.parent.gameObject.transform.rotation.z <= -0.2f && hit3.collider.transform.parent.gameObject.name == "Bridge(Clone)" ||
+                hit3.collider.transform.parent.gameObject.transform.rotation.z >= 0.2f && hit3.collider.transform.parent.gameObject.name == "Bridge(Clone)" &&
+                hit3.collider.transform.parent.gameObject.transform.rotation.z <= 1.0f && hit3.collider.transform.parent.gameObject.name == "Bridge(Clone)") {
+                isJumping = false;
+
+            } else if (hit3.collider.CompareTag("Ground") && hit3.collider.gameObject.name != "Bridge") {
+                isJumping = false;
+            }
+
+           if( hit3.collider.transform.parent.gameObject.name == "Bridge(Clone)") {
+                Debug.Log(hit3.collider.transform.parent.gameObject.transform.rotation.z);
+            }
+
         }
       //  Debug.DrawLine(ray.origin, ray.direction * distance, Color.red);
         //Debug.DrawLine(ray2.origin, ray2.direction * distance2, Color.red);
@@ -230,6 +239,8 @@ public class Player : MonoBehaviour {
 	}
 
 	private void OnCollisionEnter(Collision collision) {
+        Debug.Log(collision.gameObject.name);
+        Debug.Log(collision.gameObject.transform.position.x);
 		if (collision.gameObject.CompareTag("Ground")) {
 			rigidbody.AddForce(new Vector3(0, 1, 0));
            
@@ -267,8 +278,6 @@ public class Player : MonoBehaviour {
 	}
 
 	private void OnCollisionStay(Collision collision) {
-        Debug.Log(collision.gameObject.tag + "タグ");
-        Debug.Log(collision.gameObject.name + "名前");
         if (collision.gameObject.CompareTag("Ground")) {
             rigidbody.AddForce(new Vector3(0, 1, 0));
 
