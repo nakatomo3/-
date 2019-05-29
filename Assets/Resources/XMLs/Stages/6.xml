@@ -393,19 +393,19 @@
       <Parts>
             <ConnectNumber>99</ConnectNumber>
             <Name>ObjFallTrap</Name>
-            <X>170</X>
+            <X>165</X>
             <Y>61</Y>
         </Parts>
       <Parts>
             <ConnectNumber>99</ConnectNumber>
             <Name>ObjFallTrap</Name>
-            <X>174</X>
+            <X>169</X>
             <Y>63</Y>
         </Parts>
       <Parts>
             <ConnectNumber>99</ConnectNumber>
             <Name>ObjFallTrap</Name>
-            <X>178</X>
+            <X>173</X>
             <Y>66</Y>
         </Parts>
       
@@ -702,7 +702,7 @@
       <Parts>
             <ConnectNumber>99</ConnectNumber>
             <Name>ObjFallTrap</Name>
-            <X>188.6</X>
+            <X>189</X>
             <Y>35.1</Y>
         </Parts>
       <Parts>
@@ -846,7 +846,7 @@
     <Ground>
       <PosX>32</PosX>
       <PosY>45</PosY>
-      <Long>62</Long>
+      <Long>64.5</Long>
       <Rotate>0</Rotate>
       <!-- 0～360. 無ければ自動で0-->
     </Ground>
@@ -948,7 +948,7 @@
   <Walls>
     <Wall>
       <PosX>64</PosX>
-      <PosY>35.5</PosY>
+      <PosY>35</PosY>
       <Long>20</Long>
       <Rotate>0</Rotate>
       <!-- 自動で90度。それに対してどれだけ回転するか。無ければ自動で+0-->
