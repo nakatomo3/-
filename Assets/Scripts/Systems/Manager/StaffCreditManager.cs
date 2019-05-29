@@ -11,6 +11,8 @@ public class StaffCreditManager : MonoBehaviour {
 	private float FadeTimer = 0;
 	private const float FADE_TIMER_MAX = 3;
 
+	private float timer = 0;
+
 	public Image fade;
 	public GameObject credit;
 
@@ -30,7 +32,13 @@ public class StaffCreditManager : MonoBehaviour {
 			fade.color = new Color(0,0,0,FadeTimer/FADE_TIMER_MAX);
 		}
 
-        credit.transform.position += Vector3.up * 50 * Time.deltaTime;
+		timer += Time.deltaTime;
+
+		Debug.Log(timer);
+
+		if (credit.transform.localPosition.y < 2482) {
+			credit.transform.position += Vector3.up * 50 * Time.deltaTime;
+		}
 
 		if(FadeTimer >= FADE_TIMER_MAX) {
 			SceneManager.LoadScene("StageSelect");
