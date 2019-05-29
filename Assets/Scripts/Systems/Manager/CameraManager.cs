@@ -94,10 +94,6 @@ public class CameraManager : MonoBehaviour {
             thisTransform.position += Vector3.right * 10 * Time.deltaTime;
         }
 
-
-        if(Input.GetKeyDown(KeyCode.LeftShift)){
-            isFilmingMode = !isFilmingMode;
-        }
     }
 
     public void MoveRight() {
