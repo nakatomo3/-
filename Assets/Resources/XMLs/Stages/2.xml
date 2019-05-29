@@ -208,7 +208,7 @@
         <ConnectNumber>1</ConnectNumber>
         <Name>Pitfall</Name>
         <X>142</X>
-        <Y>31.5</Y>
+        <Y>30.5</Y>
       </Parts>
       
           <Trigger>
@@ -352,7 +352,7 @@
     </Wall>   
     <Wall>
       <PosX>132</PosX>
-      <PosY>14</PosY>
+      <PosY>13</PosY>
       <Long>35</Long>
       <Rotate>0</Rotate>
       <!-- 自動で90度。それに対してどれだけ回転するか。無ければ自動で+0-->

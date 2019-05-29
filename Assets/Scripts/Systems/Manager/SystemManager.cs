@@ -480,18 +480,22 @@ public class SystemManager : MonoBehaviour {
         //左側の壁
         var wallObject = Instantiate(wall, new Vector3(0, height / 2, 0), Quaternion.identity, transform);
         wallObject.transform.GetComponent<BoxCollider>().size = new Vector3(1, height + 1, 5);
-        wallObject.transform.GetChild(0).GetChild(0).transform.position = new Vector3(-30, height / 2, -5);
-        wallObject.transform.GetChild(0).GetChild(0).transform.GetComponent<RectTransform>().sizeDelta = new Vector2(6000, (height + 200) * 100);
-        wallObject.transform.GetChild(0).GetChild(1).transform.position = new Vector3(0, height / 2 - 50, -2.5f);
-        wallObject.transform.GetChild(0).GetChild(1).transform.GetComponent<RectTransform>().sizeDelta = new Vector2(100, (height + 200) * 100);
+        wallObject.transform.localScale = new Vector3(60, height + 100, 10);
+        wallObject.transform.position +=new Vector3(-30, 0, 0);
+        //wallObject.transform.GetChild(0).GetChild(0).transform.position = new Vector3(-30, height / 2, -5);
+        //wallObject.transform.GetChild(0).GetChild(0).transform.GetComponent<RectTransform>().sizeDelta = new Vector2(6000, (height + 200) * 100);
+        //wallObject.transform.GetChild(0).GetChild(1).transform.position = new Vector3(0, height / 2 - 50, -2.5f);
+        //wallObject.transform.GetChild(0).GetChild(1).transform.GetComponent<RectTransform>().sizeDelta = new Vector2(100, (height + 200) * 100);
 
         //右側の壁
         wallObject = Instantiate(wall, new Vector3(width, height / 2, 0), Quaternion.identity, transform);
         wallObject.transform.GetComponent<BoxCollider>().size = new Vector3(1, height + 1, 5);
-        wallObject.transform.GetChild(0).GetChild(0).transform.position = new Vector3(width + 30, height / 2, -5);
-        wallObject.transform.GetChild(0).GetChild(0).transform.GetComponent<RectTransform>().sizeDelta = new Vector2(6000, (height + 200) * 100);
-        wallObject.transform.GetChild(0).GetChild(1).transform.position = new Vector3(width, height / 2, -2.5f);
-        wallObject.transform.GetChild(0).GetChild(1).transform.GetComponent<RectTransform>().sizeDelta = new Vector2(100, (height + 200) * 100);
+        wallObject.transform.localScale = new Vector3(60, height + 100, 10);
+        wallObject.transform.position += new Vector3(30, 0, 0);
+        //wallObject.transform.GetChild(0).GetChild(0).transform.position = new Vector3(width + 30, height / 2, -5);
+        //wallObject.transform.GetChild(0).GetChild(0).transform.GetComponent<RectTransform>().sizeDelta = new Vector2(6000, (height + 200) * 100);
+        //wallObject.transform.GetChild(0).GetChild(1).transform.position = new Vector3(width, height / 2, -2.5f);
+        //wallObject.transform.GetChild(0).GetChild(1).transform.GetComponent<RectTransform>().sizeDelta = new Vector2(100, (height + 200) * 100);
 
         //上側の壁
         wallObject = Instantiate(wall, new Vector3(width / 2, height, 0), Quaternion.identity, transform);
